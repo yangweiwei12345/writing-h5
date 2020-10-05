@@ -1,0 +1,86 @@
+<view class="container">
+  <view class="header">
+    <view style="height: 44rpx;"></view>
+    <view class="content">
+      个人中心
+    </view>
+  </view>
+
+  <view class="content-header">
+    <view class="content-header-top">
+      <image src="../../resource/my/header.png" class="content-header-top-img" />
+      <view class="content-header-top-box">
+        <view class="content-header-top-info">
+          <view class="header-box-left">
+            <view class="header-box-left-name">{{userInfo.nick_name}}</view>
+            <image src="../../resource/my/woman.png" />
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-age">{{userInfo.age}}岁</view>
+            <view class="header-box-right-level">二年级</view>
+          </view>
+        </view>
+        <image src="../../resource/my/flag.png" class="header-box-right" />
+      </view>
+      <image src="../../resource/my/share.png" class="content-header-top-share" />
+    </view>
+    <view class="content-header-bottom">
+      <view class="content-header-bottom-item">
+        <image class="image1" src="../../resource/my/my-work.png" />
+        <view class="content-header-bottom-item-title">我的作品</view>
+        <view class="content-header-bottom-item-num">({{userInfo.work_count}})</view>
+      </view>
+      <view class="content-header-bottom-item">
+        <image class="image2" src="../../resource/my/my-day.png" />
+        <view class="content-header-bottom-item-title">练字天数</view>
+        <view class="content-header-bottom-item-num">({{userInfo.work_day}})</view>
+      </view>
+      <view class="content-header-bottom-item">
+        <image class="image3" src="../../resource/my/my-rank.png" />
+        <view class="content-header-bottom-item-title">我的登榜</view>
+        <view class="content-header-bottom-item-num">({{userInfo.work_ranking}})</view>
+      </view>
+      <view class="content-header-bottom-item">
+        <image class="image4" src="../../resource/my/my-like.png" />
+        <view class="content-header-bottom-item-title">我的点赞</view>
+        <view class="content-header-bottom-item-num">({{userInfo.like_count}})</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="my-list">
+    <van-cell title="我的订单" >
+      <!-- 图标 -->
+      <image slot="icon" class="my-list-icon" src="../../resource/my/my-orders.png" />
+      <!-- 右侧箭头 -->
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
+    <van-cell title="任务中心" >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
+    <van-cell title="金币商城" >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/gold-shop.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
+    <van-cell title="私人教师" >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/private-teacher.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
+    <van-cell title="分销商" >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/fx.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
+    <van-cell title="看课指南" >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/look-course.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
+    <van-cell title="意见反馈" >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/feedback.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
+  </view>
+
+  <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
+
+</view>
