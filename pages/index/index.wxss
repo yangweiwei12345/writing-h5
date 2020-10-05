@@ -1,0 +1,305 @@
+page {
+  height: 100%;
+}
+.container {
+  min-height: 100%;
+  background-color: #f6f6f6;
+}
+
+/** 头部 */
+.container .header {
+  background-color: rgb(255, 144, 89);
+}
+
+.container .content {
+  height: 90rpx;
+}
+
+/** tabs 自定义 */
+.tabs-root-class {
+  background-color: transparent;
+  margin-right: 200rpx;
+  margin-top: 12rpx;
+}
+
+.van-tabs__scroll {
+  background-color: transparent !important;
+}
+
+.nav-class {
+  background-color: transparent;
+  border-radius: 30rpx !important;
+  border: 1px solid #fff !important;
+  overflow: hidden;
+}
+
+.tab-class {
+  color: #fff !important;
+  background-color: transparent;
+  border-right: 0 !important;
+}
+.tab-active-class {
+  color: rgb(255, 27, 66) !important;
+  background-color: #fff !important;
+  border-radius: 30rpx !important;
+}
+
+/** 轮播图 */
+.swiper-container {
+  margin: 0 20rpx;
+}
+
+.swiper-item {
+  width: 100%;
+  height: 250rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 250rpx;
+}
+
+/** 新闻热点 */
+.new {
+  height: 100rpx;
+  margin: 26rpx 28rpx 18rpx 28rpx;
+  padding: 0 28rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 4px 0px rgba(76, 76, 76, 0.2);
+  border-radius: 6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.new .new-img {
+  width: 52rpx;
+  height: 52rpx;
+  background-color: #e5e5e5;
+}
+.new .new-text {}
+.new .new-text-item1 {
+  color: #FD5252;
+  font-size: 13px;
+  font-family: SourceHanSansCN-Regular;
+}
+.new .new-text-item2 {
+  color: #333333;
+  font-size: 13px;
+  font-family: SourceHanSansCN-Regular;
+}
+
+
+.course-list {
+  margin: 0 28rpx 24rpx 28rpx;
+  padding: 0 22rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 4px 0px rgba(76, 76, 76, 0.2);
+  border-radius: 14rpx;
+}
+.course-list .course-item {
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.course-list .course-item image {
+  width: 136rpx;
+  height: 136rpx;
+  background-color: #e5e5e5;
+}
+.course-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 12rpx;
+}
+.course-content .course-title {
+  font-size: 15px;
+  font-family: SourceHanSansCN;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 14rpx;
+}
+.course-content .course-sub-title {
+  font-size: 12px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #333333;
+  margin-bottom: 14rpx;
+}
+.course-content .course-desc {
+  font-size: 12px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #999999;
+}
+
+.work-container {
+  background-color: #fff;
+  box-shadow: 0px 0px 4px 0px rgba(78, 78, 78, 0.2);
+}
+
+.work-container .work-header {
+  display: flex;
+  align-items: center;
+  padding-top: 32rpx;
+  margin-left: 56rpx;
+  margin-bottom: 60rpx;
+}
+
+.work-container .work-header image{
+  width: 32rpx;
+  height: 28rpx;
+}
+
+.work-container .work-header .work-header-title {
+  font-size: 17px;
+  font-family: SourceHanSansCN;
+  font-weight: 500;
+  color: #333333;
+  margin: 0 30rpx;
+}
+
+.work-container .work-header .work-header-sub-title {
+  font-size: 13px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #666666;
+}
+
+.work-tab-class {
+}
+.work-tab-active-class {
+  font-size: 14px;
+  color: #EE1843;
+}
+
+/** 作品广场 */
+.notice-container {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 28rpx;
+}
+.notice-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.notice-left image {
+  width: 26rpx;
+  height: 22rpx;
+  margin-right: 16rpx;
+}
+.notice-left .notice-left-name {
+  font-size: 13px;
+  color: #999;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.notice-left .notice-left-text {
+  font-size: 13px;
+  color: #999;
+  display: flex;
+  align-items: center;
+}
+
+.notice-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #999;
+  justify-content: flex-end;
+}
+.notice-right .notice-right-text {
+  color: #D81E06;
+}
+
+/** 作业列表 */
+.work-list {
+  margin: 0 28rpx;
+  padding-bottom: 180rpx;
+}
+.work-list-item {
+  background: #FFFFFF;
+  box-shadow: 0px 1px 7px 0px rgba(67, 65, 66, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+.work-list-item .work-item-img {
+  width: 100%;
+  height: 338rpx;
+  background-color: #e6e6ee;
+}
+.work-list-item .list-info {
+  padding: 0 16rpx 16rpx 16rpx;
+}
+.work-list-item .list-info .list-info-title {
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #333333;
+  line-height: 28rpx;
+}
+.work-list-item .list-info .list-info-box {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.work-list-item .list-info .list-info-box .list-info-text {
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #333333;
+  margin: 0 12rpx;
+}
+.work-list-item .list-info .list-info-box .list-info-time {
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #999999;
+}
+.work-list-item .list-info .list-info-box image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 40rpx;
+  background-color: #e5e5e5;
+}
+.work-list-item .list-info-like {
+  display: flex;
+  align-items: center;
+  height: 36rpx;
+  border-radius: 36rpx;
+  padding: 6rpx 12rpx;
+  position: absolute;
+  top: 18rpx;
+  right: 20rpx;
+  background-color: #f9f9f9;
+}
+.work-list-item .list-info-like image {
+  width: 26rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+}
+.work-list-item .list-info-like .list-info-like-num {
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #666666;
+}
+.work-list-item .list-info-pj {
+  width: 98rpx;
+  height: 74rpx;
+  position: absolute;
+  right: 20rpx;
+  bottom: 18rpx;
+}
+
+

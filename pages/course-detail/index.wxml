@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="lock-container">
+    <image class="lock-back" src="../../resource/course/back.png" />
+    <view class="lock-progress" style="width: 10%">
+      <image src="../../resource/course/ji.png" />
+      <view class="lock-progress-text">60%</view>
+    </view>
+  </view>
+
+  <view class="list">
+    <view 
+      class="list-item" 
+      wx:for="{{courseWeekList}}" 
+      wx:key="index" 
+      data-weekId="{{item.week_id}}" 
+      data-weekNum="{{item.week_num}}"
+      bindtap="toChapter"
+    >
+      <image class="list-item-img" src="{{item.main_img}}" />
+      <view class="list-mask" wx:if="{{item.is_clock === 1}}">
+        <view class="list-mask-text">待解锁</view>
+        <image src="../../resource/course/suck.png" />
+      </view>
+    </view>
+  </view>
+</view>

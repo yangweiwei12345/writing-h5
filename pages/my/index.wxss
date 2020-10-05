@@ -1,0 +1,159 @@
+page {
+  height: 100%;
+}
+.container {
+  min-height: 100%;
+  background-color: #f6f6f6;
+}
+
+/** 头部 */
+.container .header {
+  background-color: rgb(255, 144, 89);
+}
+
+.container .content {
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 19px;
+  font-family: SourceHanSansCN;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+/** 顶部个人信息栏 */
+.content-header {
+  height: 386rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 4px 0px rgba(214, 5, 28, 0.2);
+  border-radius: 7px;
+  padding: 26rpx;
+  margin: 28rpx;
+}
+.content-header-top {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.content-header-top .content-header-top-img {
+  width: 150rpx;
+  height: 164rpx;
+}
+.content-header-top .content-header-top-box {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin-left: 10rpx;
+}
+.content-header-top-info {
+}
+.content-header-top .content-header-top-box .header-box-left {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.header-box-left .header-box-left-name {
+  font-size: 12px;
+  font-family: SourceHanSansCN;
+  font-weight: 500;
+  color: #333333;
+}
+.header-box-left image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 26rpx;
+}
+
+.content-header-top .content-header-top-box .content-header-top-info .header-box-right {
+  display: flex;
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 500;
+  color: #999999;
+}
+.header-box-right .header-box-right-age {
+  margin-right: 20rpx;
+}
+.header-box-right .header-box-right-level {}
+
+.content-header-top .content-header-top-box > .header-box-right {
+  width: 48rpx;
+  height: 62rpx;
+  margin-left: 40rpx;
+}
+
+.content-header-top .content-header-top-share {
+  width: 74rpx;
+  height: 74rpx;
+}
+
+.content-header-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 240rpx;
+}
+.content-header-bottom-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+.content-header-bottom-item image {
+}
+
+.content-header-bottom-item .image1 {
+  width: 54rpx;
+  height: 54rpx;
+}
+
+.content-header-bottom-item .image2 {
+  width: 50rpx;
+  height: 54rpx;
+}
+
+.content-header-bottom-item .image3 {
+  width: 54rpx;
+  height: 46rpx;
+}
+
+.content-header-bottom-item .image4 {
+  width: 50rpx;
+  height: 46rpx;
+}
+.content-header-bottom-item .content-header-bottom-item-title {
+  font-size: 12px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 18rpx;
+  margin-bottom: 12rpx;
+}
+.content-header-bottom-item .content-header-bottom-item-num {
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #333333;
+}
+
+
+/** 我的列表功能 */
+.my-list {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 4px 0px rgba(78, 78, 78, 0.2);
+  padding-bottom: 180rpx;
+}
+.my-list .my-list-icon {
+  width: 28rpx;
+  height: 34rpx;
+  margin-top: 6rpx;
+  margin-right: 10rpx;
+}
+.my-list .my-list-right-icon {
+  width: 16rpx;
+  height: 28rpx;
+  margin-top: 8rpx;
+}
