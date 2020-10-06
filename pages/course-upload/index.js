@@ -11,7 +11,7 @@ Page({
   onLoad: function (options) {
     console.log(options);
     this.setData({
-      params: options
+      params: JSON.parse(options.data)
     });
     try {
       const res = wx.getSystemInfoSync();
@@ -72,21 +72,30 @@ Page({
       name: 'file',
       header:{
         "token": wx.getStorageSync('token'),
-        "Content-Type": "multipart/form-data;boundary=ABCD"
+        "Content-Type": "multipart/form-data"
       },
-      success (res){
-        const data = res.data
-        console.log(res);
+      success: (res) => {
+        const data = res.data;
+        this.toSubmit(data && JSON.parse(data || '{}'));
       }
-    })
-    API.upload({
-      file
-    }, {
-      "Content-Type": "multipart/form-data; boundary=ABCD"
-    })
+    });
   },
 
-  handleCameraError:function() {  
+  // 去提交作业页面
+  toSubmit: function(imgsData) {
+    let { params } = this.data; 
+
+    let data = {
+      ...params,
+      img_url: imgsData && imgsData.data && imgsData.data.url
+    };
+
+    wx.navigateTo({
+      url: `/pages/course-submit/index?data=${JSON.stringify(data)}`,
+    });
+  },
+
+  handleCameraError:function() {
     wx.showToast({  
       title:'用户拒绝使用摄像头',  
       icon: 'none'  

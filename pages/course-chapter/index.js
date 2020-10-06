@@ -85,9 +85,17 @@ Page({
   // 上传作业
   onToPhoto: function() {
     const { params, selectChapter } = this.data;
+    // ?course_id=${params.courseId}&week_id=${params.weekId}&week_num=${params.weekNum}&section_num=${selectChapter.section_num}&section_id=${selectChapter.section_id}
+    let data = {
+      course_id: params.courseId,
+      week_id: params.weekId,
+      week_num: params.weekNum,
+      section_num: selectChapter.section_num,
+      section_id: selectChapter.section_id
+    };
 
     wx.navigateTo({
-      url: `/pages/course-upload/index?course_id=${params.courseId}&week_id=${params.weekId}&week_num=${params.weekNum}&section_num=${selectChapter.section_num}&section_id=${selectChapter.section_id}`,
+      url: `/pages/course-upload/index?data=${JSON.stringify(data)}`,
     });
   }
 
