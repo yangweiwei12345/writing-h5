@@ -55,7 +55,9 @@ Page({
     };
     
     API.addCourseWork(data).then(res => {//成功
-      
+      wx.navigateTo({
+        url: `/pages/course-success/index`,
+      });
     })
   }
 })

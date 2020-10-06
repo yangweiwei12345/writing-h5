@@ -11,7 +11,16 @@ Page({
     // 新闻
     newsData: {},
     // 课程
-    courseList: []
+    courseList: [],
+    // 作品
+    workList: [],
+    paginaData: {
+      page: 1,
+      pageSize: 10
+    },
+    count: 0,
+
+    active: 'newUpload'
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -32,7 +41,8 @@ Page({
     // banner
     this.getBanner();
     this.getNews();
-    this.getCourse()
+    this.getCourse();
+    this.getWork();
   },
 
   getBanner: function() {
@@ -64,5 +74,25 @@ Page({
         courseList: res && res.rows || []
       })
     })
+  },
+
+  getWork: function() {
+    API.courseWorkList({
+      ...this.data.paginaData,
+      status: this.data.active === 'newUpload' ? 0 : '1'
+    }).then(res => {//成功
+      this.setData({
+        workList: res && res.rows || [],
+        count: res && res.count || 0
+      })
+    })
+  },
+
+  onChange: function(e) {
+    this.setData({
+      active: e.detail.name
+    }, () => {
+      this.getWork();
+    });
   }
 })

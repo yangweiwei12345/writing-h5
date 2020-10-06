@@ -1,0 +1,16 @@
+<view class="container">
+
+  <view class="user-list">
+    <van-cell is-link>
+      <view slot="title">
+        <image class="user-img" src="" />
+      </view>
+    </van-cell>
+    <van-cell title="姓名" is-link value="杨伟韦"/>
+    <van-cell title="性别" is-link value="女"/>
+    <van-cell title="年龄" is-link value="8岁"/>
+    <van-cell title="年级" is-link value="二年级"/>
+    <van-cell title="联系方式" is-link value="17816866512"/>
+    <van-cell title="家庭住址" is-link value="湖北"/>
+  </view>
+</view>
