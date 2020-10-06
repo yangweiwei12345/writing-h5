@@ -67,7 +67,7 @@ page {
 .course-content .course-chapter-img {
   width: 100rpx;
   height: 100rpx;
-  background-color: #e5e5e5;
+  /* background-color: #e5e5e5; */
 }
 .course-content .course-chapter-video {
   position: absolute;
@@ -91,7 +91,7 @@ page {
 .course-chapter-lock .course-chapter-lock-img {
   width: 30rpx;
   height: 40rpx;
-  background-color: #e5e5e5;
+  /* background-color: #e5e5e5; */
 }
 
 .footer {

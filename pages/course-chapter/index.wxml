@@ -28,7 +28,7 @@
                 <view class="course-item" wx:else>
                   <image src="{{item.font_img}}" class="course-chapter-img" data-chapterdata="{{item}}" bindtap="onSelectChapter" />
                   <view class="course-chapter-lock">
-                    <image src="" class="course-chapter-lock-img" />
+                    <image src="../../resource/course/suck.png" class="course-chapter-lock-img" />
                   </view>
                 </view>
               </block>
@@ -46,7 +46,7 @@
         <view class="course-item" data-videodata="{{item}}" bindtap="onSelectVideo" wx:else>
           <image src="{{item.video_small_img}}" class="course-chapter-img" />
           <view class="course-chapter-lock">
-            <image src="" class="course-chapter-lock-img" />
+            <image src="../../resource/course/suck.png" class="course-chapter-lock-img" />
           </view>
         </view>
       </block>

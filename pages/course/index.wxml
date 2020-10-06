@@ -19,7 +19,7 @@
 
   <view wx:if="{{active === 'userCourse'}}" class="my-course-list">
     <view class="course-list">
-      <view class="course-list-item" wx:for="{{userCourseList}}" wx:key="index" bindtap="toDetail">
+      <view class="course-list-item" wx:for="{{userCourseList}}" wx:key="index" data-id="{{item.course_id}}" bindtap="toDetail">
         <image src="{{item.buy_img}}" />
         <view class="course-list-box">
           <view class="course-list-title">{{item.title}}</view>

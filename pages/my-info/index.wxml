@@ -1,16 +1,129 @@
 <view class="container">
 
   <view class="user-list">
-    <van-cell is-link>
+    <van-cell is-link bindtap="uploadHead">
       <view slot="title">
-        <image class="user-img" src="" />
+        <image class="user-img" src="{{userInfo.head_img}}" />
       </view>
     </van-cell>
-    <van-cell title="姓名" is-link value="杨伟韦"/>
-    <van-cell title="性别" is-link value="女"/>
-    <van-cell title="年龄" is-link value="8岁"/>
-    <van-cell title="年级" is-link value="二年级"/>
-    <van-cell title="联系方式" is-link value="17816866512"/>
-    <van-cell title="家庭住址" is-link value="湖北"/>
+    <van-cell title="姓名" bindtap="onNameVisible" is-link value="{{userInfo.nick_name}}"/>
+    <van-cell title="性别" bindtap="onSexVisible" is-link value="{{userInfo.sex == 0 ? '保密' : (userInfo.sex == 1 ? '男' : '女')}}"/>
+    <van-cell title="年龄" bindtap="onAgeVisible" is-link value="{{userInfo.age}}岁"/>
+    <van-cell title="年级" bindtap="onClassVisible" is-link value="{{userInfo.user_class}}"/>
+    <van-cell title="联系方式" bindtap="onPhoneVisible" is-link value="{{userInfo.phone}}"/>
+    <van-cell title="家庭住址" bindtap="onAddrVisible" is-link value="{{userInfo.address}}"/>
   </view>
+
+  <!-- 修改姓名 -->
+  <van-popup
+    show="{{ showName }}"
+    position="bottom"
+    custom-style="height: 350rpx"
+    bind:close="onNameVisible"
+  >
+    <view style="padding: 0 40rpx;">
+      <van-field
+        model:value="{{ nick_name }}"
+        placeholder="请输入姓名"
+        border="{{ false }}"
+        custom-style="border-bottom: 1px solid #f5f5f5;margin: 45rpx 0 60rpx 0;"
+      />
+      <view style="display: flex;justify-content: space-between;">
+        <van-button bindtap="onNameVisible" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" plain type="danger" size="small" color="#FD5252">取消</van-button>
+        <van-button bindtap="editUser" data-name="nick_name" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" type="danger" size="small" color="#FD5252">确定</van-button>
+      </view>
+    </view>
+  </van-popup>
+
+  <!-- 修改手机号 -->
+  <van-popup
+    show="{{ showPhone }}"
+    position="bottom"
+    custom-style="height: 350rpx"
+    bind:close="onPhoneVisible"
+  >
+    <view style="padding: 0 40rpx;">
+      <van-field
+        model:value="{{ phone }}"
+        placeholder="请输入手机号"
+        type="number"
+        border="{{ false }}"
+        custom-style="border-bottom: 1px solid #f5f5f5;margin: 45rpx 0 60rpx 0;"
+      />
+      <view style="display: flex;justify-content: space-between;">
+        <van-button bindtap="onPhoneVisible" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" plain type="danger" size="small" color="#FD5252">取消</van-button>
+        <van-button bindtap="editUser" data-name="phone" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" type="danger" size="small" color="#FD5252">确定</van-button>
+      </view>
+    </view>
+  </van-popup>
+
+
+  <!-- 修改修改地址 -->
+  <van-popup
+    show="{{ showAddr }}"
+    position="bottom"
+    custom-style="height: 350rpx"
+    bind:close="onAddrVisible"
+  >
+    <view style="padding: 0 40rpx;">
+      <van-field
+        model:value="{{ address }}"
+        placeholder="请输入地址"
+        border="{{ false }}"
+        custom-style="border-bottom: 1px solid #f5f5f5;margin: 45rpx 0 60rpx 0;"
+      />
+      <view style="display: flex;justify-content: space-between;">
+        <van-button bindtap="onAddrVisible" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" plain type="danger" size="small" color="#FD5252">取消</van-button>
+        <van-button bindtap="editUser" data-name="address" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" type="danger" size="small" color="#FD5252">确定</van-button>
+      </view>
+    </view>
+  </van-popup>
+
+  <!-- 修改性别 -->
+  <van-popup
+    show="{{ showSex }}"
+    position="bottom"
+    custom-style="height: 660rpx"
+    bind:close="onSexVisible"
+  >
+    <view style="padding: 0 40rpx;">
+      <van-picker columns="{{ sexs }}" bind:change="onSexChange"/>
+      <view style="display: flex;justify-content: space-between;">
+        <van-button bindtap="onSexVisible" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" plain type="danger" size="small" color="#FD5252">取消</van-button>
+        <van-button bindtap="editUser" data-name="sex" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" type="danger" size="small" color="#FD5252">确定</van-button>
+      </view>
+    </view>
+  </van-popup>
+
+  <!-- 修改年龄 -->
+  <van-popup
+    show="{{ showAge }}"
+    position="bottom"
+    custom-style="height: 660rpx"
+    bind:close="onAgeVisible"
+  >
+    <view style="padding: 0 40rpx;">
+      <van-picker columns="{{ ages }}" bind:change="onAgeChange"/>
+      <view style="display: flex;justify-content: space-between;">
+        <van-button bindtap="onAgeVisible" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" plain type="danger" size="small" color="#FD5252">取消</van-button>
+        <van-button bindtap="editUser" data-name="age" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" type="danger" size="small" color="#FD5252">确定</van-button>
+      </view>
+    </view>
+  </van-popup>
+
+  <!-- 修改年级 -->
+  <van-popup
+    show="{{ showClass }}"
+    position="bottom"
+    custom-style="height: 660rpx"
+    bind:close="onClassVisible"
+  >
+    <view style="padding: 0 40rpx;">
+      <van-picker columns="{{ cls }}" bind:change="onClassChange"/>
+      <view style="display: flex;justify-content: space-between;">
+        <van-button bindtap="onClassVisible" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" plain type="danger" size="small" color="#FD5252">取消</van-button>
+        <van-button bindtap="editUser" data-name="class" custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" type="danger" size="small" color="#FD5252">确定</van-button>
+      </view>
+    </view>
+  </van-popup>
 </view>

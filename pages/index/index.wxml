@@ -16,6 +16,7 @@
         <van-tab name="praise" title="表彰墙"></van-tab>
       </van-tabs>
     </view>
+    <image src="../../resource/home/back.png" />
   </view>
 
   <!-- 轮播图 -->
@@ -38,9 +39,9 @@
   </swiper>
 
   <view class="new">
-    <image class="new-img" src="" />
+    <image class="new-img" src="../../resource/home/new.png" />
     <view class="new-text">
-      <text class="new-text-item1">童真童趣 </text>
+      <!-- <text class="new-text-item1">童真童趣 </text> -->
       <text class="new-text-item2">{{newsData.title}}</text>
     </view>
     <van-button custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252">立即查看</van-button>
@@ -106,7 +107,7 @@
               <image wx:else src="../../resource/home/heart-active.png" />
               <text class="list-info-like-num">{{item.like_num}}</text>
             </view>
-            <image src="" class="list-info-pj" />
+            <image src="../../resource/home/pj.png" class="list-info-pj" />
           </view>
         </van-col>
       </van-row>
