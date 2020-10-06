@@ -8,7 +8,16 @@ page {
 
 /** 头部 */
 .container .header {
-  background-color: rgb(255, 144, 89);
+  position: relative;
+  /* background-color: rgb(255, 144, 89); */
+}
+
+.header image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 418rpx;
 }
 
 .container .content {
@@ -51,7 +60,7 @@ page {
 
 .swiper-item {
   width: 100%;
-  height: 250rpx;
+  height: 300rpx;
   border-radius: 20rpx;
   overflow: hidden;
 }
@@ -235,6 +244,7 @@ page {
   border-radius: 3px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 30rpx;
 }
 .work-list-item .work-item-img {
   width: 100%;
@@ -302,7 +312,7 @@ page {
   height: 74rpx;
   position: absolute;
   right: 20rpx;
-  bottom: 18rpx;
+  top: 240rpx;
 }
 
 

@@ -28,11 +28,10 @@ Component({
       if(e.detail.errMsg == 'getUserInfo:ok') {
         this.login(e);
       } else {
-
+        // wx.showToast({
+        //   title: e.detail.errMsg || '获取信息失败',
+        // })
       }
-      this.setData({
-        wxlogin: true
-      });
     },
 
     // 登录
@@ -42,33 +41,39 @@ Component({
         success: res => {
           let code = res.code;
 
-          let { encryptedData, rawData, signature, iv } = data.detail;
-          console.log('data.detail', data.detail);
-          let params = {
-            code: encodeURIComponent(code),
-            encryptedData: encodeURIComponent(encryptedData),
-            rawData: encodeURIComponent(rawData),
-            signature: encodeURIComponent(signature),
-            iv: encodeURIComponent(iv)
-          };
+          wx.getUserInfo({
+            success: function (data) {
+              let { encryptedData, rawData, signature, iv } = data;
+              let params = {
+                code: encodeURIComponent(code),
+                encryptedData: encodeURIComponent(encryptedData),
+                rawData: encodeURIComponent(rawData),
+                signature: encodeURIComponent(signature),
+                iv: encodeURIComponent(iv)
+              };
 
-          // var userId = wx.getStorageSync('userId');
-          // if(userId) {
-          //   params.superior_id = userId;
-          // }
+              // var userId = wx.getStorageSync('userId');
+              // if(userId) {
+              //   params.superior_id = userId;
+              // }
 
-          API.login(params)
-            .then(res => {
-              const { token } = res;
-              wx.setStorage({
-                key: "token",
-                data: token
-              });
-              that.getUserInfoDetail();
-              
-            })
-          
-          
+              API.login(params)
+                .then(res => {
+                  const { token } = res;
+                  wx.setStorage({
+                    key: "token",
+                    data: token
+                  });
+                  that.getUserInfoDetail();
+
+                  that.setData({
+                    wxlogin: true
+                  });
+                  
+                })
+            }
+          });
+
         }
       })
     }
