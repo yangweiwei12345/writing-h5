@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="success-img-box" style="width: 80%; margin-left: 10%; height: {{height}}px;">
+    <image src="" />
+  </view>
+
+  <view class="success-tip">
+    <view class="success-icon"></view>
+    老师随后为你点评，请留意微信通知
+  </view>
+  <view class="success-footer">
+    <van-button custom-class="success-footer-btn-t" type="primary" block round color="rgb(0,200,0)" bindtap="onSubmit">
+      <view style="display: flex;align-items: center;">
+        <image src="" class="success-footer-btn" />
+        分享
+      </view>
+    </van-button>
+    <van-button custom-class="success-footer-btn-t" custom-style="margin-left: 30rpx" type="primary" block round color="rgb(0,184,255)" bindtap="onSubmit">
+      <view style="display: flex;align-items: center;">
+        <image src="" class="success-footer-btn" />
+        下载
+      </view>
+    </van-button>
+  </view>
+</view>

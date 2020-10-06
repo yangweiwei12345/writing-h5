@@ -1,12 +1,14 @@
 {
   "pages":[
+    "pages/course-success/index",
     "pages/course/index",
     "pages/index/index",
     "pages/shop/index",
     "pages/my/index",
     "pages/course-detail/index",
     "pages/course-chapter/index",
-    "pages/course-upload/index"
+    "pages/course-upload/index",
+    "pages/course-submit/index"
   ],
   "tabBar": {
     "custom": true,

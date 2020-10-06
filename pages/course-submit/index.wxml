@@ -1,0 +1,56 @@
+<view class="container">
+  <view class="submit-texts" wx:if="{{showFirst}}">
+    <van-transition name="fade-up" show="{{ show0 }}">
+      <view class="submit-text-item">
+        <image src="" />
+        作品上传成功
+      </view>
+    </van-transition>
+    <van-transition name="fade-up" show="{{ show1 }}">
+      <view class="submit-text-item">
+        <image src="" />
+        通知点评老师
+      </view>
+    </van-transition>
+    <van-transition name="fade-up" show="{{ show2 }}">
+      <view class="submit-text-item">
+        <image src="" />
+        解锁新的课节
+      </view>
+    </van-transition>
+    <van-transition name="fade-up" show="{{ show3 }}">
+      <view class="submit-text-item">
+        <image src="" />
+        制作打卡美图
+      </view>
+    </van-transition>
+  </view>
+
+  <view class="submit-page" wx:else>
+    <view
+      class="submit-page-img"
+      style="width: 90%; margin-left: 10%; height: {{height}}px;"
+    >
+      <image src="{{params.img_url}}" />
+    </view>
+    <view class="submit-param-sec">
+      <view class="submit-param-label">
+        习作提交到
+      </view>
+      <view style="box-shadow: 0px 1px 4px 0px rgba(76, 76, 76, 0.2);">
+        <van-cell is-link>
+          <view slot="title">
+            <view style="display: flex">
+              <view class="submit-param-value1">考拉兄学写字</view>
+              <view class="submit-param-value2">第一节 二</view>
+            </view>
+          </view>
+        </van-cell>
+      </view>
+    </view>
+    <view class="submit-btn">
+      <van-button type="primary" block round color="#FD5252" bindtap="onSubmit">确认提交</van-button>
+    </view>
+  </view>
+
+</view>
