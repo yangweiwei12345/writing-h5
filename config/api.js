@@ -78,6 +78,21 @@ const API =  {
     url: '/api/course/courseWorkList',
     method: 'post'
   },
+  // 作业详情
+  workDetail: {
+    url: '/api/course/workDetail',
+    method: 'post'
+  },
+  // 课程分享
+  shareWork: {
+    url: '/api/course/shareWork',
+    method: 'post'
+  },
+  // 点赞作业
+  likeWork: {
+    url: '/api/course/likeWork',
+    method: 'post'
+  },
 
   // 图片上传
   upload: {

@@ -65,7 +65,7 @@
       <text class="work-header-sub-title">作品展览小广场</text>
     </view>
 
-    <van-tabs active="newUpload" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
+    <van-tabs active="{{active}}" bind:change="onChange" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
       <van-tab title="最新上传" name="newUpload"></van-tab>
       <van-tab title="最新点评" name="newComment"></van-tab>
     </van-tabs>
@@ -83,45 +83,28 @@
       </view>
       <view class="notice-right">
         共有
-        <text class="notice-right-text">4342324</text>
+        <text class="notice-right-text">{{count}}</text>
         人提交了作业
       </view>
     </view>
 
     <view class="work-list">
       <van-row gutter="12">
-        <van-col span="12">
+        <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
           <view class="work-list-item">
-            <image src="" class="work-item-img" />
+            <image src="{{item.img_url}}" class="work-item-img" />
             <view class="list-info">
-              <view class="list-info-title">第53天打卡练字，坚持就是胜利，加油加油加油加油加油加油</view>
+              <view class="list-info-title">{{item.work_remark}}</view>
               <view class="list-info-box">
-                <image src="" />
-                <text class="list-info-text">媛媛1367777888</text>
+                <image src="{{item.head_img}}" />
+                <text class="list-info-text">{{item.nick_name}}</text>
                 <text class="list-info-time">1分钟前</text>
               </view>
             </view>
             <view class="list-info-like">
-              <image src="../../resource/home/heart.png" />
-              <text class="list-info-like-num">20</text>
-            </view>
-            <image src="" class="list-info-pj" />
-          </view>
-        </van-col>
-        <van-col span="12">
-          <view class="work-list-item">
-            <image src="" class="work-item-img" />
-            <view class="list-info">
-              <view class="list-info-title">第53天打卡练字，坚持就是胜利，加油加油加油加油加油加油</view>
-              <view class="list-info-box">
-                <image src="" />
-                <text class="list-info-text">媛媛1367777888</text>
-                <text class="list-info-time">1分钟前</text>
-              </view>
-            </view>
-            <view class="list-info-like">
-              <image src="../../resource/home/heart.png" />
-              <text class="list-info-like-num">20</text>
+              <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
+              <image wx:else src="../../resource/home/heart-active.png" />
+              <text class="list-info-like-num">{{item.like_num}}</text>
             </view>
             <image src="" class="list-info-pj" />
           </view>

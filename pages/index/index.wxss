@@ -78,8 +78,11 @@ page {
   width: 52rpx;
   height: 52rpx;
   background-color: #e5e5e5;
+  margin-right: 15rpx;
 }
-.new .new-text {}
+.new .new-text {
+  flex: 1;
+}
 .new .new-text-item1 {
   color: #FD5252;
   font-size: 13px;

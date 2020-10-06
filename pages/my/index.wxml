@@ -8,9 +8,9 @@
 
   <view class="content-header">
     <view class="content-header-top">
-      <image src="../../resource/my/header.png" class="content-header-top-img" />
+      <image src="../../resource/my/header.png" class="content-header-top-img" bindtap="toEditInfo" />
       <view class="content-header-top-box">
-        <view class="content-header-top-info">
+        <view class="content-header-top-info" bindtap="toEditInfo">
           <view class="header-box-left">
             <view class="header-box-left-name">{{userInfo.nick_name}}</view>
             <image src="../../resource/my/woman.png" />

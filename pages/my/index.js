@@ -47,6 +47,18 @@ Page({
       })
   },
 
+  toEditInfo: function() {
+    if(!this.data.wxlogin) {
+      this.setData({
+        wxlogin: false
+      });
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/my-info/index'
+    });
+  },
+
   /**
    * 获取当前用户个人资料
    * @date 2020-09-14
