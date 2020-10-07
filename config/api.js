@@ -93,6 +93,11 @@ const API =  {
     url: '/api/course/likeWork',
     method: 'post'
   },
+  // 别人的个人详情
+  otherInfo: {
+    utl: '/api/user/otherInfo',
+    method: 'POST'
+  },
 
   // 图片上传
   upload: {

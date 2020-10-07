@@ -103,8 +103,9 @@ page {
 
 /** 作业列表 */
 .work-list {
+  margin: 0 28rpx;
+  margin-top: 30rpx;
   padding-bottom: 180rpx;
-  margin-top: 40rpx;
 }
 .work-list-item {
   background: #FFFFFF;
@@ -112,6 +113,7 @@ page {
   border-radius: 3px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 30rpx;
 }
 .work-list-item .work-item-img {
   width: 100%;
@@ -179,7 +181,7 @@ page {
   height: 74rpx;
   position: absolute;
   right: 20rpx;
-  bottom: 18rpx;
+  top: 240rpx;
 }
 
 

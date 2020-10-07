@@ -16,12 +16,21 @@ Page({
 
     isShow: false,
     canUploadWork: false,   // 是否可以上传作业
+
+    paginaData: {
+      page: 1,
+      pageSize: 10
+    },
+    workList: [],
+    count: 0
   },
   onLoad: function (options) {
     this.setData({
       params: {
         ...options
       }
+    }, () => {
+      this.getWork();
     });
   },
   onShow: function() {
@@ -53,6 +62,9 @@ Page({
           this.setData({
             selectChapter: chapterItem
           });
+          wx.setNavigationBarTitle({
+            title: chapterItem.section_title
+          })
           console.log(chapterItem, 'chapterItem')
 
           let videoLen = (chapterItem.video_list || []).length;
@@ -63,9 +75,13 @@ Page({
               this.setData({
                 selectVideo: videoItem
               })
-              if(j === (videoLen - 1)) {
+              if(j === (videoLen - 1) && chapterItem.have_work === 0) {
                 this.setData({
                   canUploadWork: true
+                });
+              } else {
+                this.setData({
+                  canUploadWork: false
                 });
               }
               console.log(videoItem, 'videoItem')
@@ -109,9 +125,11 @@ Page({
       selectChapter: chapterdata,
       isShow: false
     });
+    wx.setNavigationBarTitle({
+      title: chapterdata.section_title
+    })
 
     let videoLen = (chapterdata.video_list || []).length;
-    console.log(videoLen, chapterdata);
     for(let j = videoLen -1; j >= 0; j--) {
       let videoItem = chapterdata.video_list[j];
 
@@ -119,9 +137,13 @@ Page({
         this.setData({
           selectVideo: videoItem
         })
-        if(j === (videoLen - 1)) {
+        if(j === (videoLen - 1) && chapterdata.have_work === 0) {
           this.setData({
             canUploadWork: true
+          });
+        } else {
+          this.setData({
+            canUploadWork: false
           });
         }
         console.log(videoItem, 'videoItem')
@@ -164,6 +186,36 @@ Page({
     wx.navigateTo({
       url: `/pages/course-upload/index?data=${JSON.stringify(data)}`,
     });
+  },
+
+  getWork: function() {
+    API.courseWorkList({
+      ...this.data.paginaData,
+      section_id: this.data.params.section_id
+    }).then(res => {//成功
+      this.setData({
+        workList: res && res.rows || [],
+        count: res && res.count || 0
+      })
+    })
+  },
+
+  onLikeClick: function(e) {
+    const { workList } = this.data;
+    const { id } = e.currentTarget.dataset;
+    API.likeWork({
+      work_id: id
+    }).then(res => {
+      workList.forEach(item => {
+        if(item.work_id == id) {
+          item.like_num = item.is_like === 0 ? item.like_num + 1 : item.like_num - 1;
+          item.is_like = item.is_like === 0 ? 1 : 0;
+        }
+      })
+      this.setData({
+        workList
+      });
+    })
   }
 
 })

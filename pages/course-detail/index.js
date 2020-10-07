@@ -1,5 +1,6 @@
 //index.js
 const API = require('../../config/api.js');
+const app = getApp();
 
 Page({
   data: {
@@ -8,6 +9,9 @@ Page({
     courseId: ''
   },
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: app.globalData.courseDetail && app.globalData.courseDetail.title || '课程章节'
+    })
     this.setData({
       courseId: options.courseId
     }, () => {
