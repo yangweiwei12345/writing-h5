@@ -23,7 +23,6 @@ page {
 
 /** 顶部个人信息栏 */
 .content-header {
-  height: 386rpx;
   background: #FFFFFF;
   box-shadow: 0px 0px 4px 0px rgba(214, 5, 28, 0.2);
   border-radius: 7px;
@@ -39,7 +38,31 @@ page {
 .content-header-top .content-header-top-img {
   width: 150rpx;
   height: 164rpx;
+  /* background-image: url('../../resource//my/header.png'); */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
+
+.content-header-top-img-b {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content-header-top-img-t {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 55rpx;
+  margin-bottom: 5rpx;
+
+}
+
 .content-header-top .content-header-top-box {
   display: flex;
   flex: 1;
@@ -84,8 +107,8 @@ page {
 }
 
 .content-header-top .content-header-top-share {
-  width: 74rpx;
-  height: 74rpx;
+  width: 120rpx;
+  height: 120rpx;
 }
 
 .content-header-bottom {
@@ -232,4 +255,78 @@ page {
   position: absolute;
   right: 20rpx;
   top: 240rpx;
+}
+
+.footer {
+  width: 100%;
+  height: 140rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0px -2px 2px 0px rgba(76, 76, 76, 0.2);
+  display: flex;
+
+}
+.footer-head {
+  margin: 0 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer-head image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50rpx;
+  background-color: #e5e5e5;
+}
+.footer-head-name {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+
+.footer-radio {
+  flex: 1;
+}
+
+
+.footer-right {
+  display: flex;
+  margin: 0 30rpx;
+}
+
+.footer-share {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer-share image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background-color: #e5e5ee;
+}
+.footer-share .footer-share-text {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+
+.footer-like {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20rpx;
+}
+.footer-like image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background-color: #e5e5ee;
+}
+.footer-like .footer-like-text {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
 }

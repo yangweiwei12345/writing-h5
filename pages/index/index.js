@@ -102,6 +102,14 @@ Page({
     });
   },
 
+  toWorkDetail: function(e) {
+    const { id } = e.currentTarget.dataset;
+
+    wx.navigateTo({
+      url: '/pages/work-detail/index?work_id=' + id
+    })
+  },
+
   onLikeClick: function(e) {
     const { workList } = this.data;
     const { id } = e.currentTarget.dataset;

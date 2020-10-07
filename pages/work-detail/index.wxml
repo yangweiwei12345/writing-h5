@@ -8,24 +8,50 @@
 
   <view class="content-header">
     <view class="content-header-top">
-      <image src="../../resource/my/header.png" class="content-header-top-img" />
+      <view class="content-header-top-img">
+        <image src="../../resource//my/header.png" class="content-header-top-img-b" />
+        <image src="{{workDetail.head_img}}" class="content-header-top-img-t" />
+      </view>
       <view class="content-header-top-box">
         <view class="content-header-top-info">
           <view class="header-box-left">
-            <view class="header-box-left-name">{{userInfo.nick_name}}</view>
+            <view class="header-box-left-name">{{workDetail.nick_name}}</view>
             <image src="../../resource/my/woman.png" />
           </view>
           <view class="header-box-right">
-            <view class="header-box-right-age">{{userInfo.age}}岁</view>
-            <view class="header-box-right-level">二年级</view>
+            <view class="header-box-right-age">{{workDetail.age}}岁</view>
+            <view class="header-box-right-level">{{workDetail.user_class}}</view>
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-level">上传于 2019-12-30 04:03:55</view>
           </view>
         </view>
-        <image src="../../resource/my/flag.png" class="header-box-right" />
       </view>
-      <image src="../../resource/my/share.png" class="content-header-top-share" />
+      <image src="{{workDetail.img_url}}" class="content-header-top-share" />
+    </view>
+    <view style="width: 90%; height: 650rpx;margin-left: 5%;margin-top: 30rpx;position: relative;">
+      <image src="{{workDetail.img_url}}" style="width: 100%; height: 100%;" />
+      <canvas style="position: absolute;top:0;left:0;width: 100%; height: 100%;" canvas-id='myCanvas' class="myCanvas"></canvas>
     </view>
     
   </view>
 
+  <view class="footer">
+    <view class="footer-head">
+      <image src="{{workDetail.t_head_img}}" />
+      <view class="footer-head-name">{{workDetail.t_nick_name}}</view>
+    </view>
+    <view class="footer-radio"></view>
+    <view class="footer-right">
+      <view class="footer-share">
+        <image src="../../resource/my/share.png" />
+        <view class="footer-share-text">{{workDetail.share_num}}</view>
+      </view>
+      <view class="footer-like">
+        <image src="../../resource/my/share.png" />
+        <view class="footer-like-text">{{workDetail.like_num}}</view>
+      </view>
+    </view>
+  </view>
 
 </view>
