@@ -84,6 +84,7 @@
     "van-calendar": "/miniprogram_npm/@vant/weapp/calendar/index",
     "van-transition": "/miniprogram_npm/@vant/weapp/transition/index",
     "van-picker": "/miniprogram_npm/@vant/weapp/picker/index",
+    "van-empty": "/miniprogram_npm/@vant/weapp/empty/index",
     "v-login": "/components/login/index"
   },
   "sitemapLocation": "sitemap.json"

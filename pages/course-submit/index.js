@@ -37,6 +37,9 @@ Page({
 
     setTimeout(() => {
       console.log('动画完成')
+      wx.navigateBack({
+        delta: 2
+      })
     }, 4500)
   },
 

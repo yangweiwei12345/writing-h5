@@ -72,11 +72,14 @@
     </van-tabs>
     <view style="width: 100%;height: 22rpx;border-bottom: 2px solid #f4f4f4;"></view>
 
-    <view class="notice-container">
+    <van-empty wx:if="{{workList.length === 0}}" description="暂无数据">
+    </van-empty>
+
+    <view class="notice-container" wx:if="{{workList.length > 0 && active === 'newUpload'}}">
       <view class="notice-left">
         <image src="../../resource/home/notice.png" />
         <view class="notice-left-name">
-          杨伟韦
+          {{workList[0].nick_name}}
         </view>
         <view class="notice-left-text">
           上传了作业
@@ -90,6 +93,7 @@
     </view>
 
     <view class="work-list">
+
       <van-row gutter="12">
         <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
           <view class="work-list-item">
@@ -102,12 +106,12 @@
                 <text class="list-info-time">1分钟前</text>
               </view>
             </view>
-            <view class="list-info-like">
+            <view class="list-info-like" data-id="{{item.work_id}}" bindtap="onLikeClick">
               <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
               <image wx:else src="../../resource/home/heart-active.png" />
               <text class="list-info-like-num">{{item.like_num}}</text>
             </view>
-            <image src="../../resource/home/pj.png" class="list-info-pj" />
+            <image wx:if="{{item.status === 1}}" src="../../resource/home/pj.png" class="list-info-pj" />
           </view>
         </van-col>
       </van-row>
