@@ -15,6 +15,7 @@ Page({
     });
   },
   onShow: function() {
+    
   },
 
   /**
