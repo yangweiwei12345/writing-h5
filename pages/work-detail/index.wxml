@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="header">
+    <view style="height: 44rpx;"></view>
+    <view class="content">
+      作品详情
+    </view>
+  </view>
+
+  <view class="content-header">
+    <view class="content-header-top">
+      <image src="../../resource/my/header.png" class="content-header-top-img" />
+      <view class="content-header-top-box">
+        <view class="content-header-top-info">
+          <view class="header-box-left">
+            <view class="header-box-left-name">{{userInfo.nick_name}}</view>
+            <image src="../../resource/my/woman.png" />
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-age">{{userInfo.age}}岁</view>
+            <view class="header-box-right-level">二年级</view>
+          </view>
+        </view>
+        <image src="../../resource/my/flag.png" class="header-box-right" />
+      </view>
+      <image src="../../resource/my/share.png" class="content-header-top-share" />
+    </view>
+    
+  </view>
+
+
+</view>

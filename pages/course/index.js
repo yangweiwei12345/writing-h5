@@ -19,10 +19,14 @@ Page({
     // 课程列表
     courseList: [],
 
-    active: 'userCourse'
+    active: 'userCourse',
+
+    userCourseHaveMore: true,
+    courseHaveMore: true
   },
   onLoad: function () {
-    
+    this.getUserCourseList();
+    this.getCourseList();
   },
   onShow: function() {
     if (typeof this.getTabBar === 'function' &&
@@ -31,13 +35,29 @@ Page({
         selected: 1
       })
     }
-    this.getUserCourseList();
-    this.getCourseList();
   },
 
   onTabsChange: function(e) {
     this.setData({
-      active: e.detail.name
+      active: e.detail.name,
+      pageData: {
+        page: 1,
+        pageSize: 10
+      },
+      userPageData: {
+        page: 1,
+        pageSize: 10
+      },
+      userCourseHaveMore: true,
+      courseHaveMore: true,
+      userCourseList: [],
+      courseList: []
+    }, () => {
+      if(this.data.active === 'userCourse') {
+        this.getUserCourseList();
+      } else {
+        this.getCourseList();
+      }
     });
   },
 
@@ -56,9 +76,25 @@ Page({
     API.userCourseList({
       ...this.data.userPageData
     }).then(res => {//成功
+      let data = res && res.rows || [];
+      let { userPageData } = this.data;
+
       this.setData({
-        userCourseList: res && res.rows || []
+        userCourseList: this.data.userCourseList.concat(data),
       })
+
+      if(data.length >= userPageData.pageSize) {
+        this.setData({
+          userPageData: {
+            ...userPageData,
+            page: userPageData.page + 1
+          }
+        });
+      } else {
+        this.setData({
+          userCourseHaveMore: false
+        });
+      }
     })
   },
 
@@ -67,10 +103,62 @@ Page({
     API.courseList({
       ...this.data.pageData
     }).then(res => {//成功
+
+      let data = res && res.rows || [];
+      let { pageData } = this.data;
+
       this.setData({
-        courseList: res && res.rows || []
+        courseList: this.data.courseList.concat(data),
       })
+
+      if(data.length >= pageData.pageSize) {
+        this.setData({
+          pageData: {
+            ...pageData,
+            page: pageData.page + 1
+          }
+        });
+      } else {
+        this.setData({
+          courseHaveMore: false
+        });
+      }
     })
+  },
+
+  // 下拉刷新
+  // onPullDownRefresh() {
+  //   this.setData({
+  //     pageData: {
+  //       page: 1,
+  //       pageSize: 10
+  //     }, 
+  //     userPageData: {
+  //       page: 1,
+  //       pageSize: 10
+  //     }
+  //   }, () => {
+  //     if(this.data.active === 'userCourse') {
+  //       this.getUserCourseList();
+  //     } else {
+  //       this.getCourseList();
+  //     }
+  //   });
+  // }
+
+  // 上拉加载
+  onReachBottom() {
+    const { active, courseHaveMore, userCourseHaveMore } = this.data;
+    if(active === 'userCourse') {
+      if(userCourseHaveMore) {
+        this.getUserCourseList();
+      }
+    } else {
+      if(courseHaveMore) {
+        this.getCourseList();
+      }
+    }
   }
+
 
 })

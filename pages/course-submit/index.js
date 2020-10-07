@@ -1,6 +1,7 @@
 //index.js
 const app = getApp();
 const API = require('../../config/api.js');
+console.log(app.globalData.courseDetail);
 
 Page({
   data: {
@@ -8,11 +9,12 @@ Page({
 
     showFirst: false,
     params: {},
-    courseDetail: app.globalData.courseDetail || {}
+    courseDetail: {}
   },
   onLoad: function (options) {
     this.setData({
-      params: JSON.parse(options.data || '{}')
+      params: JSON.parse(options.data || '{}'),
+      courseDetail: app.globalData.courseDetail || {}
     });
     try {
       const res = wx.getSystemInfoSync();
@@ -26,6 +28,11 @@ Page({
   onShow: function() {
     
   },
+  onUnload: function () {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   onShowClick: function() {
     for(let i = 0; i < 4; i++) {
       setTimeout(() => {
@@ -38,7 +45,7 @@ Page({
     setTimeout(() => {
       console.log('动画完成')
       wx.navigateBack({
-        delta: 2
+        delta: 1
       })
     }, 4500)
   },
