@@ -1,12 +1,14 @@
 //index.js
+const app = getApp();
 const API = require('../../config/api.js');
 
 Page({
   data: {
     height: 0,
 
-    showFirst: true,
+    showFirst: false,
     params: {},
+    courseDetail: app.globalData.courseDetail || {}
   },
   onLoad: function (options) {
     this.setData({
@@ -22,7 +24,7 @@ Page({
     }
   },
   onShow: function() {
-    this.onShowClick();
+    
   },
   onShowClick: function() {
     for(let i = 0; i < 4; i++) {
@@ -35,14 +37,13 @@ Page({
 
     setTimeout(() => {
       console.log('动画完成')
-      this.submit();
     }, 4500)
   },
 
   // 确认提交作业
   submit: function() {
     this.setData({
-      showFirst: false
+      showFirst: true
     });
   },
 
@@ -54,10 +55,18 @@ Page({
       work_remark: ''
     };
     
+    wx.showLoading({
+      title: '正在上传作业...'
+    });
     API.addCourseWork(data).then(res => {//成功
-      wx.navigateTo({
-        url: `/pages/course-success/index`,
-      });
+      // wx.navigateTo({
+      //   url: `/pages/course-success/index`,
+      // });
+      this.submit();
+      this.onShowClick();
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
     })
   }
 })

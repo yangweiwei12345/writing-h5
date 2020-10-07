@@ -1,9 +1,9 @@
 <view class="container">
   <view class="lock-container">
     <image class="lock-back" src="../../resource/course/back.png" />
-    <view class="lock-progress" style="width: 10%">
+    <view class="lock-progress" style="width: {{plan}}%">
       <image src="../../resource/course/ji.png" />
-      <view class="lock-progress-text">60%</view>
+      <view class="lock-progress-text">{{plan}}%</view>
     </view>
   </view>
 

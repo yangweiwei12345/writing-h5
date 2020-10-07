@@ -4,6 +4,7 @@ const API = require('../../config/api.js');
 Page({
   data: {
     courseWeekList: [],
+    plan: 0,
     courseId: ''
   },
   onLoad: function (options) {
@@ -28,7 +29,8 @@ Page({
       course_id
     }).then(res => {//成功
       this.setData({
-        courseWeekList: res && res.rows || []
+        courseWeekList: res && res.rows || [],
+        plan: res && res.plan || 0
       })
     })
   },
