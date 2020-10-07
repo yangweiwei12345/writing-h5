@@ -100,5 +100,23 @@ Page({
     }, () => {
       this.getWork();
     });
+  },
+
+  onLikeClick: function(e) {
+    const { workList } = this.data;
+    const { id } = e.currentTarget.dataset;
+    API.likeWork({
+      work_id: id
+    }).then(res => {
+      workList.forEach(item => {
+        if(item.work_id == id) {
+          item.like_num = item.is_like === 0 ? item.like_num + 1 : item.like_num - 1;
+          item.is_like = item.is_like === 0 ? 1 : 0;
+        }
+      })
+      this.setData({
+        workList
+      });
+    })
   }
 })

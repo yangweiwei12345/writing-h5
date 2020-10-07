@@ -22,11 +22,13 @@ Page({
       params: {
         ...options
       }
-    }, () => {
-      this.getCourseSection();
     });
   },
-  onShow: function() {},
+  onShow: function() {
+    setTimeout(() => {
+      this.getCourseSection();
+    }, 300);
+  },
 
   // 章节详情
   getCourseSection: function() {
@@ -104,7 +106,8 @@ Page({
     const { chapterdata } = e.currentTarget.dataset;
 
     this.setData({
-      selectChapter: chapterdata
+      selectChapter: chapterdata,
+      isShow: false
     });
 
     let videoLen = (chapterdata.video_list || []).length;
