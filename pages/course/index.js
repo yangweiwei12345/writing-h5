@@ -25,6 +25,12 @@ Page({
     
   },
   onShow: function() {
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
     this.getUserCourseList();
     this.getCourseList();
   },
@@ -36,10 +42,13 @@ Page({
   },
 
   toDetail: function(e) {
-    console.log(e);
+    const { title, id } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: '/pages/course-detail/index?courseId=' + e.currentTarget.dataset.id 
+      url: '/pages/course-detail/index?courseId=' + id 
     });
+    app.globalData.courseDetail = {
+      title
+    };
   },
 
   // 获取我的课程

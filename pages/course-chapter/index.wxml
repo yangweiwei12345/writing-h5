@@ -111,7 +111,7 @@
     </view>
   </view>
 
-  <van-button class="footer" type="primary" size="large" block color="#999" bindtap="onToPhoto">
+  <van-button class="footer" type="primary" size="large" block color="{{canUploadWork ? '#FD5252' : '#999'}}" bindtap="onToPhoto">
     <view style="font-size: 16px;color: #fff;">上传作业</view>
     <view style="font-size: 10px;color: #fff;">自动解锁下一课</view>
   </van-button>

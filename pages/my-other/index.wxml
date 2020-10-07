@@ -1,0 +1,103 @@
+<view class="container">
+  <view class="header">
+    <view style="height: 44rpx;"></view>
+    <view class="content">
+      个人中心
+    </view>
+  </view>
+
+  <view class="content-header">
+    <view class="content-header-top">
+      <image src="../../resource/my/header.png" class="content-header-top-img" />
+      <view class="content-header-top-box">
+        <view class="content-header-top-info">
+          <view class="header-box-left">
+            <view class="header-box-left-name">{{userInfo.nick_name}}</view>
+            <image src="../../resource/my/woman.png" />
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-age">{{userInfo.age}}岁</view>
+            <view class="header-box-right-level">二年级</view>
+          </view>
+        </view>
+        <image src="../../resource/my/flag.png" class="header-box-right" />
+      </view>
+      <image src="../../resource/my/share.png" class="content-header-top-share" />
+    </view>
+    <view class="content-header-bottom">
+      <view class="content-header-bottom-item">
+        <view class="content-header-bottom-item-num">
+          {{userInfo.work_count}}
+          <view class="content-header-bottom-item-unit">
+            个
+          </view>
+        </view>
+        <view class="content-header-bottom-item-title">作品</view>
+      </view>
+      <view class="content-header-bottom-item">
+        <view class="content-header-bottom-item-num">
+          {{userInfo.work_day}}
+          <view class="content-header-bottom-item-unit">
+            天
+          </view>
+        </view>
+        <view class="content-header-bottom-item-title">练字</view>
+      </view>
+      <view class="content-header-bottom-item">
+        <view class="content-header-bottom-item-num">
+          {{userInfo.work_ranking}}
+          <view class="content-header-bottom-item-unit">
+            次
+          </view>
+        </view>
+        <view class="content-header-bottom-item-title">登榜</view>
+      </view>
+      <view class="content-header-bottom-item">
+        <view class="content-header-bottom-item-num">
+          {{userInfo.like_count}}
+          <view class="content-header-bottom-item-unit">
+            次
+          </view>
+        </view>
+        <view class="content-header-bottom-item-title">点赞</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="work-container">
+
+    <van-tabs active="{{active}}" bind:change="onChange" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
+      <van-tab title="全部作品" name="all"></van-tab>
+      <van-tab title="点赞最多" name="like"></van-tab>
+      <van-tab title="上榜作品" name="rank"></van-tab>
+    </van-tabs>
+    <view style="width: 100%;height: 22rpx;border-bottom: 2px solid #f4f4f4;"></view>
+
+    <view class="work-list">
+      <van-row gutter="12">
+        <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
+          <view class="work-list-item">
+            <image src="{{item.img_url}}" class="work-item-img" />
+            <view class="list-info">
+              <view class="list-info-title">{{item.work_remark}}</view>
+              <view class="list-info-box">
+                <image src="{{item.head_img}}" />
+                <text class="list-info-text">{{item.nick_name}}</text>
+                <text class="list-info-time">1分钟前</text>
+              </view>
+            </view>
+            <view class="list-info-like">
+              <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
+              <image wx:else src="../../resource/home/heart-active.png" />
+              <text class="list-info-like-num">{{item.like_num}}</text>
+            </view>
+            <image src="../../resource/home/pj.png" class="list-info-pj" />
+          </view>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+  
+
+</view>

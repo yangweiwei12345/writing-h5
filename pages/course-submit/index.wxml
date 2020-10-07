@@ -41,8 +41,8 @@
         <van-cell is-link>
           <view slot="title">
             <view style="display: flex">
-              <view class="submit-param-value1">考拉兄学写字</view>
-              <view class="submit-param-value2">第一节 二</view>
+              <view class="submit-param-value1">{{courseDetail.title}}</view>
+              <view class="submit-param-value2">{{params.title}}</view>
             </view>
           </view>
         </van-cell>

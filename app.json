@@ -9,7 +9,8 @@
     "pages/course-upload/index",
     "pages/course-submit/index",
     "pages/course-success/index",
-    "pages/my-info/index"
+    "pages/my-info/index",
+    "pages/my-other/index"
   ],
   "tabBar": {
     "custom": true,

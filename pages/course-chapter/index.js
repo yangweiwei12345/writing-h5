@@ -14,7 +14,8 @@ Page({
 
     WEEKS: config.WEEKS,
 
-    isShow: false
+    isShow: false,
+    canUploadWork: false,   // 是否可以上传作业
   },
   onLoad: function (options) {
     this.setData({
@@ -36,10 +37,46 @@ Page({
       week_num: params.weekNum
     };
     API.courseSection(data).then(res => {//成功
+      let chapterList = res || [];
       this.setData({
-        chapterList: res || [],
-        selectChapter: res && res[0] || {}
-      })
+        chapterList: chapterList,
+      });
+
+      let len = chapterList.length;
+      console.log(chapterList, len);
+      for(let i = len - 1; i >= 0; i--) {
+        let chapterItem = chapterList[i];
+
+        if(chapterItem.is_clock === 0) {
+          this.setData({
+            selectChapter: chapterItem
+          });
+          console.log(chapterItem, 'chapterItem')
+
+          let videoLen = (chapterItem.video_list || []).length;
+          for(let j = videoLen -1; j >= 0; j--) {
+            let videoItem = chapterItem.video_list[j];
+
+            if(videoItem.is_clock === 0 && j !== 0) {
+              this.setData({
+                selectVideo: videoItem
+              })
+              if(j === (videoLen - 1)) {
+                this.setData({
+                  canUploadWork: true
+                });
+              }
+              console.log(videoItem, 'videoItem')
+              break;
+            }
+          }
+          break;
+        }
+      }
+
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
     })
   },
   // 视频播放结束
@@ -55,6 +92,10 @@ Page({
     };
 
     API.lookOverVideo(data).then(res => {//成功
+      wx.showLoading({
+        title: '正在解锁下一个视频..'
+      });
+      this.getCourseSection();
     })
   },
 
@@ -65,6 +106,25 @@ Page({
     this.setData({
       selectChapter: chapterdata
     });
+
+    let videoLen = (chapterdata.video_list || []).length;
+    console.log(videoLen, chapterdata);
+    for(let j = videoLen -1; j >= 0; j--) {
+      let videoItem = chapterdata.video_list[j];
+
+      if(videoItem.is_clock === 0 && j !== 0) {
+        this.setData({
+          selectVideo: videoItem
+        })
+        if(j === (videoLen - 1)) {
+          this.setData({
+            canUploadWork: true
+          });
+        }
+        console.log(videoItem, 'videoItem')
+        break;
+      }
+    }
   },
 
   // 选中视频
@@ -84,14 +144,18 @@ Page({
 
   // 上传作业
   onToPhoto: function() {
-    const { params, selectChapter } = this.data;
+    const { params, selectChapter, canUploadWork } = this.data;
+    if(!canUploadWork) {
+      return;
+    }
     // ?course_id=${params.courseId}&week_id=${params.weekId}&week_num=${params.weekNum}&section_num=${selectChapter.section_num}&section_id=${selectChapter.section_id}
     let data = {
       course_id: params.courseId,
       week_id: params.weekId,
       week_num: params.weekNum,
       section_num: selectChapter.section_num,
-      section_id: selectChapter.section_id
+      section_id: selectChapter.section_id,
+      title: selectChapter.section_title
     };
 
     wx.navigateTo({

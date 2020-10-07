@@ -66,6 +66,9 @@ Page({
 
   // 上传图片
   uploadImage: function(file) {
+    wx.showLoading({
+      title: '图片上传中...'
+    });
     wx.uploadFile({
       url: 'http://xz-api.defengvip.com/api/upload/index',
       filePath: file,
@@ -76,7 +79,12 @@ Page({
       },
       success: (res) => {
         const data = res.data;
+        wx.hideLoading();
         this.toSubmit(data && JSON.parse(data || '{}'));
+
+      },
+      fail: () => {
+        wx.hideLoading();
       }
     });
   },
