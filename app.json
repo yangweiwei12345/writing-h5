@@ -11,7 +11,8 @@
     "pages/course-success/index",
     "pages/my-info/index",
     "pages/my-other/index",
-    "pages/work-detail/index"
+    "pages/work-detail/index",
+    "pages/webview/index"
   ],
   "tabBar": {
     "custom": true,

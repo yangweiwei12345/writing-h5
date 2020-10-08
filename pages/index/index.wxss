@@ -260,7 +260,9 @@ page {
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #333333;
-  line-height: 28rpx;
+  line-height: 22rpx;
+  height: 44rpx;
+  overflow: hidden;
 }
 .work-list-item .list-info .list-info-box {
   display: flex;

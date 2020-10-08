@@ -1,13 +1,29 @@
 //index.js
-//获取应用实例
-const app = getApp()
 
 Page({
   data: {
+    src: ''
   },
-  onLoad: function () {
-    
+  onLoad: function (options) {
+    this.setData({
+      src: options.url
+    });
+    wx.showLoading({
+      title: "正在加载...",
+      success: (result)=>{
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
   },
   onShow: function() {
+  },
+
+  onLoaded: function() {
+    wx.hideLoading();
+  },
+
+  onError: function() {
+    wx.hideLoading()
   }
 })

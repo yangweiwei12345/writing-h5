@@ -43,7 +43,7 @@
           <image src="{{item.video_small_img}}" class="course-chapter-img" />
           <image wx:if="{{item.video_id === selectVideo.video_id}}" src="" class="course-chapter-video" />
         </view>
-        <view class="course-item" data-videodata="{{item}}" bindtap="onSelectVideo" wx:else>
+        <view class="course-item" data-videodata="{{item}}" wx:else>
           <image src="{{item.video_small_img}}" class="course-chapter-img" />
           <view class="course-chapter-lock">
             <image src="../../resource/course/suck.png" class="course-chapter-lock-img" />

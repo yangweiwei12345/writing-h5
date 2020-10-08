@@ -110,6 +110,18 @@ Page({
     })
   },
 
+  toNew: function(e) {
+    const { link, type } = e.currentTarget.dataset;
+
+    if(type == 1) {
+      return;
+    } else if(type == 2) {
+      wx.navigateTo({
+        url: '/pages/webview/index?url=' + link
+      })
+    }
+  },
+
   onLikeClick: function(e) {
     const { workList } = this.data;
     const { id } = e.currentTarget.dataset;

@@ -264,12 +264,12 @@ page {
   bottom: 0;
   left: 0;
   background-color: #fff;
-  box-shadow: 0px -2px 2px 0px rgba(76, 76, 76, 0.2);
+  box-shadow: 0px -2px 2px 0px rgba(200, 200, 200, 0.3);
   display: flex;
 
 }
 .footer-head {
-  margin: 0 30rpx;
+  margin: 0 20rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -288,12 +288,88 @@ page {
 
 .footer-radio {
   flex: 1;
+  display: flex;
+  align-items: center;
+}
+.footer-radio .gp-common {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 110rpx;
+  border-radius: 55rpx;
+}
+/* 未点评状态 */
+.footer-radio .gp-no {
+  background-color: #aaa;
+  font-size: 13px;
+  color: #fff;
+} 
+
+/* 已点评，未播放状态 */
+.gp-play, .gp-playing {
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 0, 69);
+}
+.gp-play .gp-play-box {
+  color: #fff;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40rpx;
+}
+.gp-play .gp-play-box .gp-play-text {
+  font-size: 15px;
+  margin-bottom: 6rpx;
+}
+.gp-play .gp-play-box .gp-play-time {
+  font-size: 10px;
+}
+.gp-play .gp-play-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin-right: 20rpx;
+}
+
+/* 播放中 */
+.gp-playing .gp-playing-img {
+  width: 44rpx;
+  height: 44rpx;
+  margin-left: 18rpx;
+  margin-right: 22rpx;
+}
+.gp-playing .gp-progress {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 1px;
+  background-color: rgb(255, 131, 159);
+  margin-right: 26rpx;
+}
+.gp-playing .gp-progress .gp-progress-line {
+  height: 1px;
+  position: relative;
+  background-color: #fff;
+}
+.gp-playing .gp-progress .gp-progress-btn {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
 }
 
 
+/*================*/
+
 .footer-right {
   display: flex;
-  margin: 0 30rpx;
+  margin: 0 20rpx;
 }
 
 .footer-share {
