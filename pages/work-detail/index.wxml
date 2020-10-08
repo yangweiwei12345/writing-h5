@@ -23,7 +23,7 @@
             <view class="header-box-right-level">{{workDetail.user_class}}</view>
           </view>
           <view class="header-box-right">
-            <view class="header-box-right-level">上传于 2019-12-30 04:03:55</view>
+            <view class="header-box-right-level">上传于 {{workDetail.create_at}}</view>
           </view>
         </view>
       </view>

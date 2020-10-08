@@ -8,7 +8,10 @@
 
   <view class="content-header">
     <view class="content-header-top">
-      <image src="../../resource/my/header.png" class="content-header-top-img" bindtap="toEditInfo" />
+      <view class="content-header-top-img" bindtap="toEditInfo">
+        <image src="../../resource//my/header.png" class="content-header-top-img-b" />
+        <image src="{{userInfo.head_img}}" class="content-header-top-img-t" />
+      </view>
       <view class="content-header-top-box">
         <view class="content-header-top-info" bindtap="toEditInfo">
           <view class="header-box-left">
