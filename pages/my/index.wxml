@@ -4,6 +4,8 @@
     <view class="content">
       个人中心
     </view>
+
+    <image src="../../resource/home/back.png" />
   </view>
 
   <view class="content-header">
@@ -52,10 +54,18 @@
   </view>
 
   <view class="my-list">
-    <van-cell title="我的订单" >
+    <van-cell
+      title="老师教师"
+      link-type="navigateTo"
+      url="/pages/teacher-room/index?user_id={{userInfo.user_id}}"
+    >
       <!-- 图标 -->
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-orders.png" />
       <!-- 右侧箭头 -->
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
+    <van-cell title="我的订单" >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/my-orders.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
     <van-cell title="任务中心" >

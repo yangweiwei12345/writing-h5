@@ -59,11 +59,12 @@ Page({
 
   },
 
-  /**
-   * 获取当前用户个人资料
-   * @date 2020-09-14
-   * @returns {any}
-   */
+  goBack: function() {
+    wx.navigateBack({
+      delta: 1
+    });
+  },
+
   getWorkDetail: function () {
 
     API.workDetail({

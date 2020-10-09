@@ -8,7 +8,16 @@ page {
 
 /** 头部 */
 .container .header {
-  background-color: rgb(255, 144, 89);
+  /* background-color: rgb(255, 144, 89); */
+  position: relative;
+}
+
+.header image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 418rpx;
 }
 
 .container .content {
@@ -19,6 +28,8 @@ page {
   font-family: SourceHanSansCN;
   font-weight: 500;
   color: #FFFFFF;
+  position: relative;
+  z-index: 10;
 }
 
 /** 顶部个人信息栏 */
@@ -29,6 +40,8 @@ page {
   border-radius: 7px;
   padding: 26rpx;
   margin: 28rpx;
+  position: relative;
+  z-index: 10;
 }
 .content-header-top {
   display: flex;

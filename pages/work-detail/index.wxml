@@ -2,8 +2,13 @@
   <view class="header">
     <view style="height: 44rpx;"></view>
     <view class="content">
+      <view class="header-back" bindtap="goBack">
+        <image src="../../resource/dp/back.png" />
+      </view>
       作品详情
     </view>
+
+    <image src="../../resource/home/back.png" />
   </view>
 
   <view class="content-header">
@@ -36,6 +41,23 @@
     
   </view>
 
+  <view wx:if="{{workDetail.remark}}" class="work-remask">
+    {{workDetail.remark}} 
+  </view>
+
+  <!-- gif图片 -->
+  <view class="work-gif">
+    <image src="{{workDetail.font_gif}}" />
+  </view>
+
+  <!-- 送花 -->
+  <view class="work-hua">
+    <image src="../../resource/dp/hua.png" />
+    <view class="work-hua-num">
+      x3
+    </view>
+  </view>
+
   <view class="footer">
     <view class="footer-head">
       <image src="{{workDetail.t_head_img}}" />
@@ -51,7 +73,7 @@
         <view wx:if="{{playStatus === 0}}" class="gp-common gp-play">
           <view class="gp-play-box">
             <view class="gp-play-text">老师点评</view>
-            <view class="gp-play-time">1分钟前</view>
+            <view class="gp-play-time">{{workDetail.t_time}}</view>
           </view>
           <image src="../../resource/dp/play.png" class="gp-play-img" bindtap="play" />
         </view>

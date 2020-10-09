@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/index/index",
     "pages/my/index",
+    "pages/index/index",
     "pages/course/index",
     "pages/shop/index",
     "pages/course-detail/index",
@@ -12,7 +12,9 @@
     "pages/my-info/index",
     "pages/my-other/index",
     "pages/work-detail/index",
-    "pages/webview/index"
+    "pages/webview/index",
+    "pages/teacher-room/index",
+    "pages/work-judge/index"
   ],
   "tabBar": {
     "custom": true,

@@ -1,0 +1,109 @@
+<view class="container">
+
+  <view class="content-header">
+    <view class="content-header-top">
+      <image src="{{userInfo.head_img}}" class="content-header-top-img" />
+      <view class="content-header-top-box">
+        <view class="content-header-top-info">
+          <view class="header-box-left">
+            <view class="header-box-left-name">{{userInfo.nick_name}}</view>
+            <image src="../../resource/my/woman.png" />
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-level">{{userInfo.user_class}}</view>
+            <view class="header-box-right-age">{{userInfo.age}}岁</view>
+          </view>
+          <view style="font-size: 9px;font-family: SourceHanSansCN;font-weight: 400;color: #999999;">
+            {{workDetail.create_at}} 上传作业
+          </view>
+        </view>
+      </view>
+      <view class="content-header-top-options">
+        <view class="content-header-top-opt-hua" bindtap="onSH">
+          <image src="{{flowerCount > 0 ? '../../resource/dp/hua.png' : '../../resource/dp/hua-no.png'}}" style="{{translateStyle}}" class="{{isShake?'animate':''}}" />
+          <view wx:if="{{flowerCount > 0}}" class="content-header-top-opt-hua-num">
+            {{flowerCount}}
+          </view>
+          <view style="font-size: 10px;color: #999;font-family: SourceHanSansCN;font-weight: 400;">点击送花</view>
+        </view>
+        <view class="content-header-top-opt-rank" bindtap="onRank">
+          <image wx:if="{{isRank}}" class="" src="../../resource/dp/rank-active.png" class="" />
+          <image wx:else class="" src="../../resource/dp/rank.png" class="" />
+          <view style="font-size: 10px;color: #999;font-family: SourceHanSansCN;font-weight: 400;">点击上榜</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 绘图区 -->
+  <view class="work-canvas">
+    <image src="{{workDetail.img_url}}" />
+    <canvas canvas-id="myCanvas" class="myCanvas" catchtouchstart="canvasStart" ></canvas>
+    <view class="work-canvas-options" bindtap="onShowCircle">
+      <image src="../../resource/dp/circle.png" />
+      <view>圈重点</view>
+      <view class="work-canvas-options-dot" wx:if="{{isCircleShow}}">
+        <image src="../../resource/dp/react.png" />
+        <view class="work-canvas-options-dot-green" catch:tap="greenCircle"></view>
+        <view class="work-canvas-options-dot-red" catch:tap="redCircle"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 文字录音区 -->
+  <view class="work-radio">
+    <view class="work-radio-left">
+      <view class="work-radio-text-box">
+        <van-field
+          model:value="{{remark}}"
+          type="textarea"
+          placeholder="请输入"
+          autosize
+          maxlength="{{100}}"
+          border="{{ false }}"
+        />
+      </view>
+      <view wx:if="{{recodeStatus !== 2}}" class="work-radio-lz">
+        <view class="work-radio-lz-common-text">
+          录制 
+        </view>
+        <view class="work-radio-lz-common-time">
+          {{readyTime}}/0{{time}}:00
+        </view>
+        <image wx:if="{{recodeStatus === 0}}" src="../../resource/dp/dp-play.png" bindtap="startRecorder" />
+        <image wx:if="{{recodeStatus === 1}}" src="../../resource/dp/stop.png" />
+      </view>
+      <view class="work-radio-lz" wx:else>
+        <view class="work-radio-lz-common-text">
+          录制完成
+        </view>
+        <image src="../../resource/dp/dp-play.png" />
+      </view>
+    </view>
+    <view class="work-radio-right">
+      <view class="work-radio-gif-box" bindtap="onShowGif">
+        <image src="{{workDetail.font_img}}" />
+        <van-transition name="fade-up" show="{{showGif}}">
+          <view class="work-radio-gif-img">
+            <image src="{{workDetail.font_gif}}" />
+          </view>
+        </van-transition>
+      </view>
+      <view class="work-radio-btns">
+        <view class="work-radio-reset" bindtap="onResetAll">
+          <image class="image1" src="../../resource/dp/reset.png" />
+          <view class="">重录</view>
+        </view>
+        <view class="work-radio-reset" bindtap="uploadVideo">
+          <image class="image2" src="../../resource/dp/upload.png" />
+          <view class="">上传</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <van-button type="primary" block round color="#FD5252" bindtap="onSubmit">提交点评</van-button>
+  </view>
+
+</view>
