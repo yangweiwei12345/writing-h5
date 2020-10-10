@@ -55,7 +55,7 @@
         <text class="course-sub-title">{{item.subtitle}}</text>
         <text class="course-desc">{{item.ad_title}}</text>
       </view>
-      <van-button custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round plain type="danger" size="mini" color="#FD5252">去学习</van-button>
+      <van-button open-type="contact" send-message-title="{{item.title}}" send-message-img="{{item.ad_img}}" session-from="{{item.course_id}}" send-message-path="/pages/course/index?course_id={{item.course_id}}" show-message-card  custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round plain type="danger" size="mini" color="#FD5252">去学习</van-button>
     </view>
   </view>
 
@@ -74,6 +74,7 @@
 
     <van-empty wx:if="{{workList.length === 0}}" description="暂无数据">
     </van-empty>
+
 
     <view class="notice-container" wx:if="{{workList.length > 0 && active === 'newUpload'}}">
       <view class="notice-left">

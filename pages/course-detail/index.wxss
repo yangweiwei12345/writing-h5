@@ -43,14 +43,14 @@ page {
 }
 .list-item {
   position: relative;
-  height: 280rpx;
+  height: 320rpx;
   border-radius: 10rpx;
   overflow: hidden;
   margin-bottom: 30rpx;
 }
 .list-item .list-item-img {
   width: 100%;
-  height: 280rpx;
+  height: 320rpx;
 }
 
 .list-mask {

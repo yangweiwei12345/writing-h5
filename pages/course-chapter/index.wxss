@@ -63,6 +63,7 @@ page {
   margin-right: 14rpx;
   margin-bottom: 14rpx;
   height: 100rpx;
+  border-radius: 8rpx;
 }
 .course-content .course-chapter-img {
   width: 100rpx;

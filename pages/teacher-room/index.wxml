@@ -4,8 +4,8 @@
   <view class="content-header">
     <view class="content-header-top">
       <view class="content-header-top-head">
-        <image src="../../resource/my/header.png" class="content-header-top-img" />
-        <view class="content-header-top-switch">
+        <image src="{{teacherInfo.head_img}}" class="content-header-top-img" />
+        <!-- <view class="content-header-top-switch">
           <van-switch
             custom-class="custom-class-switch"
             size="24px"
@@ -15,13 +15,13 @@
             active-value="上班中"
             inactive-value="休息中"
           />
-        </view>
+        </view> -->
       </view>
       
       <view class="content-header-top-box">
         <view class="header-box-left-name">{{teacherInfo.nick_name}}</view>
         <view class="header-box-right">
-          <view class="header-box-right-age">{{teacherInfo.level}}</view>
+          <view class="header-box-right-age">{{teacherLevel[teacherInfo.level]}}</view>
           <view class="header-box-right-level">评价过{{teacherInfo.remark_work_count}}位学员</view>
         </view>
       </view>
@@ -46,7 +46,7 @@
       <image src="{{item.img_url}}" />
       <view class="course-content">
         <text class="course-title">{{item.nick_name}}</text>
-        <text class="course-sub-title">{{item.subtitle}}</text>
+        <text class="course-sub-title">{{item.course_title}}{{item.week_title}}{{item.section_title}}</text>
         <text class="course-desc">{{item.create_at}}</text>
       </view>
       <view wx:if="{{active === 'pending'}}" style="display: flex;flex-direction: column;justify-content: center;">

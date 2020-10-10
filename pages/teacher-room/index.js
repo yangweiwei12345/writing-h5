@@ -16,6 +16,14 @@ Page({
     pended: {
       page: 1,
       pageSize: 10
+    },
+    teacherLevel: {
+      0: '助教',
+      1: '一级教室',
+      2: '二级教室',
+      3: '三级教室',
+      4: '四级教室',
+      5: '五级教室',
     }
   },
   onLoad: function (options) {

@@ -71,7 +71,8 @@ Page({
           for(let j = videoLen -1; j >= 0; j--) {
             let videoItem = chapterItem.video_list[j];
 
-            if(videoItem.is_clock === 0 && j !== 0) {
+            //  && j !== 0
+            if(videoItem.is_clock === 0) {
               this.setData({
                 selectVideo: videoItem
               })
@@ -133,7 +134,8 @@ Page({
     for(let j = videoLen -1; j >= 0; j--) {
       let videoItem = chapterdata.video_list[j];
 
-      if(videoItem.is_clock === 0 && j !== 0) {
+      //  && j !== 0
+      if(videoItem.is_clock === 0) {
         this.setData({
           selectVideo: videoItem
         })

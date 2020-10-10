@@ -11,7 +11,7 @@ var startDate;//开始时刻
 var penType = "drawPen";
 var colorStr = "#000";
 var operationType = "mapping";
-var time = 2;   // 录音时长（分钟）
+var time = 0.5;   // 录音时长（分钟）
 var secondes = 0;
 var timer = null;
 let scrollTop = 0;
@@ -334,7 +334,11 @@ Page({
         "token": wx.getStorageSync('token'),
         "Content-Type": "multipart/form-data"
       },
+      formData: {
+        type: 'mp3'
+      },
       success: (res) => {
+        console.log(res);
         const data = res.data;
         this.setData({
           audioValueUrl: JSON.parse(data || '{}').data.url
@@ -352,6 +356,9 @@ Page({
           icon: "none"
         });
        
+      },
+      complete: function() {
+        wx.hideLoading();
       }
     });
   },

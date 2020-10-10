@@ -16,11 +16,12 @@ Page({
     workList: [],
     paginaData: {
       page: 1,
-      pageSize: 10
+      pageSize: 20
     },
     count: 0,
 
-    active: 'newUpload'
+    active: 'newUpload',
+    hasMore: true
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -83,20 +84,51 @@ Page({
   },
 
   getWork: function() {
+    this.setData({
+      loading: true
+    });
+    wx.showLoading({
+      title: '加载中...',
+    });
     API.courseWorkList({
       ...this.data.paginaData,
-      status: this.data.active === 'newUpload' ? 0 : '1'
+      status: this.data.active === 'newUpload' ? '0' : '1'
     }).then(res => {//成功
+      let data = res && res.rows || [];
+      let hasMore = true;
+      let { workList, paginaData } = this.data;
+
+      if(data.length < paginaData.pageSize) {
+        hasMore = false; 
+      }
       this.setData({
-        workList: res && res.rows || [],
-        count: res && res.count || 0
+        hasMore,
+        workList: workList.concat(data),
+        count: res && res.count || 0,
+        loading: false,
+        paginaData: {
+          ...paginaData,
+          page: paginaData.page + 1
+        }
       })
+      wx.hideLoading();
+    }).catch(e => {
+      this.setData({
+        loading: false
+      });
+      wx.hideLoading();
     })
   },
 
   onChange: function(e) {
     this.setData({
-      active: e.detail.name
+      active: e.detail.name,
+      paginaData: {
+        page: 1,
+        pageSize: 20
+      },
+      workList: [],
+      hasMore: true
     }, () => {
       this.getWork();
     });
@@ -138,5 +170,19 @@ Page({
         workList
       });
     })
+  },
+
+  // 滚动奥底部加载
+
+  // 上拉加载
+  onReachBottom() {
+    const { hasMore } = this.data;
+
+    if(!hasMore) {
+      return;
+    }
+
+    this.getWork();
+    
   }
 })

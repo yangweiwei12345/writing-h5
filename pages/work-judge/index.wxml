@@ -20,7 +20,8 @@
       </view>
       <view class="content-header-top-options">
         <view class="content-header-top-opt-hua" bindtap="onSH">
-          <image src="{{flowerCount > 0 ? '../../resource/dp/hua.png' : '../../resource/dp/hua-no.png'}}" style="{{translateStyle}}" class="{{isShake?'animate':''}}" />
+          <!-- style="{{translateStyle}}" -->
+          <image src="{{flowerCount > 0 ? '../../resource/dp/hua.png' : '../../resource/dp/hua-no.png'}}" class="{{isShake?'animate':''}}" />
           <view wx:if="{{flowerCount > 0}}" class="content-header-top-opt-hua-num">
             {{flowerCount}}
           </view>
