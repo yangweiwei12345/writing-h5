@@ -64,6 +64,7 @@ page {
   margin-bottom: 14rpx;
   height: 100rpx;
   border-radius: 8rpx;
+  overflow: hidden;
 }
 .course-content .course-chapter-img {
   width: 100rpx;
@@ -104,7 +105,6 @@ page {
 
 /** 作业列表 */
 .work-list {
-  margin: 0 28rpx;
   margin-top: 30rpx;
   padding-bottom: 180rpx;
 }
@@ -129,7 +129,9 @@ page {
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #333333;
-  line-height: 28rpx;
+  line-height: 22rpx;
+  height: 44rpx;
+  overflow: hidden;
 }
 .work-list-item .list-info .list-info-box {
   display: flex;

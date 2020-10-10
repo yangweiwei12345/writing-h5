@@ -71,7 +71,7 @@
     <view class="work-list">
       <van-row gutter="12">
         <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
-          <view class="work-list-item">
+          <view class="work-list-item" data-id="{{item.work_id}}" bindtap="toWorkDetail">
             <image src="{{item.img_url}}" class="work-item-img" />
             <view class="list-info">
               <view class="list-info-title">{{item.work_remark}}</view>

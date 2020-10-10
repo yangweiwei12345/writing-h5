@@ -19,7 +19,7 @@ Page({
 
     paginaData: {
       page: 1,
-      pageSize: 10
+      pageSize: 20
     },
     workList: [],
     count: 0
@@ -31,11 +31,11 @@ Page({
       }
     }, () => {
       this.getWork();
+      this.getCourseSection();
     });
   },
   onShow: function() {
     setTimeout(() => {
-      this.getCourseSection();
     }, 300);
   },
 
@@ -58,6 +58,17 @@ Page({
       for(let i = len - 1; i >= 0; i--) {
         let chapterItem = chapterList[i];
 
+        // 观看数和视频数相等，并且没有上传过作业
+        if(chapterItem.look_video_num === chapterItem.video_count && chapterItem.have_work === 0) {
+          this.setData({
+            canUploadWork: true
+          });
+        } else {
+          this.setData({
+            canUploadWork: false
+          });
+        }
+
         if(chapterItem.is_clock === 0) {
           this.setData({
             selectChapter: chapterItem
@@ -76,15 +87,6 @@ Page({
               this.setData({
                 selectVideo: videoItem
               })
-              if(j === (videoLen - 1) && chapterItem.have_work === 0) {
-                this.setData({
-                  canUploadWork: true
-                });
-              } else {
-                this.setData({
-                  canUploadWork: false
-                });
-              }
               console.log(videoItem, 'videoItem')
               break;
             }
@@ -130,6 +132,16 @@ Page({
       title: chapterdata.section_title
     })
 
+    if(chapterdata.look_video_num === chapterdata.video_count && chapterdata.have_work === 0) {
+      this.setData({
+        canUploadWork: true
+      });
+    } else {
+      this.setData({
+        canUploadWork: false
+      });
+    }
+
     let videoLen = (chapterdata.video_list || []).length;
     for(let j = videoLen -1; j >= 0; j--) {
       let videoItem = chapterdata.video_list[j];
@@ -139,15 +151,7 @@ Page({
         this.setData({
           selectVideo: videoItem
         })
-        if(j === (videoLen - 1) && chapterdata.have_work === 0) {
-          this.setData({
-            canUploadWork: true
-          });
-        } else {
-          this.setData({
-            canUploadWork: false
-          });
-        }
+        
         console.log(videoItem, 'videoItem')
         break;
       }
@@ -189,6 +193,16 @@ Page({
       url: `/pages/course-upload/index?data=${JSON.stringify(data)}`,
     });
   },
+
+
+  toWorkDetail: function(e) {
+    const { id } = e.currentTarget.dataset;
+
+    wx.navigateTo({
+      url: '/pages/work-detail/index?work_id=' + id
+    })
+  },
+
 
   getWork: function() {
     API.courseWorkList({
