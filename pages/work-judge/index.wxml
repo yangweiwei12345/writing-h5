@@ -37,16 +37,18 @@
   </view>
 
   <!-- 绘图区 -->
-  <view class="work-canvas">
-    <image src="{{workDetail.img_url}}" />
-    <canvas canvas-id="myCanvas" class="myCanvas" catchtouchstart="canvasStart" ></canvas>
-    <view class="work-canvas-options" bindtap="onShowCircle">
-      <image src="../../resource/dp/circle.png" />
-      <view>圈重点</view>
-      <view class="work-canvas-options-dot" wx:if="{{isCircleShow}}">
-        <image src="../../resource/dp/react.png" />
-        <view class="work-canvas-options-dot-green" catch:tap="greenCircle"></view>
-        <view class="work-canvas-options-dot-red" catch:tap="redCircle"></view>
+  <view class="work-canvas-container">
+    <view class="work-canvas" style="width: {{width}}px; height: {{height}}px;">
+      <image src="{{workDetail.img_url}}" bindload="imgLoad" />
+      <canvas wx:if="{{imgLoaded}}"  canvas-id="myCanvas" class="myCanvas" catchtouchstart="canvasStart" ></canvas>
+      <view class="work-canvas-options" bindtap="onShowCircle">
+        <image src="../../resource/dp/circle.png" />
+        <view>圈重点</view>
+        <view class="work-canvas-options-dot" wx:if="{{isCircleShow}}">
+          <image src="../../resource/dp/react.png" />
+          <view class="work-canvas-options-dot-green" catch:tap="greenCircle"></view>
+          <view class="work-canvas-options-dot-red" catch:tap="redCircle"></view>
+        </view>
       </view>
     </view>
   </view>
@@ -64,22 +66,30 @@
           border="{{ false }}"
         />
       </view>
-      <view wx:if="{{recodeStatus !== 2}}" class="work-radio-lz">
+      <view wx:if="{{isFinished}}" class="work-radio-lz" style="background-color: #999;">
         <view class="work-radio-lz-common-text">
-          录制 
-        </view>
-        <view class="work-radio-lz-common-time">
-          {{readyTime}}/0{{time}}:00
-        </view>
-        <image wx:if="{{recodeStatus === 0}}" src="../../resource/dp/dp-play.png" bindtap="startRecorder" />
-        <image wx:if="{{recodeStatus === 1}}" src="../../resource/dp/stop.png" />
-      </view>
-      <view class="work-radio-lz" wx:else>
-        <view class="work-radio-lz-common-text">
-          录制完成
+          录制
         </view>
         <image src="../../resource/dp/dp-play.png" />
       </view>
+      <block wx:else>
+        <view wx:if="{{recodeStatus !== 2}}" class="work-radio-lz">
+          <view class="work-radio-lz-common-text">
+            录制 
+          </view>
+          <view class="work-radio-lz-common-time">
+            {{readyTime}}/0{{time}}:00
+          </view>
+          <image wx:if="{{recodeStatus === 0}}" src="../../resource/dp/dp-play.png" bindtap="startRecorder" />
+          <image wx:if="{{recodeStatus === 1}}" src="../../resource/dp/stop.png" bindtap="stopRecorder" />
+        </view>
+        <view class="work-radio-lz" wx:else>
+          <view class="work-radio-lz-common-text">
+            录制完成
+          </view>
+          <image src="../../resource/dp/dp-play.png" />
+        </view>
+      </block>
     </view>
     <view class="work-radio-right">
       <view class="work-radio-gif-box" bindtap="onShowGif">
@@ -104,7 +114,8 @@
   </view>
 
   <view class="footer">
-    <van-button type="primary" block round color="#FD5252" bindtap="onSubmit">提交点评</van-button>
+    <van-button wx:if="{{!isFinished}}" type="primary" block round color="{{ audioValueUrl ? '#FD5252' : '#999' }}" bindtap="onSubmit">提交点评</van-button>
+    <van-button wx:else type="primary" block round color="#FD5252" bindtap="onEditJudge">修改点评</van-button>
   </view>
 
 </view>

@@ -5,6 +5,7 @@ const API = require('../../config/api.js');
 
 Page({
   data: {
+    statusBarHeight: app.globalData.statusBarHeight,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     // 轮播
     bannerData: [],
@@ -49,7 +50,16 @@ Page({
     this.getBanner();
     this.getNews();
     this.getCourse();
-    this.getWork();
+    this.setData({
+      paginaData: {
+        page: 1,
+        pageSize: 20
+      },
+      workList: [],
+      hasMore: true
+    }, () => {
+      this.getWork();
+    });
   },
 
   getBanner: function() {

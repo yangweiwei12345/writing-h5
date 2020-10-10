@@ -1,10 +1,14 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const Auth = require('../../utils/auth');
 const API = require('../../config/api.js');
 
 Page({
   data: {
+    wxlogin: true,
+    statusBarHeight: app.globalData.statusBarHeight,
+
     pageData: {
       page: 1,
       pageSize: 10
@@ -35,6 +39,47 @@ Page({
         selected: 1
       })
     }
+
+    this.isLogin();
+  },
+
+
+  // 是否登录
+  isLogin: function() {
+    // 是否登录
+    Auth.checkHasLogined()
+      .then(res => {
+        if(res) {
+          this.setData({
+            wxlogin: true
+          }, () => {
+            // 用户登录之后查看当前个人资料是否填写
+            this.getInfoData()
+          });
+        } else {
+          this.setData({
+            wxlogin: false
+          });
+        }
+      }).catch(e => {
+        this.setData({
+          wxlogin: false
+        });
+      })
+  },
+
+  toLogin: function() {
+    this.setData({
+      wxlogin: false
+    });
+  },
+
+  getUserInfoDetail: function() {
+    this.setData({
+      wxlogin: true
+    });
+
+    this.getUserCourseList();
   },
 
   onTabsChange: function(e) {

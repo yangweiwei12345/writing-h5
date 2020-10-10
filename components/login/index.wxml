@@ -1,9 +1,10 @@
 <view class="apifmLogin" hidden="{{wxlogin}}">
   <view class="s-b">
-    <view class="s-l-b">
-      <image src="" />
+    <image src="../../resource/login/logo.png" style="width: 226rpx;height: 278rpx;margin-top: 60rpx;margin-bottom: 34rpx;" />
+    <image src="../../resource/login/title.png" style="width: 514rpx;height: 146rpx;" />
+    <view class="footer-btns">
+      <button style="border: none;width: 50%;background-color: #fff;font-size: 14px;color: #656565;" bindtap="cancelLogin" type="default">暂不登录</button>
+      <button style="border: none;width: 50%;background-color: #fff;font-size: 14px;color: #F77507;" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class="l">立即登录</button>
     </view>
-    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class="l">立即登录</button>
-    <button class="c" bindtap="cancelLogin" type="default">暂不登录</button>
   </view>
 </view>

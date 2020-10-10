@@ -30,8 +30,8 @@
 }
 
 .cover-image {
-  width: 56rpx;
-  height: 56rpx;
+  width: 36rpx;
+  height: 36rpx;
 }
 
 .tab-bar-item cover-view {

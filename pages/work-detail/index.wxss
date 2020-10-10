@@ -426,8 +426,8 @@ page {
   display: flex;
   align-items: center;
   flex: 1;
-  height: 1px;
-  background-color: rgb(255, 131, 159);
+  /* height: 1px; */
+  /* background-color: rgb(255, 131, 159); */
   margin-right: 26rpx;
 }
 .gp-playing .gp-progress .gp-progress-line {
@@ -435,10 +435,13 @@ page {
   position: relative;
   background-color: #fff;
 }
+.slider-custom-class {
+  width: 282rpx;
+}
 .gp-playing .gp-progress .gp-progress-btn {
-  position: absolute;
+  /* position: absolute;
   top: -10rpx;
-  right: -10rpx;
+  right: -10rpx; */
   width: 20rpx;
   height: 20rpx;
   border-radius: 10rpx;

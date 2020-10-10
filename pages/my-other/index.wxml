@@ -1,14 +1,11 @@
 <view class="container">
-  <view class="header">
-    <view style="height: 44rpx;"></view>
-    <view class="content">
-      个人中心
-    </view>
-  </view>
 
   <view class="content-header">
     <view class="content-header-top">
-      <image src="../../resource/my/header.png" class="content-header-top-img" />
+      <view class="content-header-top-img" bindtap="toEditInfo">
+        <image src="../../resource//my/header.png" class="content-header-top-img-b" />
+        <image src="{{userInfo.head_img}}" class="content-header-top-img-t" />
+      </view>
       <view class="content-header-top-box">
         <view class="content-header-top-info">
           <view class="header-box-left">
@@ -17,7 +14,7 @@
           </view>
           <view class="header-box-right">
             <view class="header-box-right-age">{{userInfo.age}}岁</view>
-            <view class="header-box-right-level">二年级</view>
+            <view class="header-box-right-level">{{userInfo.user_class}}</view>
           </view>
         </view>
         <image src="../../resource/my/flag.png" class="header-box-right" />
@@ -27,7 +24,7 @@
     <view class="content-header-bottom">
       <view class="content-header-bottom-item">
         <view class="content-header-bottom-item-num">
-          {{userInfo.work_count}}
+          {{userInfo.user_work_count}}
           <view class="content-header-bottom-item-unit">
             个
           </view>
@@ -36,7 +33,7 @@
       </view>
       <view class="content-header-bottom-item">
         <view class="content-header-bottom-item-num">
-          {{userInfo.work_day}}
+          {{userInfo.user_work_sign_count}}
           <view class="content-header-bottom-item-unit">
             天
           </view>
@@ -45,7 +42,7 @@
       </view>
       <view class="content-header-bottom-item">
         <view class="content-header-bottom-item-num">
-          {{userInfo.work_ranking}}
+          {{userInfo['$user_work_ranking_count']}}
           <view class="content-header-bottom-item-unit">
             次
           </view>
@@ -54,7 +51,7 @@
       </view>
       <view class="content-header-bottom-item">
         <view class="content-header-bottom-item-num">
-          {{userInfo.like_count}}
+          {{userInfo.user_work_like_count}}
           <view class="content-header-bottom-item-unit">
             次
           </view>
@@ -74,10 +71,13 @@
     </van-tabs>
     <view style="width: 100%;height: 22rpx;border-bottom: 2px solid #f4f4f4;"></view>
 
+    <van-empty wx:if="{{workList.length === 0}}" description="暂无数据">
+    </van-empty>
+
     <view class="work-list">
       <van-row gutter="12">
         <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
-          <view class="work-list-item">
+          <view class="work-list-item" data-id="{{item.work_id}}" bindtap="toWorkDetail">
             <image src="{{item.img_url}}" class="work-item-img" />
             <view class="list-info">
               <view class="list-info-title">{{item.work_remark}}</view>

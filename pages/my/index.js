@@ -7,6 +7,7 @@ const API = require('../../config/api.js');
 Page({
   data: {
     wxlogin: true,
+    statusBarHeight: app.globalData.statusBarHeight,
 
     userInfo: {}
   },
@@ -16,7 +17,7 @@ Page({
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
-        selected: 3
+        selected: 2
       })
     }
 
@@ -47,6 +48,12 @@ Page({
       })
   },
 
+  toLogin: function() {
+    this.setData({
+      wxlogin: false
+    });
+  },
+
   toEditInfo: function() {
     if(!this.data.wxlogin) {
       this.setData({
@@ -65,11 +72,15 @@ Page({
    * @returns {any}
    */
   getInfoData: function () {
+    wx.showLoading({
+      title: '请求中...',
+    });
     API.getUserInfo({
     }).then(res => {//成功
       this.setData({
         userInfo: res,
       })
+      wx.hideLoading();
     })
   },
 

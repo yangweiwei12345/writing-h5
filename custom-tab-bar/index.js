@@ -4,8 +4,8 @@ Component({
   options: { addGlobalClass: true },
   data: {
     selected: 0,
-    color: "#7A7E83",
-    selectedColor: "#56a59f",
+    color: "#999",
+    selectedColor: "#ED1843",
     list: [{
       pagePath: "/pages/index/index",
       iconPath: "/resource/nav/home.png",
@@ -20,14 +20,14 @@ Component({
       text: "上课",
       isSpecial: false
     },
-    {
-      pagePath: "/pages/shop/index",
-      iconPath: "/resource/nav/address.png",
-      selectedIconPath: "/resource/nav/address_active.png",
-      text: "商城",
-      isSpecial: false
+    // {
+    //   pagePath: "/pages/shop/index",
+    //   iconPath: "/resource/nav/address.png",
+    //   selectedIconPath: "/resource/nav/address_active.png",
+    //   text: "商城",
+    //   isSpecial: false
 
-    },
+    // },
     {
       pagePath: "/pages/my/index",
       iconPath: "/resource/nav/my.png",

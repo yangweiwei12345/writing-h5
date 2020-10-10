@@ -1,6 +1,6 @@
 <view class="container">
   <view class="header">
-    <view style="height: 44rpx;"></view>
+    <view style="height: {{statusBarHeight}}px;"></view>
     <view class="content">
       <van-tabs
         type="card"
@@ -58,6 +58,7 @@
       没有更多数据了
     </view>
   </view>
-
+  
+  <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
 
 </view>

@@ -6,21 +6,6 @@ page {
   background-color: #f6f6f6;
 }
 
-/** 头部 */
-.container .header {
-  background-color: rgb(255, 144, 89);
-}
-
-.container .content {
-  height: 90rpx;
-  text-align: center;
-  line-height: 90rpx;
-  font-size: 19px;
-  font-family: SourceHanSansCN;
-  font-weight: 500;
-  color: #FFFFFF;
-}
-
 /** 顶部个人信息栏 */
 .content-header {
   height: 386rpx;
@@ -39,6 +24,29 @@ page {
 .content-header-top .content-header-top-img {
   width: 150rpx;
   height: 164rpx;
+  /* background-image: url('../../resource//my/header.png'); */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.content-header-top-img-b {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content-header-top-img-t {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 55rpx;
+  margin-bottom: 5rpx;
+
 }
 .content-header-top .content-header-top-box {
   display: flex;
@@ -128,15 +136,20 @@ page {
   font-size: 12px;
   font-family: SourceHanSansCN;
   font-weight: 400;
-  color: #333333;
+  color: #999;
   margin-top: 18rpx;
   margin-bottom: 12rpx;
 }
 .content-header-bottom-item .content-header-bottom-item-num {
-  font-size: 10px;
+  display: flex;
+  font-size: 19px;
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #333333;
+}
+.content-header-bottom-item .content-header-bottom-item-unit {
+  font-size: 10px;
+  padding-top: 10rpx;
 }
 
 

@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="header">
-    <view style="height: 44rpx;"></view>
+    <view style="height: {{statusBarHeight}}px;"></view>
     <view class="content">
       <van-tabs
         type="card"

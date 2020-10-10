@@ -36,12 +36,6 @@
         "text": "上课"
       },
       {
-        "pagePath": "pages/shop/index",
-        "iconPath": "/resource/nav/address.png",
-        "selectedIconPath": "/resource/nav/address_active.png",
-        "text": "商城"
-      },
-      {
         "pagePath": "pages/my/index",
         "iconPath": "/resource/nav/my.png",
         "selectedIconPath": "/resource/nav/my_active.png",
@@ -90,6 +84,8 @@
     "van-transition": "/miniprogram_npm/@vant/weapp/transition/index",
     "van-picker": "/miniprogram_npm/@vant/weapp/picker/index",
     "van-empty": "/miniprogram_npm/@vant/weapp/empty/index",
+    "van-slider": "/miniprogram_npm/@vant/weapp/slider/index",
+    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index",
     "v-login": "/components/login/index"
   },
   "sitemapLocation": "sitemap.json"

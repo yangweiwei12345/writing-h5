@@ -1,6 +1,6 @@
 <view class="container">
   <view class="header">
-    <view style="height: 44rpx;"></view>
+    <view style="height: {{statusBarHeight}}px;"></view>
     <view class="content">
       个人中心
     </view>
@@ -9,7 +9,7 @@
   </view>
 
   <view class="content-header">
-    <view class="content-header-top">
+    <view wx:if="{{wxlogin}}" class="content-header-top">
       <view class="content-header-top-img" bindtap="toEditInfo">
         <image src="../../resource//my/header.png" class="content-header-top-img-b" />
         <image src="{{userInfo.head_img}}" class="content-header-top-img-t" />
@@ -29,31 +29,46 @@
       </view>
       <image src="../../resource/my/share.png" class="content-header-top-share" />
     </view>
+    <view wx:else class="content-header-top">
+      <view class="content-header-top-img" bindtap="toLogin">
+        <image src="" style="background-color: #f5f5f5;" class="content-header-top-img-t" />
+      </view>
+      <view class="content-header-top-box">
+        <view class="content-header-top-info">
+          <view class="header-box-left">
+            <view class="header-box-left-name">未登录</view>
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-age">点击头像登录</view>
+          </view>
+        </view>
+      </view>
+    </view>
     <view class="content-header-bottom">
       <view class="content-header-bottom-item">
         <image class="image1" src="../../resource/my/my-work.png" />
         <view class="content-header-bottom-item-title">我的作品</view>
-        <view class="content-header-bottom-item-num">({{userInfo.work_count}})</view>
+        <view class="content-header-bottom-item-num">({{userInfo.work_count || 0}})</view>
       </view>
       <view class="content-header-bottom-item">
         <image class="image2" src="../../resource/my/my-day.png" />
         <view class="content-header-bottom-item-title">练字天数</view>
-        <view class="content-header-bottom-item-num">({{userInfo.work_day}})</view>
+        <view class="content-header-bottom-item-num">({{userInfo.work_day || 0}})</view>
       </view>
       <view class="content-header-bottom-item">
         <image class="image3" src="../../resource/my/my-rank.png" />
         <view class="content-header-bottom-item-title">我的登榜</view>
-        <view class="content-header-bottom-item-num">({{userInfo.work_ranking}})</view>
+        <view class="content-header-bottom-item-num">({{userInfo.work_ranking || 0}})</view>
       </view>
       <view class="content-header-bottom-item">
         <image class="image4" src="../../resource/my/my-like.png" />
         <view class="content-header-bottom-item-title">我的点赞</view>
-        <view class="content-header-bottom-item-num">({{userInfo.like_count}})</view>
+        <view class="content-header-bottom-item-num">({{userInfo.like_count || 0}})</view>
       </view>
     </view>
   </view>
 
-  <view class="my-list">
+  <view class="my-list" wx:if="{{wxlogin}}">
     <van-cell
       title="老师教师"
       link-type="navigateTo"
@@ -64,7 +79,7 @@
       <!-- 右侧箭头 -->
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
-    <van-cell title="我的订单" >
+    <!-- <van-cell title="我的订单" >
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-orders.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
@@ -91,7 +106,7 @@
     <van-cell title="意见反馈" >
       <image slot="icon" class="my-list-icon" src="../../resource/my/feedback.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
-    </van-cell>
+    </van-cell> -->
   </view>
 
   <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>

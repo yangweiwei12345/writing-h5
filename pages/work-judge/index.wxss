@@ -108,13 +108,19 @@ page {
 }
 
 /* 作业图片区域 */
-.work-canvas {
+.work-canvas-container {
   width: 694rpx;
-  height: 738rpx;
+  /* height: 738rpx; */
+  display: flex;
+  justify-content: center;
+  margin: 28rpx;
+  background-color: #fff;
+}
+.work-canvas {
   overflow: hidden;
   position: relative; 
   border-radius: 14rpx;
-  margin: 28rpx;
+  margin: 28rpx 0;
 }
 
 .work-canvas image{
@@ -290,6 +296,7 @@ page {
 .footer {
   margin: 0 28rpx;
   margin-top: 26rpx;
+  margin-bottom: 26rpx;
 }
   
 

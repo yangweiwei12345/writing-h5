@@ -21,9 +21,16 @@ App({
         }
       }
     })
+
+    wx.getSystemInfo({
+      success: (res) => {
+          this.globalData.statusBarHeight = res.statusBarHeight
+       }
+    })
   },
   globalData: {
     userInfo: null,
-    courseDetail: {}
+    courseDetail: {},
+    statusBarHeight: 22
   }
 })

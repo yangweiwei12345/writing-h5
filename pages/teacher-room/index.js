@@ -39,6 +39,14 @@ Page({
   onShow: function() {
   },
 
+  // 设置选中已办
+  onSelectPended: function() {
+    this.setData({
+      active: 'pended'
+    }, () => {
+      this.getPendedWorks();
+    });
+  },
 
   // 获取老师详情
   getTeacherInfo: function () {
@@ -95,6 +103,15 @@ Page({
         title: '忽略成功',
         icon: ''
       })
+      this.setData({
+        pendingPage: {
+          page: 1,
+          pageSize: 10
+        },
+        workList: []
+      }, () => {
+        this.getPendingWorks();
+      });
     })
   },
 

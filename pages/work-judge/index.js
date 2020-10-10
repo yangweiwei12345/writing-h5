@@ -81,9 +81,20 @@ Page({
     remark: '',
 
     showGif: false,
+
+    // 图片是否加载完成
+    imgLoaded: false,
+    width: 0,
+    height: 0,
+
+    // 是否已点评
+    isFinished: false
   },
   onLoad: function (options) {
+    const res = wx.getSystemInfoSync();
     this.setData({
+      ix: res.windowWidth,
+      iy: res.windowHeight,
       params: options
     }, () => {
       this.getUserInfo()
@@ -112,6 +123,20 @@ Page({
   onShow: function() {
   },
 
+  // 图片加载完成
+  imgLoad: function(e) {
+    console.log(e.detail);
+    const { width, height } = e.detail;
+    const { ix } = this.data;
+    let w = (ix - rpx2px(108)) * .8;
+    let h = w * height / width;
+    this.setData({
+      imgLoaded: true,
+      width: w,
+      height: h
+    });
+  },
+
   // 获取当前用户信息
   getUserInfo: function () {
     API.otherInfo({
@@ -130,6 +155,7 @@ Page({
     }).then(res => {//成功
       this.setData({
         workDetail: res || {},
+        isFinished: (res || {}).status === 1
       })
     })
   },
@@ -170,7 +196,10 @@ Page({
     });
     //结束播放语音
     recorderManager.onStop(res => {
-      console.log(res, res.duration)
+      if(this.closeRecorder) {
+        this.closeRecorder = false;
+        return;
+      }
       const duration = this.fmtRecoderTime(res.duration); //获取录音时长
       //小程序录音最长2分钟(120秒)
       if (duration >= time * 60) {
@@ -183,8 +212,11 @@ Page({
           recodeStatus: 0,
         })
         return;
+      } else {
+        this.setData({
+          recodeStatus: 2 //结束
+        })
       }
-      console.log(res.tempFilePath)
       this.setData({
         duration: duration,
         audioValue: res.tempFilePath,
@@ -237,12 +269,17 @@ Page({
           } else {
             wx.showToast({
               title: '请授权录音功能',
-              icon: ''
+              icon: 'none'
             })
           }
         }
       });
     }
+  },
+
+  // 停止录音
+  stopRecorder: function() {
+    this.recorderManager.stop();
   },
 
   // 调用录音能力
@@ -264,13 +301,19 @@ Page({
   },
   
   canvasStart:function(e){
-    console.log(e);
+    if(!isStart) {
+      wx.showToast({
+        title: '开始录音才能画重点',
+        icon: 'none'
+      })
+      return;
+    }
     var x = Math.floor(e.touches[0].clientX);
     var y = Math.floor(e.touches[0].clientY);
     date = new Date();
 
-    let offsetX = rpx2px(28);
-    let offsetY = rpx2px(252) - scrollTop;
+    let offsetX = (this.data.sw - this.data.width) / 2;
+    let offsetY = rpx2px(280) - scrollTop;
     moveToX = x - offsetX;
     moveToY = y - offsetY;
     operationType = "mapping";
@@ -306,7 +349,7 @@ Page({
           
         }
       })
-      console.log(this.data.hisDataArr)
+      console.log(JSON.stringify(this.data.hisDataArr));
     }
   },
 
@@ -316,7 +359,7 @@ Page({
     if(!this.data.audioValue) {
       wx.showToast({
         title: '请先录音，再上传',
-        icon: 'error'
+        icon: 'none'
       })
       return
     }
@@ -370,6 +413,7 @@ Page({
     colorStr = "#000";
     operationType = "mapping";
     secondes = 0;
+    context.clearRect(0, 0, this.data.ix * 0.9, this.data.iy * 0.85);//清除多大范围的画布
 
     this.setData({
       audioValue: "", //录音内容
@@ -424,6 +468,11 @@ Page({
       isFly: false,
       flowerCount: 0
     });
+    this.casFlowerCount();
+
+    // 关闭录音
+    this.closeRecorder = true;
+    this.recorderManager.stop();
   },
 
   // 计时器
@@ -450,7 +499,7 @@ Page({
       if (!this.data.audioValue) {
         wx.showToast({
           title: '请先录音',
-          icon: ''
+          icon: 'none'
         })
         return;
       }
@@ -549,6 +598,14 @@ Page({
 
   // 送花
   onSH: function (events) {
+    if(!isStart) {
+      wx.showToast({
+        title: '开始录音才能送花',
+        icon: 'none'
+      })
+      return;
+    }
+
     //防止快速点击
     if (this.data.isFly) {
       return;
@@ -613,6 +670,13 @@ Page({
   },
 
   onShowGif: function() {
+    if(!isStart) {
+      wx.showToast({
+        title: '开始录音才能展示GIF',
+        icon: 'none'
+      })
+      return;
+    }
     this.setData({
       showGif: !this.data.showGif
     }, () => {
@@ -639,7 +703,7 @@ Page({
     if(!audioValueUrl) {
       wx.showToast({
         title: '请先上传录音',
-        icon: ''
+        icon: 'none'
       })
       return
     }
@@ -651,7 +715,6 @@ Page({
       remark,
       is_ranking: isRank ? 1 : 0,
     };
-    console.log(data);
 
     wx.showLoading({
       title: '正在提交...',
@@ -660,8 +723,11 @@ Page({
       .then(res => {
         wx.showToast({
           title: '提交成功',
-          icon: ''
         });
+        onSelectPended
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 2]; //上一个页面
+        prevPage.onSelectPended();
         wx.navigateBack({
           delta: 1
         });
@@ -674,5 +740,11 @@ Page({
       //   })
       //   wx.hideLoading()
       // })
+  },
+
+  onEditJudge: function() {
+    this.setData({
+      isFinished: false
+    });
   }
 })

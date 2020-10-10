@@ -4,6 +4,6 @@
   <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
     <cover-image wx:if="{{item.isSpecial != null && item.isSpecial == true}}" src="{{item.iconPath}}" class='centerImage'></cover-image>
     <cover-image wx:else class='cover-image' src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
-    <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
+    <cover-view style="margin-top: 10rpx;color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
   </cover-view>
 </cover-view>
