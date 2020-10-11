@@ -6,7 +6,7 @@
       <view wx:if="{{!share}}" class="header-back" bindtap="goBack">
         <image src="../../resource/dp/back.png" />
       </view>
-      <view class="header-home" bindtap="goHome">
+      <view wx:else class="header-home" bindtap="goHome">
         <image src="../../resource/home/home.png"  />
       </view>
       作品详情

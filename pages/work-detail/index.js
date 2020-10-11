@@ -119,7 +119,7 @@ Page({
 
   goHome: function() {
     wx.switchTab({
-      url: '/pages/home/index'
+      url: '/pages/index/index'
     });
   },
 

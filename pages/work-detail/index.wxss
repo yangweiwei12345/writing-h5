@@ -53,7 +53,7 @@ page {
 .header-home {
   position: absolute;
   top: 15rpx;
-  left: 0;
+  left: 15rpx;
   width: 60rpx;
   height: 60rpx;
   display: flex;
