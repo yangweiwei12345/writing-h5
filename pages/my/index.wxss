@@ -124,6 +124,10 @@ page {
   height: 74rpx;
 }
 
+.content-header-top button::after {
+  border: none !important;
+}
+
 .content-header-bottom {
   display: flex;
   align-items: center;

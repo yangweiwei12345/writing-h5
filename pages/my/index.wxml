@@ -27,7 +27,9 @@
         </view>
         <image src="../../resource/my/flag.png" class="header-box-right" />
       </view>
-      <image src="../../resource/my/share.png" class="content-header-top-share" />
+      <button open-type="share" style="background-color: transparent;width: 74rpx;height: 74rpx;padding-left: 0;padding-right: 0;">
+        <image src="../../resource/my/share.png" class="content-header-top-share" />
+      </button>
     </view>
     <view wx:else class="content-header-top">
       <view class="content-header-top-img" bindtap="toLogin">
@@ -70,6 +72,7 @@
 
   <view class="my-list" wx:if="{{wxlogin}}">
     <van-cell
+      wx:if="{{userInfo.type === 1}}"
       title="老师教师"
       link-type="navigateTo"
       url="/pages/teacher-room/index?user_id={{userInfo.user_id}}"

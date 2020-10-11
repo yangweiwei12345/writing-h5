@@ -19,7 +19,9 @@
         </view>
         <image src="../../resource/my/flag.png" class="header-box-right" />
       </view>
-      <image src="../../resource/my/share.png" class="content-header-top-share" />
+      <button open-type="share" style="background-color: transparent;width: 74rpx;height: 74rpx;padding-left: 0;padding-right: 0;">
+        <image src="../../resource/my/share.png" class="content-header-top-share" />
+      </button>
     </view>
     <view class="content-header-bottom">
       <view class="content-header-bottom-item">

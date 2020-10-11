@@ -95,6 +95,9 @@ page {
   width: 74rpx;
   height: 74rpx;
 }
+.content-header-top button::after {
+  border: none !important;
+}
 
 .content-header-bottom {
   display: flex;
@@ -149,7 +152,7 @@ page {
 }
 .content-header-bottom-item .content-header-bottom-item-unit {
   font-size: 10px;
-  padding-top: 10rpx;
+  padding-top: 17rpx;
 }
 
 
