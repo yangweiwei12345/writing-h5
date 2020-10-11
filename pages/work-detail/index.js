@@ -156,7 +156,9 @@ Page({
     innerAudioContext.onEnded(() => {
       this.setData({
         playStatus: 0,
-        progressW: 0
+        progressW: 0,
+        showGif: false,
+        huaCount: 0
       });
       this.data.innerAudioContext.paused;
     });

@@ -724,7 +724,6 @@ Page({
         wx.showToast({
           title: '提交成功',
         });
-        onSelectPended
         var pages = getCurrentPages();
         var prevPage = pages[pages.length - 2]; //上一个页面
         prevPage.onSelectPended();
