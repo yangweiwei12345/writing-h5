@@ -128,17 +128,38 @@ Page({
 
   // 图片加载完成
   imgLoad: function(e) {
+    // const { width, height } = e.detail;
+    // const { ix, iy } = this.data;
+    // let h = (iy - rpx2px(360));
+    // // let w = (ix - rpx2px(108)) * .8;
+    // // let h = w * height / width;
+    // let w = h * width / height;
+
+    // this.setData({
+    //   imgLoaded: true,
+    //   width: w,
+    //   height: h
+    // });
+
     const { width, height } = e.detail;
-    const { ix } = this.data;
-    let w = (ix - rpx2px(108)) * .8;
-    let h = w * height / width;
+    const { ix, iy } = this.data;
+    let maxWidth = ix - rpx2px(56);
+    // let h = (iy - rpx2px(480));
+    let h = iy / 2;
+    let w = h * width / height;
+    console.log(iy, h, maxWidth, w)
+
+    if(maxWidth < w) {
+      w = maxWidth;
+      h = w * width / height;
+    }
+
     this.setData({
       imgLoaded: true,
       width: w,
       height: h
     });
 
-    console.log(w, h)
   },
 
   // 获取当前用户信息

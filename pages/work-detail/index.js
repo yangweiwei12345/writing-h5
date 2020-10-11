@@ -44,7 +44,6 @@ Page({
 
   onLoad: function (options) {
     const res = wx.getSystemInfoSync();
-    console.log(res);
     this.setData({
       ix: res.screenWidth,
       iy: res.screenHeight,
@@ -95,10 +94,30 @@ Page({
 
   // 图片加载完成
   imgLoad: function(e) {
+    // const { width, height } = e.detail;
+    // const { ix } = this.data;
+    // let w = (ix - rpx2px(108)) * .8;
+    // let h = w * height / width;
+    // this.setData({
+    //   imgLoaded: true,
+    //   width: w,
+    //   height: h
+    // });
+
     const { width, height } = e.detail;
-    const { ix } = this.data;
-    let w = (ix - rpx2px(108)) * .8;
-    let h = w * height / width;
+    const { ix, iy } = this.data;
+    let maxWidth = ix - rpx2px(150);
+    let h = (iy - rpx2px(600));
+    let w = h * width / height;
+
+    if(maxWidth < w) {
+      w = maxWidth;
+      h = w * width / height;
+    }
+    
+    // let w = (ix - rpx2px(108)) * .8;
+    // let h = w * height / width;
+
     this.setData({
       imgLoaded: true,
       width: w,
@@ -168,7 +187,6 @@ Page({
       if(this.audioLock) return;
       let duration = innerAudioContext.duration,
         currentTime = innerAudioContext.currentTime;
-        console.log(duration, currentTime)
 
       let radio = currentTime / duration;
       this.setData({
@@ -420,10 +438,8 @@ Page({
           case "circle":
             context.setStrokeStyle(item.lineArr.colorStr);
             if(item.lineArr.colorStr == "red"){
-              console.log(item.lineArr.startX *that.data.width, item.lineArr.startY *that.data.height)
               context.arc(item.lineArr.startX *that.data.width, item.lineArr.startY *that.data.height , 13, 0, 2 * Math.PI);
             }else{
-              console.log(item.lineArr.startX *that.data.width, item.lineArr.startY *that.data.height)
               context.arc(item.lineArr.startX *that.data.width, item.lineArr.startY *that.data.height , 15, 0, 2 * Math.PI);
             }
   

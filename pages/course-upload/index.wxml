@@ -3,11 +3,14 @@
   <view class="header">
     请勿上传无练字无关照片
   </view>
+  <view style="display: flex;justify-content: center;margin: 20rpx;font-size: 12px;color: #f00;">
+    提示：不要横屏拍照
+  </view>
   <camera 
     device-position="back" 
     flash="auto" 
     binderror="error" 
-    style="width: 80%; margin-left: 10%; height: {{height}}px;">
+    style="width: 75%; margin-left: 12.5%; height: {{height}}px;">
   </camera>
   <view class="tooltip">
     为避免重复评论，请注明作业日期

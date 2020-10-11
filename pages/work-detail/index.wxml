@@ -35,7 +35,7 @@
       </view>
       <image src="{{workDetail.font_img}}" class="content-header-top-share" />
     </view>
-    <view style="width: {{width}}px; height: {{height}}px;margin-left: 10%;margin-top: 30rpx;position: relative;">
+    <view style="width: {{width}}px; height: {{height}}px;margin: 0 auto;margin-top: 30rpx;position: relative;">
       <image src="{{workDetail.img_url}}" style="width: 100%; height: 100%;" bindload="imgLoad" />
       <canvas wx:if="{{imgLoaded}}" style="position: absolute;top:0;left:0;width: 100%; height: 100%;" canvas-id='myCanvas' class="myCanvas"></canvas>
       <view wx:if="{{workDetail.is_ranking === 1}}" style="position: absolute;top: 42rpx;right: 0;width: 154rpx;height: 60rpx;dispaly: flex;align-items: center;justify-content: center;font-size: 19rpx;color: #fff;background-color: #FF3755;">

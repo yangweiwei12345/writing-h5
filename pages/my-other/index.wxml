@@ -94,7 +94,7 @@
               <image wx:else src="../../resource/home/heart-active.png" />
               <text class="list-info-like-num">{{item.like_num}}</text>
             </view>
-            <image src="../../resource/home/pj.png" class="list-info-pj" />
+            <image wx:if="{{item.status === 1}}" src="../../resource/home/pj.png" class="list-info-pj" />
           </view>
         </van-col>
       </van-row>

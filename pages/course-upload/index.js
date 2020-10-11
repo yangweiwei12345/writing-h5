@@ -15,7 +15,7 @@ Page({
     });
     try {
       const res = wx.getSystemInfoSync();
-      let h = res.windowHeight - 200;
+      let h = res.windowHeight - 230;
       this.setData({
         height: h
       });
