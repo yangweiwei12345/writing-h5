@@ -21,7 +21,7 @@ Page({
     },
     count: 0,
 
-    active: 'newUpload',
+    active: 'newComment',
     hasMore: true
   },
   loadWork: false,
@@ -103,12 +103,12 @@ Page({
       loading: true
     });
     this.loadWork = true;
-    wx.showLoading({
-      title: '加载中...',
-    });
+    // wx.showLoading({
+    //   title: '加载中...',
+    // });
     let params = {
       ...this.data.paginaData,
-      status: this.data.active === 'newUpload' ? '0' : '1'
+      status: this.data.active === 'newUpload' ? '2' : '1'
     };
     if(this.data.active === 'newComment') {
       params.sort = 2;
@@ -126,7 +126,7 @@ Page({
       this.setData({
         hasMore,
         workList: workList.concat(data),
-        count: res && res.count || 0,
+        count: res && res.workCount || 0,
         loading: false,
         paginaData: {
           ...paginaData,

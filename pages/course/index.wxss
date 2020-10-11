@@ -139,6 +139,11 @@ page {
 .course-data-box .course-data-title {
   font-size: 14px;
   color: #333;
+  width: 478rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
 }
 .course-data-box .course-data-sub-title {
   font-size: 11px;

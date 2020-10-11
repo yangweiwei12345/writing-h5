@@ -29,7 +29,7 @@
     indicator-color="#fff"
     indicator-active-color="rgb(255,75,3)"
   >
-    <block wx:for="{{bannerData}}" id="id">
+    <block wx:for="{{bannerData}}" wx:key="id">
       <swiper-item>
         <view class="swiper-item" data-type="{{item.banner_type}}" data-link="{{item.url}}" bindtap="toNew">
           <image class="swiper-image" mode="widthFix" src="{{item.image_url}}" />
@@ -48,7 +48,7 @@
   </view>
 
   <view class="course-list">
-    <view class="course-item" wx:for="{{courseList}}" id="course_id" data-id="{{item.course_id}}">
+    <view class="course-item" wx:for="{{courseList}}" wx:key="course_id" data-id="{{item.course_id}}">
       <image src="{{item.ad_img}}" />
       <view class="course-content">
         <text class="course-title">{{item.title}}</text>
@@ -67,8 +67,8 @@
     </view>
 
     <van-tabs active="{{active}}" bind:change="onChange" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
-      <van-tab title="最新上传" name="newUpload"></van-tab>
       <van-tab title="最新点评" name="newComment"></van-tab>
+      <van-tab title="最新上传" name="newUpload"></van-tab>
     </van-tabs>
     <view style="width: 100%;height: 22rpx;border-bottom: 2px solid #f4f4f4;"></view>
 
@@ -76,7 +76,7 @@
     </van-empty>
 
 
-    <view class="notice-container" wx:if="{{workList.length > 0 && active === 'newUpload'}}">
+    <view class="notice-container" wx:if="{{workList.length > 0}}">
       <view class="notice-left">
         <image src="../../resource/home/notice.png" />
         <view class="notice-left-name">
@@ -96,7 +96,7 @@
     <view class="work-list">
 
       <van-row gutter="12">
-        <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
+        <van-col span="12" wx:for="{{workList || []}}" wx:key="work_id">
           <view class="work-list-item" data-id="{{item.work_id}}" bindtap="toWorkDetail">
             <image src="{{item.img_url}}" mode="aspectFill" class="work-item-img" />
             <view class="list-info">
