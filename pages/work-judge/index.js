@@ -242,6 +242,25 @@ Page({
       console.log(this.closeRecorder);
       if(this.closeRecorder) {
         this.closeRecorder = false;
+        if (duration >= time * 60) {
+          // this.tip('录音时间不能超过120"');
+          this.setData({
+            recodeStatus: 2 //结束
+          })
+        } else if (duration < 1) {
+          this.setData({
+            recodeStatus: 0,
+          })
+          return;
+        } else {
+          this.setData({
+            recodeStatus: 2 //结束
+          })
+        }
+        this.setData({
+          isStart: false
+        })
+        timer && clearTimeout(timer);
         return;
       }
       const duration = this.fmtRecoderTime(res.duration); //获取录音时长
