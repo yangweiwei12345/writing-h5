@@ -52,7 +52,7 @@
   >
     <block wx:for="{{bannerData}}" wx:key="id">
       <swiper-item>
-        <view class="swiper-item" data-type="{{item.banner_type}}" data-link="{{item.url}}" bindtap="toBanner">
+        <view class="swiper-item" data-type="{{item.banner_type}}" data-link="{{item.url}}" data-title="{{item.title}}" bindtap="toBanner">
           <image class="swiper-image" mode="widthFix" src="{{item.image_url}}" />
         </view>
       </swiper-item>
