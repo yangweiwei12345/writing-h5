@@ -28,7 +28,7 @@ Page({
 
     hasMore: true,
 
-    showModal: true
+    showModal: false
   },
   onLoad: function (options) {
     this.setData({
