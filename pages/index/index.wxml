@@ -49,7 +49,7 @@
 
   <view class="course-list">
     <view class="course-item" wx:for="{{courseList}}" wx:key="course_id" data-id="{{item.course_id}}">
-      <image src="{{item.ad_img}}" />
+      <image lazy-load="{{true}}" src="{{item.ad_img}}" />
       <view class="course-content">
         <text class="course-title">{{item.title}}</text>
         <text class="course-sub-title">{{item.subtitle}}</text>

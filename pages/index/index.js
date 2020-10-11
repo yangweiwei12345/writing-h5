@@ -147,15 +147,20 @@ Page({
   onChange: function(e) {
     this.setData({
       active: e.detail.name,
-      paginaData: {
-        page: 1,
-        pageSize: 20
-      },
-      workList: [],
-      hasMore: true
-    }, () => {
-      this.getWork();
     });
+    setTimeout(() => {
+      this.setData({
+        paginaData: {
+          page: 1,
+          pageSize: 20
+        },
+        workList: [],
+        hasMore: true
+      }, () => {
+        this.getWork();
+      });
+    }, 300);
+    
   },
 
   toWorkDetail: function(e) {
