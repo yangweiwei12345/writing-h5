@@ -45,9 +45,11 @@ Page({
     setTimeout(() => {
       console.log('动画完成')
 
+      console.log(is_clock);
       if(is_clock === 1) {
         var pages = getCurrentPages();
         var prevPage = pages[pages.length - 3]; //上一个页面
+        console.log(prevPage);
         prevPage.lookFinish();
       }
 
@@ -80,6 +82,7 @@ Page({
       //   url: `/pages/course-success/index`,
       // });
       this.submit();
+      console.log(res);
       this.onShowClick(res.is_clock);
       wx.hideLoading();
     }).catch(err => {

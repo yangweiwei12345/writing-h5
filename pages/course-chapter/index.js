@@ -134,7 +134,8 @@ Page({
           this.setData({
             canUploadWork: true
           });
-          // this.onShowModal();
+
+          this.onShowModal();
         } else {
           this.setData({
             canUploadWork: false
@@ -386,10 +387,14 @@ Page({
   },
 
   lookFinish: function() {
-    Dialog.alert({
-      message: '你今日学习次数已上限，请复习之前学习过的视频吧',
-    }).then(() => {
-    });
+    console.log('test');
+    setTimeout(() => {
+      Dialog.alert({
+        message: '你今日学习次数已上限，请复习之前学习过的视频吧',
+      }).then(() => {
+      });
+    }, 300)
+
   }
 
 })

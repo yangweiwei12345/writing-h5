@@ -239,6 +239,7 @@ Page({
     });
     //结束播放语音
     recorderManager.onStop(res => {
+      console.log(this.closeRecorder);
       if(this.closeRecorder) {
         this.closeRecorder = false;
         return;
