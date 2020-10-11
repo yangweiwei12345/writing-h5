@@ -82,7 +82,7 @@
             {{readyTime}}/0{{time}}:00
           </view>
           <image wx:if="{{recodeStatus === 0}}" src="../../resource/dp/dp-play.png" bindtap="startRecorder" />
-          <image wx:if="{{recodeStatus === 1}}" src="../../resource/dp/stop.png" bindtap="stopRecorder" />
+          <image style="width: 40rpx;height: 42rpx;" wx:if="{{recodeStatus === 1}}" src="../../resource/dp/stop.png" bindtap="stopRecorder" />
         </view>
         <view class="work-radio-lz" wx:else>
           <view class="work-radio-lz-common-text">
