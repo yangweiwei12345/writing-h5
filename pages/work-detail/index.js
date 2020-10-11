@@ -462,5 +462,14 @@ Page({
     })
   },
 
+  onShareAppMessage: function() {
+    const { workDetail } = this.data;
+    return {
+      title: `快来给@${workDetail.nick_name}的作品点赞，TA已练字${workDetail.userCoinageCount}天`,
+      path: `/pages/woek-detail-index?work_id=${workDetail.work_id}`,
+      imageUrl: workDetail.img_url
+    };
+  }
+
 
 })

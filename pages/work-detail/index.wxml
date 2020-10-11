@@ -62,7 +62,7 @@
   <view class="footer">
     <view class="footer-head">
       <image src="{{workDetail.t_head_img}}" />
-      <view class="footer-head-name">{{workDetail.t_nick_name}}</view>
+      <view class="footer-head-name">{{workDetail.t_nick_name || '考拉熊老师'}}</view>
     </view>
     <view class="footer-radio">
       <!-- 老师未点评 -->
@@ -98,7 +98,7 @@
     </view>
     <view class="footer-right">
       <view class="footer-share">
-        <image src="../../resource/my/share.png" />
+        <button open-type="share" style="background-color: transparent;width: 80rpx;height: 80rpx;border-radius: 40rpx;padding-left: 0;padding-right: 0;"><image src="../../resource/my/share.png" /></button>
         <view class="footer-share-text">{{workDetail.share_num}}</view>
       </view>
       <view class="footer-like" data-id="{{workDetail.work_id}}" bindtap="onLikeClick">

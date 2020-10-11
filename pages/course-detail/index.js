@@ -21,7 +21,12 @@ Page({
   onShow: function() {},
 
   toChapter: function(e) {
-    const { weekid, weeknum } = e.currentTarget.dataset;
+    const { weekid, weeknum, clock } = e.currentTarget.dataset;
+
+    if(clock != 0) {
+      return;
+    }
+
     wx.navigateTo({
       url: `/pages/course-chapter/index?weekId=${weekid}&weekNum=${weeknum}&courseId=${this.data.courseId}`
     });

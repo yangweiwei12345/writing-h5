@@ -353,6 +353,7 @@ page {
   margin: 0 20rpx;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 .footer-head image {
@@ -464,6 +465,9 @@ page {
   height: 80rpx;
   border-radius: 40rpx;
   background-color: #e5e5ee;
+}
+.footer-share button::after {
+  border: none !important;
 }
 .footer-share .footer-share-text {
   text-align: center;

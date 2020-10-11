@@ -24,6 +24,7 @@ Page({
     active: 'newUpload',
     hasMore: true
   },
+  loadWork: false,
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -94,16 +95,25 @@ Page({
   },
 
   getWork: function() {
+    if(this.loadWork) return;
+
     this.setData({
       loading: true
     });
+    this.loadWork = true;
     wx.showLoading({
       title: '加载中...',
     });
-    API.courseWorkList({
+    let params = {
       ...this.data.paginaData,
       status: this.data.active === 'newUpload' ? '0' : '1'
-    }).then(res => {//成功
+    };
+    if(this.data.active === 'newComment') {
+      params.sort = 2;
+    }
+    API.courseWorkList(
+      params
+    ).then(res => {//成功
       let data = res && res.rows || [];
       let hasMore = true;
       let { workList, paginaData } = this.data;
@@ -121,11 +131,13 @@ Page({
           page: paginaData.page + 1
         }
       })
+      this.loadWork = false;
       wx.hideLoading();
     }).catch(e => {
       this.setData({
         loading: false
       });
+      this.loadWork = false;
       wx.hideLoading();
     })
   },
@@ -153,13 +165,13 @@ Page({
   },
 
   toNew: function(e) {
-    const { link, type } = e.currentTarget.dataset;
+    const { link, type, title } = e.currentTarget.dataset;
 
     if(type == 1) {
       return;
     } else if(type == 2) {
       wx.navigateTo({
-        url: '/pages/webview/index?url=' + link
+        url: '/pages/webview/index?url=' + link + '&title=' + title
       })
     }
   },

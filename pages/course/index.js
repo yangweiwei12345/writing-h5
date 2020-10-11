@@ -29,8 +29,6 @@ Page({
     courseHaveMore: true
   },
   onLoad: function () {
-    this.getUserCourseList();
-    this.getCourseList();
   },
   onShow: function() {
     if (typeof this.getTabBar === 'function' &&
@@ -43,7 +41,6 @@ Page({
     this.isLogin();
   },
 
-
   // 是否登录
   isLogin: function() {
     // 是否登录
@@ -51,10 +48,24 @@ Page({
       .then(res => {
         if(res) {
           this.setData({
-            wxlogin: true
+            courseList: [],
+            userCourseList: [],
+            pageData: {
+              page: 1,
+              pageSize: 10
+            },
+            userPageData: {
+              page: 1,
+              pageSize: 10
+            },
+            userCourseHaveMore: true,
+            courseHaveMore: true
           }, () => {
-            // 用户登录之后查看当前个人资料是否填写
-            this.getInfoData()
+            this.getUserCourseList();
+            this.getCourseList();
+          })
+          this.setData({
+            wxlogin: true
           });
         } else {
           this.setData({

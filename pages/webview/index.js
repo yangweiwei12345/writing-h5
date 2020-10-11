@@ -8,6 +8,10 @@ Page({
     this.setData({
       src: options.url
     });
+    // 设置标题
+    wx.setNavigationBarTitle({
+      title: options.title || '新闻'
+    })
     wx.showLoading({
       title: "正在加载...",
       success: (result)=>{

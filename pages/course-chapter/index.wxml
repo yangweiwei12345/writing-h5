@@ -68,6 +68,9 @@
       </view>
     </view>
 
+    <van-empty wx:if="{{workList.length === 0}}" description="暂无数据">
+    </van-empty>
+
     <view class="work-list">
       <van-row gutter="12">
         <van-col span="12" wx:for="{{workList || []}}" wx:key="index">

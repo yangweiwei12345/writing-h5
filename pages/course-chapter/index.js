@@ -22,7 +22,9 @@ Page({
       pageSize: 20
     },
     workList: [],
-    count: 0
+    count: 0,
+
+    hasMore: true
   },
   onLoad: function (options) {
     this.setData({
@@ -30,7 +32,6 @@ Page({
         ...options
       }
     }, () => {
-      this.getWork();
       this.getCourseSection();
     });
   },
@@ -71,7 +72,16 @@ Page({
 
         if(chapterItem.is_clock === 0) {
           this.setData({
-            selectChapter: chapterItem
+            selectChapter: chapterItem,
+            hasMore: true,
+            workList: [],
+            count: 0,
+            paginaData: {
+              page: 1,
+              pageSize: 20
+            }
+          }, () => {
+            this.getWork();
           });
           wx.setNavigationBarTitle({
             title: chapterItem.section_title
@@ -126,7 +136,16 @@ Page({
 
     this.setData({
       selectChapter: chapterdata,
-      isShow: false
+      isShow: false,
+      hasMore: true,
+      workList: [],
+      count: 0,
+      paginaData: {
+        page: 1,
+        pageSize: 20
+      }
+    }, () => {
+      this.getWork();
     });
     wx.setNavigationBarTitle({
       title: chapterdata.section_title
@@ -203,16 +222,28 @@ Page({
     })
   },
 
-
   getWork: function() {
     API.courseWorkList({
       ...this.data.paginaData,
-      section_id: this.data.params.section_id
+      section_id: this.data.selectChapter.section_id
     }).then(res => {//成功
+      let data = res && res.rows || [];
+      let hasMore = true;
+      let { workList, paginaData } = this.data;
+
+      if(data.length < paginaData.pageSize) {
+        hasMore = false; 
+      }
       this.setData({
-        workList: res && res.rows || [],
-        count: res && res.count || 0
+        hasMore,
+        workList: workList.concat(data),
+        count: res && res.count || 0,
+        paginaData: {
+          ...paginaData,
+          page: paginaData.page + 1
+        }
       })
+
     })
   },
 
@@ -232,6 +263,18 @@ Page({
         workList
       });
     })
+  },
+
+  // 上拉加载
+  onReachBottom() {
+    const { hasMore } = this.data;
+
+    if(!hasMore) {
+      return;
+    }
+
+    this.getWork();
+    
   }
 
 })

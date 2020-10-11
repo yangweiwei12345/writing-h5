@@ -44,7 +44,7 @@
       <!-- <text class="new-text-item1">童真童趣 </text> -->
       <text class="new-text-item2">{{newsData.title}}</text>
     </view>
-    <van-button data-type="{{newsData.type}}" data-link="{{newsData.link}}" bindtap="toNew" custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252">立即查看</van-button>
+    <van-button data-title="{{newsData.title}}" data-type="{{newsData.type}}" data-link="{{newsData.link}}" bindtap="toNew" custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252">立即查看</van-button>
   </view>
 
   <view class="course-list">
@@ -98,12 +98,12 @@
       <van-row gutter="12">
         <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
           <view class="work-list-item" data-id="{{item.work_id}}" bindtap="toWorkDetail">
-            <image src="{{item.img_url}}" class="work-item-img" />
+            <image src="{{item.img_url}}" mode="aspectFill" class="work-item-img" />
             <view class="list-info">
               <view class="list-info-title">{{item.work_remark}}</view>
               <view class="list-info-box">
                 <image src="{{item.head_img}}" />
-                <text class="list-info-text">{{item.nick_name}}</text>
+                <text class="list-info-text">{{item.nick_name}}移动桑拿房电视剧啊反馈电视卡</text>
                 <text class="list-info-time">{{item.create_time}}</text>
               </view>
             </view>

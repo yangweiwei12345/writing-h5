@@ -142,6 +142,12 @@ page {
   font-weight: 400;
   color: #333333;
   margin-bottom: 14rpx;
+  width: 350rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+
 }
 .course-content .course-desc {
   font-size: 12px;
@@ -256,13 +262,16 @@ page {
   padding: 0 16rpx 16rpx 16rpx;
 }
 .work-list-item .list-info .list-info-title {
-  font-size: 10px;
+  font-size: 20rpx;
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #333333;
   line-height: 22rpx;
   height: 44rpx;
   overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow:ellipsis;
+  -webkit-line-clamp: 2;
 }
 .work-list-item .list-info .list-info-box {
   display: flex;
@@ -275,6 +284,11 @@ page {
   font-weight: 400;
   color: #333333;
   margin: 0 12rpx;
+  flex: 1;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
 }
 .work-list-item .list-info .list-info-box .list-info-time {
   font-size: 10px;
@@ -293,7 +307,7 @@ page {
   align-items: center;
   height: 36rpx;
   border-radius: 36rpx;
-  padding: 6rpx 12rpx;
+  padding: 6rpx 18rpx;
   position: absolute;
   top: 18rpx;
   right: 20rpx;
@@ -302,7 +316,7 @@ page {
 .work-list-item .list-info-like image {
   width: 26rpx;
   height: 24rpx;
-  margin-right: 6rpx;
+  margin-right: 12rpx;
 }
 .work-list-item .list-info-like .list-info-like-num {
   font-size: 10px;

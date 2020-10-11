@@ -65,6 +65,7 @@ page {
   flex-direction: column;
   justify-content: center;
   margin-left: 24rpx;
+  width: 100%;
 }
 .course-list-box .course-list-title {
   font-size: 16px;
@@ -80,7 +81,13 @@ page {
   font-weight: 400;
   color: #666666;
   margin-bottom: 44rpx;
-  height: 20rpx;
+  height: 30rpx;
+
+  width: 488rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
 }
 .course-list-box .course-list-info {
   font-size: 10px;
@@ -127,6 +134,7 @@ page {
   flex-direction: column;
   justify-content: center;
   margin-left: 30rpx;
+  flex: 1;
 }
 .course-data-box .course-data-title {
   font-size: 14px;
@@ -135,4 +143,10 @@ page {
 .course-data-box .course-data-sub-title {
   font-size: 11px;
   color: #999;
+
+  width: 478rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
 }

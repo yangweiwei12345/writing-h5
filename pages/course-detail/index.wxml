@@ -14,6 +14,7 @@
       wx:key="index" 
       data-weekId="{{item.week_id}}" 
       data-weekNum="{{item.week_num}}"
+      data-clock="{{item.is_clock}}"
       bindtap="toChapter"
     >
       <image class="list-item-img" src="{{item.main_img}}" />
