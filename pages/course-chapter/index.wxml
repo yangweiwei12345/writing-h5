@@ -21,7 +21,7 @@
             <view style="text-align: center;">第{{WEEKS[params.weekNum]}}周</view>
             <view class="course-content">
               <block wx:for="{{chapterList || []}}" wx:key="index">
-                <view class="course-item" wx:if="{{item.is_clock === 0}}" data-chapterdata="{{item}}" bindtap="onSelectChapter">
+                <view class="course-item" wx:if="{{item.is_clock === 0}}" data-chapterdata="{{item}}" data-index="{{index}}" bindtap="onSelectChapter">
                   <image src="{{item.font_img}}" class="course-chapter-img" />
                   <image wx:if="{{item.section_id === selectChapter.section_id}}" src="../../resource/course/play.png" class="course-chapter-video" />
                 </view>
@@ -39,7 +39,7 @@
     </view>
     <view class="course-content">
       <block wx:for="{{selectChapter.video_list || []}}" wx:key="index">
-        <view class="course-item" wx:if="{{item.is_clock === 0}}" data-videodata="{{item}}" bindtap="onSelectVideo">
+        <view class="course-item" wx:if="{{item.is_clock === 0}}" data-videodata="{{item}}" data-index="{{index}}" bindtap="onSelectVideo">
           <image src="{{item.video_small_img}}" class="course-chapter-img" />
           <image wx:if="{{item.video_id === selectVideo.video_id}}" src="../../resource/course/play.png" class="course-chapter-video" />
         </view>

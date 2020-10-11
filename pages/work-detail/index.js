@@ -134,7 +134,7 @@ Page({
 
     if(maxWidth < w) {
       w = maxWidth;
-      h = w * width / height;
+      h = w * height / width;
     }
     
     // let w = (ix - rpx2px(108)) * .8;

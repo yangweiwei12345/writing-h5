@@ -1,6 +1,7 @@
 //index.js
 const API = require('../../config/api.js');
 const config = require('../../config/config.js');
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 
 Page({
   data: {
@@ -9,10 +10,8 @@ Page({
     chapterList: [],
     // 当前选中节数
     selectChapter: {},
-    selectChapterIndex: '',
     // 选中的视频
     selectVideo: {},
-    selectVideoIndex: '',
 
     WEEKS: config.WEEKS,
 
@@ -30,6 +29,9 @@ Page({
 
     showModal: false
   },
+  selectChapterIndex: '',
+  selectVideoIndex: '',
+
   onLoad: function (options) {
     this.setData({
       params: {
@@ -52,17 +54,71 @@ Page({
       week_id: params.weekId,
       week_num: params.weekNum
     };
+    console.log(this.selectChapterIndex,this.selectVideoIndex);
     API.courseSection(data).then(res => {//成功
       let chapterList = res || [];
       this.setData({
         chapterList: chapterList,
       });
 
+      if(this.selectChapterIndex !== '' && this.selectVideoIndex !== '') {
+        let chapterListS = chapterList[this.selectChapterIndex],
+          videoListS = chapterListS.video_list;
+        if(chapterListS && this.selectVideoIndex < videoListS.length - 1) {
+          // this.selectChapterIndex
+
+          if(videoListS[this.selectVideoIndex + 1].is_clock === 0) {
+            this.setData({
+              selectVideo: videoListS[this.selectVideoIndex + 1]
+            });
+            this.selectVideoIndex = this.selectVideoIndex + 1;
+            return;
+          }
+        }  else {
+          if(chapterListS[this.selectChapterIndex + 1].is_clock === 0 && chapterListS[this.selectChapterIndex + 1].video_list[0].is_clock === 0) {
+            this.setData({
+              selectChapter: chapterListS[this.selectChapterIndex + 1],
+              selectVideo: chapterListS[this.selectChapterIndex + 1].video_list[0]
+            });
+            this.selectChapterIndex = this.selectChapterIndex + 1;
+            this.selectVideoIndex = 0;
+            return;
+
+          }
+        }
+      }
+
       let len = chapterList.length;
       console.log(chapterList, len);
       for(let i = len - 1; i >= 0; i--) {
         let chapterItem = chapterList[i];
-        let selectChapterIndex = i;
+
+        // 先看最后章节是不是全部解锁了，解锁的话，代表课程全部解锁了，从第一节开始
+        if(len - 1 === i && chapterItem.is_clock === 0) {
+          // 全部解锁
+          if(chapterItem.look_video_num === chapterItem.video_count && chapterItem.have_work === 1) {
+            this.setData({
+              selectChapter: chapterList[i],
+              selectVideo: chapterList[i].video_list[0]
+            });
+            this.selectChapterIndex = i;
+            this.selectVideoIndex = 0;
+
+            break;
+          } else {
+            // 最后一个视频没有上传作业, 走后面选中最后的视频逻辑
+          }
+        } else {  // 代表课程没有全部解锁
+          if(chapterItem.look_video_num === chapterItem.video_count && chapterItem.have_work === 1 && chapterItem.is_clock === 0) {
+            this.setData({
+              selectChapter: chapterItem,
+              selectVideo: chapterItem.video_list[0]
+            });
+            this.selectChapterIndex = i;
+            this.selectVideoIndex = 0;
+            break;
+          } else {}
+        }
 
         // 观看数和视频数相等，并且没有上传过作业
         if(chapterItem.look_video_num === chapterItem.video_count && chapterItem.have_work === 0) {
@@ -77,6 +133,7 @@ Page({
         }
 
         if(chapterItem.is_clock === 0) {
+          this.selectChapterIndex = i;
           this.setData({
             selectChapter: chapterItem,
             hasMore: true,
@@ -97,13 +154,14 @@ Page({
           let videoLen = (chapterItem.video_list || []).length;
           for(let j = videoLen -1; j >= 0; j--) {
             let videoItem = chapterItem.video_list[j];
-            let selectVideoIndex = j;
 
             //  && j !== 0
             if(videoItem.is_clock === 0) {
               this.setData({
                 selectVideo: videoItem
               })
+              this.selectVideoIndex = j;
+
               console.log(videoItem, 'videoItem')
               break;
             }
@@ -139,7 +197,7 @@ Page({
 
   // 选中章节
   onSelectChapter: function(e) {
-    const { chapterdata } = e.currentTarget.dataset;
+    const { chapterdata, index } = e.currentTarget.dataset;
 
     this.setData({
       selectChapter: chapterdata,
@@ -157,6 +215,7 @@ Page({
     wx.setNavigationBarTitle({
       title: chapterdata.section_title
     })
+    this.selectChapterIndex = index;
 
     if(chapterdata.look_video_num === chapterdata.video_count && chapterdata.have_work === 0) {
       this.setData({
@@ -170,6 +229,15 @@ Page({
       });
     }
 
+    if(chapterdata.look_video_num === chapterdata.video_count && chapterdata.have_work === 1) {
+      this.setData({
+        selectVideo: chapterdata.video_list[0]
+      })
+      this.selectVideoIndex = 0;
+      return;
+    }
+
+
     let videoLen = (chapterdata.video_list || []).length;
     for(let j = videoLen -1; j >= 0; j--) {
       let videoItem = chapterdata.video_list[j];
@@ -179,6 +247,7 @@ Page({
         this.setData({
           selectVideo: videoItem
         })
+        this.selectVideoIndex = 0;
         
         console.log(videoItem, 'videoItem')
         break;
@@ -188,11 +257,13 @@ Page({
 
   // 选中视频
   onSelectVideo: function(e) {
-    const { videodata } = e.currentTarget.dataset;
+    const { videodata, index } = e.currentTarget.dataset;
 
     this.setData({
       selectVideo: videodata
     });
+    this.selectVideoIndex = index;
+
   },
 
   onShowMenu: function() {
