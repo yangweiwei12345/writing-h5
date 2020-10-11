@@ -92,27 +92,30 @@ Page({
   },
   onLoad: function (options) {
     const res = wx.getSystemInfoSync();
+    console.log(res);
     this.setData({
-      ix: res.windowWidth,
-      iy: res.windowHeight,
+      ix: res.screenWidth,
+      iy: res.screenHeight,
+      sw: res.screenWidth,
+      sh: res.screenHeight,
       params: options
     }, () => {
       this.getUserInfo()
       this.getWorkDetail();
     });
-    wx.getSystemInfo({
-      success: (res) => {
-        //导航栏高度
-        //瀑布流高度
-        let ww = res.windowWidth;
-        let wh = res.windowHeight;
+    // wx.getSystemInfo({
+    //   success: (res) => {
+    //     //导航栏高度
+    //     //瀑布流高度
+    //     let ww = res.windowWidth;
+    //     let wh = res.windowHeight;
         
-        this.setData({
-         sw: ww,
-         sh: wh,
-        });
-      }
-    })
+    //     this.setData({
+    //      sw: ww,
+    //      sh: wh,
+    //     });
+    //   }
+    // })
     //判断是否已授权录音权限
     this.getAuthSetting();
     // 初始化音频管理器
@@ -125,7 +128,6 @@ Page({
 
   // 图片加载完成
   imgLoad: function(e) {
-    console.log(e.detail);
     const { width, height } = e.detail;
     const { ix } = this.data;
     let w = (ix - rpx2px(108)) * .8;
@@ -135,6 +137,8 @@ Page({
       width: w,
       height: h
     });
+
+    console.log(w, h)
   },
 
   // 获取当前用户信息
@@ -312,6 +316,7 @@ Page({
     var y = Math.floor(e.touches[0].clientY);
     date = new Date();
 
+    console.log(this.data.sw, this.data.sh)
     let offsetX = (this.data.sw - this.data.width) / 2;
     let offsetY = rpx2px(280) - scrollTop;
     moveToX = x - offsetX;
@@ -340,8 +345,8 @@ Page({
         time: date.getTime() - startDate,
         operation: operationType,
         lineArr: {
-          startX: moveToX/this.data.sw,
-          startY: moveToY/this.data.sh,
+          startX: moveToX/this.data.width,
+          startY: moveToY/this.data.height,
           currentX: moveToX,
           currentY: moveToY,
           z: 1,

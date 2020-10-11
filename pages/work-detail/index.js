@@ -44,9 +44,10 @@ Page({
 
   onLoad: function (options) {
     const res = wx.getSystemInfoSync();
+    console.log(res);
     this.setData({
-      ix: res.windowWidth,
-      iy: res.windowHeight,
+      ix: res.screenWidth,
+      iy: res.screenHeight,
       work_id: options.work_id,
       innerAudioContext: wx.createInnerAudioContext()
     }, () => {
@@ -94,7 +95,6 @@ Page({
 
   // 图片加载完成
   imgLoad: function(e) {
-    console.log(e.detail);
     const { width, height } = e.detail;
     const { ix } = this.data;
     let w = (ix - rpx2px(108)) * .8;
@@ -123,7 +123,7 @@ Page({
       //   operation: 'gif',
       //   isShow: false
       // });
-      // let hisDataArrData = JSON.parse('[{"time":0,"operation":"mapping","lineArr":{"startX":0,"startY":0,"currentX":0,"currentY":0,"z":0,"colorStr":"#000"}},{"time":2779,"operation":"circle","lineArr":{"startX":0.23706666666666668,"startY":0.24875621890547264,"currentX":88.9,"currentY":150,"z":1,"colorStr":"green"}},{"time":10719,"operation":"circle","lineArr":{"startX":0.03973333333333335,"startY":0.024875621890547265,"currentX":14.900000000000006,"currentY":15,"z":1,"colorStr":"red"}},{"time":14363,"operation":"circle","lineArr":{"startX":0.6397333333333334,"startY":0.03150912106135987,"currentX":239.9,"currentY":19,"z":1,"colorStr":"red"}}]')
+      // let hisDataArrData = JSON.parse('[{"time":0,"operation":"mapping","lineArr":{"startX":0,"startY":0,"currentX":0,"currentY":0,"z":0,"colorStr":"#000"}},{"time":5590,"operation":"circle","lineArr":{"startX":0.2184,"startY":0.05547226386806597,"currentX":81.9,"currentY":37,"z":1,"colorStr":"red"}},{"time":7367,"operation":"circle","lineArr":{"startX":0.3784,"startY":0.10944527736131934,"currentX":141.9,"currentY":73,"z":1,"colorStr":"red"}},{"time":11010,"operation":"circle","lineArr":{"startX":0.2184,"startY":0.20239880059970014,"currentX":81.9,"currentY":135,"z":1,"colorStr":"green"}},{"time":12601,"operation":"circle","lineArr":{"startX":0.38906666666666667,"startY":0.20089955022488756,"currentX":145.9,"currentY":134,"z":1,"colorStr":"green"}},{"time":13935,"operation":"circle","lineArr":{"startX":0.38906666666666667,"startY":0.45577211394302847,"currentX":145.9,"currentY":304,"z":1,"colorStr":"green"}},{"time":15309,"operation":"circle","lineArr":{"startX":0.22640000000000002,"startY":0.46476761619190404,"currentX":84.9,"currentY":310,"z":1,"colorStr":"green"}},{"time":16822,"operation":"circle","lineArr":{"startX":0.5944,"startY":0.3313343328335832,"currentX":222.9,"currentY":221,"z":1,"colorStr":"green"}},{"time":18091,"operation":"circle","lineArr":{"startX":0.6184000000000001,"startY":0.06146926536731634,"currentX":231.9,"currentY":41,"z":1,"colorStr":"green"}}]')
       this.setData({
         workDetail: res,
         hisDataArr: hisDataArrData,
@@ -168,7 +168,7 @@ Page({
       if(this.audioLock) return;
       let duration = innerAudioContext.duration,
         currentTime = innerAudioContext.currentTime;
-      console.log(currentTime);
+        console.log(duration, currentTime)
 
       let radio = currentTime / duration;
       this.setData({
@@ -400,12 +400,12 @@ Page({
       if(!item.isDraw && (actionTime > item.time)) {
         switch (item.operation) {
           case "mapping":
-            context.setStrokeStyle(item.lineArr.colorStr);
-            context.moveTo(item.lineArr.startX , item.lineArr.startY );
-            context.lineTo(item.lineArr.currentX , item.lineArr.currentY );
-            context.stroke();
-            context.draw(true);
-            item.isDraw = true;
+            // context.setStrokeStyle(item.lineArr.colorStr);
+            // context.moveTo(item.lineArr.startX , item.lineArr.startY );
+            // context.lineTo(item.lineArr.currentX , item.lineArr.currentY );
+            // context.stroke();
+            // context.draw(true);
+            // item.isDraw = true;
             break;
           case "clearCanvas":
             context.clearRect(0, 0, that.data.ix, that.data.iy);
@@ -420,9 +420,11 @@ Page({
           case "circle":
             context.setStrokeStyle(item.lineArr.colorStr);
             if(item.lineArr.colorStr == "red"){
-              context.arc(item.lineArr.startX *that.data.ix, item.lineArr.startY *that.data.iy , 13, 0, 2 * Math.PI);
+              console.log(item.lineArr.startX *that.data.width, item.lineArr.startY *that.data.height)
+              context.arc(item.lineArr.startX *that.data.width, item.lineArr.startY *that.data.height , 13, 0, 2 * Math.PI);
             }else{
-              context.arc(item.lineArr.startX *that.data.ix, item.lineArr.startY *that.data.iy , 15, 0, 2 * Math.PI);
+              console.log(item.lineArr.startX *that.data.width, item.lineArr.startY *that.data.height)
+              context.arc(item.lineArr.startX *that.data.width, item.lineArr.startY *that.data.height , 15, 0, 2 * Math.PI);
             }
   
             context.stroke();
