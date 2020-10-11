@@ -238,7 +238,7 @@ Page({
         canUploadWork: true
       });
 
-      // this.onShowModal();
+      this.onShowModal();
     } else {
       this.setData({
         canUploadWork: false
