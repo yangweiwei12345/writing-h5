@@ -89,7 +89,8 @@ Page({
     height: 0,
 
     // 是否已点评
-    isFinished: false
+    isFinished: false,
+    key: 0
   },
   onLoad: function (options) {
     const res = wx.getSystemInfoSync();
@@ -125,6 +126,19 @@ Page({
     this.initCanvas();
   },
   onShow: function() {
+  },
+
+  onUnload: function() {
+    timer && clearTimeout(timer);
+
+    context = null;
+    isStart = false;
+    date;
+    startDate;//开始时刻
+    penType = "drawPen";
+    colorStr = "#000";
+    operationType = "mapping";
+    secondes = 0;
   },
 
   // 图片加载完成
@@ -440,7 +454,6 @@ Page({
     colorStr = "#000";
     operationType = "mapping";
     secondes = 0;
-    context.clearRect(0, 0, this.data.ix * 0.9, this.data.iy * 0.85);//清除多大范围的画布
 
     this.setData({
       audioValue: "", //录音内容
@@ -449,6 +462,7 @@ Page({
       recodeStatus: 0, //录音状态 0:未录音,1:正在录音2:录音完成
       playStatus: 0, //播放状态 0:未播放,1:正在播放
       recoderAuthStatus: false, //录音授权状态
+      key: Math.random(),
 
       hisDataArr:[
         {
@@ -494,12 +508,25 @@ Page({
       // 防止送花快速点击
       isFly: false,
       flowerCount: 0
+    }, () => {
+      //判断是否已授权录音权限
+      this.getAuthSetting();
+      // 初始化音频管理器
+      this.initRecorderManager();
+      // 初始化canvas
+      this.initCanvas();
     });
     this.casFlowerCount();
 
     // 关闭录音
     this.closeRecorder = true;
     this.recorderManager.stop();
+
+    timer && clearTimeout(timer);
+
+    context.clearRect(0, 0, this.data.ix, this.data.iy);//清除多大范围的画布
+    context.draw()
+
   },
 
   // 计时器

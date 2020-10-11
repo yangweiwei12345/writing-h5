@@ -41,7 +41,7 @@
   <view class="work-canvas-container">
     <view class="work-canvas" style="width: {{width}}px; height: {{height}}px;">
       <image src="{{workDetail.img_url}}" bindload="imgLoad" />
-      <canvas wx:if="{{imgLoaded}}"  canvas-id="myCanvas" class="myCanvas" catchtouchstart="canvasStart" ></canvas>
+      <canvas key="{{key}}" wx:if="{{imgLoaded}}"  canvas-id="myCanvas" class="myCanvas" catchtouchstart="canvasStart" ></canvas>
       <view class="work-canvas-options" bindtap="onShowCircle">
         <image src="../../resource/dp/circle.png" />
         <view>圈重点</view>
