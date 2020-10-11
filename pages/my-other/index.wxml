@@ -87,7 +87,7 @@
               <view class="list-info-box">
                 <image src="{{item.head_img}}" />
                 <text class="list-info-text">{{item.nick_name}}</text>
-                <text class="list-info-time">1分钟前</text>
+                <text class="list-info-time">{{item.create_time}}</text>
               </view>
             </view>
             <view class="list-info-like">

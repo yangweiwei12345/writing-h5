@@ -177,23 +177,23 @@ page {
   height: 100%;
 }
 .work-canvas-options-dot-green {
-  width: 32rpx;
-  height: 32rpx;
-  border-radius: 16rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
   background-color: green;
   position: relative;
   z-index: 1;
   margin-right: 60rpx;
-  margin-top: 20rpx;
+  margin-top: 11rpx;
 }
 .work-canvas-options-dot-red {
-  width: 32rpx;
-  height: 32rpx;
-  border-radius: 16rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
   background-color: red;
   position: relative;
   z-index: 1;
-  margin-top: 20rpx;
+  margin-top: 11rpx;
 }
 
 /* 录音区 */

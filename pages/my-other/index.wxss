@@ -194,7 +194,13 @@ page {
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #333333;
-  line-height: 28rpx;
+
+  line-height: 22rpx;
+  height: 44rpx;
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow:ellipsis;
+  -webkit-line-clamp: 2;
 }
 .work-list-item .list-info .list-info-box {
   display: flex;
