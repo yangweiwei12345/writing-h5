@@ -289,10 +289,17 @@ Page({
   },
 
   replay: function() {
-    const { innerAudioContext } = this.data;
+    const { innerAudioContext, hisDataArr } = this.data;
+    // 重置绘图数组
+    hisDataArr.forEach(item => {
+      item.isDraw = false;
+    });
 
     this.setData({
-      playStatus: 1
+      playStatus: 1,
+      showGif: false,
+      huaCount: 0,
+      hisDataArr
     });
     innerAudioContext.play();
 

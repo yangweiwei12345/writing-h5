@@ -14,11 +14,13 @@ Page({
     })
     this.setData({
       courseId: options.courseId
-    }, () => {
-      this.getCourseWeekList(options.courseId);
     });
   },
-  onShow: function() {},
+  onShow: function() {
+    setTimeout(() => {
+      this.getCourseWeekList(this.data.courseId);
+    }, 500)
+  },
 
   toChapter: function(e) {
     const { weekid, weeknum, clock } = e.currentTarget.dataset;

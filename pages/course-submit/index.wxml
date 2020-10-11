@@ -2,25 +2,25 @@
   <view class="submit-texts" wx:if="{{showFirst}}">
     <van-transition name="fade-up" show="{{ show0 }}">
       <view class="submit-text-item">
-        <image src="" />
+        <image src="../../resource/course/right.png" />
         作品上传成功
       </view>
     </van-transition>
     <van-transition name="fade-up" show="{{ show1 }}">
       <view class="submit-text-item">
-        <image src="" />
+        <image src="../../resource/course/right.png" />
         通知点评老师
       </view>
     </van-transition>
     <van-transition name="fade-up" show="{{ show2 }}">
       <view class="submit-text-item">
-        <image src="" />
+        <image src="../../resource/course/right.png" />
         解锁新的课节
       </view>
     </van-transition>
     <van-transition name="fade-up" show="{{ show3 }}">
       <view class="submit-text-item">
-        <image src="" />
+        <image src="../../resource/course/right.png" />
         制作打卡美图
       </view>
     </van-transition>
