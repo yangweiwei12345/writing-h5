@@ -7,7 +7,8 @@
         <view class="content-header-top-info">
           <view class="header-box-left">
             <view class="header-box-left-name">{{userInfo.nick_name}}</view>
-            <image src="../../resource/my/woman.png" />
+            <image wx:if="{{userInfo.sex === 1}}" src="../../resource/my/man.png" />
+            <image wx:if="{{userInfo.sex === 2}}" src="../../resource/my/woman.png" />
           </view>
           <view class="header-box-right">
             <view class="header-box-right-level">{{userInfo.user_class}}</view>

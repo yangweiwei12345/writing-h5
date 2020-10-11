@@ -22,7 +22,8 @@
         <view class="content-header-top-info">
           <view class="header-box-left" data-userid="{{workDetail.user_id}}" bindtap="toUserInfo">
             <view class="header-box-left-name">{{workDetail.nick_name}}</view>
-            <image src="../../resource/my/woman.png" />
+            <image wx:if="{{workDetail.sex === 1}}" src="../../resource/my/man.png" />
+            <image wx:if="{{workDetail.sex === 2}}" src="../../resource/my/woman.png" />
           </view>
           <view class="header-box-right">
             <view class="header-box-right-age">{{workDetail.age}}岁</view>
