@@ -27,7 +27,7 @@
           </view>
           <view style="font-size: 10px;color: #999;">学号：{{userInfo.user_id}}</view>
         </view>
-        <image src="../../resource/my/flag.png" class="header-box-right" />
+        <!-- <image src="../../resource/my/flag.png" class="header-box-right" /> -->
       </view>
       <button open-type="share" style="background-color: transparent;width: 74rpx;height: 74rpx;padding-left: 0;padding-right: 0;">
         <image src="../../resource/my/share.png" class="content-header-top-share" />
