@@ -120,7 +120,16 @@ Page({
   },
 
   toDetail: function(e) {
-    const { title, id } = e.currentTarget.dataset;
+    const { title, id, num } = e.currentTarget.dataset;
+
+    if(parseInt(num) <= 0) {
+      wx.showToast({
+        title: '已过期',
+        icon: 'none'
+      })
+      return;
+    }
+
     wx.navigateTo({
       url: '/pages/course-detail/index?courseId=' + id 
     });

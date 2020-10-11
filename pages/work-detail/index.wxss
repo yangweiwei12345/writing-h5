@@ -42,11 +42,32 @@ page {
   align-items: center;
   justify-content: center;
 }
+
 .header-back image {
   width: 22rpx;
   height: 44rpx;
   margin-left: 34rpx;
   margin-top: 23rpx;
+}
+
+.header-home {
+  position: absolute;
+  top: 15rpx;
+  left: 90rpx;
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(0,0,0,.1); */
+}
+
+.header-home image {
+  width: 60rpx;
+  height: 60rpx;
+  /* margin-left: 10rpx; */
+  /* margin-top: 10rpx; */
+
 }
 
 /** 顶部个人信息栏 */

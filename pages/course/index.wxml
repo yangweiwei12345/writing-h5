@@ -38,15 +38,18 @@
     <van-empty wx:if="{{userCourseList.length === 0}}" description="暂无数据">
     </van-empty>
     <view class="course-list">
-      <view class="course-list-item" wx:for="{{userCourseList}}" wx:key="index" data-id="{{item.course_id}}" data-title="{{item.title}}" bindtap="toDetail">
+      <view class="course-list-item" wx:for="{{userCourseList}}" wx:key="index" data-id="{{item.course_id}}" data-title="{{item.title}}" data-num="{{item.times}}" bindtap="toDetail">
         <image src="{{item.buy_img}}" />
         <view class="course-list-box">
           <view class="course-list-title">{{item.title}}</view>
           <view class="course-list-sub-title">{{item.subtitle}}</view>
-          <view class="course-list-info">
+          <view class="course-list-info" wx:if="{{item.times > 0}}">
             距过期还有
             <text class="course-list-text">{{item.times}}</text>
             天
+          </view>
+          <view class="course-list-info" wx:else>
+            已过期
           </view>
         </view>
       </view>

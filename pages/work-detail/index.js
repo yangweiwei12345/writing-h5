@@ -39,6 +39,8 @@ Page({
     huaCount: 0,
     wxlogin: true,
 
+    share: false
+
   },
   // 音频总时长
   duration: 0,
@@ -51,6 +53,7 @@ Page({
       ix: res.screenWidth,
       iy: res.screenHeight,
       work_id: options.work_id,
+      share: options.share,
       innerAudioContext: wx.createInnerAudioContext()
     }, () => {
       this.getWorkDetail();
@@ -111,6 +114,12 @@ Page({
   goBack: function() {
     wx.navigateBack({
       delta: 1
+    });
+  },
+
+  goHome: function() {
+    wx.switchTab({
+      url: '/pages/home/index'
     });
   },
 
@@ -536,7 +545,7 @@ Page({
 
     return {
       title: `快来给@${workDetail.nick_name}的作品点赞，TA已练字${workDetail.userCoinageCount}天`,
-      path: `/pages/work-detail/index?work_id=${workDetail.work_id}`,
+      path: `/pages/work-detail/index?work_id=${workDetail.work_id}&share=true`,
       imageUrl: workDetail.img_url
     };
   }
