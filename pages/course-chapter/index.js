@@ -60,6 +60,7 @@ Page({
       this.setData({
         chapterList: chapterList,
       });
+      wx.hideLoading();
 
       if(this.selectChapterIndex !== '' && this.selectVideoIndex !== '') {
         let chapterListS = chapterList[this.selectChapterIndex],
@@ -82,6 +83,8 @@ Page({
             });
             this.selectChapterIndex = this.selectChapterIndex + 1;
             this.selectVideoIndex = 0;
+
+            this.setSelectData(chapterListS[this.selectChapterIndex + 1]);
             return;
 
           }
@@ -103,6 +106,7 @@ Page({
             });
             this.selectChapterIndex = i;
             this.selectVideoIndex = 0;
+            this.setSelectData(chapterList[i]);
 
             break;
           } else {
@@ -116,6 +120,8 @@ Page({
             });
             this.selectChapterIndex = i;
             this.selectVideoIndex = 0;
+
+            this.setSelectData(chapterItem);
             break;
           } else {}
         }
@@ -134,21 +140,8 @@ Page({
 
         if(chapterItem.is_clock === 0) {
           this.selectChapterIndex = i;
-          this.setData({
-            selectChapter: chapterItem,
-            hasMore: true,
-            workList: [],
-            count: 0,
-            paginaData: {
-              page: 1,
-              pageSize: 20
-            }
-          }, () => {
-            this.getWork();
-          });
-          wx.setNavigationBarTitle({
-            title: chapterItem.section_title
-          })
+          this.setSelectData(chapterItem);
+          
           console.log(chapterItem, 'chapterItem')
 
           let videoLen = (chapterItem.video_list || []).length;
@@ -175,6 +168,25 @@ Page({
       wx.hideLoading();
     })
   },
+
+  setSelectData: function(chapterItem) {
+    this.setData({
+      selectChapter: chapterItem,
+      hasMore: true,
+      workList: [],
+      count: 0,
+      paginaData: {
+        page: 1,
+        pageSize: 20
+      }
+    }, () => {
+      this.getWork();
+    });
+    wx.setNavigationBarTitle({
+      title: chapterItem.section_title
+    })
+  },
+
   // 视频播放结束
   onVideoEnd: function() {
     const { params, selectChapter, selectVideo } = this.data;
