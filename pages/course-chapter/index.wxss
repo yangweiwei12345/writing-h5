@@ -69,7 +69,6 @@ page {
 .course-content .course-chapter-img {
   width: 100rpx;
   height: 100rpx;
-  /* background-color: #e5e5e5; */
 }
 .course-content .course-chapter-video {
   position: absolute;

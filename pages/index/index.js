@@ -184,6 +184,20 @@ Page({
     }
   },
 
+  toBanner: function(e) {
+    const { link, type, title } = e.currentTarget.dataset;
+
+    if(type == 1) {
+      wx.navigateTo({
+        url: '/pages/webview/index?url=' + link + '&title=' + title
+      })
+    } else if(type == 2) {
+      wx.navigateTo({
+        url:  link
+      })
+    }
+  },
+
   onLikeClick: function(e) {
     const { workList } = this.data;
     const { id } = e.currentTarget.dataset;
@@ -227,11 +241,13 @@ Page({
   onPageScroll: function (e) {
     let top = e.scrollTop;
 
-    let opacity = top / 200;
+    tt && clearTimeout(tt);
+    let tt = setTimeout(() => {
+      let opacity = top / 200;
 
-    this.setData({
-      opacity
-    })
-    console.log(opacity)
+      this.setData({
+        opacity
+      })
+    }, 200);
   },
 })

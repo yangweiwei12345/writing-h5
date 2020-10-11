@@ -123,6 +123,14 @@ Page({
     })
   },
 
+  toWorkDetail: function(e) {
+    const { id } = e.currentTarget.dataset;
+
+    wx.navigateTo({
+      url: '/pages/work-detail/index?work_id=' + id
+    })
+  },
+
   onChange: function(e) {
     let { name } = e.detail;
 

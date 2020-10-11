@@ -26,7 +26,9 @@ Page({
     active: 'userCourse',
 
     userCourseHaveMore: true,
-    courseHaveMore: true
+    courseHaveMore: true,
+
+    opacity: 0,
   },
   onLoad: function () {
   },
@@ -223,7 +225,20 @@ Page({
       path: `/pages/index/index`,
       imageUrl: '../../resource/login/logo.png'
     };
-  }
+  },
+  
+  onPageScroll: function (e) {
+    let top = e.scrollTop;
+
+    tt && clearTimeout(tt);
+    let tt = setTimeout(() => {
+      let opacity = top / 200;
+
+      this.setData({
+        opacity
+      })
+    }, 200);
+  },
 
 
 })

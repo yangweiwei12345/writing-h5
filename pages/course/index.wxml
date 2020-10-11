@@ -1,10 +1,27 @@
 <view class="container">
   <view class="header">
+    <view style="position: fixed;top:0;left: 0;background-color: rgba(254,144,103);opacity: {{opacity}};width: 100%;z-index: 1000;">
+      <view style="height: {{statusBarHeight}}px;"></view>
+      <view class="content">
+        <van-tabs
+          type="card"
+          active="{{active}}"
+          bind:change="onTabsChange"
+          custom-class="tabs-root-class"
+          nav-class="nav-class"
+          tab-class="tab-class"
+          tab-active-class="tab-active-class"
+        >
+          <van-tab name="userCourse" title="我的课程"></van-tab>
+          <van-tab name="courseList" title="课程列表"></van-tab>
+        </van-tabs>
+      </view>
+    </view>
     <view style="height: {{statusBarHeight}}px;"></view>
     <view class="content">
       <van-tabs
         type="card"
-        active="active"
+        active="{{active}}"
         bind:change="onTabsChange"
         custom-class="tabs-root-class"
         nav-class="nav-class"

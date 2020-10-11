@@ -1,20 +1,21 @@
 <!--index.wxml-->
 <view class="container">
   <view class="header">
-    <view style="position: fixed;top:0;left: 0;background-color: rgba(239,24,66,{{opacity}})width: 100%;z-index: 1000;">
+    <view style="position: fixed;top:0;left: 0;background-color: rgba(254,144,103);opacity: {{opacity}};width: 100%;z-index: 1000;">
       <view style="height: {{statusBarHeight}}px;"></view>
       <view class="content">
         <van-tabs
           type="card"
           bind:change="onTabsChange"
+          active="{{active}}"
           custom-class="tabs-root-class"
           nav-class="nav-class"
           tab-class="tab-class"
           tab-active-class="tab-active-class"
         >
           <van-tab name="index" title="首页"></van-tab>
-          <van-tab name="rank" title="排行榜"></van-tab>
-          <van-tab name="praise" title="表彰墙"></van-tab>
+          <!-- <van-tab name="rank" title="排行榜"></van-tab>
+          <van-tab name="praise" title="表彰墙"></van-tab> -->
         </van-tabs>
       </view>
     </view>
@@ -29,8 +30,8 @@
         tab-active-class="tab-active-class"
       >
         <van-tab name="index" title="首页"></van-tab>
-        <van-tab name="rank" title="排行榜"></van-tab>
-        <van-tab name="praise" title="表彰墙"></van-tab>
+        <!-- <van-tab name="rank" title="排行榜"></van-tab>
+        <van-tab name="praise" title="表彰墙"></van-tab> -->
       </van-tabs>
     </view>
     <image src="../../resource/home/back.png" />

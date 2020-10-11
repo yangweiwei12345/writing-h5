@@ -61,6 +61,7 @@ Page({
       sourceType: ['album'], 
       success: (res) => {
         console.log(res)
+        this.uploadImage(res.tempImagePath[0]);
       }
     });
   },

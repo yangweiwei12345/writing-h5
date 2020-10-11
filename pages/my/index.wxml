@@ -25,6 +25,7 @@
             <view class="header-box-right-age">{{userInfo.age}}岁</view>
             <view class="header-box-right-level">二年级</view>
           </view>
+          <view style="font-size: 10px;color: #999;">{{userInfo.user_id}}</view>
         </view>
         <image src="../../resource/my/flag.png" class="header-box-right" />
       </view>
