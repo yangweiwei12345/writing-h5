@@ -37,12 +37,13 @@ Page({
       params: {
         ...options
       }
-    }, () => {
-      this.getCourseSection();
     });
   },
   onShow: function() {
     // this.lookFinish();
+    setTimeout(() => {
+      this.getCourseSection();
+    }, 500)
   },
 
   // 章节详情
