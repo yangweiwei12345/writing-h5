@@ -1,5 +1,6 @@
 //index.js
 const API = require('../../config/api.js');
+const host = 'https://klxxcx.klart.cn'
 
 Page({
   data: {
@@ -70,7 +71,7 @@ Page({
       title: '图片上传中...'
     });
     wx.uploadFile({
-      url: 'http://xz-api.defengvip.com/api/upload/index',
+      url: host + '/api/upload/index',
       filePath: file,
       name: 'file',
       header:{

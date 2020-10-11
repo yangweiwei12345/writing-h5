@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const API = require('../../config/api.js');
+const host = 'https://klxxcx.klart.cn'
 
 Page({
   data: {
@@ -85,7 +86,7 @@ Page({
   // 上传图片
   uploadImage: function(file) {
     wx.uploadFile({
-      url: 'http://xz-api.defengvip.com/api/upload/index',
+      url: host + '/api/upload/index',
       filePath: file,
       name: 'file',
       header:{

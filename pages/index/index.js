@@ -20,6 +20,7 @@ Page({
       pageSize: 20
     },
     count: 0,
+    opacity: 0,
 
     active: 'newComment',
     hasMore: true
@@ -221,5 +222,16 @@ Page({
       path: `/pages/index/index`,
       imageUrl: '../../resource/login/logo.png'
     };
-  }
+  },
+
+  onPageScroll: function (e) {
+    let top = e.scrollTop;
+
+    let opacity = top / 200;
+
+    this.setData({
+      opacity
+    })
+    console.log(opacity)
+  },
 })

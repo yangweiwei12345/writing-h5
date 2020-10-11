@@ -2,6 +2,7 @@
 //获取应用实例
 const API = require('../../config/api.js');
 const rpx2px = require('../../utils/rpx2px.js');
+const host = 'https://klxxcx.klart.cn'
 
 var moveToX = 0, moveToY = 0, lineToX = 0, lineToY = 0;
 var context = null;
@@ -396,7 +397,7 @@ Page({
     
     // 上传图片
     wx.uploadFile({
-      url: 'http://xz-api.defengvip.com/api/upload/index',
+      url: host + '/api/upload/index',
       filePath: this.data.audioValue,
       name: 'file',
       header:{

@@ -1,6 +1,6 @@
 const request = require('../utils/request.js');
 // const host = 'http://xz-api.defengvip.com';
-const host = 'https://klxxcx.klart.cn';
+export const host = 'https://klxxcx.klart.cn';
 
 const API =  {
   /**
