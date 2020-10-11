@@ -1,9 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/my/index",
     "pages/course/index",
-    "pages/shop/index",
+    "pages/my/index",
     "pages/course-detail/index",
     "pages/course-chapter/index",
     "pages/course-upload/index",

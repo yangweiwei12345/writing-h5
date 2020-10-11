@@ -29,7 +29,6 @@ const request = ({ url, data = {}, method = "GET", isLoading = false, headers } 
         ...(headers || {})
       }
     }
-    console.log(header);
 
     wx.request({
       url: url,

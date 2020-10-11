@@ -124,6 +124,12 @@ page {
   color: #333333;
   margin-top: 18rpx;
   margin-bottom: 48rpx;
+
+  width: 300rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
 }
 .course-content .course-desc {
   font-size: 12px;

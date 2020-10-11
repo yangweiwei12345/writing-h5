@@ -39,14 +39,7 @@ Page({
         })
       }
     }
-  },
-  onShow: function() {
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 0
-      })
-    }
+
     // banner
     this.getBanner();
     this.getNews();
@@ -61,6 +54,15 @@ Page({
     }, () => {
       this.getWork();
     });
+  },
+  onShow: function() {
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
+    
   },
 
   getBanner: function() {

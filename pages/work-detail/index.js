@@ -164,8 +164,11 @@ Page({
     });
     // 播放进度
     innerAudioContext.onTimeUpdate(() => {
+
+      if(this.audioLock) return;
       let duration = innerAudioContext.duration,
         currentTime = innerAudioContext.currentTime;
+      console.log(currentTime);
 
       let radio = currentTime / duration;
       this.setData({
@@ -181,6 +184,7 @@ Page({
 
     innerAudioContext.onSeeked(() => {
       innerAudioContext.play();
+      this.audioLock = false;
     })
 
   },
@@ -188,7 +192,6 @@ Page({
   // 拖拽进度条
   onDrag: function(e) {
     let currentValue = e.detail.value;
-
 
     this.casTimeUp(currentValue);
   },
@@ -206,8 +209,14 @@ Page({
     let radio = currentValue / 100;
 
     // 先暂停在seek，不然不执行onTimeUpdate
+    this.audioLock = true;
     innerAudioContext.pause();
     innerAudioContext.seek(radio * this.duration);
+    // setTimeout(() => {
+    //   innerAudioContext.play();
+    // }, 300);
+
+
 
     // 重置绘图数组
     this.data.hisDataArr.forEach(item => {
