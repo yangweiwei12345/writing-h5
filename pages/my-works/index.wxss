@@ -1,0 +1,122 @@
+page {
+  height: 100%;
+}
+
+.course-box {
+  padding: 28rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 4px 0px rgba(76, 76, 76, 0.2);
+}
+
+.course-header {
+  display: flex;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-left: 1px solid #FD5252;
+  position: relative;
+}
+
+.course-header .course-header-title {
+  font-size: 15px;
+  color: #333333;
+  margin-left: 15rpx;
+  display: flex;
+  flex: 1;
+}
+
+.course-header-sub-title {
+  display: flex;
+  margin-left: 20rpx;
+  font-size: 12px;
+  color: #999999;
+}
+
+.course-header-sub-num {
+  color: #FD5252;
+}
+/** 作业列表 */
+.work-list {
+  margin-top: 30rpx;
+  padding-bottom: 180rpx;
+}
+.work-list-item {
+  background: #FFFFFF;
+  box-shadow: 0px 1px 7px 0px rgba(67, 65, 66, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 30rpx;
+}
+.work-list-item .work-item-img {
+  width: 100%;
+  height: 338rpx;
+  background-color: #e6e6ee;
+}
+.work-list-item .list-info {
+  padding: 0 16rpx 16rpx 16rpx;
+}
+.work-list-item .list-info .list-info-title {
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #333333;
+  line-height: 22rpx;
+  height: 44rpx;
+  overflow: hidden;
+}
+.work-list-item .list-info .list-info-box {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.work-list-item .list-info .list-info-box .list-info-text {
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #333333;
+  margin: 0 12rpx;
+}
+.work-list-item .list-info .list-info-box .list-info-time {
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #999999;
+}
+.work-list-item .list-info .list-info-box image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 40rpx;
+  background-color: #e5e5e5;
+}
+.work-list-item .list-info-like {
+  display: flex;
+  align-items: center;
+  height: 36rpx;
+  border-radius: 36rpx;
+  padding: 6rpx 12rpx;
+  position: absolute;
+  top: 18rpx;
+  right: 20rpx;
+  background-color: #f9f9f9;
+}
+.work-list-item .list-info-like image {
+  width: 26rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+}
+.work-list-item .list-info-like .list-info-like-num {
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #666666;
+}
+.work-list-item .list-info-pj {
+  width: 98rpx;
+  height: 74rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 240rpx;
+}
+
+
+

@@ -1,0 +1,37 @@
+<view class="container">
+
+  <view class="course-box" style="margin-top: 30rpx;">
+    <view class="course-header">
+      <view class="course-header-title">
+        <view class="course-header-sub-title">
+          共有
+          <view class="course-header-sub-num">{{count}}</view>
+          个作品
+        </view>
+      </view>
+    </view>
+
+    <van-empty wx:if="{{workList.length === 0}}" description="暂无数据">
+    </van-empty>
+
+    <view class="work-list">
+      <van-row gutter="12">
+        <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
+          <view class="work-list-item" data-id="{{item.work_id}}" bindtap="toWorkDetail">
+            <image src="{{item.img_url}}" class="work-item-img" />
+            <view class="list-info">
+              <view class="list-info-title">{{item.work_remark}}</view>
+              <view class="list-info-box">
+                <image src="{{item.head_img}}" />
+                <text class="list-info-text">{{item.nick_name}}</text>
+                <text class="list-info-time">{{item.create_time}}</text>
+              </view>
+            </view>
+            <image wx:if="{{item.status === 1}}" src="../../resource/home/pj.png" class="list-info-pj" />
+          </view>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+
+</view>

@@ -47,7 +47,7 @@
       </view>
     </view>
     <view class="content-header-bottom">
-      <view class="content-header-bottom-item">
+      <view class="content-header-bottom-item" bindtap="toMyWorks">
         <image class="image1" src="../../resource/my/my-work.png" />
         <view class="content-header-bottom-item-title">我的作品</view>
         <view class="content-header-bottom-item-num">({{userInfo.work_count || 0}})</view>
@@ -73,7 +73,7 @@
   <view class="my-list" wx:if="{{wxlogin}}">
     <van-cell
       wx:if="{{userInfo.type === 1}}"
-      title="老师教师"
+      title="老师教室"
       link-type="navigateTo"
       url="/pages/teacher-room/index?user_id={{userInfo.user_id}}"
     >
