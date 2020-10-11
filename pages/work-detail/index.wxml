@@ -108,7 +108,7 @@
         <button open-type="share" style="background-color: transparent;width: 80rpx;height: 80rpx;border-radius: 40rpx;padding-left: 0;padding-right: 0;"><image src="../../resource/my/share.png" /></button>
         <view class="footer-share-text">{{workDetail.share_num}}</view>
       </view>
-      <view class="footer-like" data-id="{{workDetail.work_id}}" bindtap="onLikeClick">
+      <view class="footer-like" data-id="{{workDetail.work_id}}" catchtap="onLikeClick">
         <image wx:if="{{workDetail.is_like === 1}}" src="../../resource/dp/like.png" />
         <image wx:else src="../../resource/dp/like-no.png" />
         <view class="footer-like-text">{{workDetail.like_num}}</view>
