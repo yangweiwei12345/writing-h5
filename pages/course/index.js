@@ -173,6 +173,11 @@ Page({
 
   // 获取课程列表
   getCourseList: function() {
+    if(this.isCourseLoad) {
+      return;
+    }
+
+    this.isCourseLoad = true;
     API.courseList({
       ...this.data.pageData
     }).then(res => {//成功
@@ -196,6 +201,8 @@ Page({
           courseHaveMore: false
         });
       }
+      this.isCourseLoad = false;
+
     })
   },
 
