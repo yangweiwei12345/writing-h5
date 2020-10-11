@@ -60,10 +60,7 @@ Component({
               API.login(params)
                 .then(res => {
                   const { token } = res;
-                  wx.setStorage({
-                    key: "token",
-                    data: token
-                  });
+                  wx.setStorageSync("token", token);
                   that.getUserInfoDetail();
 
                   that.setData({

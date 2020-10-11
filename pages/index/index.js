@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 const API = require('../../config/api.js');
+const Auth = require('../../utils/auth');
 
 Page({
   data: {
@@ -23,7 +24,8 @@ Page({
     opacity: 0,
 
     active: 'newComment',
-    hasMore: true
+    hasMore: true,
+    wxlogin: true,
   },
   loadWork: false,
   onLoad: function () {
@@ -63,7 +65,24 @@ Page({
         selected: 0
       })
     }
-    
+
+    this.isLogin();
+  },
+
+
+  // 是否登录
+  isLogin: function() {
+    // 是否登录
+    Auth.checkHasLogined()
+      .then(res => {
+        if(res) {
+          this.wxlogin = true
+        } else {
+          this.wxlogin = false
+        }
+      }).catch(e => {
+        this.wxlogin = false
+      })
   },
 
   getBanner: function() {
@@ -199,6 +218,13 @@ Page({
   },
 
   onLikeClick: function(e) {
+
+    if(!this.wxlogin) {
+      this.setData({
+        wxlogin: false
+      });
+    }
+
     const { workList } = this.data;
     const { id } = e.currentTarget.dataset;
     API.likeWork({
