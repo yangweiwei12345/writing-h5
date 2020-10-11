@@ -297,6 +297,13 @@ Page({
     this.setData({
       showModal: false
     });
+  },
+
+  lookFinish: function() {
+    Dialog.alert({
+      message: '你今日学习次数已上限，请复习之前学习过的视频吧',
+    }).then(() => {
+    });
   }
 
 })

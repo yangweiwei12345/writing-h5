@@ -3,8 +3,8 @@
   <view class="header">
     <view style="position: fixed;top:0;left: 0;background-color: rgba(254,144,103);opacity: {{opacity}};width: 100%;z-index: 1000;">
       <view style="height: {{statusBarHeight}}px;"></view>
-      <view class="content">
-        <van-tabs
+      <view class="content" style="display: flex;justify-content: center;align-items: center;font-size: 16px;color: #fff;">
+        <!-- <van-tabs
           type="card"
           bind:change="onTabsChange"
           active="{{active}}"
@@ -13,26 +13,29 @@
           tab-class="tab-class"
           tab-active-class="tab-active-class"
         >
-          <van-tab name="index" title="首页"></van-tab>
+          <van-tab name="index" title="首页"></van-tab> -->
           <!-- <van-tab name="rank" title="排行榜"></van-tab>
-          <van-tab name="praise" title="表彰墙"></van-tab> -->
-        </van-tabs>
+          <van-tab name="praise" title="表彰墙"></van-tab>
+        </van-tabs> -->
+        首页
       </view>
     </view>
     <view style="height: {{statusBarHeight}}px;"></view>
-    <view class="content">
-      <van-tabs
-        type="card"
-        bind:change="onTabsChange"
-        custom-class="tabs-root-class"
-        nav-class="nav-class"
-        tab-class="tab-class"
-        tab-active-class="tab-active-class"
-      >
-        <van-tab name="index" title="首页"></van-tab>
-        <!-- <van-tab name="rank" title="排行榜"></van-tab>
-        <van-tab name="praise" title="表彰墙"></van-tab> -->
-      </van-tabs>
+    <view class="content" style="display: flex;justify-content: center;align-items: center;font-size: 16px;color: #fff;position: relative;z-index: 1000;">
+      <!-- <van-tabs
+          type="card"
+          bind:change="onTabsChange"
+          active="{{active}}"
+          custom-class="tabs-root-class"
+          nav-class="nav-class"
+          tab-class="tab-class"
+          tab-active-class="tab-active-class"
+        >
+          <van-tab name="index" title="首页"></van-tab> -->
+          <!-- <van-tab name="rank" title="排行榜"></van-tab>
+          <van-tab name="praise" title="表彰墙"></van-tab>
+        </van-tabs> -->
+      首页
     </view>
     <image src="../../resource/home/back.png" />
   </view>
@@ -49,7 +52,7 @@
   >
     <block wx:for="{{bannerData}}" wx:key="id">
       <swiper-item>
-        <view class="swiper-item" data-type="{{item.banner_type}}" data-link="{{item.url}}" bindtap="toNew">
+        <view class="swiper-item" data-type="{{item.banner_type}}" data-link="{{item.url}}" bindtap="toBanner">
           <image class="swiper-image" mode="widthFix" src="{{item.image_url}}" />
         </view>
       </swiper-item>

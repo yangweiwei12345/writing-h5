@@ -131,6 +131,11 @@ Page({
 
   // 获取我的课程
   getUserCourseList: function() {
+    if(this.isUserCousrLoad) {
+      return;
+    }
+    this.isUserCousrLoad = true;
+
     API.userCourseList({
       ...this.data.userPageData
     }).then(res => {//成功
@@ -153,6 +158,7 @@ Page({
           userCourseHaveMore: false
         });
       }
+      this.isUserCousrLoad = false;
     })
   },
 
@@ -232,7 +238,7 @@ Page({
 
     tt && clearTimeout(tt);
     let tt = setTimeout(() => {
-      let opacity = top / 200;
+      let opacity = top / 50;
 
       this.setData({
         opacity

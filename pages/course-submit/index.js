@@ -33,7 +33,7 @@ Page({
       delta: 1
     })
   },
-  onShowClick: function() {
+  onShowClick: function(is_clock) {
     for(let i = 0; i < 4; i++) {
       setTimeout(() => {
         this.setData({
@@ -44,6 +44,13 @@ Page({
 
     setTimeout(() => {
       console.log('动画完成')
+
+      if(is_clock === 1) {
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 3]; //上一个页面
+        prevPage.lookFinish();
+      }
+
       wx.navigateBack({
         delta: 1
       })
@@ -73,7 +80,7 @@ Page({
       //   url: `/pages/course-success/index`,
       // });
       this.submit();
-      this.onShowClick();
+      this.onShowClick(res.is_clock);
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();

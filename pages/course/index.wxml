@@ -75,6 +75,8 @@
       没有更多数据了
     </view>
   </view>
+
+  <view style="height: 150rpx;"></view>
   
   <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
 

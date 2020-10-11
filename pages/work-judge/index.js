@@ -139,6 +139,9 @@ Page({
     colorStr = "#000";
     operationType = "mapping";
     secondes = 0;
+
+    this.closeRecorder = true;
+    this.recorderManager.stop();
   },
 
   // 图片加载完成

@@ -115,4 +115,6 @@
       <van-button color="#FF3855" round size="small" bindtap="onToPhoto">提交作业</van-button>
     </view>
   </view>
+
+  <van-dialog id="van-dialog" />
 </view>

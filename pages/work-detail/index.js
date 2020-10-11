@@ -3,6 +3,7 @@
 const app = getApp()
 const API = require('../../config/api.js');
 const rpx2px = require('../../utils/rpx2px.js');
+const Auth = require('../../utils/auth');
 
 var startDate;
 var date;
@@ -35,7 +36,9 @@ Page({
     width: 0,
     height: 0,
 
-    huaCount: 0
+    huaCount: 0,
+    wxlogin: true,
+
   },
   // 音频总时长
   duration: 0,
@@ -66,8 +69,27 @@ Page({
     //     });
     //   }
     // })
+    this.isLogin();
   },
 
+  // 是否登录
+  isLogin: function() {
+    // 是否登录getUserInfoDetail
+    Auth.checkHasLogined()
+      .then(res => {
+        if(res) {
+          this.wxlogin = true
+        } else {
+          this.wxlogin = false
+        }
+      }).catch(e => {
+        this.wxlogin = false
+      })
+  },
+
+  getUserInfoDetail: function() {
+    this.wxlogin = true;
+  },
    /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -477,6 +499,12 @@ Page({
 
 
   onLikeClick: function(e) {
+    if(!this.wxlogin) {
+      this.setData({
+        wxlogin: false
+      });
+    }
+
     const { id } = e.currentTarget.dataset;
     const { workDetail } = this.data;
     API.likeWork({

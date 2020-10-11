@@ -294,6 +294,7 @@ page {
   padding: 40rpx 36rpx;
   margin-right: 288rpx;
   margin-left: 28rpx;
+  margin-bottom: 200rpx;
 }
 
 /* gif */

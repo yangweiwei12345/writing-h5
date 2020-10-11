@@ -85,6 +85,10 @@ Page({
       })
   },
 
+  getUserInfoDetail: function() {
+    this.wxlogin = true;
+  },
+
   getBanner: function() {
     API.banner({
       type: 1
@@ -269,7 +273,7 @@ Page({
 
     tt && clearTimeout(tt);
     let tt = setTimeout(() => {
-      let opacity = top / 200;
+      let opacity = top / 50;
 
       this.setData({
         opacity
