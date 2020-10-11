@@ -42,7 +42,7 @@ Page({
     });
   },
   onShow: function() {
-    this.lookFinish();
+    // this.lookFinish();
   },
 
   // 章节详情
@@ -78,18 +78,19 @@ Page({
             return;
           }
         }  else {
-          if(chapterListS[this.selectChapterIndex + 1].is_clock === 0 && chapterListS[this.selectChapterIndex + 1].video_list[0].is_clock === 0) {
-            this.setData({
-              selectChapter: chapterListS[this.selectChapterIndex + 1],
-              selectVideo: chapterListS[this.selectChapterIndex + 1].video_list[0]
-            });
-            this.selectChapterIndex = this.selectChapterIndex + 1;
-            this.selectVideoIndex = 0;
+          console.log('test');
+          // if(chapterListS[this.selectChapterIndex + 1].is_clock === 0 && chapterListS[this.selectChapterIndex + 1].video_list[0].is_clock === 0) {
+          //   this.setData({
+          //     selectChapter: chapterListS[this.selectChapterIndex + 1],
+          //     selectVideo: chapterListS[this.selectChapterIndex + 1].video_list[0]
+          //   });
+          //   this.selectChapterIndex = this.selectChapterIndex + 1;
+          //   this.selectVideoIndex = 0;
 
-            this.setSelectData(chapterListS[this.selectChapterIndex + 1]);
-            return;
+          //   this.setSelectData(chapterListS[this.selectChapterIndex + 1]);
+          //   return;
 
-          }
+          // }
         }
       }
 
