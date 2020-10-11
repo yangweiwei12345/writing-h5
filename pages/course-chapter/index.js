@@ -42,8 +42,7 @@ Page({
     });
   },
   onShow: function() {
-    setTimeout(() => {
-    }, 300);
+    this.lookFinish();
   },
 
   // 章节详情
@@ -67,12 +66,15 @@ Page({
           videoListS = chapterListS.video_list;
         if(chapterListS && this.selectVideoIndex < videoListS.length - 1) {
           // this.selectChapterIndex
-
+          console.log(videoListS[this.selectVideoIndex + 1])
           if(videoListS[this.selectVideoIndex + 1].is_clock === 0) {
             this.setData({
+              selectChapter: chapterListS,
               selectVideo: videoListS[this.selectVideoIndex + 1]
             });
             this.selectVideoIndex = this.selectVideoIndex + 1;
+
+            this.setSelectData(chapterListS);
             return;
           }
         }  else {
