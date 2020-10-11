@@ -61,7 +61,7 @@
 
   <view class="footer">
     <view class="footer-head">
-      <image src="{{workDetail.t_head_img}}" />
+      <image src="{{workDetail.t_head_img || '../../resource/dp/head.png'}}" />
       <view class="footer-head-name">{{workDetail.t_nick_name || '考拉熊老师'}}</view>
     </view>
     <view class="footer-radio">
@@ -102,7 +102,8 @@
         <view class="footer-share-text">{{workDetail.share_num}}</view>
       </view>
       <view class="footer-like" data-id="{{workDetail.work_id}}" bindtap="onLikeClick">
-        <image src="../../resource/dp/like.png" />
+        <image wx:if="{{workDetail.is_like === 1}}" src="../../resource/dp/like.png" />
+        <image wx:else src="../../resource/dp/like-no.png" />
         <view class="footer-like-text">{{workDetail.like_num}}</view>
       </view>
     </view>

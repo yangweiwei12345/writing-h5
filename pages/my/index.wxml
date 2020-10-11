@@ -33,7 +33,7 @@
     </view>
     <view wx:else class="content-header-top">
       <view class="content-header-top-img" bindtap="toLogin">
-        <image src="" style="background-color: #f5f5f5;" class="content-header-top-img-t" />
+        <image src="../../resource/my/head.png" style="background-color: #f5f5f5;" class="content-header-top-img-t" />
       </view>
       <view class="content-header-top-box">
         <view class="content-header-top-info">

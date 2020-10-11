@@ -103,7 +103,7 @@
               <view class="list-info-title">{{item.work_remark}}</view>
               <view class="list-info-box">
                 <image src="{{item.head_img}}" />
-                <text class="list-info-text">{{item.nick_name}}移动桑拿房电视剧啊反馈电视卡</text>
+                <text class="list-info-text">{{item.nick_name}}</text>
                 <text class="list-info-time">{{item.create_time}}</text>
               </view>
             </view>
