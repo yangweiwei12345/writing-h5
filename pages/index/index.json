@@ -1,5 +1,13 @@
 {
   "usingComponents": {},
   "navigationBarTitleText": "首页",
+<<<<<<< HEAD
   "navigationStyle": "custom"
+=======
+  "navigationStyle": "custom",
+  "window": {
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 300
+  }
+>>>>>>> git-writing/master
 }

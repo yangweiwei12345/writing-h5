@@ -1,5 +1,11 @@
 {
   "usingComponents": {},
+<<<<<<< HEAD
   "navigationBarTitleText": "我的",
   "navigationStyle": "custom"
+=======
+  "navigationBarBackgroundColor": "#FF8C58",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "个人中心"
+>>>>>>> git-writing/master
 }

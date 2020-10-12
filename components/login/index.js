@@ -60,10 +60,14 @@ Component({
               API.login(params)
                 .then(res => {
                   const { token } = res;
+<<<<<<< HEAD
                   wx.setStorage({
                     key: "token",
                     data: token
                   });
+=======
+                  wx.setStorageSync("token", token);
+>>>>>>> git-writing/master
                   that.getUserInfoDetail();
 
                   that.setData({

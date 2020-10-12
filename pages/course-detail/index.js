@@ -14,6 +14,7 @@ Page({
     })
     this.setData({
       courseId: options.courseId
+<<<<<<< HEAD
     }, () => {
       this.getCourseWeekList(options.courseId);
     });
@@ -22,6 +23,23 @@ Page({
 
   toChapter: function(e) {
     const { weekid, weeknum } = e.currentTarget.dataset;
+=======
+    });
+  },
+  onShow: function() {
+    setTimeout(() => {
+      this.getCourseWeekList(this.data.courseId);
+    }, 500)
+  },
+
+  toChapter: function(e) {
+    const { weekid, weeknum, clock } = e.currentTarget.dataset;
+
+    if(clock != 0) {
+      return;
+    }
+
+>>>>>>> git-writing/master
     wx.navigateTo({
       url: `/pages/course-chapter/index?weekId=${weekid}&weekNum=${weeknum}&courseId=${this.data.courseId}`
     });

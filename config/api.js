@@ -1,5 +1,6 @@
 const request = require('../utils/request.js');
-const host = 'http://xz-api.defengvip.com';
+// const host = 'http://xz-api.defengvip.com';
+export const host = 'https://klxxcx.klart.cn';
 
 const API =  {
   /**
@@ -95,7 +96,30 @@ const API =  {
   },
   // 别人的个人详情
   otherInfo: {
-    utl: '/api/user/otherInfo',
+    url: '/api/user/otherInfo',
+    method: 'POST'
+  },
+
+  // 老师详情
+  teacherInfo: {
+    url: '/api/user/teacherInfo',
+    method: 'POST'
+  },
+  // 排行榜
+  ranking: {
+    url: '/api/sys/ranking',
+    method: 'POST'
+  },
+
+  // 忽略点评作业
+  overlookWork: {
+    url: '/api/course/overlookWork',
+    method: 'POST'
+  },
+
+  // 作业点评
+  remarkWork: {
+    url: '/api/course/remarkWork',
     method: 'POST'
   },
 

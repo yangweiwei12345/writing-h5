@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="container">
+  <web-view
+    src="{{src}}"
+    bindload="onLoaded"
+    binderror="onError"
+  />
+</view>

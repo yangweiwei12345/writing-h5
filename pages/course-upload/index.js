@@ -1,5 +1,9 @@
 //index.js
 const API = require('../../config/api.js');
+<<<<<<< HEAD
+=======
+const host = 'https://klxxcx.klart.cn'
+>>>>>>> git-writing/master
 
 Page({
   data: {
@@ -15,7 +19,11 @@ Page({
     });
     try {
       const res = wx.getSystemInfoSync();
+<<<<<<< HEAD
       let h = res.windowHeight - 200;
+=======
+      let h = res.windowHeight - 230;
+>>>>>>> git-writing/master
       this.setData({
         height: h
       });
@@ -60,6 +68,10 @@ Page({
       sourceType: ['album'], 
       success: (res) => {
         console.log(res)
+<<<<<<< HEAD
+=======
+        this.uploadImage(res.tempFilePaths[0]);
+>>>>>>> git-writing/master
       }
     });
   },
@@ -70,7 +82,11 @@ Page({
       title: '图片上传中...'
     });
     wx.uploadFile({
+<<<<<<< HEAD
       url: 'http://xz-api.defengvip.com/api/upload/index',
+=======
+      url: host + '/api/upload/index',
+>>>>>>> git-writing/master
       filePath: file,
       name: 'file',
       header:{

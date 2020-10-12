@@ -1,6 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="header">
+<<<<<<< HEAD
     <view style="height: 44rpx;"></view>
     <view class="content">
       <van-tabs
@@ -15,6 +16,43 @@
         <van-tab name="rank" title="排行榜"></van-tab>
         <van-tab name="praise" title="表彰墙"></van-tab>
       </van-tabs>
+=======
+    <view style="position: fixed;top:0;left: 0;background-color: rgba(254,144,103);opacity: {{opacity}};width: 100%;z-index: 1000;">
+      <view style="height: {{statusBarHeight}}px;"></view>
+      <view class="content" style="display: flex;justify-content: center;align-items: center;font-size: 16px;color: #fff;">
+        <!-- <van-tabs
+          type="card"
+          bind:change="onTabsChange"
+          active="{{active}}"
+          custom-class="tabs-root-class"
+          nav-class="nav-class"
+          tab-class="tab-class"
+          tab-active-class="tab-active-class"
+        >
+          <van-tab name="index" title="首页"></van-tab> -->
+          <!-- <van-tab name="rank" title="排行榜"></van-tab>
+          <van-tab name="praise" title="表彰墙"></van-tab>
+        </van-tabs> -->
+        首页
+      </view>
+    </view>
+    <view style="height: {{statusBarHeight}}px;"></view>
+    <view class="content" style="display: flex;justify-content: center;align-items: center;font-size: 16px;color: #fff;position: relative;z-index: 1000;">
+      <!-- <van-tabs
+          type="card"
+          bind:change="onTabsChange"
+          active="{{active}}"
+          custom-class="tabs-root-class"
+          nav-class="nav-class"
+          tab-class="tab-class"
+          tab-active-class="tab-active-class"
+        >
+          <van-tab name="index" title="首页"></van-tab> -->
+          <!-- <van-tab name="rank" title="排行榜"></van-tab>
+          <van-tab name="praise" title="表彰墙"></van-tab>
+        </van-tabs> -->
+      首页
+>>>>>>> git-writing/master
     </view>
     <image src="../../resource/home/back.png" />
   </view>
@@ -29,9 +67,15 @@
     indicator-color="#fff"
     indicator-active-color="rgb(255,75,3)"
   >
+<<<<<<< HEAD
     <block wx:for="{{bannerData}}" id="id">
       <swiper-item>
         <view class="swiper-item">
+=======
+    <block wx:for="{{bannerData}}" wx:key="id">
+      <swiper-item>
+        <view class="swiper-item" data-type="{{item.banner_type}}" data-link="{{item.url}}" data-title="{{item.title}}" bindtap="toBanner">
+>>>>>>> git-writing/master
           <image class="swiper-image" mode="widthFix" src="{{item.image_url}}" />
         </view>
       </swiper-item>
@@ -44,18 +88,31 @@
       <!-- <text class="new-text-item1">童真童趣 </text> -->
       <text class="new-text-item2">{{newsData.title}}</text>
     </view>
+<<<<<<< HEAD
     <van-button custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252">立即查看</van-button>
   </view>
 
   <view class="course-list">
     <view class="course-item" wx:for="{{courseList}}" id="course_id" data-id="{{item.course_id}}">
       <image src="{{item.ad_img}}" />
+=======
+    <van-button data-title="{{newsData.title}}" data-type="{{newsData.type}}" data-link="{{newsData.link}}" bindtap="toNew" custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252">立即查看</van-button>
+  </view>
+
+  <view class="course-list">
+    <view class="course-item" wx:for="{{courseList}}" wx:key="course_id" data-id="{{item.course_id}}">
+      <image lazy-load="{{true}}" src="{{item.ad_img}}" />
+>>>>>>> git-writing/master
       <view class="course-content">
         <text class="course-title">{{item.title}}</text>
         <text class="course-sub-title">{{item.subtitle}}</text>
         <text class="course-desc">{{item.ad_title}}</text>
       </view>
+<<<<<<< HEAD
       <van-button custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round plain type="danger" size="mini" color="#FD5252">去学习</van-button>
+=======
+      <van-button open-type="contact" send-message-title="{{item.title}}" send-message-img="{{item.ad_img}}" session-from="{{item.course_id}}" send-message-path="/pages/course/index?course_id={{item.course_id}}" show-message-card  custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round plain type="danger" size="mini" color="#FD5252">去学习</van-button>
+>>>>>>> git-writing/master
     </view>
   </view>
 
@@ -66,16 +123,27 @@
       <text class="work-header-sub-title">作品展览小广场</text>
     </view>
 
+<<<<<<< HEAD
     <van-tabs active="{{active}}" bind:change="onChange" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
       <van-tab title="最新上传" name="newUpload"></van-tab>
       <van-tab title="最新点评" name="newComment"></van-tab>
+=======
+    <van-tabs sticky active="{{active}}" bind:change="onChange" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
+      <van-tab title="最新点评" name="newComment"></van-tab>
+      <van-tab title="最新上传" name="newUpload"></van-tab>
+>>>>>>> git-writing/master
     </van-tabs>
     <view style="width: 100%;height: 22rpx;border-bottom: 2px solid #f4f4f4;"></view>
 
     <van-empty wx:if="{{workList.length === 0}}" description="暂无数据">
     </van-empty>
 
+<<<<<<< HEAD
     <view class="notice-container" wx:if="{{workList.length > 0 && active === 'newUpload'}}">
+=======
+
+    <view class="notice-container" wx:if="{{workList.length > 0}}">
+>>>>>>> git-writing/master
       <view class="notice-left">
         <image src="../../resource/home/notice.png" />
         <view class="notice-left-name">
@@ -95,9 +163,15 @@
     <view class="work-list">
 
       <van-row gutter="12">
+<<<<<<< HEAD
         <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
           <view class="work-list-item">
             <image src="{{item.img_url}}" class="work-item-img" />
+=======
+        <van-col span="12" wx:for="{{workList || []}}" wx:key="work_id">
+          <view class="work-list-item" data-id="{{item.work_id}}" bindtap="toWorkDetail">
+            <image src="{{item.img_url}}" mode="aspectFill" class="work-item-img" />
+>>>>>>> git-writing/master
             <view class="list-info">
               <view class="list-info-title">{{item.work_remark}}</view>
               <view class="list-info-box">
@@ -106,7 +180,11 @@
                 <text class="list-info-time">{{item.create_time}}</text>
               </view>
             </view>
+<<<<<<< HEAD
             <view class="list-info-like" data-id="{{item.work_id}}" bindtap="onLikeClick">
+=======
+            <view class="list-info-like" data-id="{{item.work_id}}" catchtap="onLikeClick">
+>>>>>>> git-writing/master
               <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
               <image wx:else src="../../resource/home/heart-active.png" />
               <text class="list-info-like-num">{{item.like_num}}</text>
@@ -118,4 +196,8 @@
     </view>
   </view>
   
+<<<<<<< HEAD
+=======
+  <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
+>>>>>>> git-writing/master
 </view>

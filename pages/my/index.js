@@ -7,6 +7,10 @@ const API = require('../../config/api.js');
 Page({
   data: {
     wxlogin: true,
+<<<<<<< HEAD
+=======
+    statusBarHeight: app.globalData.statusBarHeight,
+>>>>>>> git-writing/master
 
     userInfo: {}
   },
@@ -16,7 +20,11 @@ Page({
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
+<<<<<<< HEAD
         selected: 3
+=======
+        selected: 2
+>>>>>>> git-writing/master
       })
     }
 
@@ -47,6 +55,15 @@ Page({
       })
   },
 
+<<<<<<< HEAD
+=======
+  toLogin: function() {
+    this.setData({
+      wxlogin: false
+    });
+  },
+
+>>>>>>> git-writing/master
   toEditInfo: function() {
     if(!this.data.wxlogin) {
       this.setData({
@@ -59,17 +76,43 @@ Page({
     });
   },
 
+<<<<<<< HEAD
+=======
+  toMyWorks: function() {
+    if(!this.data.wxlogin) {
+      this.setData({
+        wxlogin: false
+      });
+      return;
+    }
+
+    wx.navigateTo({
+      url: '/pages/my-works/index?user_id=' + this.data.userInfo.user_id
+    })
+  },
+
+>>>>>>> git-writing/master
   /**
    * 获取当前用户个人资料
    * @date 2020-09-14
    * @returns {any}
    */
   getInfoData: function () {
+<<<<<<< HEAD
+=======
+    wx.showLoading({
+      title: '请求中...',
+    });
+>>>>>>> git-writing/master
     API.getUserInfo({
     }).then(res => {//成功
       this.setData({
         userInfo: res,
       })
+<<<<<<< HEAD
+=======
+      wx.hideLoading();
+>>>>>>> git-writing/master
     })
   },
 
@@ -79,4 +122,17 @@ Page({
     });
     this.getInfoData();
   },
+<<<<<<< HEAD
+=======
+
+  onShareAppMessage: function() {
+    const { userInfo } = this.data;
+
+    return {
+      title: `欢迎光临@${userInfo.nick_name}同学的主页`,
+      path: `/pages/my-other/index?user_id=${userInfo.user_id}`,
+      imageUrl: userInfo.head_img
+    };
+  }
+>>>>>>> git-writing/master
 })

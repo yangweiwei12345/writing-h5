@@ -8,7 +8,20 @@ page {
 
 /** 头部 */
 .container .header {
+<<<<<<< HEAD
   background-color: rgb(255, 144, 89);
+=======
+  /* background-color: rgb(255, 144, 89); */
+  position: relative;
+}
+
+.header image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 418rpx;
+>>>>>>> git-writing/master
 }
 
 .container .content {
@@ -19,6 +32,11 @@ page {
   font-family: SourceHanSansCN;
   font-weight: 500;
   color: #FFFFFF;
+<<<<<<< HEAD
+=======
+  position: relative;
+  z-index: 10;
+>>>>>>> git-writing/master
 }
 
 /** 顶部个人信息栏 */
@@ -29,6 +47,11 @@ page {
   border-radius: 7px;
   padding: 26rpx;
   margin: 28rpx;
+<<<<<<< HEAD
+=======
+  position: relative;
+  z-index: 10;
+>>>>>>> git-writing/master
 }
 .content-header-top {
   display: flex;
@@ -39,6 +62,32 @@ page {
 .content-header-top .content-header-top-img {
   width: 150rpx;
   height: 164rpx;
+<<<<<<< HEAD
+=======
+  /* background-image: url('../../resource//my/header.png'); */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.content-header-top-img-b {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content-header-top-img-t {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 55rpx;
+  margin-bottom: 5rpx;
+
+>>>>>>> git-writing/master
 }
 .content-header-top .content-header-top-box {
   display: flex;
@@ -88,6 +137,13 @@ page {
   height: 74rpx;
 }
 
+<<<<<<< HEAD
+=======
+.content-header-top button::after {
+  border: none !important;
+}
+
+>>>>>>> git-writing/master
 .content-header-bottom {
   display: flex;
   align-items: center;
@@ -144,7 +200,11 @@ page {
 .my-list {
   background: #FFFFFF;
   box-shadow: 0px 0px 4px 0px rgba(78, 78, 78, 0.2);
+<<<<<<< HEAD
   padding-bottom: 180rpx;
+=======
+  /* padding-bottom: 180rpx; */
+>>>>>>> git-writing/master
 }
 .my-list .my-list-icon {
   width: 28rpx;

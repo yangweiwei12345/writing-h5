@@ -1,10 +1,20 @@
 //index.js
 //获取应用实例
 const app = getApp()
+<<<<<<< HEAD
+=======
+const Auth = require('../../utils/auth');
+>>>>>>> git-writing/master
 const API = require('../../config/api.js');
 
 Page({
   data: {
+<<<<<<< HEAD
+=======
+    wxlogin: true,
+    statusBarHeight: app.globalData.statusBarHeight,
+
+>>>>>>> git-writing/master
     pageData: {
       page: 1,
       pageSize: 10
@@ -22,11 +32,19 @@ Page({
     active: 'userCourse',
 
     userCourseHaveMore: true,
+<<<<<<< HEAD
     courseHaveMore: true
   },
   onLoad: function () {
     this.getUserCourseList();
     this.getCourseList();
+=======
+    courseHaveMore: true,
+
+    opacity: 0,
+  },
+  onLoad: function () {
+>>>>>>> git-writing/master
   },
   onShow: function() {
     if (typeof this.getTabBar === 'function' &&
@@ -35,6 +53,63 @@ Page({
         selected: 1
       })
     }
+<<<<<<< HEAD
+=======
+
+    this.isLogin();
+  },
+
+  // 是否登录
+  isLogin: function() {
+    // 是否登录
+    Auth.checkHasLogined()
+      .then(res => {
+        if(res) {
+          this.setData({
+            courseList: [],
+            userCourseList: [],
+            pageData: {
+              page: 1,
+              pageSize: 10
+            },
+            userPageData: {
+              page: 1,
+              pageSize: 10
+            },
+            userCourseHaveMore: true,
+            courseHaveMore: true
+          }, () => {
+            this.getUserCourseList();
+            this.getCourseList();
+          })
+          this.setData({
+            wxlogin: true
+          });
+        } else {
+          this.setData({
+            wxlogin: false
+          });
+        }
+      }).catch(e => {
+        this.setData({
+          wxlogin: false
+        });
+      })
+  },
+
+  toLogin: function() {
+    this.setData({
+      wxlogin: false
+    });
+  },
+
+  getUserInfoDetail: function() {
+    this.setData({
+      wxlogin: true
+    });
+
+    this.getUserCourseList();
+>>>>>>> git-writing/master
   },
 
   onTabsChange: function(e) {
@@ -62,7 +137,20 @@ Page({
   },
 
   toDetail: function(e) {
+<<<<<<< HEAD
     const { title, id } = e.currentTarget.dataset;
+=======
+    const { title, id, num } = e.currentTarget.dataset;
+
+    if(parseInt(num) <= 0) {
+      wx.showToast({
+        title: '已过期',
+        icon: 'none'
+      })
+      return;
+    }
+
+>>>>>>> git-writing/master
     wx.navigateTo({
       url: '/pages/course-detail/index?courseId=' + id 
     });
@@ -73,6 +161,14 @@ Page({
 
   // 获取我的课程
   getUserCourseList: function() {
+<<<<<<< HEAD
+=======
+    if(this.isUserCousrLoad) {
+      return;
+    }
+    this.isUserCousrLoad = true;
+
+>>>>>>> git-writing/master
     API.userCourseList({
       ...this.data.userPageData
     }).then(res => {//成功
@@ -95,11 +191,23 @@ Page({
           userCourseHaveMore: false
         });
       }
+<<<<<<< HEAD
+=======
+      this.isUserCousrLoad = false;
+>>>>>>> git-writing/master
     })
   },
 
   // 获取课程列表
   getCourseList: function() {
+<<<<<<< HEAD
+=======
+    if(this.isCourseLoad) {
+      return;
+    }
+
+    this.isCourseLoad = true;
+>>>>>>> git-writing/master
     API.courseList({
       ...this.data.pageData
     }).then(res => {//成功
@@ -123,6 +231,11 @@ Page({
           courseHaveMore: false
         });
       }
+<<<<<<< HEAD
+=======
+      this.isCourseLoad = false;
+
+>>>>>>> git-writing/master
     })
   },
 
@@ -158,7 +271,33 @@ Page({
         this.getCourseList();
       }
     }
+<<<<<<< HEAD
   }
+=======
+  },
+
+
+  onShareAppMessage: function() {
+    return {
+      title: `一手好字，孩子收益一生，卡拉熊写字！`,
+      path: `/pages/index/index`,
+      imageUrl: '../../resource/login/logo.png'
+    };
+  },
+  
+  onPageScroll: function (e) {
+    let top = e.scrollTop;
+
+    tt && clearTimeout(tt);
+    let tt = setTimeout(() => {
+      let opacity = top / 50;
+
+      this.setData({
+        opacity
+      })
+    }, 200);
+  },
+>>>>>>> git-writing/master
 
 
 })

@@ -21,9 +21,23 @@ App({
         }
       }
     })
+<<<<<<< HEAD
   },
   globalData: {
     userInfo: null,
     courseDetail: {}
+=======
+
+    wx.getSystemInfo({
+      success: (res) => {
+          this.globalData.statusBarHeight = res.statusBarHeight
+       }
+    })
+  },
+  globalData: {
+    userInfo: null,
+    courseDetail: {},
+    statusBarHeight: 22
+>>>>>>> git-writing/master
   }
 })

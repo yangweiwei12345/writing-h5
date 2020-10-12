@@ -6,6 +6,7 @@ page {
   background-color: #f6f6f6;
 }
 
+<<<<<<< HEAD
 /** 头部 */
 .container .header {
   background-color: rgb(255, 144, 89);
@@ -21,6 +22,8 @@ page {
   color: #FFFFFF;
 }
 
+=======
+>>>>>>> git-writing/master
 /** 顶部个人信息栏 */
 .content-header {
   height: 386rpx;
@@ -39,6 +42,32 @@ page {
 .content-header-top .content-header-top-img {
   width: 150rpx;
   height: 164rpx;
+<<<<<<< HEAD
+=======
+  /* background-image: url('../../resource//my/header.png'); */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.content-header-top-img-b {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content-header-top-img-t {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 55rpx;
+  margin-bottom: 5rpx;
+
+>>>>>>> git-writing/master
 }
 .content-header-top .content-header-top-box {
   display: flex;
@@ -87,6 +116,12 @@ page {
   width: 74rpx;
   height: 74rpx;
 }
+<<<<<<< HEAD
+=======
+.content-header-top button::after {
+  border: none !important;
+}
+>>>>>>> git-writing/master
 
 .content-header-bottom {
   display: flex;
@@ -128,16 +163,32 @@ page {
   font-size: 12px;
   font-family: SourceHanSansCN;
   font-weight: 400;
+<<<<<<< HEAD
   color: #333333;
+=======
+  color: #999;
+>>>>>>> git-writing/master
   margin-top: 18rpx;
   margin-bottom: 12rpx;
 }
 .content-header-bottom-item .content-header-bottom-item-num {
+<<<<<<< HEAD
   font-size: 10px;
+=======
+  display: flex;
+  font-size: 19px;
+>>>>>>> git-writing/master
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #333333;
 }
+<<<<<<< HEAD
+=======
+.content-header-bottom-item .content-header-bottom-item-unit {
+  font-size: 10px;
+  padding-top: 17rpx;
+}
+>>>>>>> git-writing/master
 
 
 /** 作业列表 */
@@ -178,7 +229,17 @@ page {
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #333333;
+<<<<<<< HEAD
   line-height: 28rpx;
+=======
+
+  line-height: 22rpx;
+  height: 44rpx;
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow:ellipsis;
+  -webkit-line-clamp: 2;
+>>>>>>> git-writing/master
 }
 .work-list-item .list-info .list-info-box {
   display: flex;

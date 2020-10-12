@@ -29,7 +29,10 @@ const request = ({ url, data = {}, method = "GET", isLoading = false, headers } 
         ...(headers || {})
       }
     }
+<<<<<<< HEAD
     console.log(header);
+=======
+>>>>>>> git-writing/master
 
     wx.request({
       url: url,

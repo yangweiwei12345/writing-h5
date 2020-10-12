@@ -4,7 +4,10 @@ page {
 .container {
   min-height: 100%;
   background-color: #f6f6f6;
+<<<<<<< HEAD
   padding-bottom: 150rpx;
+=======
+>>>>>>> git-writing/master
 }
 
 /** 头部 */
@@ -65,6 +68,10 @@ page {
   flex-direction: column;
   justify-content: center;
   margin-left: 24rpx;
+<<<<<<< HEAD
+=======
+  width: 100%;
+>>>>>>> git-writing/master
 }
 .course-list-box .course-list-title {
   font-size: 16px;
@@ -80,7 +87,17 @@ page {
   font-weight: 400;
   color: #666666;
   margin-bottom: 44rpx;
+<<<<<<< HEAD
   height: 20rpx;
+=======
+  height: 30rpx;
+
+  width: 488rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+>>>>>>> git-writing/master
 }
 .course-list-box .course-list-info {
   font-size: 10px;
@@ -127,12 +144,33 @@ page {
   flex-direction: column;
   justify-content: center;
   margin-left: 30rpx;
+<<<<<<< HEAD
+=======
+  flex: 1;
+>>>>>>> git-writing/master
 }
 .course-data-box .course-data-title {
   font-size: 14px;
   color: #333;
+<<<<<<< HEAD
+=======
+  width: 478rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+>>>>>>> git-writing/master
 }
 .course-data-box .course-data-sub-title {
   font-size: 11px;
   color: #999;
+<<<<<<< HEAD
+=======
+
+  width: 478rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+>>>>>>> git-writing/master
 }

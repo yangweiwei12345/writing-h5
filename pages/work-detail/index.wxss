@@ -8,7 +8,20 @@ page {
 
 /** 头部 */
 .container .header {
+<<<<<<< HEAD
   background-color: rgb(255, 144, 89);
+=======
+  position: relative;
+  /* background-color: rgb(255, 144, 89); */
+}
+
+.header image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 418rpx;
+>>>>>>> git-writing/master
 }
 
 .container .content {
@@ -19,16 +32,67 @@ page {
   font-family: SourceHanSansCN;
   font-weight: 500;
   color: #FFFFFF;
+<<<<<<< HEAD
+=======
+  position: relative;
+  z-index: 10;
+  
+}
+.header-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90rpx;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-back image {
+  width: 22rpx;
+  height: 44rpx;
+  margin-left: 34rpx;
+  margin-top: 23rpx;
+}
+
+.header-home {
+  position: absolute;
+  top: 15rpx;
+  left: 15rpx;
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(0,0,0,.1); */
+}
+
+.header-home image {
+  width: 60rpx;
+  height: 60rpx;
+  /* margin-left: 10rpx; */
+  /* margin-top: 10rpx; */
+
+>>>>>>> git-writing/master
 }
 
 /** 顶部个人信息栏 */
 .content-header {
+<<<<<<< HEAD
   height: 386rpx;
+=======
+>>>>>>> git-writing/master
   background: #FFFFFF;
   box-shadow: 0px 0px 4px 0px rgba(214, 5, 28, 0.2);
   border-radius: 7px;
   padding: 26rpx;
   margin: 28rpx;
+<<<<<<< HEAD
+=======
+  position: relative;
+  z-index: 10;
+>>>>>>> git-writing/master
 }
 .content-header-top {
   display: flex;
@@ -39,7 +103,35 @@ page {
 .content-header-top .content-header-top-img {
   width: 150rpx;
   height: 164rpx;
+<<<<<<< HEAD
 }
+=======
+  /* background-image: url('../../resource//my/header.png'); */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.content-header-top-img-b {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content-header-top-img-t {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 55rpx;
+  margin-bottom: 5rpx;
+
+}
+
+>>>>>>> git-writing/master
 .content-header-top .content-header-top-box {
   display: flex;
   flex: 1;
@@ -84,8 +176,13 @@ page {
 }
 
 .content-header-top .content-header-top-share {
+<<<<<<< HEAD
   width: 74rpx;
   height: 74rpx;
+=======
+  width: 120rpx;
+  height: 120rpx;
+>>>>>>> git-writing/master
 }
 
 .content-header-bottom {
@@ -233,3 +330,213 @@ page {
   right: 20rpx;
   top: 240rpx;
 }
+<<<<<<< HEAD
+=======
+
+.work-remask {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 5px 0px rgba(149, 13, 34, 0.2);
+  border-radius: 7px;
+  padding: 40rpx 36rpx;
+  margin-right: 288rpx;
+  margin-left: 28rpx;
+  margin-bottom: 200rpx;
+}
+
+/* gif */
+.work-gif {
+  width: 244rpx;
+  height: 244rpx;
+  position: absolute;
+  bottom: 160rpx;
+  right: 20rpx;
+  z-index: 11;
+}
+.work-gif image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 送花 */
+.work-hua {
+  position: absolute;
+  bottom: 160rpx;
+  left: 20rpx;
+  width: 62rpx;
+  height: 58rpx;
+  z-index: 11;
+}
+.work-hua image {
+  width: 100%;
+  height: 100%;
+}
+.work-hua .work-hua-num {
+  background-color: rgba(76, 76, 76, .5);
+  font-size: 12px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #FFFFFF;
+  padding: 6rpx 8rpx;
+  position: absolute;
+  bottom: -16rpx;
+  right: -25rpx;
+  border-radius: 6rpx;
+}
+
+
+.footer {
+  width: 100%;
+  height: 140rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0px -2px 2px 0px rgba(200, 200, 200, 0.3);
+  display: flex;
+  z-index: 11;
+
+}
+.footer-head {
+  margin: 0 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer-head image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50rpx;
+  background-color: #e5e5e5;
+}
+.footer-head-name {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+
+.footer-radio {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.footer-radio .gp-common {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 110rpx;
+  border-radius: 55rpx;
+}
+/* 未点评状态 */
+.footer-radio .gp-no {
+  background-color: #aaa;
+  font-size: 13px;
+  color: #fff;
+} 
+
+/* 已点评，未播放状态 */
+.gp-play, .gp-playing {
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 0, 69);
+}
+.gp-play .gp-play-box {
+  color: #fff;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40rpx;
+}
+.gp-play .gp-play-box .gp-play-text {
+  font-size: 15px;
+  margin-bottom: 6rpx;
+}
+.gp-play .gp-play-box .gp-play-time {
+  font-size: 10px;
+}
+.gp-play .gp-play-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin-right: 20rpx;
+}
+
+/* 播放中 */
+.gp-playing .gp-playing-img {
+  width: 44rpx;
+  height: 44rpx;
+  margin-left: 18rpx;
+  margin-right: 22rpx;
+}
+.gp-playing .gp-progress {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  /* height: 1px; */
+  /* background-color: rgb(255, 131, 159); */
+  margin-right: 26rpx;
+}
+.gp-playing .gp-progress .gp-progress-line {
+  height: 1px;
+  position: relative;
+  background-color: #fff;
+}
+.slider-custom-class {
+  width: 282rpx;
+}
+.gp-playing .gp-progress .gp-progress-btn {
+  /* position: absolute;
+  top: -10rpx;
+  right: -10rpx; */
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+/*================*/
+
+.footer-right {
+  display: flex;
+  margin: 0 20rpx;
+}
+
+.footer-share {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer-share image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background-color: #e5e5ee;
+}
+.footer-share button::after {
+  border: none !important;
+}
+.footer-share .footer-share-text {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+
+.footer-like {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20rpx;
+}
+.footer-like image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background-color: #e5e5ee;
+}
+.footer-like .footer-like-text {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+>>>>>>> git-writing/master

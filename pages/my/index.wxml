@@ -1,5 +1,6 @@
 <view class="container">
   <view class="header">
+<<<<<<< HEAD
     <view style="height: 44rpx;"></view>
     <view class="content">
       个人中心
@@ -9,10 +10,27 @@
   <view class="content-header">
     <view class="content-header-top">
       <image src="../../resource/my/header.png" class="content-header-top-img" bindtap="toEditInfo" />
+=======
+    <view style="height: {{statusBarHeight}}px;"></view>
+    <view class="content">
+      个人中心
+    </view>
+
+    <image src="../../resource/home/back.png" />
+  </view>
+
+  <view class="content-header">
+    <view wx:if="{{wxlogin}}" class="content-header-top">
+      <view class="content-header-top-img" bindtap="toEditInfo">
+        <image src="../../resource//my/header.png" class="content-header-top-img-b" />
+        <image src="{{userInfo.head_img}}" class="content-header-top-img-t" />
+      </view>
+>>>>>>> git-writing/master
       <view class="content-header-top-box">
         <view class="content-header-top-info" bindtap="toEditInfo">
           <view class="header-box-left">
             <view class="header-box-left-name">{{userInfo.nick_name}}</view>
+<<<<<<< HEAD
             <image src="../../resource/my/woman.png" />
           </view>
           <view class="header-box-right">
@@ -29,32 +47,98 @@
         <image class="image1" src="../../resource/my/my-work.png" />
         <view class="content-header-bottom-item-title">我的作品</view>
         <view class="content-header-bottom-item-num">({{userInfo.work_count}})</view>
+=======
+            <image wx:if="{{userInfo.sex === 1}}" src="../../resource/my/man.png" />
+            <image wx:if="{{userInfo.sex === 2}}" src="../../resource/my/woman.png" />
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-age">{{userInfo.age}}岁</view>
+            <view class="header-box-right-level">{{userInfo.user_class}}</view>
+          </view>
+          <view style="font-size: 10px;color: #999;">学号：{{userInfo.user_id}}</view>
+        </view>
+        <!-- <image src="../../resource/my/flag.png" class="header-box-right" /> -->
+      </view>
+      <button open-type="share" style="background-color: transparent;width: 74rpx;height: 74rpx;padding-left: 0;padding-right: 0;">
+        <image src="../../resource/my/share.png" class="content-header-top-share" />
+      </button>
+    </view>
+    <view wx:else class="content-header-top">
+      <view class="content-header-top-img" bindtap="toLogin">
+        <image src="../../resource/my/head.png" style="background-color: #f5f5f5;" class="content-header-top-img-t" />
+      </view>
+      <view class="content-header-top-box">
+        <view class="content-header-top-info">
+          <view class="header-box-left">
+            <view class="header-box-left-name">未登录</view>
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-age">点击头像登录</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="content-header-bottom">
+      <view class="content-header-bottom-item" bindtap="toMyWorks">
+        <image class="image1" src="../../resource/my/my-work.png" />
+        <view class="content-header-bottom-item-title">我的作品</view>
+        <view class="content-header-bottom-item-num">({{userInfo.work_count || 0}})</view>
+>>>>>>> git-writing/master
       </view>
       <view class="content-header-bottom-item">
         <image class="image2" src="../../resource/my/my-day.png" />
         <view class="content-header-bottom-item-title">练字天数</view>
+<<<<<<< HEAD
         <view class="content-header-bottom-item-num">({{userInfo.work_day}})</view>
+=======
+        <view class="content-header-bottom-item-num">({{userInfo.work_day || 0}})</view>
+>>>>>>> git-writing/master
       </view>
       <view class="content-header-bottom-item">
         <image class="image3" src="../../resource/my/my-rank.png" />
         <view class="content-header-bottom-item-title">我的登榜</view>
+<<<<<<< HEAD
         <view class="content-header-bottom-item-num">({{userInfo.work_ranking}})</view>
+=======
+        <view class="content-header-bottom-item-num">({{userInfo.work_ranking || 0}})</view>
+>>>>>>> git-writing/master
       </view>
       <view class="content-header-bottom-item">
         <image class="image4" src="../../resource/my/my-like.png" />
         <view class="content-header-bottom-item-title">我的点赞</view>
+<<<<<<< HEAD
         <view class="content-header-bottom-item-num">({{userInfo.like_count}})</view>
+=======
+        <view class="content-header-bottom-item-num">({{userInfo.like_count || 0}})</view>
+>>>>>>> git-writing/master
       </view>
     </view>
   </view>
 
+<<<<<<< HEAD
   <view class="my-list">
     <van-cell title="我的订单" >
+=======
+  <view class="my-list" wx:if="{{wxlogin}}">
+    <van-cell
+      wx:if="{{userInfo.type === 1}}"
+      title="老师教室"
+      link-type="navigateTo"
+      url="/pages/teacher-room/index?user_id={{userInfo.user_id}}"
+    >
+>>>>>>> git-writing/master
       <!-- 图标 -->
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-orders.png" />
       <!-- 右侧箭头 -->
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
+<<<<<<< HEAD
+=======
+    <!-- <van-cell title="我的订单" >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/my-orders.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
+>>>>>>> git-writing/master
     <van-cell title="任务中心" >
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
@@ -78,7 +162,11 @@
     <van-cell title="意见反馈" >
       <image slot="icon" class="my-list-icon" src="../../resource/my/feedback.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+<<<<<<< HEAD
     </van-cell>
+=======
+    </van-cell> -->
+>>>>>>> git-writing/master
   </view>
 
   <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>

@@ -30,8 +30,13 @@
 }
 
 .cover-image {
+<<<<<<< HEAD
   width: 56rpx;
   height: 56rpx;
+=======
+  width: 36rpx;
+  height: 36rpx;
+>>>>>>> git-writing/master
 }
 
 .tab-bar-item cover-view {

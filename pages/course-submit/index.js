@@ -33,7 +33,11 @@ Page({
       delta: 1
     })
   },
+<<<<<<< HEAD
   onShowClick: function() {
+=======
+  onShowClick: function(is_clock) {
+>>>>>>> git-writing/master
     for(let i = 0; i < 4; i++) {
       setTimeout(() => {
         this.setData({
@@ -44,6 +48,18 @@ Page({
 
     setTimeout(() => {
       console.log('动画完成')
+<<<<<<< HEAD
+=======
+
+      console.log(is_clock);
+      if(is_clock === 1) {
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 3]; //上一个页面
+        console.log(prevPage);
+        prevPage.lookFinish();
+      }
+
+>>>>>>> git-writing/master
       wx.navigateBack({
         delta: 1
       })
@@ -73,7 +89,12 @@ Page({
       //   url: `/pages/course-success/index`,
       // });
       this.submit();
+<<<<<<< HEAD
       this.onShowClick();
+=======
+      console.log(res);
+      this.onShowClick(res.is_clock);
+>>>>>>> git-writing/master
       wx.hideLoading();
     }).catch(err => {
       wx.hideLoading();

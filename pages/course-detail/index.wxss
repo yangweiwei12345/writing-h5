@@ -43,14 +43,22 @@ page {
 }
 .list-item {
   position: relative;
+<<<<<<< HEAD
   height: 280rpx;
+=======
+  height: 320rpx;
+>>>>>>> git-writing/master
   border-radius: 10rpx;
   overflow: hidden;
   margin-bottom: 30rpx;
 }
 .list-item .list-item-img {
   width: 100%;
+<<<<<<< HEAD
   height: 280rpx;
+=======
+  height: 320rpx;
+>>>>>>> git-writing/master
 }
 
 .list-mask {

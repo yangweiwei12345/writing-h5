@@ -1,13 +1,30 @@
 <view class="container">
   <view class="header">
+<<<<<<< HEAD
     <view style="height: 44rpx;"></view>
     <view class="content">
       作品详情
     </view>
+=======
+    <view style="height: {{statusBarHeight}}px;"></view>
+
+    <view class="content">
+      <view wx:if="{{!share}}" class="header-back" bindtap="goBack">
+        <image src="../../resource/dp/back.png" />
+      </view>
+      <view wx:else class="header-home" bindtap="goHome">
+        <image src="../../resource/home/home.png"  />
+      </view>
+      作品详情
+    </view>
+
+    <image src="../../resource/home/back.png" />
+>>>>>>> git-writing/master
   </view>
 
   <view class="content-header">
     <view class="content-header-top">
+<<<<<<< HEAD
       <image src="../../resource/my/header.png" class="content-header-top-img" />
       <view class="content-header-top-box">
         <view class="content-header-top-info">
@@ -23,9 +40,111 @@
         <image src="../../resource/my/flag.png" class="header-box-right" />
       </view>
       <image src="../../resource/my/share.png" class="content-header-top-share" />
+=======
+      <view class="content-header-top-img" data-userid="{{workDetail.user_id}}" bindtap="toUserInfo">
+        <!-- <image src="../../resource/my/header.png" class="content-header-top-img-b" /> -->
+        <image src="{{workDetail.head_img}}" class="content-header-top-img-t" />
+      </view>
+      <view class="content-header-top-box">
+        <view class="content-header-top-info">
+          <view class="header-box-left" data-userid="{{workDetail.user_id}}" bindtap="toUserInfo">
+            <view class="header-box-left-name">{{workDetail.nick_name}}</view>
+            <image wx:if="{{workDetail.sex === 1}}" src="../../resource/my/man.png" />
+            <image wx:if="{{workDetail.sex === 2}}" src="../../resource/my/woman.png" />
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-age">{{workDetail.age}}岁</view>
+            <view class="header-box-right-level">{{workDetail.user_class}}</view>
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-level">上传于 {{workDetail.create_at}}</view>
+          </view>
+        </view>
+      </view>
+      <image src="{{workDetail.font_img}}" class="content-header-top-share" />
+    </view>
+    <view style="width: {{width}}px; height: {{height}}px;margin: 0 auto;margin-top: 30rpx;position: relative;">
+      <image src="{{workDetail.img_url}}" style="width: 100%; height: 100%;" bindload="imgLoad" />
+      <canvas wx:if="{{imgLoaded}}" style="position: absolute;top:0;left:0;width: 100%; height: 100%;" canvas-id='myCanvas' class="myCanvas"></canvas>
+      <view wx:if="{{workDetail.is_ranking === 1}}" style="position: absolute;top: 42rpx;right: 0;width: 154rpx;height: 60rpx;line-height: 60rpx;text-align: center;border-bottom-left-radius: 30rpx;border-top-left-radius: 30rpx;dispaly: flex;align-items: center;justify-content: center;font-size: 19rpx;color: #fff;background-color: #FF3755;">
+        上榜
+      </view>
+>>>>>>> git-writing/master
     </view>
     
   </view>
 
+<<<<<<< HEAD
+=======
+  <view wx:if="{{workDetail.remark}}" class="work-remask">
+    {{workDetail.remark}} 
+  </view>
+
+  <!-- gif图片 -->
+  <view class="work-gif" wx:if="{{showGif}}">
+    <image src="{{workDetail.font_gif}}" />
+  </view>
+
+  <!-- 送花 -->
+  <view class="work-hua" wx:if="{{huaCount > 0}}">
+    <image src="../../resource/dp/hua.png" />
+    <view class="work-hua-num">
+      x{{huaCount}}
+    </view>
+  </view>
+
+  <view class="footer">
+    <view class="footer-head">
+      <image src="{{workDetail.t_head_img || '../../resource/dp/head.png'}}" />
+      <view class="footer-head-name">{{workDetail.t_nick_name || '考拉熊老师'}}</view>
+    </view>
+    <view class="footer-radio">
+      <!-- 老师未点评 -->
+      <view class="gp-common gp-no" wx:if="{{workDetail.status !== 1}}">
+        老师还未点评
+      </view>
+      <block wx:else>
+        <!-- 老师已点评，未播放状态 -->
+        <view wx:if="{{playStatus === 0}}" class="gp-common gp-play">
+          <view class="gp-play-box">
+            <view class="gp-play-text">老师点评</view>
+            <view class="gp-play-time">{{workDetail.t_time}}</view>
+          </view>
+          <image src="../../resource/dp/play.png" class="gp-play-img" bindtap="play" />
+        </view>
+        <view wx:else class="gp-common gp-playing">
+          <image wx:if="{{playStatus === 1}}" src="../../resource/dp/stop.png" class="gp-playing-img" bindtap="pause" />
+          <image wx:elif="{{playStatus === 2}}" src="../../resource/dp/play.png" class="gp-playing-img" bindtap="replay" />
+          <view class="gp-progress">
+            <van-slider custom-class="slider-custom-class" active-color="#fff" inactive-color="#ff839f"  value="{{ progressW }}" use-button-slot bind:drag="onDrag" bind:change="onChange">
+              <!-- <view class="custom-button" slot="button">
+                {{ currentValue }}/100
+              </view> -->
+              <view class="gp-progress-btn" slot="button"></view>
+            </van-slider>
+            <!-- <view class="gp-progress-line" style="width: {{progressW}}%;">
+              <view class="gp-progress-btn"></view>
+            </view> -->
+          </view>
+        </view>
+      </block>
+      
+    </view>
+    <view class="footer-right">
+      <view class="footer-share">
+        <button open-type="share" style="background-color: transparent;width: 80rpx;height: 80rpx;border-radius: 40rpx;padding-left: 0;padding-right: 0;"><image src="../../resource/my/share.png" /></button>
+        <view class="footer-share-text">{{workDetail.share_num}}</view>
+      </view>
+      <view class="footer-like" data-id="{{workDetail.work_id}}" catchtap="onLikeClick">
+        <image wx:if="{{workDetail.is_like === 1}}" src="../../resource/dp/like.png" />
+        <image wx:else src="../../resource/dp/like-no.png" />
+        <view class="footer-like-text">{{workDetail.like_num}}</view>
+      </view>
+    </view>
+  </view>
+
+  <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
+
+>>>>>>> git-writing/master
 
 </view>

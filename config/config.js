@@ -29,4 +29,8 @@ export const WEEKS = {
   '28': '二十八',
   '29': '二十九',
   '30': '三十',
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> git-writing/master

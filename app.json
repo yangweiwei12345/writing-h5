@@ -1,9 +1,14 @@
 {
   "pages":[
     "pages/index/index",
+<<<<<<< HEAD
     "pages/my/index",
     "pages/course/index",
     "pages/shop/index",
+=======
+    "pages/course/index",
+    "pages/my/index",
+>>>>>>> git-writing/master
     "pages/course-detail/index",
     "pages/course-chapter/index",
     "pages/course-upload/index",
@@ -11,7 +16,15 @@
     "pages/course-success/index",
     "pages/my-info/index",
     "pages/my-other/index",
+<<<<<<< HEAD
     "pages/work-detail/index"
+=======
+    "pages/work-detail/index",
+    "pages/webview/index",
+    "pages/teacher-room/index",
+    "pages/work-judge/index",
+    "pages/my-works/index"
+>>>>>>> git-writing/master
   ],
   "tabBar": {
     "custom": true,
@@ -33,12 +46,15 @@
         "text": "上课"
       },
       {
+<<<<<<< HEAD
         "pagePath": "pages/shop/index",
         "iconPath": "/resource/nav/address.png",
         "selectedIconPath": "/resource/nav/address_active.png",
         "text": "商城"
       },
       {
+=======
+>>>>>>> git-writing/master
         "pagePath": "pages/my/index",
         "iconPath": "/resource/nav/my.png",
         "selectedIconPath": "/resource/nav/my_active.png",
@@ -50,8 +66,12 @@
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
+<<<<<<< HEAD
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": true
+=======
+    "navigationBarTextStyle":"black"
+>>>>>>> git-writing/master
   },
   "usingComponents": {
     "van-row": "/miniprogram_npm/@vant/weapp/row/index",
@@ -87,6 +107,11 @@
     "van-transition": "/miniprogram_npm/@vant/weapp/transition/index",
     "van-picker": "/miniprogram_npm/@vant/weapp/picker/index",
     "van-empty": "/miniprogram_npm/@vant/weapp/empty/index",
+<<<<<<< HEAD
+=======
+    "van-slider": "/miniprogram_npm/@vant/weapp/slider/index",
+    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index",
+>>>>>>> git-writing/master
     "v-login": "/components/login/index"
   },
   "sitemapLocation": "sitemap.json"

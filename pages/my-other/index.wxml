@@ -1,4 +1,5 @@
 <view class="container">
+<<<<<<< HEAD
   <view class="header">
     <view style="height: 44rpx;"></view>
     <view class="content">
@@ -9,25 +10,53 @@
   <view class="content-header">
     <view class="content-header-top">
       <image src="../../resource/my/header.png" class="content-header-top-img" />
+=======
+
+  <view class="content-header">
+    <view class="content-header-top">
+      <view class="content-header-top-img" bindtap="toEditInfo">
+        <image src="../../resource//my/header.png" class="content-header-top-img-b" />
+        <image src="{{userInfo.head_img}}" class="content-header-top-img-t" />
+      </view>
+>>>>>>> git-writing/master
       <view class="content-header-top-box">
         <view class="content-header-top-info">
           <view class="header-box-left">
             <view class="header-box-left-name">{{userInfo.nick_name}}</view>
+<<<<<<< HEAD
             <image src="../../resource/my/woman.png" />
           </view>
           <view class="header-box-right">
             <view class="header-box-right-age">{{userInfo.age}}岁</view>
             <view class="header-box-right-level">二年级</view>
+=======
+            <image wx:if="{{userInfo.sex === 1}}" src="../../resource/my/man.png" />
+            <image wx:if="{{userInfo.sex === 2}}" src="../../resource/my/woman.png" />
+          </view>
+          <view class="header-box-right">
+            <view class="header-box-right-age">{{userInfo.age}}岁</view>
+            <view class="header-box-right-level">{{userInfo.user_class}}</view>
+>>>>>>> git-writing/master
           </view>
         </view>
         <image src="../../resource/my/flag.png" class="header-box-right" />
       </view>
+<<<<<<< HEAD
       <image src="../../resource/my/share.png" class="content-header-top-share" />
+=======
+      <button open-type="share" style="background-color: transparent;width: 74rpx;height: 74rpx;padding-left: 0;padding-right: 0;">
+        <image src="../../resource/my/share.png" class="content-header-top-share" />
+      </button>
+>>>>>>> git-writing/master
     </view>
     <view class="content-header-bottom">
       <view class="content-header-bottom-item">
         <view class="content-header-bottom-item-num">
+<<<<<<< HEAD
           {{userInfo.work_count}}
+=======
+          {{userInfo.user_work_count}}
+>>>>>>> git-writing/master
           <view class="content-header-bottom-item-unit">
             个
           </view>
@@ -36,7 +65,11 @@
       </view>
       <view class="content-header-bottom-item">
         <view class="content-header-bottom-item-num">
+<<<<<<< HEAD
           {{userInfo.work_day}}
+=======
+          {{userInfo.user_work_sign_count}}
+>>>>>>> git-writing/master
           <view class="content-header-bottom-item-unit">
             天
           </view>
@@ -45,7 +78,11 @@
       </view>
       <view class="content-header-bottom-item">
         <view class="content-header-bottom-item-num">
+<<<<<<< HEAD
           {{userInfo.work_ranking}}
+=======
+          {{userInfo['$user_work_ranking_count']}}
+>>>>>>> git-writing/master
           <view class="content-header-bottom-item-unit">
             次
           </view>
@@ -54,7 +91,11 @@
       </view>
       <view class="content-header-bottom-item">
         <view class="content-header-bottom-item-num">
+<<<<<<< HEAD
           {{userInfo.like_count}}
+=======
+          {{userInfo.user_work_like_count}}
+>>>>>>> git-writing/master
           <view class="content-header-bottom-item-unit">
             次
           </view>
@@ -74,17 +115,31 @@
     </van-tabs>
     <view style="width: 100%;height: 22rpx;border-bottom: 2px solid #f4f4f4;"></view>
 
+<<<<<<< HEAD
     <view class="work-list">
       <van-row gutter="12">
         <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
           <view class="work-list-item">
+=======
+    <van-empty wx:if="{{workList.length === 0}}" description="暂无数据">
+    </van-empty>
+
+    <view class="work-list">
+      <van-row gutter="12">
+        <van-col span="12" wx:for="{{workList || []}}" wx:key="index">
+          <view class="work-list-item" data-id="{{item.work_id}}" bindtap="toWorkDetail">
+>>>>>>> git-writing/master
             <image src="{{item.img_url}}" class="work-item-img" />
             <view class="list-info">
               <view class="list-info-title">{{item.work_remark}}</view>
               <view class="list-info-box">
                 <image src="{{item.head_img}}" />
                 <text class="list-info-text">{{item.nick_name}}</text>
+<<<<<<< HEAD
                 <text class="list-info-time">1分钟前</text>
+=======
+                <text class="list-info-time">{{item.create_time}}</text>
+>>>>>>> git-writing/master
               </view>
             </view>
             <view class="list-info-like">
@@ -92,7 +147,11 @@
               <image wx:else src="../../resource/home/heart-active.png" />
               <text class="list-info-like-num">{{item.like_num}}</text>
             </view>
+<<<<<<< HEAD
             <image src="../../resource/home/pj.png" class="list-info-pj" />
+=======
+            <image wx:if="{{item.status === 1}}" src="../../resource/home/pj.png" class="list-info-pj" />
+>>>>>>> git-writing/master
           </view>
         </van-col>
       </van-row>
