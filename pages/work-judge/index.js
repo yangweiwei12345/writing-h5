@@ -258,7 +258,8 @@ Page({
           })
         }
         this.setData({
-          isStart: false
+          isStart: false,
+          audioValue: res.tempFilePath,
         })
         timer && clearTimeout(timer);
         return;
