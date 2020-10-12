@@ -243,7 +243,7 @@ Page({
 
   onShareAppMessage: function() {
     return {
-      title: `一手好字，孩子收益一生，卡拉熊写字！`,
+      title: `一手好字，孩子收益一生，考拉熊写字！`,
       path: `/pages/index/index`,
       imageUrl: '../../resource/login/logo.png'
     };
