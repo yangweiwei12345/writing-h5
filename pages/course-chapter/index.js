@@ -2,7 +2,7 @@
 const API = require('../../config/api.js');
 const config = require('../../config/config.js');
 import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
-//12313
+
 Page({
   data: {
     params: {},
