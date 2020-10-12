@@ -127,9 +127,9 @@ Page({
       loading: true
     });
     this.loadWork = true;
-    // wx.showLoading({
-    //   title: '加载中...',
-    // });
+    wx.showLoading({
+      title: '加载中...',
+    });
     let params = {
       ...this.data.paginaData,
       status: this.data.active === 'newUpload' ? '2' : '1'
@@ -158,13 +158,13 @@ Page({
         }
       })
       this.loadWork = false;
-      // wx.hideLoading();
+      wx.hideLoading();
     }).catch(e => {
       this.setData({
         loading: false
       });
       this.loadWork = false;
-      // wx.hideLoading();
+      wx.hideLoading();
     })
   },
 

@@ -66,13 +66,21 @@ Component({
               API.login(params)
                 .then(res => {
                   const { token } = res;
-                  wx.setStorageSync("token", token);
-                  that.getUserInfoDetail();
+                  try {
+                    wx.setStorageSync("token", token);
+                    that.getUserInfoDetail();
 
-                  that.setData({
-                    wxlogin: true
-                  });
-                  wx.hideLoading();
+                    that.setData({
+                      wxlogin: true
+                    });
+                    wx.hideLoading();
+                  }catch(e) {
+                    wx.hideLoading();
+                    wx.showToast({
+                      title: '登录失败',
+                      icon: 'none'
+                    })
+                  }
                   
                 })
                 .catch(err => {
@@ -88,6 +96,16 @@ Component({
             }
           });
 
+        },
+        fail: res => {
+          wx.showToast({
+            title: '获取用户信息失败',
+            icon: 'none'
+          })
+          that.setData({
+            wxlogin: true
+          });
+          wx.hideLoading();
         }
       })
     }
