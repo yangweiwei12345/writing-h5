@@ -158,13 +158,13 @@ Page({
         }
       })
       this.loadWork = false;
-      wx.hideLoading();
+      // wx.hideLoading();
     }).catch(e => {
       this.setData({
         loading: false
       });
       this.loadWork = false;
-      wx.hideLoading();
+      // wx.hideLoading();
     })
   },
 
