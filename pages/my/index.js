@@ -94,6 +94,8 @@ Page({
         userInfo: res,
       })
       wx.hideLoading();
+    }).catch(e => {
+      wx.hideLoading();
     })
   },
 

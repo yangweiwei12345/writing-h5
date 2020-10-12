@@ -73,14 +73,15 @@ Component({
                     that.setData({
                       wxlogin: true
                     });
-                    wx.hideLoading();
                   }catch(e) {
-                    wx.hideLoading();
                     wx.showToast({
                       title: '登录失败',
                       icon: 'none'
                     })
                   }
+                  try {
+                    wx.hideLoading();
+                  } catch(e) {}
                   
                 })
                 .catch(err => {
@@ -91,7 +92,9 @@ Component({
                   that.setData({
                     wxlogin: true
                   });
-                  wx.hideLoading();
+                  try {
+                    wx.hideLoading();
+                  } catch(e) {}
                 })
             }
           });
@@ -105,7 +108,10 @@ Component({
           that.setData({
             wxlogin: true
           });
-          wx.hideLoading();
+          try {
+            wx.hideLoading();
+          } catch(e) {}
+
         }
       })
     }
