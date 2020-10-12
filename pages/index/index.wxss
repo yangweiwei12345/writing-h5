@@ -214,14 +214,14 @@ page {
   margin-right: 16rpx;
 }
 .notice-left .notice-left-name {
-  font-size: 13px;
+  font-size: 24rpx;
   color: #999;
   font-weight: bold;
   display: flex;
   align-items: center;
 }
 .notice-left .notice-left-text {
-  font-size: 13px;
+  font-size: 24rpx;
   color: #999;
   display: flex;
   align-items: center;
@@ -231,7 +231,7 @@ page {
   flex: 1;
   display: flex;
   align-items: center;
-  font-size: 13px;
+  font-size: 24rpx;
   color: #999;
   justify-content: flex-end;
 }
