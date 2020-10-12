@@ -375,9 +375,9 @@ Page({
     var y = Math.floor(e.touches[0].clientY);
     date = new Date();
 
-    console.log(this.data.sw, this.data.sh)
+    console.log(this.data.sw, this.data.sh, scrollTop)
     let offsetX = (this.data.sw - this.data.width) / 2;
-    let offsetY = rpx2px(280) - scrollTop;
+    let offsetY = rpx2px(232) - scrollTop;
     moveToX = x - offsetX;
     moveToY = y - offsetY;
     operationType = "mapping";
