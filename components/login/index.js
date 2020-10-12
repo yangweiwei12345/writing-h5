@@ -34,6 +34,12 @@ Component({
       }
     },
 
+    toLoad: function() {
+      wx.showLoading({
+        title: '登录中...',
+      });
+    },
+
     // 登录
     login: function(data) {
       let that = this;
@@ -66,7 +72,18 @@ Component({
                   that.setData({
                     wxlogin: true
                   });
+                  wx.hideLoading();
                   
+                })
+                .catch(err => {
+                  wx.showToast({
+                    title: '登录失败',
+                    icon: 'none'
+                  })
+                  that.setData({
+                    wxlogin: true
+                  });
+                  wx.hideLoading();
                 })
             }
           });
