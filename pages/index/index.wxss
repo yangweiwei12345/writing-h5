@@ -166,7 +166,7 @@ page {
   align-items: center;
   padding-top: 32rpx;
   margin-left: 56rpx;
-  margin-bottom: 60rpx;
+  margin-bottom: 20rpx;
 }
 
 .work-container .work-header image{
@@ -242,7 +242,7 @@ page {
 /** 作业列表 */
 .work-list {
   margin: 0 28rpx;
-  margin-top: 30rpx;
+  margin-top: 0rpx;
   padding-bottom: 180rpx;
 }
 .work-list-item {

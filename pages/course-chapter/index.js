@@ -2,7 +2,7 @@
 const API = require('../../config/api.js');
 const config = require('../../config/config.js');
 import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
-
+//12313
 Page({
   data: {
     params: {},
@@ -391,7 +391,7 @@ Page({
     console.log('test');
     setTimeout(() => {
       Dialog.alert({
-        message: '你今日学习次数已上限，请复习之前学习过的视频吧',
+        message: '上传成功！\n你今日学习次数已上限\n去复习之前学习过的视频吧！',
       }).then(() => {
       });
     }, 300)

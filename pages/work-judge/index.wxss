@@ -12,7 +12,7 @@ page {
   background: #FFFFFF;
   box-shadow: 0px 0px 7px 0px rgba(178, 7, 24, 0.2);
   border-radius: 7px;
-  padding: 24rpx 32rpx;
+  padding: 0rpx 32rpx;
   margin: 28rpx;
 }
 .content-header-top {
@@ -200,7 +200,7 @@ page {
 .work-radio {
   margin: 0 28rpx;
   padding: 26rpx 20rpx;
-  height: 256rpx;
+  height: 220rpx;
   background: #FFFFFF;
   box-shadow: 0px 0px 7px 0px rgba(178, 7, 24, 0.2);
   border-radius: 14rpx;
@@ -210,7 +210,7 @@ page {
   flex: 1;
 }
 .work-radio-text-box {
-  height: 180rpx;
+  height: 140rpx;
   background: #FFFFFF;
   box-shadow: 0px 1px 4px 1px rgba(85, 3, 3, 0.2);
   border-radius: 14rpx;
@@ -225,7 +225,7 @@ page {
   /* background: #999999; */
   background-color: #FE3346;
   border-radius: 36px;
-  margin-top: 15rpx;
+  margin-top: 30rpx;
 }
 .work-radio-lz .work-radio-lz-common-text {
   font-size: 14px;
@@ -246,8 +246,8 @@ page {
 
 .work-radio-right {}
 .work-radio-gif-box {
-  margin-top: 24rpx;
-  margin-bottom: 22rpx;
+  margin-top: 8rpx;
+  margin-bottom: 8rpx;
   position: relative;
 }
 .work-radio-gif-box > image {
@@ -275,21 +275,21 @@ page {
 }
 
 .work-radio-reset {
-  font-size: 9px;
+  font-size: 10px;
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #999999;
   margin-top: 18rpx;
 }
 .work-radio-reset .image1 {
-  width: 30rpx;
-  height: 34rpx;
+  width: 38rpx;
+  height: 42rpx;
   margin-right: 60rpx;
 }
 
 .work-radio-reset .image2 {
-  width: 34rpx;
-  height: 26rpx;
+  width: 42rpx;
+  height: 34rpx;
   margin-top: 8rpx;
 }
 

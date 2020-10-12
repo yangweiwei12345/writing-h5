@@ -3,7 +3,8 @@ page {
 }
 
 .course-video video {
-  width: 100%;
+  width: 750rpx;
+  height: 422rpx;
 }
 
 .course-box {

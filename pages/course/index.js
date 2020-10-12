@@ -124,7 +124,7 @@ Page({
 
     if(parseInt(num) <= 0) {
       wx.showToast({
-        title: '已过期',
+        title: '已过期，请联系老师',
         icon: 'none'
       })
       return;
