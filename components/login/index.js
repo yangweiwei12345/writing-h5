@@ -101,9 +101,6 @@ Component({
 
         },
         fail: res => {
-          try {
-            wx.hideLoading();
-          } catch(e) {}
           wx.showToast({
             title: '获取用户信息失败',
             icon: 'none'
@@ -111,6 +108,9 @@ Component({
           that.setData({
             wxlogin: true
           });
+          try {
+            wx.hideLoading();
+          } catch(e) {}
 
         }
       })
