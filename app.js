@@ -24,11 +24,16 @@ App({
 
     wx.getSystemInfo({
       success: (res) => {
-          this.globalData.statusBarHeight = res.statusBarHeight;
-          this.globalData.screen = {
-            width: res.screenWidth,
-            height: res.screenHeight
-          };
+        console.log(res);
+        let modelmes = res.model;
+        if (modelmes.search('iPhone X') != -1 || model.search("iPad") != -1) {
+          this.globalData.isIphoneX = true;
+        }
+        this.globalData.statusBarHeight = res.statusBarHeight;
+        this.globalData.screen = {
+          width: res.screenWidth,
+          height: res.screenHeight
+        };
        }
     })
   },
