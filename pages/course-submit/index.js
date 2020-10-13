@@ -87,7 +87,12 @@ Page({
       this.onShowClick(res.is_clock);
       wx.hideLoading();
     }).catch(err => {
+      console.log(err);
       wx.hideLoading();
+      wx.showToast({
+        title: err || '请求失败',
+        icon: 'none'
+      })
     })
   }
 })
