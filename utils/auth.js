@@ -1,4 +1,5 @@
 const API = require('../config/api');
+const regeneratorRuntime = require('./runtime.js');
 
 async function checkSession(){
   return new Promise((resolve, reject) => {

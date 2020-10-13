@@ -4,6 +4,7 @@
       src="{{selectVideo.video_url}}" 
       autoplay 
       poster="{{selectVideo.video_img}}"
+      custom-cache="true"
       bindended="onVideoEnd"
     />
   </view>
