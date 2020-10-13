@@ -69,18 +69,18 @@
   <view class="footer">
     <view class="footer-head">
       <image src="{{workDetail.t_head_img || '../../resource/dp/head.png'}}" />
-      <view class="footer-head-name">{{workDetail.t_nick_name || '考拉熊老师'}}</view>
+      <view class="footer-head-name">{{workDetail.t_nick_name || '考拉熊'}}</view>
     </view>
     <view class="footer-radio">
       <!-- 老师未点评 -->
       <view class="gp-common gp-no" wx:if="{{workDetail.status !== 1}}">
-        老师还未点评
+        老师还未点评，请留意公众号通知
       </view>
       <block wx:else>
         <!-- 老师已点评，未播放状态 -->
         <view wx:if="{{playStatus === 0}}" class="gp-common gp-play">
           <view class="gp-play-box">
-            <view class="gp-play-text">老师点评</view>
+            <view class="gp-play-text">收听老师点评</view>
             <view class="gp-play-time">{{workDetail.t_time}}</view>
           </view>
           <image src="../../resource/dp/play.png" class="gp-play-img" bindtap="play" />

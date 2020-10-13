@@ -104,11 +104,11 @@
           {{workList[0].nick_name}}
         </view>
         <view class="notice-left-text">
-          上传了作业
+          刚刚上传了作业
         </view>
       </view>
       <view class="notice-right">
-        共有
+        今日共有
         <text class="notice-right-text">{{count}}</text>
         人提交了作业
       </view>
