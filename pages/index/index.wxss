@@ -56,6 +56,7 @@ page {
 /** 轮播图 */
 .swiper-container {
   margin: 0 20rpx;
+  height: 300rpx;
 }
 
 .swiper-item {

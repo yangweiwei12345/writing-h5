@@ -1,4 +1,6 @@
 const API = require('../../config/api');
+const rpx2px = require('../../utils/rpx2px');
+const app = getApp()
 
 Component({
   properties: {
@@ -9,7 +11,9 @@ Component({
 
   data: {
     // 默认已登陆
-    wxlogin: true
+    wxlogin: true,
+
+    top: (app.globalData.screen.height - rpx2px(678))/2
   },
 
   methods: {

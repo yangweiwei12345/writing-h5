@@ -16,7 +16,6 @@
   margin: 0 auto;
   height: 678rpx;
   background-color: #fff;
-  margin-top: 40%;
   border-radius: 14rpx;
 }
 

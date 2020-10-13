@@ -1,5 +1,5 @@
 <view class="apifmLogin" hidden="{{wxlogin}}">
-  <view class="s-b">
+  <view class="s-b" style="margin-top: {{top}}px">
     <image src="../../resource/login/logo.png" style="width: 226rpx;height: 278rpx;margin-top: 60rpx;margin-bottom: 34rpx;" />
     <image src="../../resource/login/title.png" style="width: 514rpx;height: 146rpx;" />
     <view class="footer-btns">

@@ -24,13 +24,21 @@ App({
 
     wx.getSystemInfo({
       success: (res) => {
-          this.globalData.statusBarHeight = res.statusBarHeight
+          this.globalData.statusBarHeight = res.statusBarHeight;
+          this.globalData.screen = {
+            width: res.screenWidth,
+            height: res.screenHeight
+          };
        }
     })
   },
   globalData: {
     userInfo: null,
     courseDetail: {},
-    statusBarHeight: 22
+    statusBarHeight: 22,
+    screen: {
+      width: 375,
+      height: 667
+    }
   }
 })
