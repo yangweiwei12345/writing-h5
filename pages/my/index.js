@@ -111,8 +111,8 @@ Page({
 
     return {
       title: `欢迎光临@${userInfo.nick_name}同学的主页`,
-      path: `/pages/my-other/index?user_id=${userInfo.user_id}`,
-      imageUrl: userInfo.head_img
+      path: `/pages/my-other/index?user_id=${userInfo.user_id}`
+      //imageUrl: userInfo.head_img
     };
   }
 })

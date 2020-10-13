@@ -64,7 +64,7 @@ page {
   flex-direction: column;
   justify-content: center;
   margin-left: 24rpx;
-  width: 100%;
+  width: 60%;
 }
 .course-list-box .course-list-title {
   font-size: 16px;
@@ -82,11 +82,12 @@ page {
   margin-bottom: 44rpx;
   height: 30rpx;
 
-  width: 488rpx;
+  width: 438rpx;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
   -webkit-line-clamp: 1;
+  margin-top:10rpx
 }
 .course-list-box .course-list-info {
   font-size: 10px;

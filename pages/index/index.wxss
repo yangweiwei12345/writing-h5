@@ -119,7 +119,7 @@ page {
   justify-content: space-between;
 }
 .course-list .course-item image {
-  width: 136rpx;
+  width: 190rpx;
   height: 136rpx;
   background-color: #e5e5e5;
 }
@@ -131,19 +131,19 @@ page {
   margin-left: 12rpx;
 }
 .course-content .course-title {
-  font-size: 15px;
+  font-size: 24rpx;
   font-family: SourceHanSansCN;
   font-weight: 500;
   color: #333333;
   margin-bottom: 14rpx;
 }
 .course-content .course-sub-title {
-  font-size: 12px;
+  font-size: 21rpx;
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #333333;
   margin-bottom: 14rpx;
-  width: 350rpx;
+  width: 320rpx;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
@@ -151,7 +151,7 @@ page {
 
 }
 .course-content .course-desc {
-  font-size: 12px;
+  font-size: 24rpx;
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #999999;

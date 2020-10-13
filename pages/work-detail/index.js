@@ -546,7 +546,7 @@ Page({
     return {
       title: `快来给@${workDetail.nick_name}的作品点赞，TA已练字${workDetail.userCoinageCount}天`,
       path: `/pages/work-detail/index?work_id=${workDetail.work_id}&share=true`,
-      imageUrl: workDetail.img_url
+      //imageUrl: workDetail.img_url
     };
   }
 
