@@ -21,9 +21,9 @@ page {
 }
 
 .container .content {
-  height: 90rpx;
+  height: 45px;
   text-align: center;
-  line-height: 90rpx;
+  line-height: 45px;
   font-size: 19px;
   font-family: SourceHanSansCN;
   font-weight: 500;
@@ -36,26 +36,26 @@ page {
   position: absolute;
   top: 0;
   left: 0;
-  width: 90rpx;
-  height: 90rpx;
+  width: 45x;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .header-back image {
-  width: 22rpx;
-  height: 44rpx;
-  margin-left: 34rpx;
-  margin-top: 23rpx;
+  width: 11px;
+  height: 22px;
+  margin-left: 17px;
+  margin-top: 12px;
 }
 
 .header-home {
   position: absolute;
-  top: 15rpx;
-  left: 15rpx;
-  width: 60rpx;
-  height: 60rpx;
+  top: 8px;
+  left: 8px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,8 +63,8 @@ page {
 }
 
 .header-home image {
-  width: 60rpx;
-  height: 60rpx;
+  width: 30px;
+  height: 30px;
   /* margin-left: 10rpx; */
   /* margin-top: 10rpx; */
 

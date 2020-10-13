@@ -21,9 +21,9 @@ page {
 }
 
 .container .content {
-  height: 90rpx;
+  height: 45px;
   text-align: center;
-  line-height: 90rpx;
+  line-height: 45px;
   font-size: 19px;
   font-family: SourceHanSansCN;
   font-weight: 500;

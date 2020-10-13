@@ -21,14 +21,14 @@ page {
 }
 
 .container .content {
-  height: 90rpx;
+  height: 45px;
 }
 
 /** tabs 自定义 */
 .tabs-root-class {
   background-color: transparent;
   margin-right: 200rpx;
-  margin-top: 12rpx;
+  margin-top: 6px;
 }
 
 .van-tabs__scroll {
@@ -37,7 +37,7 @@ page {
 
 .nav-class {
   background-color: transparent;
-  border-radius: 30rpx !important;
+  border-radius: 35rpx !important;
   border: 1px solid #fff !important;
   overflow: hidden;
 }
