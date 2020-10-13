@@ -120,7 +120,7 @@ Page({
   },
 
   toDetail: function(e) {
-    const { title, id, num } = e.currentTarget.dataset;
+    const { title, id, num, dt } = e.currentTarget.dataset;
 
     if(parseInt(num) <= 0) {
       wx.showToast({
@@ -129,12 +129,13 @@ Page({
       })
       return;
     }
+    console.log(dt)
 
     wx.navigateTo({
       url: '/pages/course-detail/index?courseId=' + id 
     });
     app.globalData.courseDetail = {
-      title
+      ...dt
     };
   },
 

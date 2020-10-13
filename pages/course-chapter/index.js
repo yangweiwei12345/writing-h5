@@ -52,13 +52,15 @@ Page({
     let data = {
       course_id: params.courseId,
       week_id: params.weekId,
-      week_num: params.weekNum
+      week_num: params.weekNum,
+      user_course_id: app.globalData.courseDetail.user_course_id
     };
     console.log(this.selectChapterIndex,this.selectVideoIndex);
     API.courseSection(data).then(res => {//成功
       let chapterList = res || [];
       this.setData({
         chapterList: chapterList,
+        user_course_id: app.globalData.courseDetail.user_course_id
       });
       wx.hideLoading();
 
@@ -201,7 +203,8 @@ Page({
       section_num: selectChapter.section_num,
       week_num: params.weekNum,
       video_id: selectVideo.video_id,
-      video_num: selectVideo.video_num
+      video_num: selectVideo.video_num,
+      user_course_id: app.globalData.courseDetail.user_course_id
     };
 
     API.lookOverVideo(data).then(res => {//成功
@@ -323,7 +326,8 @@ Page({
   getWork: function() {
     API.courseWorkList({
       ...this.data.paginaData,
-      section_id: this.data.selectChapter.section_id
+      section_id: this.data.selectChapter.section_id,
+      user_course_id: app.globalData.courseDetail.user_course_id
     }).then(res => {//成功
       let data = res && res.rows || [];
       let hasMore = true;
@@ -349,7 +353,8 @@ Page({
     const { workList } = this.data;
     const { id } = e.currentTarget.dataset;
     API.likeWork({
-      work_id: id
+      work_id: id,
+      user_course_id: app.globalData.courseDetail.user_course_id
     }).then(res => {
       workList.forEach(item => {
         if(item.work_id == id) {

@@ -38,7 +38,7 @@
     <van-empty wx:if="{{userCourseList.length === 0}}" description="暂无数据">
     </van-empty>
     <view class="course-list">
-      <view class="course-list-item" wx:for="{{userCourseList}}" wx:key="index" data-id="{{item.course_id}}" data-title="{{item.title}}" data-num="{{item.times}}" bindtap="toDetail">
+      <view class="course-list-item" wx:for="{{userCourseList}}" wx:key="index" data-id="{{item.course_id}}" data-title="{{item.title}}" data-num="{{item.times}}" data-dt="{{item}}" bindtap="toDetail">
         <image src="{{item.buy_img}}" />
         <view class="course-list-box">
           <view class="course-list-title">{{item.title}}</view>

@@ -71,7 +71,8 @@ Page({
     let { params } = this.data;
     let data = {
       ...params,
-      work_remark: ''
+      work_remark: '',
+      user_course_id: app.globalData.courseDetail.user_course_id
     };
     
     wx.showLoading({

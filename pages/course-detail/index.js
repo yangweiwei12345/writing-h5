@@ -37,7 +37,8 @@ Page({
   // 获取我的课程
   getCourseWeekList: function(course_id) {
     API.courseWeekList({
-      course_id
+      course_id,
+      user_course_id: app.globalData.courseDetail.user_course_id
     }).then(res => {//成功
       this.setData({
         courseWeekList: res && res.rows || [],

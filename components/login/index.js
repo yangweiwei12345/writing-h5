@@ -29,6 +29,7 @@ Component({
     },
 
     onGotUserInfo: function (e) {
+      console.log(e);
       if(e.detail.errMsg == 'getUserInfo:ok') {
         this.login(e);
       } else {
