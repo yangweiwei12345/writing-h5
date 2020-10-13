@@ -60,7 +60,7 @@
   </swiper>
 
   <view class="new">
-    <image class="new-img" src="../../resource/home/new.png" />
+    <image class="new-img" src="../../resource/home/new.jpg" />
     <view class="new-text">
       <!-- <text class="new-text-item1">童真童趣 </text> -->
       <text class="new-text-item2">{{newsData.title}}</text>
