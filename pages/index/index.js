@@ -24,10 +24,22 @@ Page({
     opacity: 0,
 
     active: 'newComment',
+
+    activeTab: 'index',
     hasMore: true,
     wxlogin: true,
+
+    // 排行榜数据
+    rankingLikeData: [],
+    rankingRankData: [],
+    rankPage: {
+      page: 1,
+      pageSize: 10
+    },
+    activeDate: 'week'
   },
   loadWork: false,
+  loaded: false,
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -43,20 +55,8 @@ Page({
       }
     }
 
-    // banner
-    this.getBanner();
-    this.getNews();
-    this.getCourse();
-    this.setData({
-      paginaData: {
-        page: 1,
-        pageSize: 20
-      },
-      workList: [],
-      hasMore: true
-    }, () => {
-      this.getWork();
-    });
+    this.getInitIndexData();
+
   },
   onShow: function() {
     if (typeof this.getTabBar === 'function' &&
@@ -69,6 +69,77 @@ Page({
     this.isLogin();
   },
 
+  // 获取首页数据
+  getIndexData: function() {
+    // banner
+    this.getBanner();
+    this.getNews();
+    this.getCourse();
+    this.getWork();
+  },
+
+  getInitIndexData: function() {
+    if(this.loaded) {
+      return;
+    }
+
+    this.loaded = true;
+    if(this.data.activeTab === 'index') {
+      this.setData({
+        workList: [],
+        paginaData: {
+          page: 1,
+          pageSize: 20
+        },
+        hasMore: true,
+      }, () => {
+        this.getIndexData();
+      });
+    } else if(this.data.activeTab === 'rank') {
+      this.getRankData();
+    }
+  },
+
+  getRankData: function() {
+    this.getRank(1);
+    this.getRank(2);
+  },
+
+  // getInitRankData: function() {
+  //   this.getRank(1);
+  //   this.getRank(2);
+  // },
+
+  // 获取排行榜数据
+  getRank: function(type) {
+    wx.showLoading({
+      title: '数据加载中',
+    });
+    let params = {
+      ...this.data.rankPage,
+      time_type: this.data.activeDate === 'week' ? 'week' : 'month',
+      rank_type: type
+    };
+
+    API.ranking(params)
+      .then(res => {
+        let data = res && res.rows || [];
+
+        if(type === 1) {
+          this.setData({
+            rankingLikeData: data
+          });
+        } else {
+          this.setData({
+            rankingRankData: data
+          });
+        }
+        wx.hideLoading();
+      })
+      .catch(e => {
+        wx.hideLoading();
+      })
+  },
 
   // 是否登录
   isLogin: function() {
@@ -168,6 +239,16 @@ Page({
     })
   },
 
+  onTabsChange: function(e) {
+    this.loaded = false;
+    this.setData({
+      activeTab: e.detail.name,
+    }, () => {
+      this.getInitIndexData();
+    });
+    
+  },
+
   onChange: function(e) {
     this.setData({
       active: e.detail.name,
@@ -185,6 +266,14 @@ Page({
       });
     }, 300);
     
+  },
+
+  onChangeDate: function(e) {
+    this.setData({
+      activeDate: e.detail.name,
+    }, () => {
+      this.getRankData();
+    });
   },
 
   toWorkDetail: function(e) {
@@ -220,6 +309,16 @@ Page({
       })
     }
   },
+  
+  // 排行榜列表
+  onMore: function(e) {
+    const { type } = e.currentTarget.dataset;
+    const { activeDate } = this.data;
+
+    wx.navigateTo({
+      url: '/pages/rank/index?date=' + activeDate + '&type=' + type
+    })
+  },
 
   onLikeClick: function(e) {
 
@@ -252,6 +351,10 @@ Page({
   onReachBottom() {
     const { hasMore } = this.data;
 
+    if(this.data.activeTab !== 'index') {
+      return;
+    }
+
     if(!hasMore) {
       return;
     }
@@ -270,6 +373,10 @@ Page({
 
   onPageScroll: function (e) {
     let top = e.scrollTop;
+
+    // if(this.data.activeTab !== 'index') {
+    //   return;
+    // }
 
     tt && clearTimeout(tt);
     let tt = setTimeout(() => {

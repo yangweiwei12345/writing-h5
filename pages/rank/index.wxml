@@ -1,0 +1,51 @@
+<view class="container">
+
+  <van-empty wx:if="{{rankingData.length === 0}}" description="暂无数据">
+  </van-empty>
+
+  <view class="rank-box" wx:if="{{rankingData.length > 0}}">
+    <view class="rank-content">
+      <view class="rank-content-box" style="margin-bottom: -26rpx;">
+        <view class="rank-content-box-item" style="flex: 17;">
+          <view class="rank-content-box-img" style="width: 130rpx;height: 142rpx;">
+            <image class="rank-content-box-img-back rank-content-box-img-back1" src="../../resource/rank/yj.png" />
+            <image class="rank-content-box-img-head rank-content-box-img-head1" src="{{rankingData[1].head_img}}" />
+          </view>
+          <view class="rank-content-box-item-text">
+            {{rankingData[1].nick_name}}
+          </view>
+        </view>
+        <view class="rank-content-box-item" style="flex: 22;margin-bottom: 26rpx;">
+          <view class="rank-content-box-img">
+            <image class="rank-content-box-img-back" src="../../resource/rank/gj.png" />
+            <image class="rank-content-box-img-head" src="{{rankingData[0].head_img}}" />
+          </view>
+          <view class="rank-content-box-item-text">
+            {{rankingData[0].nick_name}}
+          </view>
+        </view>
+        <view class="rank-content-box-item" style="flex: 17;">
+          <view class="rank-content-box-img" style="width: 130rpx;height: 142rpx;">
+            <image class="rank-content-box-img-back rank-content-box-img-back1" src="../../resource/rank/jj.png" />
+            <image class="rank-content-box-img-head rank-content-box-img-head1" src="{{rankingData[2].head_img}}" />
+          </view>
+          <view class="rank-content-box-item-text">
+            {{rankingData[2].nick_name}}
+          </view>
+        </view>
+      </view>
+      <image src="../../resource/rank/tai.png" class="rank-content-img" />
+    </view>
+  </view>
+
+  <view class="rank-list">
+    <block wx:for="{{rankingData}}" wx:key="co">
+      <view class="rank-item" wx:if="{{index > 2}}">
+        <view class="rank-item-num">{{index + 1}}</view>
+        <image class="rank-item-img" src="{{item.head_img}}" />
+        <view class="rank-item-name">{{item.nick_name}}</view>
+        <view class="rank-item-like">获赞 {{item.co}}</view>
+      </view>
+    </block>
+  </view>
+</view>

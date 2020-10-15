@@ -14,7 +14,8 @@
     "pages/webview/index",
     "pages/teacher-room/index",
     "pages/work-judge/index",
-    "pages/my-works/index"
+    "pages/my-works/index",
+    "pages/rank/index"
   ],
   "tabBar": {
     "custom": true,

@@ -1,6 +1,6 @@
 const request = require('../utils/request.js');
-// const host = 'http://xz-api.defengvip.com';
-export const host = 'https://klxxcx.klart.cn';
+const host = 'http://xz-api.defengvip.com';
+// export const host = 'https://klxxcx.klart.cn';
 
 const API =  {
   /**
@@ -121,6 +121,11 @@ const API =  {
   remarkWork: {
     url: '/api/course/remarkWork',
     method: 'POST'
+  },
+
+  // 排行榜
+  ranking: {
+    url: '/api/sys/ranking'
   },
 
   // 图片上传

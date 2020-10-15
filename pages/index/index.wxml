@@ -3,142 +3,262 @@
   <view class="header">
     <view style="position: fixed;top:0;left: 0;background-color: rgba(254,144,103);opacity: {{opacity}};width: 100%;z-index: 1000;">
       <view style="height: {{statusBarHeight}}px;"></view>
-      <view class="content" style="display: flex;justify-content: center;align-items: center;font-size: 16px;color: #fff;">
-        <!-- <van-tabs
+      <!-- style="display: flex;justify-content: center;align-items: center;font-size: 16px;color: #fff;" -->
+      <view class="content">
+        <van-tabs
           type="card"
           bind:change="onTabsChange"
-          active="{{active}}"
+          active="{{activeTab}}"
           custom-class="tabs-root-class"
           nav-class="nav-class"
           tab-class="tab-class"
           tab-active-class="tab-active-class"
         >
-          <van-tab name="index" title="首页"></van-tab> -->
-          <!-- <van-tab name="rank" title="排行榜"></van-tab>
-          <van-tab name="praise" title="表彰墙"></van-tab>
-        </van-tabs> -->
-        首页
+          <van-tab name="index" title="首页"></van-tab>
+          <van-tab name="rank" title="排行榜"></van-tab>
+          <!-- <van-tab name="praise" title="表彰墙"></van-tab> -->
+        </van-tabs>
       </view>
     </view>
     <view style="height: {{statusBarHeight}}px;"></view>
-    <view class="content" style="display: flex;justify-content: center;align-items: center;font-size: 16px;color: #fff;position: relative;z-index: 1000;">
-      <!-- <van-tabs
-          type="card"
-          bind:change="onTabsChange"
-          active="{{active}}"
-          custom-class="tabs-root-class"
-          nav-class="nav-class"
-          tab-class="tab-class"
-          tab-active-class="tab-active-class"
-        >
-          <van-tab name="index" title="首页"></van-tab> -->
-          <!-- <van-tab name="rank" title="排行榜"></van-tab>
-          <van-tab name="praise" title="表彰墙"></van-tab>
-        </van-tabs> -->
-      首页
+    <!-- style="display: flex;justify-content: center;align-items: center;font-size: 16px;color: #fff;position: relative;z-index: 1000;" -->
+    <view class="content" style="opacity: {{opacity > 0 ? 0 : 1}}">
+      <van-tabs
+        type="card"
+        bind:change="onTabsChange"
+        active="{{activeTab}}"
+        custom-class="tabs-root-class"
+        nav-class="nav-class"
+        tab-class="tab-class"
+        tab-active-class="tab-active-class"
+      >
+        <van-tab name="index" title="首页"></van-tab>
+        <van-tab name="rank" title="排行榜"></van-tab>
+        <!-- <van-tab name="praise" title="表彰墙"></van-tab> -->
+      </van-tabs>
     </view>
-    <image src="../../resource/home/back.png" />
+    <!--  -->
+    <image mode="{{ activeTab !== 'index' ? 'aspectFill' : 'aspectFill' }}" style="height: {{ activeTab !== 'index' ? (45 + statusBarHeight) : '' }}px" src="../../resource/home/back.png" />
   </view>
 
-  <!-- 轮播图 -->
-  <swiper
-    class="swiper-container"
-    indicator-dots="{{true}}"
-    autoplay="{{true}}"
-    interval="{{5000}}"
-    duration="{{500}}"
-    indicator-color="#fff"
-    indicator-active-color="rgb(255,75,3)"
-  >
-    <block wx:for="{{bannerData}}" wx:key="id">
-      <swiper-item style="height: 500rpx;">
-        <view class="swiper-item" data-type="{{item.banner_type}}" data-link="{{item.url}}" data-title="{{item.title}}" bindtap="toBanner">
-          <image class="swiper-image" mode="widthFix" src="{{item.image_url}}" />
-        </view>
-      </swiper-item>
-    </block>
-  </swiper>
+  <block wx:if="{{activeTab === 'index'}}">
+  <!-- <van-transition show="{{ activeTab === 'index' }}" name="slide-left"> -->
+    <!-- 轮播图 -->
+    <swiper
+      class="swiper-container"
+      indicator-dots="{{true}}"
+      autoplay="{{true}}"
+      interval="{{5000}}"
+      duration="{{500}}"
+      indicator-color="#fff"
+      indicator-active-color="rgb(255,75,3)"
+    >
+      <block wx:for="{{bannerData}}" wx:key="id">
+        <swiper-item style="height: 500rpx;">
+          <view class="swiper-item" data-type="{{item.banner_type}}" data-link="{{item.url}}" data-title="{{item.title}}" bindtap="toBanner">
+            <image class="swiper-image" mode="widthFix" src="{{item.image_url}}" />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
 
-  <view class="new">
-    <image class="new-img" src="../../resource/home/new.png" />
-    <view class="new-text">
-      <!-- <text class="new-text-item1">童真童趣 </text> -->
-      <text class="new-text-item2">{{newsData.title}}</text>
-    </view>
-    <van-button data-title="{{newsData.title}}" data-type="{{newsData.type}}" data-link="{{newsData.link}}" bindtap="toNew" custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252">立即查看</van-button>
-  </view>
-
-  <view class="course-list">
-    <view class="course-item" wx:for="{{courseList}}" wx:key="course_id" data-id="{{item.course_id}}">
-      <image lazy-load="{{true}}" src="{{item.ad_img}}" />
-      <view class="course-content">
-        <text class="course-title">{{item.title}}</text>
-        <text class="course-sub-title">{{item.subtitle}}</text>
-        <!-- <text class="course-desc">{{item.ad_title}}</text> -->
+    <view class="new">
+      <image class="new-img" src="../../resource/home/new.png" />
+      <view class="new-text">
+        <!-- <text class="new-text-item1">童真童趣 </text> -->
+        <text class="new-text-item2">{{newsData.title}}</text>
       </view>
-      <van-button open-type="contact" send-message-title="{{item.title}}" send-message-img="{{item.ad_img}}" session-from="{{item.course_id}}" send-message-path="/pages/course/index?course_id={{item.course_id}}" show-message-card  custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round plain type="danger" size="mini" color="#FD5252">去学习</van-button>
-    </view>
-  </view>
-
-  <view class="work-container">
-    <view class="work-header">
-      <image src="../../resource/home/title.png" />
-      <text class="work-header-title">作品广场</text>
-      <text class="work-header-sub-title">作品展览小广场</text>
+      <van-button data-title="{{newsData.title}}" data-type="{{newsData.type}}" data-link="{{newsData.link}}" bindtap="toNew" custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252">立即查看</van-button>
     </view>
 
-    <van-tabs sticky active="{{active}}" bind:change="onChange" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
-      <van-tab title="最新点评" name="newComment"></van-tab>
-      <van-tab title="最新上传" name="newUpload"></van-tab>
-    </van-tabs>
-    <view style="width: 100%;height: 22rpx;border-bottom: 2px solid #f4f4f4;"></view>
-
-    <van-empty wx:if="{{workList.length === 0}}" description="暂无数据">
-    </van-empty>
-
-
-    <view class="notice-container" wx:if="{{workList.length > 0}}">
-      <view class="notice-left">
-        <image src="../../resource/home/notice.png" />
-        <view class="notice-left-name">
-          {{workList[0].nick_name}}
+    <view class="course-list">
+      <view class="course-item" wx:for="{{courseList}}" wx:key="course_id" data-id="{{item.course_id}}">
+        <image lazy-load="{{true}}" src="{{item.ad_img}}" />
+        <view class="course-content">
+          <text class="course-title">{{item.title}}</text>
+          <text class="course-sub-title">{{item.subtitle}}</text>
+          <!-- <text class="course-desc">{{item.ad_title}}</text> -->
         </view>
-        <view class="notice-left-text">
-          刚刚上传了作业
-        </view>
-      </view>
-      <view class="notice-right">
-        今日共有
-        <text class="notice-right-text">{{count}}</text>
-        人提交了作业
+        <van-button open-type="contact" send-message-title="{{item.title}}" send-message-img="{{item.ad_img}}" session-from="{{item.course_id}}" send-message-path="/pages/course/index?course_id={{item.course_id}}" show-message-card  custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round plain type="danger" size="mini" color="#FD5252">去学习</van-button>
       </view>
     </view>
 
-    <view class="work-list">
+    <view class="work-container">
+      <view class="work-header">
+        <image src="../../resource/home/title.png" />
+        <text class="work-header-title">作品广场</text>
+        <text class="work-header-sub-title">作品展览小广场</text>
+      </view>
 
-      <van-row gutter="12">
-        <van-col span="12" wx:for="{{workList || []}}" wx:key="work_id">
-          <view class="work-list-item" data-id="{{item.work_id}}" bindtap="toWorkDetail">
-            <image src="{{item.img_url}}" mode="aspectFill" class="work-item-img" />
-            <view class="list-info">
-              <view class="list-info-title">{{item.work_remark}}</view>
-              <view class="list-info-box">
-                <image src="{{item.head_img}}" />
-                <text class="list-info-text">{{item.nick_name}}</text>
-                <text class="list-info-time">{{item.create_time}}</text>
+      <van-tabs active="{{active}}" bind:change="onChange" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
+        <van-tab title="最新点评" name="newComment"></van-tab>
+        <van-tab title="最新上传" name="newUpload"></van-tab>
+      </van-tabs>
+      <view style="width: 100%;height: 22rpx;border-bottom: 2px solid #f4f4f4;"></view>
+
+      <van-empty wx:if="{{workList.length === 0}}" description="暂无数据">
+      </van-empty>
+
+
+      <view class="notice-container" wx:if="{{workList.length > 0}}">
+        <view class="notice-left">
+          <image src="../../resource/home/notice.png" />
+          <view class="notice-left-name">
+            {{workList[0].nick_name}}
+          </view>
+          <view class="notice-left-text">
+            刚刚上传了作业
+          </view>
+        </view>
+        <view class="notice-right">
+          今日共有
+          <text class="notice-right-text">{{count}}</text>
+          人提交了作业
+        </view>
+      </view>
+
+      <view class="work-list">
+
+        <van-row gutter="12">
+          <van-col span="12" wx:for="{{workList || []}}" wx:key="work_id">
+            <view class="work-list-item" data-id="{{item.work_id}}" bindtap="toWorkDetail">
+              <image src="{{item.img_url}}" mode="aspectFill" class="work-item-img" />
+              <view class="list-info">
+                <view class="list-info-title">{{item.work_remark}}</view>
+                <view class="list-info-box">
+                  <image src="{{item.head_img}}" />
+                  <text class="list-info-text">{{item.nick_name}}</text>
+                  <text class="list-info-time">{{item.create_time}}</text>
+                </view>
+              </view>
+              <view class="list-info-like" data-id="{{item.work_id}}" catchtap="onLikeClick">
+                <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
+                <image wx:else src="../../resource/home/heart-active.png" />
+                <text class="list-info-like-num">{{item.like_num}}</text>
+              </view>
+              <image wx:if="{{item.status === 1}}" src="../../resource/home/pj.png" class="list-info-pj" />
+            </view>
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+  <!-- </van-transition> -->
+  </block>
+  <block wx:elif="{{activeTab === 'rank'}}">
+  <!-- <van-transition show="{{ activeTab === 'rank' }}" name="slide-right"> -->
+    <view class="rank-container">
+      <van-tabs active="{{activeDate}}" bind:change="onChangeDate" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
+        <van-tab title="本周排行" name="week"></van-tab>
+        <van-tab title="本月排行" name="month"></van-tab>
+      </van-tabs>
+
+      <van-empty wx:if="{{rankingRankData.length === 0 && rankingLikeData.length === 0}}" description="正在更新中">
+      </van-empty>
+
+      <!-- 本周人气之星 -->
+      <view class="rank-box" wx:if="{{rankingLikeData.length > 0}}">
+        <view class="rank-head">
+          <view class="rank-head-title">本{{ this.data.activeData === 'week' ? '周' : '月' }}人气之星</view>
+          <view class="rank-head-right" data-type="like" bindtap="onMore">
+            更多 >
+          </view>
+        </view>
+        <view class="rank-content">
+          <view class="rank-content-box" style="margin-bottom: -26rpx;">
+            <view class="rank-content-box-item" style="flex: 17;">
+              <view class="rank-content-box-img" style="width: 130rpx;height: 142rpx;">
+                <image class="rank-content-box-img-back rank-content-box-img-back1" src="../../resource/rank/yj.png" />
+                <image class="rank-content-box-img-head rank-content-box-img-head1" src="{{rankingLikeData[1].head_img}}" />
+              </view>
+              <view class="rank-content-box-item-text">
+                {{rankingLikeData[1].nick_name}}
               </view>
             </view>
-            <view class="list-info-like" data-id="{{item.work_id}}" catchtap="onLikeClick">
-              <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
-              <image wx:else src="../../resource/home/heart-active.png" />
-              <text class="list-info-like-num">{{item.like_num}}</text>
+            <view class="rank-content-box-item" style="flex: 22;margin-bottom: 26rpx;">
+              <view class="rank-content-box-img">
+                <image class="rank-content-box-img-back" src="../../resource/rank/gj.png" />
+                <image class="rank-content-box-img-head" src="{{rankingLikeData[0].head_img}}" />
+              </view>
+              <view class="rank-content-box-item-text">
+                {{rankingLikeData[0].nick_name}}
+              </view>
             </view>
-            <image wx:if="{{item.status === 1}}" src="../../resource/home/pj.png" class="list-info-pj" />
+            <view class="rank-content-box-item" style="flex: 17;">
+              <view class="rank-content-box-img" style="width: 130rpx;height: 142rpx;">
+                <image class="rank-content-box-img-back rank-content-box-img-back1" src="../../resource/rank/jj.png" />
+                <image class="rank-content-box-img-head rank-content-box-img-head1" src="{{rankingLikeData[2].head_img}}" />
+              </view>
+              <view class="rank-content-box-item-text">
+                {{rankingLikeData[2].nick_name}}
+              </view>
+            </view>
           </view>
-        </van-col>
-      </van-row>
+          <image src="../../resource/rank/tai.png" class="rank-content-img" />
+        </view>
+        <view class="rank-footer">
+          <block  wx:for="{{rankingLikeData}}" wx:key="co">
+            <view class="rank-footer-item" wx:if="{{index > 2}}">
+              <image src="{{item.head_img}}" class="rank-footer-item-img" />
+              <view class="rank-footer-item-num">{{(index + 1)}}</view>
+              <view class="rank-footer-item-name">{{item.nick_name}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+
+      <!-- 本周上榜之星 -->
+      <view class="rank-box" wx:if="{{rankingRankData.length > 0}}">
+        <view class="rank-head">
+          <view class="rank-head-title">本{{ this.data.activeData === 'week' ? '周' : '月' }}上榜之星</view>
+          <view class="rank-head-right"  data-type="rank" bindtap="onMore">
+            更多 >
+          </view>
+        </view>
+        <view class="rank-content">
+          <view class="rank-content-box" style="margin-bottom: -26rpx;">
+            <view class="rank-content-box-item" style="flex: 17;">
+              <view class="rank-content-box-img" style="width: 130rpx;height: 142rpx;">
+                <image class="rank-content-box-img-back rank-content-box-img-back1" src="../../resource/rank/yj.png" />
+                <image class="rank-content-box-img-head rank-content-box-img-head1" src="{{rankingRankData[1].head_img}}" />
+              </view>
+              <view class="rank-content-box-item-text">
+                {{rankingRankData[1].nick_name}}
+              </view>
+            </view>
+            <view class="rank-content-box-item" style="flex: 22;margin-bottom: 26rpx;">
+              <view class="rank-content-box-img">
+                <image class="rank-content-box-img-back" src="../../resource/rank/gj.png" />
+                <image class="rank-content-box-img-head" src="{{rankingRankData[0].head_img}}" />
+              </view>
+              <view class="rank-content-box-item-text">
+                {{rankingRankData[0].nick_name}}
+              </view>
+            </view>
+            <view class="rank-content-box-item" style="flex: 17;">
+              <view class="rank-content-box-img" style="width: 130rpx;height: 142rpx;">
+                <image class="rank-content-box-img-back rank-content-box-img-back1" src="../../resource/rank/jj.png" />
+                <image class="rank-content-box-img-head rank-content-box-img-head1" src="{{rankingRankData[2].head_img}}" />
+              </view>
+              <view class="rank-content-box-item-text">
+                {{rankingRankData[2].nick_name}}
+              </view>
+            </view>
+          </view>
+          <image src="../../resource/rank/tai.png" class="rank-content-img" />
+        </view>
+        <view class="rank-footer">
+          <block  wx:for="{{rankingRankData}}" wx:key="co">
+            <view class="rank-footer-item" wx:if="{{index > 2}}">
+              <image src="{{item.head_img}}" class="rank-footer-item-img" />
+              <view class="rank-footer-item-num">{{(index + 1)}}</view>
+              <view class="rank-footer-item-name">{{item.nick_name}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
     </view>
-  </view>
+  <!-- </van-transition> -->
+  </block>
   
   <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
 </view>
