@@ -289,7 +289,7 @@
         <view class="bz-content-right">
           <image src="{{commendData[0].img_url}}" class="bz-content-right-img" mode="aspectFill" />
           <view class="list-info-like" data-id="{{commendData[0].work_id}}" catchtap="onLikeCommendClick">
-            <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
+            <image wx:if="{{commendData[0].is_like === 0}}" src="../../resource/home/heart.png" />
             <image wx:else src="../../resource/home/heart-active.png" />
             <text class="list-info-like-num">{{commendData[0].like_num}}</text>
           </view>
