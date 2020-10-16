@@ -37,6 +37,7 @@ Page({
       pageSize: 10
     },
     activeDate: 'week',
+    activeDateText: '周',
 
     // 上墙数据
     commendPage: {
@@ -311,8 +312,10 @@ Page({
   },
 
   onChangeDate: function(e) {
+    console.log(e.detail.name)
     this.setData({
       activeDate: e.detail.name,
+      activeDateText: e.detail.name === 'week' ? '周' : '月'
     }, () => {
       this.getRankData();
     });

@@ -158,7 +158,7 @@
       <!-- 本周人气之星 -->
       <view class="rank-box" wx:if="{{rankingLikeData.length > 0}}">
         <view class="rank-head">
-          <view class="rank-head-title">本{{ this.data.activeDate === 'week' ? '周' : '月' }}人气之星</view>
+          <view class="rank-head-title">本{{ activeDateText }}人气之星</view>
           <view class="rank-head-right" data-type="like" bindtap="onMore">
             更多 >
           </view>
@@ -209,7 +209,7 @@
       <!-- 本周上榜之星 -->
       <view class="rank-box" wx:if="{{rankingRankData.length > 0}}">
         <view class="rank-head">
-          <view class="rank-head-title">本{{ this.data.activeDate === 'week' ? '周' : '月' }}上榜之星</view>
+          <view class="rank-head-title">本{{ activeDateText }}上榜之星</view>
           <view class="rank-head-right"  data-type="rank" bindtap="onMore">
             更多 >
           </view>
