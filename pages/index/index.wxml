@@ -297,7 +297,7 @@
       </view>
     </view>
 
-    <block  wx:for="{{commendData}}" wx:key="user_id">
+    <block  wx:for="{{commendData}}" wx:key="work_id">
       <view class="bz-item" wx:if="{{index > 0}}">
         <view class="bz-content" style="padding: 24rpx;margin: 0;">
           <view class="bz-content-right">
