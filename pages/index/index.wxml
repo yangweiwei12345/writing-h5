@@ -297,37 +297,39 @@
       </view>
     </view>
 
-    <view class="bz-item" wx:for="{{commendData}}" wx:key="user_id">
-      <view class="bz-content" style="padding: 24rpx;margin: 0;">
-        <view class="bz-content-right">
-          <image src="{{item.img_url}}" class="bz-content-right-img" mode="aspectFill" />
-          <view class="list-info-like-left" data-id="{{item.work_id}}" catchtap="onLikeCommendClick">
-            <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
-            <image wx:else src="../../resource/home/heart-active.png" />
-            <text class="list-info-like-num">{{item.like_num}}</text>
+    <block  wx:for="{{commendData}}" wx:key="user_id">
+      <view class="bz-item" wx:if="{{index > 0}}">
+        <view class="bz-content" style="padding: 24rpx;margin: 0;">
+          <view class="bz-content-right">
+            <image src="{{item.img_url}}" class="bz-content-right-img" mode="aspectFill" />
+            <view class="list-info-like-left" data-id="{{item.work_id}}" catchtap="onLikeCommendClick">
+              <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
+              <image wx:else src="../../resource/home/heart-active.png" />
+              <text class="list-info-like-num">{{item.like_num}}</text>
+            </view>
           </view>
-        </view>
-        <view class="bz-content-left" style="align-items: flex-start;margin-left: 46rpx;margin-right: 0;">
-          <image src="{{item.img_url}}" class="bz-content-left-head" />
-          <view class="bz-content-left-name">{{item.nick_name}}</view>
-          <view class="bz-content-left-num-title">
-            坚持练字
-          </view>
-          <view class="bz-content-left-num-content">
-            <view class="bz-content-left-num-num">{{item.sign_count}}</view>
-            <view style="height: 20rpx">天</view>
-          </view>
-          <view class="bz-content-left-times">
-            累计上墙 
-            <view class="bz-content-left-times-text"> {{item.ranking_count}} </view>
-            次
-          </view>
-          <view class="bz-content-left-who">
-            由{{item.t_nick_name}}老师推荐
+          <view class="bz-content-left" style="align-items: flex-start;margin-left: 46rpx;margin-right: 0;">
+            <image src="{{item.img_url}}" class="bz-content-left-head" />
+            <view class="bz-content-left-name">{{item.nick_name}}</view>
+            <view class="bz-content-left-num-title">
+              坚持练字
+            </view>
+            <view class="bz-content-left-num-content">
+              <view class="bz-content-left-num-num">{{item.sign_count}}</view>
+              <view style="height: 20rpx">天</view>
+            </view>
+            <view class="bz-content-left-times">
+              累计上墙 
+              <view class="bz-content-left-times-text"> {{item.ranking_count}} </view>
+              次
+            </view>
+            <view class="bz-content-left-who">
+              由{{item.t_nick_name}}老师推荐
+            </view>
           </view>
         </view>
       </view>
-    </view>
+    </block>
 
     <view style="height: 200rpx;"></view>
   </block>
