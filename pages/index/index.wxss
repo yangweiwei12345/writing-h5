@@ -554,13 +554,14 @@ page {
   margin-bottom: 20rpx;
 }
 .bz-content-left-num-content {
-  height: 32rpx;
+  height: 40rpx;
   font-size: 20rpx;
   font-family: SourceHanSansCN;
   font-weight: 400;
   color: #333333;
   margin-bottom: 36rpx;
   display: flex;
+  align-items: flex-end;
 }
 .bz-content-left-num-num {
   height: 32rpx;
@@ -592,4 +593,35 @@ page {
   width: 324rpx;
   height: 396rpx;
   background: #e5e5e5;
+}
+
+.bz-item {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 6px 0px rgba(138, 5, 26, 0.15);
+  border-radius: 12rpx;
+  margin: 0 28rpx;
+  margin-top: 32rpx;
+}
+
+.list-info-like-left {
+  display: flex;
+  align-items: center;
+  height: 36rpx;
+  border-radius: 36rpx;
+  padding: 6rpx 18rpx;
+  position: absolute;
+  top: 28rpx;
+  left: 30rpx;
+  background-color: #f9f9f9;
+}
+.list-info-like-left image {
+  width: 26rpx;
+  height: 24rpx;
+  margin-right: 12rpx;
+}
+.list-info-like-left .list-info-like-num {
+  font-size: 10px;
+  font-family: SourceHanSansCN;
+  font-weight: 400;
+  color: #666666;
 }

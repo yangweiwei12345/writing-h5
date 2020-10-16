@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="header">
-    <view style="position: fixed;top:0;left: 0;background-color: rgba(254,144,103);opacity: {{opacity}};width: 100%;z-index: 1000;">
+    <view style="position: fixed;top:0;left: 0;background-color: rgb(255,145,88);opacity: {{opacity}};width: 100%;z-index: 1000;">
       <view style="height: {{statusBarHeight}}px;"></view>
       <!-- style="display: flex;justify-content: center;align-items: center;font-size: 16px;color: #fff;" -->
       <view class="content">
@@ -16,7 +16,7 @@
         >
           <van-tab name="index" title="首页"></van-tab>
           <van-tab name="rank" title="排行榜"></van-tab>
-          <!-- <van-tab name="praise" title="表彰墙"></van-tab> -->
+          <van-tab name="praise" title="表彰墙"></van-tab>
         </van-tabs>
       </view>
     </view>
@@ -34,11 +34,11 @@
       >
         <van-tab name="index" title="首页"></van-tab>
         <van-tab name="rank" title="排行榜"></van-tab>
-        <!-- <van-tab name="praise" title="表彰墙"></van-tab> -->
+        <van-tab name="praise" title="表彰墙"></van-tab>
       </van-tabs>
     </view>
     <!--  -->
-    <image mode="{{ activeTab !== 'index' ? 'aspectFill' : 'aspectFill' }}" style="height: {{ activeTab !== 'rank' ? '' : (45 + statusBarHeight) }}px" src="../../resource/home/back.png" />
+    <image mode="{{ activeTab !== 'rank' ? 'aspectFill' : 'top' }}" style="height: {{ activeTab !== 'rank' ? '' : (45 + statusBarHeight) }}px;background-color: {{activeTab !== 'rank' ? '' : 'rgb(255,145,88)'}}" src="../../resource/home/back.png" />
   </view>
 
   <block wx:if="{{activeTab === 'index'}}">
@@ -63,7 +63,7 @@
     </swiper>
 
     <view class="new">
-      <image class="new-img" src="../../resource/home/new.png" />
+      <image class="new-img" src="../../resource/home/new.jpg" />
       <view class="new-text">
         <!-- <text class="new-text-item1">童真童趣 </text> -->
         <text class="new-text-item2">{{newsData.title}}</text>
@@ -260,7 +260,7 @@
   <!-- </van-transition> -->
   </block>
   <block wx:else>
-    <view class="bz-container">
+    <view class="bz-container" wx:if="{{!!commendData[0]}}">
       <image class="bz-bg-img" src="../../resource/rank/BJ.png" />
       <view style="height: 60rpx;"></view>
       <view class="bz-head">
@@ -268,34 +268,68 @@
       </view>
       <view class="bz-content">
         <view class="bz-content-left">
-          <image class="bz-content-left-head" />
-          <view class="bz-content-left-name">杨伟韦</view>
+          <image src="{{commendData[0].head_img}}" class="bz-content-left-head" />
+          <view class="bz-content-left-name"></view>
           <view class="bz-content-left-num-title">
             坚持练字
           </view>
           <view class="bz-content-left-num-content">
-            <view class="bz-content-left-num-num">43</view>
-            天
+            <view class="bz-content-left-num-num">{{commendData[0].sign_count}}</view>
+            <view style="height: 20rpx">天</view>
           </view>
           <view class="bz-content-left-times">
             累计上墙 
-            <view class="bz-content-left-times-text">56</view>
+            <view class="bz-content-left-times-text"> {{commendData[0].ranking_count}} </view>
             次
           </view>
           <view class="bz-content-left-who">
-            由雪糕老师推荐
+            由{{commendData[0].t_nick_name}}老师推荐
           </view>
         </view>
         <view class="bz-content-right">
-          <image src="" class="bz-content-right-img" mode="aspectFill" />
-          <view class="list-info-like" data-id="" catchtap="onLikeClick">
-            <!-- <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" /> -->
-            <image src="../../resource/home/heart-active.png" />
-            <text class="list-info-like-num">23</text>
+          <image src="{{commendData[0].img_url}}" class="bz-content-right-img" mode="aspectFill" />
+          <view class="list-info-like" data-id="{{commendData[0].work_id}}" catchtap="onLikeCommendClick">
+            <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
+            <image wx:else src="../../resource/home/heart-active.png" />
+            <text class="list-info-like-num">{{commendData[0].like_num}}</text>
           </view>
         </view>
       </view>
     </view>
+
+    <view class="bz-item" wx:for="{{commendData}}" wx:key="user_id">
+      <view class="bz-content" style="padding: 24rpx;margin: 0;">
+        <view class="bz-content-right">
+          <image src="{{item.img_url}}" class="bz-content-right-img" mode="aspectFill" />
+          <view class="list-info-like-left" data-id="{{item.work_id}}" catchtap="onLikeCommendClick">
+            <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
+            <image wx:else src="../../resource/home/heart-active.png" />
+            <text class="list-info-like-num">{{item.like_num}}</text>
+          </view>
+        </view>
+        <view class="bz-content-left" style="align-items: flex-start;margin-left: 46rpx;margin-right: 0;">
+          <image src="{{item.img_url}}" class="bz-content-left-head" />
+          <view class="bz-content-left-name">{{item.nick_name}}</view>
+          <view class="bz-content-left-num-title">
+            坚持练字
+          </view>
+          <view class="bz-content-left-num-content">
+            <view class="bz-content-left-num-num">{{item.sign_count}}</view>
+            <view style="height: 20rpx">天</view>
+          </view>
+          <view class="bz-content-left-times">
+            累计上墙 
+            <view class="bz-content-left-times-text"> {{item.ranking_count}} </view>
+            次
+          </view>
+          <view class="bz-content-left-who">
+            由{{item.t_nick_name}}老师推荐
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view style="height: 200rpx;"></view>
   </block>
   
   <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>

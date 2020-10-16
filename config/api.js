@@ -125,7 +125,14 @@ const API =  {
 
   // 排行榜
   ranking: {
-    url: '/api/sys/ranking'
+    url: '/api/sys/ranking',
+    method: 'post'
+  },
+
+  // 上墙列表
+  commendList: {
+    url: '/api/course/commendList',
+    method: 'post'
   },
 
   // 图片上传

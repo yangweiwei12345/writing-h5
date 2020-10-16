@@ -36,7 +36,15 @@ Page({
       page: 1,
       pageSize: 10
     },
-    activeDate: 'week'
+    activeDate: 'week',
+
+    // 上墙数据
+    commendPage: {
+      page: 1,
+      pageSize: 20
+    },
+    commendData: [],
+    hasCommendMore: true
   },
   loadWork: false,
   loaded: false,
@@ -97,6 +105,17 @@ Page({
       });
     } else if(this.data.activeTab === 'rank') {
       this.getRankData();
+    } else if(this.data.activeTab === 'praise') {
+      this.setData({
+        commendPage: {
+          page: 1,
+          pageSize: 20
+        },
+        commendData: [],
+        hasCommendMore: true
+      }, () => {
+        this.getQiangData();
+      });
     }
   },
 
@@ -105,10 +124,33 @@ Page({
     this.getRank(2);
   },
 
-  // getInitRankData: function() {
-  //   this.getRank(1);
-  //   this.getRank(2);
-  // },
+  getQiangData: function() {
+    wx.showLoading({
+      title: '数据加载中',
+    });
+    const { commendPage } = this.data;
+    let params = {
+      ...commendPage
+    };
+
+    API.commendList(params)
+      .then(res => {
+        let data = res && res.rows || [];
+      
+        this.setData({
+          hasCommendMore: data.length >= commendPage.pageSize,
+          commendData: data,
+          commendPage: {
+            ...commendPage,
+            page: commendPage.page + 1
+          }
+        });
+        wx.hideLoading();
+      })
+      .catch(e => {
+        wx.hideLoading();
+      })
+  },
 
   // 获取排行榜数据
   getRank: function(type) {
@@ -342,6 +384,42 @@ Page({
       this.setData({
         workList
       });
+    }).catch(err => {
+      wx.showToast({
+        title: err || '请求失败',
+        icon: 'none'
+      })
+    })
+  },
+
+
+  onLikeCommendClick: function(e) {
+
+    if(!this.wxlogin) {
+      this.setData({
+        wxlogin: false
+      });
+    }
+
+    const { commendData } = this.data;
+    const { id } = e.currentTarget.dataset;
+    API.likeWork({
+      work_id: id
+    }).then(res => {
+      commendData.forEach(item => {
+        if(item.work_id == id) {
+          item.like_num = item.is_like === 0 ? item.like_num + 1 : item.like_num - 1;
+          item.is_like = item.is_like === 0 ? 1 : 0;
+        }
+      })
+      this.setData({
+        commendData
+      });
+    }).catch(err => {
+      wx.showToast({
+        title: err || '请求失败',
+        icon: 'none'
+      })
     })
   },
 
@@ -349,18 +427,15 @@ Page({
 
   // 上拉加载
   onReachBottom() {
-    const { hasMore } = this.data;
+    const { hasMore, hasCommendMore, activeTab } = this.data;
 
-    if(this.data.activeTab !== 'index') {
-      return;
+    if(activeTab === 'index' && hasMore) {
+      this.getWork();
     }
 
-    if(!hasMore) {
-      return;
+    if(activeTab === 'praise' && hasCommendMore) {
+      this.getQiangData();
     }
-
-    this.getWork();
-    
   },
 
   onShareAppMessage: function() {
