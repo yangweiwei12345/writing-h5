@@ -38,7 +38,7 @@
       </van-tabs>
     </view>
     <!--  -->
-    <image mode="{{ activeTab !== 'index' ? 'aspectFill' : 'aspectFill' }}" style="height: {{ activeTab !== 'index' ? (45 + statusBarHeight) : '' }}px" src="../../resource/home/back.png" />
+    <image mode="{{ activeTab !== 'index' ? 'aspectFill' : 'aspectFill' }}" style="height: {{ activeTab !== 'rank' ? '' : (45 + statusBarHeight) }}px" src="../../resource/home/back.png" />
   </view>
 
   <block wx:if="{{activeTab === 'index'}}">
@@ -258,6 +258,44 @@
       </view>
     </view>
   <!-- </van-transition> -->
+  </block>
+  <block wx:else>
+    <view class="bz-container">
+      <image class="bz-bg-img" src="../../resource/rank/BJ.png" />
+      <view style="height: 60rpx;"></view>
+      <view class="bz-head">
+        <image src="../../resource/rank/head.png" class="bz-head-img" />
+      </view>
+      <view class="bz-content">
+        <view class="bz-content-left">
+          <image class="bz-content-left-head" />
+          <view class="bz-content-left-name">杨伟韦</view>
+          <view class="bz-content-left-num-title">
+            坚持练字
+          </view>
+          <view class="bz-content-left-num-content">
+            <view class="bz-content-left-num-num">43</view>
+            天
+          </view>
+          <view class="bz-content-left-times">
+            累计上墙 
+            <view class="bz-content-left-times-text">56</view>
+            次
+          </view>
+          <view class="bz-content-left-who">
+            由雪糕老师推荐
+          </view>
+        </view>
+        <view class="bz-content-right">
+          <image src="" class="bz-content-right-img" mode="aspectFill" />
+          <view class="list-info-like" data-id="" catchtap="onLikeClick">
+            <!-- <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" /> -->
+            <image src="../../resource/home/heart-active.png" />
+            <text class="list-info-like-num">23</text>
+          </view>
+        </view>
+      </view>
+    </view>
   </block>
   
   <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
