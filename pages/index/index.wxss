@@ -337,15 +337,15 @@ page {
 
 /* 排行榜 */
 .rank-container {
-  padding-bottom: 150rpx;
+  padding-bottom: 130rpx;
 }
 
 .rank-box {
   background: #FFFFFF;
   box-shadow: 1px 1px 4px 1px rgba(77, 77, 77, 0.2);
   border-radius: 14rpx;
-  margin: 30rpx;
-  padding: 32rpx 36rpx;
+  margin: 20rpx;
+  padding: 20rpx 36rpx;
   overflow: hidden;
 }
 .rank-box .rank-head {
@@ -372,7 +372,7 @@ page {
   flex-direction: column;
   align-items: center;
   margin-top: 16rpx;
-  padding-bottom: 40rpx;
+  padding-bottom: 20rpx;
   border-bottom: 1px solid #f9f9f9;
 }
 
@@ -456,7 +456,7 @@ page {
 }
 .rank-box .rank-footer .rank-footer-item .rank-footer-item-num {
   position: absolute;
-  bottom: 30rpx;
+  bottom: 60rpx;
   left: 50%;
   right: 0;
   width: 32rpx;
@@ -476,6 +476,8 @@ page {
   font-weight: 400;
   color: #666666;
   margin-top: 4rpx;
+  height: 34rpx;
+  overflow: hidden;
 }
 
 .mb-56 {
