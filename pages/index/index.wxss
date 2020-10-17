@@ -459,7 +459,8 @@ page {
 }
 .rank-box .rank-footer .rank-footer-item .rank-footer-item-num {
   position: absolute;
-  bottom: 60rpx;
+  bottom: 36rpx;
+  border-radius: 50%;
   left: 50%;
   right: 0;
   width: 32rpx;
