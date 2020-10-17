@@ -309,7 +309,7 @@
             </view>
           </view>
           <view class="bz-content-left" style="align-items: flex-start;margin-left: 46rpx;margin-right: 0;">
-            <image src="{{item.img_url}}" class="bz-content-left-head" />
+            <image src="{{item.head_img}}" class="bz-content-left-head" />
             <view class="bz-content-left-name">{{item.nick_name}}</view>
             <view class="bz-content-left-num-title">
               坚持练字
