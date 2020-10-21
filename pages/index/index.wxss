@@ -218,14 +218,17 @@ page {
   font-size: 24rpx;
   color: #999;
   font-weight: bold;
-  display: flex;
+  /* display: flex; */
   align-items: center;
+  height: 34rpx;
+  overflow: hidden;
 }
 .notice-left .notice-left-text {
   font-size: 24rpx;
   color: #999;
   display: flex;
   align-items: center;
+  width: 230rpx;
 }
 
 .notice-right {
@@ -337,15 +340,15 @@ page {
 
 /* 排行榜 */
 .rank-container {
-  padding-bottom: 150rpx;
+  padding-bottom: 130rpx;
 }
 
 .rank-box {
   background: #FFFFFF;
   box-shadow: 1px 1px 4px 1px rgba(77, 77, 77, 0.2);
   border-radius: 14rpx;
-  margin: 30rpx;
-  padding: 32rpx 36rpx;
+  margin: 20rpx;
+  padding: 20rpx 36rpx;
   overflow: hidden;
 }
 .rank-box .rank-head {
@@ -372,8 +375,8 @@ page {
   flex-direction: column;
   align-items: center;
   margin-top: 16rpx;
-  padding-bottom: 40rpx;
-  border-bottom: 1px solid #f9f9f9;
+  padding-bottom: 30rpx;
+  /* border-bottom: 1px solid #f9f9f9; */
 }
 
 .rank-box .rank-content .rank-content-img {
@@ -456,7 +459,8 @@ page {
 }
 .rank-box .rank-footer .rank-footer-item .rank-footer-item-num {
   position: absolute;
-  bottom: 30rpx;
+  bottom: 36rpx;
+  border-radius: 50%;
   left: 50%;
   right: 0;
   width: 32rpx;
@@ -476,6 +480,8 @@ page {
   font-weight: 400;
   color: #666666;
   margin-top: 4rpx;
+  height: 34rpx;
+  overflow: hidden;
 }
 
 .mb-56 {

@@ -36,6 +36,8 @@ page {
   font-weight: 400;
   color: #666666;
   text-align: center;
+  height: 34rpx;
+  overflow: hidden;
 }
 
 .rank-box .rank-content-box .rank-content-box-img{
