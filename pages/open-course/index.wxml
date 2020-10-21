@@ -1,0 +1,84 @@
+<view class="container">
+  <view class="header">
+    <view style="height: {{statusBarHeight}}px;"></view>
+    <view class="content">
+      开课码
+    </view>
+
+    <image src="../../resource/home/back.png" />
+  </view>
+
+  <view class="open-container">
+    <view class="open-record">
+      <view class="open-record-btn" bindtap="onShowMask">使用记录</view>
+    </view>
+    <view class="open-input-box">
+      <view class="open-input-view">
+        <van-field
+          placeholder="激活开课码"
+          border="{{ false }}"
+        />
+      </view>
+      <van-button type="danger" custom-style="background-color: #FD3346;border-radius: 10rpx;height: 94rpx;line-height: 94rpx;">立即激活</van-button>
+    </view>
+    <view class="open-tip">
+      提示：完成激活后在课程—我的课程列表中,可以找到激活的课程进行学习。
+    </view>
+  </view>
+  <view class="open-record-mask" wx:if="{{showMask}}" bindtap="onShowMask"></view>
+  <van-transition show="{{ showMask }}" name="fade">
+    <view class="open-record-list" style="top: {{280}}rpx">
+      <view class="open-record-item">
+        <view class="open-record-item-title">
+          <view class="open-record-item-name">考拉熊硬笔书法VIP课程试听</view>
+          <view class="open-record-item-price">¥200</view>
+        </view>
+        <view class="open-record-item-info">
+          <view class="open-record-item-code">20203938384</view>
+          <view class="open-record-item-time">2020-09-09</view>
+          <view class="open-record-item-date">2020-11-09到期</view>
+        </view>
+      </view>
+    </view>
+  </van-transition>
+
+  <!-- 成功弹框 -->
+  <van-dialog
+    use-slot
+    title=""
+    show="{{ showSuccess }}"
+    show-cancel-button
+    bind:close="onSuccessClose"
+    bind:cancel="onSuccessClose"
+    bind:confirm="onToLearn"
+    confirmButtonText="去学习"
+    cancelButtonText="取消"
+  >
+    <view class="success-box">
+      <van-icon name="checked" color="#0f0" size="200rpx" custom-style="margin-top: 36rpx;margin-bottom: 52rpx;" />
+      <view class="success-title">恭喜你</view>
+      <view class="success-sec-title">成功激活svip体验课程7天</view>
+    </view>
+  </van-dialog>
+
+  <!-- 失败弹框 -->
+  <van-dialog
+    use-slot
+    title=""
+    show="{{ showFail }}"
+    show-cancel-button
+    bind:close="onFailClose"
+    bind:cancel="onFailClose"
+    showConfirmButton="{{false}}"
+    cancelButtonText="取消"
+  >
+    <view class="success-box">
+      <van-icon name="clear" color="#f00" size="200rpx" custom-style="margin-top: 36rpx;margin-bottom: 52rpx;" />
+      <view class="success-title">激活失败</view>
+      <view class="success-sec-title">开课码已被使用</view>
+
+      <view class="fail-phone">如有疑问请联系客服：0335-0270270</view>
+      <view class="fail-tip">( 注：国外用户请在区号前加拨0086 )</view>
+    </view>
+  </van-dialog>
+</view>

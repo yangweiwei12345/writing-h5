@@ -84,11 +84,15 @@
       <!-- 右侧箭头 -->
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
-    <!-- <van-cell title="我的订单" >
+    <van-cell 
+      title="我的订单"
+      link-type="navigateTo"
+      url="/pages/my-order/index"
+    >
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-orders.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
-    <van-cell title="任务中心" >
+    <!-- <van-cell title="任务中心" >
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>

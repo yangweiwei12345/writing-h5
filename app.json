@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/shop/index",
     "pages/index/index",
     "pages/course/index",
     "pages/my/index",
@@ -8,14 +9,20 @@
     "pages/course-upload/index",
     "pages/course-submit/index",
     "pages/course-success/index",
-    "pages/my-info/index",
-    "pages/my-other/index",
     "pages/work-detail/index",
     "pages/webview/index",
     "pages/teacher-room/index",
     "pages/work-judge/index",
     "pages/my-works/index",
-    "pages/rank/index"
+    "pages/my-info/index",
+    "pages/my-other/index",
+    "pages/my-order/index",
+    "pages/my-order-detail/index",
+    "pages/rank/index",
+    "pages/shop-gold/index",
+    "pages/shop-detail/index",
+    "pages/shop-submit/index",
+    "pages/open-course/index"
   ],
   "tabBar": {
     "custom": true,
@@ -35,6 +42,13 @@
         "iconPath": "/resource/nav/center.png",
         "selectedIconPath": "/resource/nav/center_active.png",
         "text": "上课"
+      },
+      {
+        "pagePath": "pages/shop/index",
+        "iconPath": "/resource/nav/shop.png",
+        "selectedIconPath": "/resource/nav/shop_active.png",
+        "text": "积分商城"
+  
       },
       {
         "pagePath": "pages/my/index",
@@ -57,35 +71,24 @@
     "van-cell": "/miniprogram_npm/@vant/weapp/cell/index",
     "van-cell-group": "/miniprogram_npm/@vant/weapp/cell-group/index",
     "van-popup": "/miniprogram_npm/@vant/weapp/popup/index",
-    "van-datetime-picker": "/miniprogram_npm/@vant/weapp/datetime-picker/index",
-    "van-area": "/miniprogram_npm/@vant/weapp/area/index",
-    "van-action-sheet": "/miniprogram_npm/@vant/weapp/action-sheet/index",
     "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index",
     "van-field": "/miniprogram_npm/@vant/weapp/field/index",
     "van-tab": "/miniprogram_npm/@vant/weapp/tab/index",
     "van-tabs": "/miniprogram_npm/@vant/weapp/tabs/index",
     "van-card": "/miniprogram_npm/@vant/weapp/card/index",
     "van-button": "/miniprogram_npm/@vant/weapp/button/index",
-    "van-panel": "/miniprogram_npm/@vant/weapp/panel/index",
-    "van-goods-action": "/miniprogram_npm/@vant/weapp/goods-action/index",
-    "van-goods-action-icon": "/miniprogram_npm/@vant/weapp/goods-action-icon/index",
-    "van-goods-action-button": "/miniprogram_npm/@vant/weapp/goods-action-button/index",
     "van-divider": "/miniprogram_npm/@vant/weapp/divider/index",
     "van-skeleton": "/miniprogram_npm/@vant/weapp/skeleton/index",
-    "van-uploader": "/miniprogram_npm/@vant/weapp/uploader/index",
     "van-notice-bar": "/miniprogram_npm/@vant/weapp/notice-bar/index",
-    "van-grid": "/miniprogram_npm/@vant/weapp/grid/index",
-    "van-grid-item": "/miniprogram_npm/@vant/weapp/grid-item/index",
-    "van-tag": "/miniprogram_npm/@vant/weapp/tag/index",
     "van-sticky": "/miniprogram_npm/@vant/weapp/sticky/index",
     "van-stepper": "/miniprogram_npm/@vant/weapp/stepper/index",
     "van-switch": "/miniprogram_npm/@vant/weapp/switch/index",
-    "van-calendar": "/miniprogram_npm/@vant/weapp/calendar/index",
     "van-transition": "/miniprogram_npm/@vant/weapp/transition/index",
     "van-picker": "/miniprogram_npm/@vant/weapp/picker/index",
     "van-empty": "/miniprogram_npm/@vant/weapp/empty/index",
     "van-slider": "/miniprogram_npm/@vant/weapp/slider/index",
     "van-toast": "/miniprogram_npm/@vant/weapp/toast/index",
+    "van-submit-bar": "/miniprogram_npm/@vant/weapp/submit-bar/index",
     "v-login": "/components/login/index"
   },
   "sitemapLocation": "sitemap.json"

@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="head-box">
+    总金币：{{goodsDetail.price}}
+  </view>
+
+  <view class="content-box box-shadow">
+    <view class="content-good">
+      <image src="{{goodsDetail.logo}}" class="" />
+      <view class="content-good-info">
+        <view class="content-good-title">{{goodsDetail.title}}</view>
+        <view class="content-good-num">x1</view>
+      </view>
+    </view>
+
+    <view class="title">
+      收货信息
+    </view>
+    <van-cell-group>
+      <van-field
+        required
+        label="姓名"
+        model:value="{{ name }}"
+        bind:change="onNameChange"
+        placeholder="请输入姓名"
+        error-message="{{nameErrMsg}}"
+      />
+      <van-field
+        required
+        label="手机号"
+        model:value="{{ phone }}"
+        placeholder="请输入手机号"
+        bind:change="onPhoneChange"
+        error-message="{{phoneErrMsg}}"
+      />
+      <van-field
+        required
+        model:value="{{ address }}"
+        label="地址"
+        placeholder="请输入地址"
+        bind:change="onAddrChange"
+        error-message="{{addrErrMsg}}"
+      />
+    </van-cell-group>
+  </view>
+
+  <van-submit-bar
+    custom-class="footer"
+    label="合计"
+    currency=""
+    price="{{ goodsDetail.price * 100 }}"
+    suffix-label="金币"
+    button-text="立即兑换"
+    bind:submit="onSubmit"
+  />
+
+</view>

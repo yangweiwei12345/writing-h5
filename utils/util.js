@@ -14,6 +14,17 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+// 校验手机号
+const checkPhone = phone => {
+  let reg = /^[1][0-9]{10}$/;  
+  if (!reg.test(phone)) {  
+    return false;  
+  } else {  
+    return true;  
+  } 
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  checkPhone
 }

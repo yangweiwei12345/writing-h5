@@ -1,0 +1,279 @@
+page {
+  height: 100%;
+}
+.container {
+  min-height: 100%;
+  background-color: #f6f6f6;
+  padding-bottom: 200rpx;
+}
+
+/** 头部 */
+.container .header {
+  /* background-color: rgb(255, 144, 89); */
+  position: relative;
+}
+
+.header image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 418rpx;
+}
+
+.container .content {
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 19px;
+  font-family: SourceHanSansCN;
+  font-weight: 500;
+  color: #FFFFFF;
+  position: relative;
+  z-index: 10;
+}
+
+/* 头部信息 */
+.head {
+  display: flex;
+  align-items: center;
+  margin: 20rpx 72rpx;
+}
+.head .head-img {
+  width: 94rpx;
+  height: 94rpx;
+  border-radius: 53rpx;
+  background-color: #e5e5e5;
+  border: 6rpx solid rgba(255,255,255,.2);
+  margin-right: 30rpx;
+}
+.head .head-arrow {
+  width: 22rpx;
+  height: 38rpx;
+}
+.head-info {
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  font-family: Source Han Sans CN;
+  color: #FFFFFF;
+  height: 68rpx;
+}
+.head-info .head-glod {
+  font-size: 68rpx;
+  font-weight: 500;
+  height: 68rpx;
+  line-height: 68rpx;
+}
+.head-info .head-unit {
+  font-size: 13px;
+
+}
+
+/* 标题 */
+.title {
+  display: flex;
+  justify-content: space-between;
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: #333333;
+  border-left: 4rpx solid #FD3345;
+  padding-left: 26rpx;
+}
+
+.title .title-right {
+  font-size: 20rpx;
+  font-family: Source Han Sans CN;
+  color: #999;
+}
+
+.box-shadow {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 6px 0px rgba(178, 6, 23, 0.2);
+  border-radius: 12rpx;
+}
+
+.z10 {
+  position: relative;
+  z-index: 10;
+}
+
+/* 打开 */
+.sign {
+  margin: 0 26rpx;
+  padding: 26rpx 44rpx;
+}
+.sign .times {
+  display: flex;
+  margin-top: 54rpx;
+}
+.sign .times .times-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-size: 20rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #999999;
+}
+.sign .times .times-item .times-item-num {
+  width: 38rpx;
+  height: 38rpx;
+  border-radius: 20rpx;
+  font-size: 10px;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: #656565;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+.sign .times .times-item .times-item-num.active {
+  color: #FFFFFF;
+  background-color: #FD3345;
+}
+
+/* 做任务 */
+.work {
+  margin: 0 26rpx;
+  margin-top: 20rpx;
+  padding: 26rpx 44rpx;
+}
+.work .work-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 54rpx;
+}
+.work-item-head0 {
+  width: 42rpx;
+  height: 44rpx;
+  margin-right: 26rpx;
+}
+.work-item-head1 {
+  width: 44rpx;
+  height: 46rpx;
+  margin-right: 24rpx;
+}
+.work-item-head2 {
+  width: 54rpx;
+  height: 36rpx;
+  margin-right: 14rpx;
+}
+.work-item-head3 {
+  width: 48rpx;
+  height: 52rpx;
+  margin-right: 20rpx;
+}
+.work-item-content {
+  flex: 1;
+}
+.work-item-content .work-item-content-title {
+  font-size: 12px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+  height: 24rpx;
+  line-height: 24rpx;
+}
+.work-item-content .work-item-content-des {
+  font-size: 10px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #999999;
+  margin-top: 10rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+}
+.footer-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: #999999;
+  font-size: 12px;
+}
+.footer-down image {
+  width: 18rpx;
+  height: 10rpx;
+  margin-left: 16rpx;
+}
+
+.footer-down .down {
+  transform:rotate(180deg);
+}
+
+/* 商城列表 */
+.shop-container {
+  margin: 0 20rpx;
+}
+.shop-item {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12rpx;
+  background-color: #fff;
+}
+.shop-item-img {
+  width: 100%;
+  height: 262rpx;
+  background-color: #fff;
+}
+.shop-item .shop-info {
+  background-color: #fff;
+  padding: 12rpx 30rpx;
+}
+.shop-item .shop-info .shop-info-title {
+  height: 26rpx;
+  line-height: 26rpx;
+  font-size: 26rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+}
+.shop-info-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.shop-left {
+  display: flex;
+  align-items: center;
+}
+.shop-left .shop-left-glod {
+  font-size: 13px;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #FD3346;
+  margin-right: 6rpx;
+}
+.shop-left .shop-left-unit {
+  font-size: 10px;
+  font-family: Source Han Sans CN;
+  color: #999;
+}
+.shop-right {
+  display: flex;
+  font-size: 10px;
+  line-height: 26rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #999999;
+}
+.shop-right .shop-right-num {
+  color: #333333;
+  margin: 0 6rpx;
+}
+
+
+

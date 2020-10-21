@@ -1,3 +1,127 @@
 <!--index.wxml-->
 <view class="container">
+  <view class="header">
+    <view style="position: fixed;top:0;left: 0;background-color: rgb(255,145,88);opacity: {{opacity}};width: 100%;z-index: 1000;">
+      <view style="height: {{statusBarHeight}}px;"></view>
+      <view class="content">
+        积分商城
+      </view>
+    </view>
+    <view style="height: {{statusBarHeight}}px;"></view>
+    <view class="content" style="opacity: {{opacity > 0 ? 0 : 1}}">
+      积分商城
+    </view>
+
+    <image src="../../resource/home/back.png" />
+  </view>
+
+  <!-- 头部信息 -->
+  <view class="head z10" bindtap="toGold">
+    <image src="{{userInfo.head_img}}" class="head-img" />
+    <view class="head-info">
+      <view class="head-glod">{{userInfo.v_amount}}</view>
+      <view class="head-unit">金币</view>
+    </view>
+    <image src="../../resource/shop/right.png" class="head-arrow" />
+  </view>
+
+  <!-- 打卡 -->
+  <view class="sign box-shadow z10" wx:if="{{weekTaskData.length > 0}}">
+    <view class="title">
+      打卡
+    </view>
+    <view class="times">
+      <view class="times-item" wx:for="{{weekTaskData || []}}" wx:key="index">
+        {{weeks[index]}}
+        <view class="times-item-num {{ item.is_look === 1 ? 'active' : '' }}">
+          {{item.days}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 做任务 -->
+  <view class="work box-shadow z10">
+    <view class="title">
+      做任务赚金币
+
+      <view class="title-right">
+        规则说明
+      </view>
+    </view>
+    <view style="height: 54rpx;"></view>
+
+    <block wx:for="{{taskListData}}" wx:key="index">
+      <view class="work-item" wx:if="{{showTask || index <= 0 }}">
+        <image src="{{item.image_url}}" class="{{'work-item-head' + index}}" />
+        <view class="work-item-content">
+          <view class="work-item-content-title">{{item.name}}（{{item.user_task_num}}/{{item.task_num}}）</view>
+          <view class="work-item-content-des">一次经历{{item.price}}金币</view>
+        </view>
+        <van-button wx:if="{{item.user_task_num !== item.task_num}}" custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252">去完成</van-button>
+        <van-button wx:else custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round plain type="danger" size="mini" color="#FD5252">已完成</van-button>
+      </view>
+     </block>
+    <!-- <view class="work-item">
+      <image src="../../resource/shop/submit.png" class="work-item-head1" />
+      <view class="work-item-content">
+        <view class="work-item-content-title">给作业点赞（1/10）</view>
+        <view class="work-item-content-des">一次经历1金币</view>
+      </view>
+      <van-button custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round plain type="danger" size="mini" color="#FD5252">已完成</van-button>
+    </view>
+    <view class="work-item">
+      <image src="../../resource/shop/look.png" class="work-item-head2" />
+      <view class="work-item-content">
+        <view class="work-item-content-title">给作业点赞（1/10）</view>
+        <view class="work-item-content-des">一次经历1金币</view>
+      </view>
+    </view>
+    <view class="work-item">
+      <image src="../../resource/shop/share.png" class="work-item-head3" />
+      <view class="work-item-content">
+        <view class="work-item-content-title">给作业点赞（1/10）</view>
+        <view class="work-item-content-des">一次经历1金币</view>
+      </view>
+    </view> -->
+
+    <view class="footer-down" bindtap="onShowTask">
+      {{showTask ? '收起' : '展开'}}
+      <image class="{{ showTask ? '' : 'down' }}" src="../../resource/shop/up.png" />
+    </view>
+  </view>
+
+  <!-- 商城列表 -->
+  <view class="title" style="margin: 0 70rpx;margin-top: 48rpx;margin-bottom: 14rpx;">
+    金币兑换
+  </view>
+  <view class="shop-container z10">
+    <van-row gutter="12">
+      <van-col span="12" wx:for="{{goodsList || []}}" wx:key="goods_id">
+        <!-- data-id="{{item.work_id}}" -->
+        <view class="shop-item" data-item="{{item}}" bindtap="toShopDetail">
+          <!-- {{item.img_url}} -->
+          <image class="shop-item-img" src="{{item.logo}}" mode="aspectFill"/>
+          <view class="shop-info">
+            <!-- {{item.work_remark}} -->
+            <view class="shop-info-title">{{item.title}}</view>
+            <view class="shop-info-box">
+              <view class="shop-left">
+                <view class="shop-left-glod">{{item.price}}</view>
+                <view class="shop-left-unit">金币</view>
+              </view>
+              <view class="shop-right">
+                剩余
+                <view class="shop-right-num">{{item.number_stock}}</view>
+                份
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-col>
+    </van-row>
+  </view>
+
+  <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
+
 </view>

@@ -135,6 +135,48 @@ const API =  {
     method: 'post'
   },
 
+  // 商品列表
+  goodsList: {
+    url: '/api/store/goodsList',
+    method: 'post'
+  },
+
+  // 生成订单
+  create: {
+    url: '/api/order/create',
+    method: 'post'
+  },
+
+  // 本周日历
+  getWeekTask: {
+    url: '/api/Task/getWeekTask',
+    method: 'post'
+  },
+
+  // 任务列表
+  taskList: {
+    url: '/api/task/taskList',
+    method: 'post'
+  },
+
+  // 订单列表
+  orderList: {
+    url: '/api/order/orderList',
+    method: 'post'
+  },
+
+  // 积分列表
+  scoreBillList: {
+    url: '/api/bill/scoreBillList',
+    method: 'post'
+  },
+
+  // 快递详情
+  transDetail: {
+    url: '/api/order/transDetail',
+    method: 'post'
+  },
+
   // 图片上传
   upload: {
     url: '/api/upload/index',

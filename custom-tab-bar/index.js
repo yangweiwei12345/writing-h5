@@ -20,14 +20,14 @@ Component({
       text: "上课",
       isSpecial: false
     },
-    // {
-    //   pagePath: "/pages/shop/index",
-    //   iconPath: "/resource/nav/address.png",
-    //   selectedIconPath: "/resource/nav/address_active.png",
-    //   text: "商城",
-    //   isSpecial: false
+    {
+      pagePath: "/pages/shop/index",
+      iconPath: "/resource/nav/shop.png",
+      selectedIconPath: "/resource/nav/shop_active.png",
+      text: "积分商城",
+      isSpecial: false
 
-    // },
+    },
     {
       pagePath: "/pages/my/index",
       iconPath: "/resource/nav/my.png",

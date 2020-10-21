@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <view style="height: {{statusBarHeight}}px;"></view>
+    <view class="content">
+      <view class="header-back" bindtap="goBack">
+        <image src="../../resource/dp/back.png" />
+      </view>
+      我的金币
+    </view>
+
+    <image src="../../resource/home/back.png" />
+  </view>
+
+  <view class="box-shadow z10 gold-container">
+    <view class="gold-content">
+      <view class="gold-title">我的金币</view>
+      <view class="gold-box">
+        <view class="gold-box-num">100</view>
+        <view class="gold-box-unit">金币</view>
+      </view>
+    </view>
+
+    <van-tabs active="{{active}}" bind:change="onChange" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
+      <van-tab title="获取途径" name="path"></van-tab>
+      <van-tab title="使用记录" name="record"></van-tab>
+    </van-tabs>
+
+    <view class="record-list">
+      <view class="record-item">
+        <view>2019-03-09</view>
+        <view style="flex: 1;margin: 0 20rpx;">这是文案</view>
+        <view>+4</view>
+      </view>
+    </view>
+  </view>
+
+</view>

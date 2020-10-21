@@ -1,0 +1,185 @@
+page {
+  height: 100%;
+}
+.container {
+  min-height: 100%;
+  background-color: rgb(255,0,25);
+}
+
+/** 头部 */
+.container .header {
+  /* background-color: rgb(255, 144, 89); */
+  position: relative;
+}
+
+.header image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 418rpx;
+}
+
+.container .content {
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 19px;
+  font-family: SourceHanSansCN;
+  font-weight: 500;
+  color: #FFFFFF;
+  position: relative;
+  z-index: 10;
+}
+
+.open-container {
+  position: relative;
+  z-index: 10;
+  background: #FFFFFF;
+  border-radius: 5px;
+  padding: 42rpx 36rpx;
+  margin: 20rpx 26rpx;
+}
+
+.open-record {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.open-record .open-record-btn {
+  display: inline;
+  font-size: 13px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #999999;
+  border-bottom: 1px solid #999;
+}
+
+.open-record-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.2);
+}
+.open-record-list {
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 70rpx;
+  left: 26rpx;
+  z-index: 12;
+  background-color: #FFFFFF;
+  width: 698rpx;
+  min-height: 600rpx;
+  border-radius: 20rpx;
+  padding: 20rpx 34rpx;
+  box-sizing: border-box;
+}
+.open-record-list::after {
+  content: ' ';
+  position: absolute;
+  top: -70rpx;
+  right: 45rpx;
+  width: 0;
+  height: 0;
+  z-index: 12;
+  border: 40rpx solid;
+  border-color: transparent transparent #fff;
+}
+.open-record-item {
+  border-bottom: 1px solid #dedede;
+  padding: 24rpx 0;
+}
+.open-record-item-title, .open-record-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.open-record-item-name {
+  font-size: 15px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+}
+.open-record-item-price {
+  font-size: 15px;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: #FF2525;
+}
+
+.open-record-item-info {
+  font-size: 13px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #999999;
+  margin-top: 20rpx;
+}
+.open-record-item-code {}
+.open-record-item-time {
+  font-size: 10px;
+  margin-left: 20rpx;
+  flex: 1;
+}
+.open-record-item-date {
+  font-size: 10px;
+  color: #FC2929;
+}
+
+
+.open-input-box {
+  display: flex;
+  margin-top: 52rpx;
+  margin-bottom: 34rpx;
+  align-items: center;
+}
+.open-input-box .open-input-view {
+  flex: 1;
+  /* height: 80rpx; */
+  /* line-height: 80rpx; */
+  border: 6rpx solid #f5f5f5;
+  border-radius: 10rpx;
+  margin-right: 15rpx;
+  box-sizing: border-box;
+}
+.open-tip {
+  font-size: 12px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #999999;
+}
+
+
+.success-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 25px;
+  font-family: Adobe Heiti Std;
+  font-weight: normal;
+  color: #000000;
+  text-align: center;
+}
+
+.success-sec-title {
+  margin-top: 36rpx;
+  margin-bottom: 72rpx;
+  font-size: 18px;
+}
+
+.fail-phone {
+  font-size: 15px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #656565;
+}
+.fail-tip {
+  font-size: 13px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #FF0000;
+  margin-top: 10rpx;
+  margin-bottom: 38rpx;
+}
