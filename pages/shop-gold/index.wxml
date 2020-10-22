@@ -1,8 +1,17 @@
 <!--index.wxml-->
 <view class="container">
   <view class="header">
+    <view style="position: fixed;top:0;left: 0;background-color: rgb(255,145,88);opacity: {{opacity}};width: 100%;z-index: 1000;">
+      <view style="height: {{statusBarHeight}}px;"></view>
+      <view class="content">
+        <view class="header-back" bindtap="goBack">
+          <image src="../../resource/dp/back.png" />
+        </view>
+        我的金币
+      </view>
+    </view>
     <view style="height: {{statusBarHeight}}px;"></view>
-    <view class="content">
+    <view class="content" style="opacity: {{opacity > 0 ? 0 : 1}}">
       <view class="header-back" bindtap="goBack">
         <image src="../../resource/dp/back.png" />
       </view>
@@ -16,7 +25,7 @@
     <view class="gold-content">
       <view class="gold-title">我的金币</view>
       <view class="gold-box">
-        <view class="gold-box-num">100</view>
+        <view class="gold-box-num">{{v_amount}}</view>
         <view class="gold-box-unit">金币</view>
       </view>
     </view>
@@ -27,10 +36,10 @@
     </van-tabs>
 
     <view class="record-list">
-      <view class="record-item">
-        <view>2019-03-09</view>
-        <view style="flex: 1;margin: 0 20rpx;">这是文案</view>
-        <view>+4</view>
+      <view class="record-item" wx:for="{{billData}}" wx:key="index">
+        <view>{{item.create_date}}</view>
+        <view style="flex: 1;margin: 0 20rpx;">{{item.remark}}</view>
+        <view>{{active === 'path' ? '+' : '-'}}{{item.change_amount}}</view>
       </view>
     </view>
   </view>

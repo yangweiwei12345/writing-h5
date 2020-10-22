@@ -49,7 +49,6 @@ Page({
     });
   },
 
-
   // 是否登录
   isLogin: function() {
     // 是否登录
@@ -153,8 +152,17 @@ Page({
   },
 
   toGold: function() {
+    const { userInfo, wxlogin } = this.data;
+
+    if(!wxlogin) {
+      this.setData({
+        wxlogin: false
+      })
+      return;
+    }
+
     wx.navigateTo({
-      url: '/pages/shop-gold/index'
+      url: '/pages/shop-gold/index?v_amount=' + userInfo.v_amount
       // url: '/pages/open-course/index'
     })
   },
@@ -199,5 +207,16 @@ Page({
       })
     }, 200);
   },
+
+
+  getUserInfoDetail: function() {
+    this.setData({
+      wxlogin: true
+    });
+    this.getInfoData();
+    this.getWeekTask();
+    this.getTaskList();
+  },
+
 
 })

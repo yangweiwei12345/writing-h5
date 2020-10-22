@@ -17,16 +17,16 @@
 
   <!-- 头部信息 -->
   <view class="head z10" bindtap="toGold">
-    <image src="{{userInfo.head_img}}" class="head-img" />
+    <image src="{{userInfo.head_img || '../../resource/my/head.png'}}" class="head-img" />
     <view class="head-info">
       <view class="head-glod">{{userInfo.v_amount}}</view>
-      <view class="head-unit">金币</view>
+      <view class="head-unit">{{ wxlogin ? '金币' : '未登录'}}</view>
     </view>
     <image src="../../resource/shop/right.png" class="head-arrow" />
   </view>
 
   <!-- 打卡 -->
-  <view class="sign box-shadow z10" wx:if="{{weekTaskData.length > 0}}">
+  <view class="sign box-shadow z10" wx:if="{{weekTaskData.length > 0 || wxlogin}}">
     <view class="title">
       打卡
     </view>
@@ -41,7 +41,7 @@
   </view>
 
   <!-- 做任务 -->
-  <view class="work box-shadow z10">
+  <view class="work box-shadow z10" wx:if="{{wxlogin}}">
     <view class="title">
       做任务赚金币
 
@@ -92,7 +92,7 @@
   </view>
 
   <!-- 商城列表 -->
-  <view class="title" style="margin: 0 70rpx;margin-top: 48rpx;margin-bottom: 14rpx;">
+  <view class="title z10" style="margin: 0 70rpx;margin-top: 48rpx;margin-bottom: 14rpx;">
     金币兑换
   </view>
   <view class="shop-container z10">

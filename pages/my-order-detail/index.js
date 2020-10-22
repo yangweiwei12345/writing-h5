@@ -2,45 +2,52 @@
 //获取应用实例
 const API = require('../../config/api.js');
 
+const TEXTS = {
+  1: '付款成功',
+  2: '待发货',
+  3: '已发货',
+  4: '已完成',
+};
+
 Page({
   data: {
-    active: 'pending',
-  },
-  onLoad: function (options) {
-    
-  },
-  onShow: function() {
+    orderDetail: {},
+    texts: TEXTS,
+    transDetail: {
+      kd_list: []
+    }
   },
 
-  // 设置选中已办
-  onSelectPended: function() {
+  onLoad: function (options) {
     this.setData({
-      active: 'pended'
-    }, () => {
-      this.getPendedWorks();
+      orderDetail: JSON.parse(options.data)
     });
   },
-
-  // 获取作业列表
-  getPendingWorks: function() {
-    API.courseWorkList({
-      status: 2,
-      t_id: this.data.user_id,
-      ...this.data.pendingPage
-    }).then(res => {//成功
-      this.setData({
-        workList: res && res.rows || [],
-        pendingCount: res && res.count || 0
-      });
-    })
+  onShow: function() {
+    this.getTransDetail();
   },
 
-  toWorkDetail: function(e) {
-    const { id } = e.currentTarget.dataset;
+  // 获取订单列表
+  getTransDetail: function() {
+    wx.showLoading({
+      title: '数据加载中',
+    });
+    let params = {
+      order_no: this.data.orderDetail.order_no
+    };
 
-    wx.navigateTo({
-      url: '/pages/work-detail/index?work_id=' + id
-    })
+    API.transDetail(params)
+      .then(res => {
+      
+        this.setData({
+          transDetail: res,
+        });
+        wx.hideLoading();
+      })
+      .catch(e => {
+        wx.hideLoading();
+      })
   },
+  
 
 })

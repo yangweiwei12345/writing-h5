@@ -30,4 +30,6 @@
     bind:submit="onSubmit"
   />
 
+  <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
+
 </view>

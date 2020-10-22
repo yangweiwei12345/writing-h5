@@ -4,45 +4,45 @@
       <image src="../../resource/order/addr.png" class="addr-item-img" />
       <view class="addr-item-info">
         <view class="addr-item-name">
-          杨女士
-          <view class="addr-item-phone">17816866563</view>
+          {{orderDetail.user_name}}
+          <view class="addr-item-phone">{{orderDetail.phone}}</view>
         </view>
-        <view class="addr-item-dec">湖北省 天门市 合建村南麓180号</view>
+        <view class="addr-item-dec">{{orderDetail.address}}</view>
       </view>
     </view>
-    <view class="addr-item">
+    <view class="addr-item" wx:if="{{transDetail.kd_list.length > 0}}">
       <image src="../../resource/order/wl.png" class="addr-item-img" />
       <view class="addr-item-info">
         <view class="addr-item-name">
-          快件已到达河北
+          {{transDetail.kd_list[0].status}}
         </view>
-        <view class="addr-item-dec">下一站天方夜谭</view>
-        <view class="addr-item-time">2020-10-07 10:09:55</view>
+        <!-- <view class="addr-item-dec">下一站天方夜谭</view> -->
+        <view class="addr-item-time">{{transDetail.kd_list[0].time}}</view>
       </view>
     </view>
   </view>
 
   <view class="order-list">
     <view class="order-item br-b">
-      <image src="" />
+      <image src="{{orderDetail.logo}}" />
       <view class="order-content">
         <view class="order-title">
-          硬书法试听课一节
+          {{orderDetail.goods_title}}
           <view class="order-title-num">x1</view>
         </view>
-        <view class="order-sub-title">兑换金币：2000</view>
+        <view class="order-sub-title">兑换金币：{{orderDetail.price ? orderDetail.price : 0}}</view>
         <view class="order-desc">
-          <view class="order-status">已完成</view>
+          <view class="order-status">{{texts[orderDetail.status]}}</view>
         </view>
       </view>
     </view>
     <view class="order-item-cell">
       <view class="order-item-label">兑换时间：</view>
-      <view class="order-item-value">2020-09-10</view>
+      <view class="order-item-value">{{orderDetail.create_at}}</view>
     </view>
     <view class="order-item-cell">
       <view class="order-item-label">订单编号：</view>
-      <view class="order-item-value">D20204984933</view>
+      <view class="order-item-value">{{orderDetail.order_no}}</view>
     </view>
   </view>
 

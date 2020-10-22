@@ -7,22 +7,22 @@
   </van-tabs>
   <view style="width: 100%;height: 22rpx;border-bottom: 2px solid #f4f4f4;"></view>
 
-  <van-empty wx:if="{{workList.length === 0}}" description="暂无数据">
+  <van-empty wx:if="{{orderData.length === 0}}" description="暂无数据">
   </van-empty>
   <view class="order-list">
-    <!-- wx:for="{{workList}}" wx:key="course_id" data-id="{{item.course_id}}" -->
-    <view class="order-item">
-      <image src="" />
+    <view class="order-item" wx:for="{{orderData}}" wx:key="order_no">
+      <image src="{{item.logo}}" />
       <view class="order-content">
         <view class="order-title">
-          硬书法试听课一节
+          {{ item.goods_title }}
           <view class="order-title-num">x1</view>
         </view>
-        <view class="order-sub-title">兑换金币：2000</view>
+        <view class="order-sub-title">兑换金币：{{item.price ? item.price : 0}}</view>
         <view class="order-desc">
-          <view class="order-status">已完成</view>
+          <view class="order-status">{{ texts[item.status] }}</view>
           <van-button 
             custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252"
+            data-item="{{item}}"
             bindtap="toOrderDetail"
           >
             查看订单
