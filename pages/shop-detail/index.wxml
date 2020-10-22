@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
-  <view >
-    <image style="width: 100%;" wx:for="{{goodsDetail.content || []}}" wx:key="index" src="{{item}}" />
+  <view style="display: flex;flex-direction: column;">
+    <image mode="widthFix" style="width: 100%;" wx:for="{{goodsDetail.content || []}}" wx:key="index" src="{{item}}" />
   </view>
   
   <van-dialog
