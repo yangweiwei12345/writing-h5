@@ -43,8 +43,7 @@ page {
   width: 94rpx;
   height: 94rpx;
   border-radius: 53rpx;
-  background-color: #e5e5e5;
-  border: 6rpx solid rgba(255,255,255,.2);
+  border: 6rpx solid rgba(0,0,0,.1);
   margin-right: 30rpx;
 }
 .head .head-arrow {
