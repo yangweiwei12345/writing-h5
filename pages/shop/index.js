@@ -22,6 +22,7 @@ Page({
     taskListData: [],
 
     showTask: false,
+    showDialog: false,
 
     weeks: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
   },
@@ -73,6 +74,13 @@ Page({
           wxlogin: false
         });
       })
+  },
+
+  // 显示隐藏规则弹框
+  onShowChange: function() {
+    this.setData({
+      showDialog: !this.data.showDialog
+    });
   },
 
   /**
@@ -174,6 +182,24 @@ Page({
     wx.navigateTo({
       url: '/pages/shop-detail/index?data=' + JSON.stringify(item) + "&userInfo=" + JSON.stringify(userInfo)
     })
+  },
+
+  toWork: function(e) {
+    const { type } = e.currentTarget.dataset;
+
+    if(type == 1) {
+      wx.switchTab({
+        url: '/pages/index/index',
+      });
+    } else if(type == 2 || type == 3) {
+      wx.switchTab({
+        url: '/pages/course/index',
+      });
+    } else if(type == 4) {
+      wx.switchTab({
+        url: '/pages/index/index',
+      });
+    }
   },
 
   onShowTask: function() {

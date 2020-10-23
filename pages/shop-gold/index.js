@@ -37,7 +37,7 @@ Page({
     const { scorePage, active } = this.data;
     let params = {
       ...scorePage,
-      type: active === 'path' ? 1 : 2
+      type: active === 'path' ? 2 : 1
     };
 
     API.scoreBillList(params)
