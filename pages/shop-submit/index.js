@@ -109,6 +109,9 @@ Page({
     API.create(params)
       .then(res => {
         wx.hideLoading();
+        wx.navigateBack({
+          delta: 2
+        });
 
         wx.showToast({
           title: '订单创建成功',

@@ -42,6 +42,7 @@ Page({
       title: '数据加载中',
     });
     const { orderPage, active } = this.data;
+    console.log(this.data.types[active], active, this.data.types);
     let params = {
       ...orderPage,
       type: this.data.types[active]
