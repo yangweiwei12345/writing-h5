@@ -20,7 +20,7 @@
     <image src="{{userInfo.head_img || '../../resource/my/head.png'}}" class="head-img" />
     <view class="head-info">
       <view class="head-glod">{{userInfo.v_amount}}</view>
-      <view class="head-unit">{{ wxlogin ? '金币' : '未登录'}}</view>
+      <view class="head-unit">{{ wxlogin ? '积分' : '未登录'}}</view>
     </view>
     <image src="../../resource/shop/right.png" class="head-arrow" />
   </view>
@@ -43,7 +43,7 @@
   <!-- 做任务 -->
   <view class="work box-shadow z10" wx:if="{{wxlogin}}">
     <view class="title">
-      做任务赚金币
+      做任务赚积分
 
       <view class="title-right" bindtap="onShowChange">
         规则说明
@@ -56,7 +56,7 @@
         <image src="{{item.image_url}}" class="{{'work-item-head' + index}}" />
         <view class="work-item-content">
           <view class="work-item-content-title">{{item.name}}（{{item.user_task_num}}/{{item.task_num}}）</view>
-          <view class="work-item-content-des">一次奖励{{item.price}}金币</view>
+          <view class="work-item-content-des">一次奖励{{item.price}}积分</view>
         </view>
         <view class="work-item-right">
           <van-button wx:if="{{item.user_task_num !== item.task_num}}" custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252" data-type="{{item.type}}" bindtap="toWork">去完成</van-button>
@@ -69,7 +69,7 @@
       <image src="../../resource/shop/submit.png" class="work-item-head1" />
       <view class="work-item-content">
         <view class="work-item-content-title">给作业点赞（1/10）</view>
-        <view class="work-item-content-des">一次经历1金币</view>
+        <view class="work-item-content-des">一次经历1积分</view>
       </view>
       <van-button custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round plain type="danger" size="mini" color="#FD5252">已完成</van-button>
     </view>
@@ -77,14 +77,14 @@
       <image src="../../resource/shop/look.png" class="work-item-head2" />
       <view class="work-item-content">
         <view class="work-item-content-title">给作业点赞（1/10）</view>
-        <view class="work-item-content-des">一次经历1金币</view>
+        <view class="work-item-content-des">一次经历1积分</view>
       </view>
     </view>
     <view class="work-item">
       <image src="../../resource/shop/share.png" class="work-item-head3" />
       <view class="work-item-content">
         <view class="work-item-content-title">给作业点赞（1/10）</view>
-        <view class="work-item-content-des">一次经历1金币</view>
+        <view class="work-item-content-des">一次经历1积分</view>
       </view>
     </view> -->
 
@@ -96,7 +96,7 @@
 
   <!-- 商城列表 -->
   <view class="title z10" style="margin: 0 70rpx;margin-top: 48rpx;margin-bottom: 14rpx;">
-    金币兑换
+    积分兑换
   </view>
   <view class="shop-container z10">
     <van-row gutter="12">
@@ -111,7 +111,7 @@
             <view class="shop-info-box">
               <view class="shop-left">
                 <view class="shop-left-glod">{{item.price}}</view>
-                <view class="shop-left-unit">金币</view>
+                <view class="shop-left-unit">积分</view>
               </view>
               <view class="shop-right">
                 剩余

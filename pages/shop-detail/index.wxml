@@ -12,8 +12,8 @@
     bind:close="onClose"
   >
     <view style="display: flex;flex-direction: column;align-items: center;font-size: 15px;color: #333;font-weight: bold;margin: 40rpx 0;">
-      <view>你的金币还不够哦，无法进行兑换</view>
-      <view style="margin-top: 15rpx;margin-bottom: 30rpx;">快去学习打卡积攒金币吧～</view>
+      <view>你的积分还不够哦，无法进行兑换</view>
+      <view style="margin-top: 15rpx;margin-bottom: 30rpx;">快去学习打卡积攒积分吧～</view>
       <view>
         <van-button custom-style="width: 200rpx;padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252" bindtap="onClose">好的</van-button>
       </view>
@@ -25,7 +25,7 @@
     label=" "
     currency=""
     price="{{ goodsDetail.price * 100 }}"
-    suffix-label="金币"
+    suffix-label="积分"
     button-text="立即兑换"
     bind:submit="onSubmit"
   />

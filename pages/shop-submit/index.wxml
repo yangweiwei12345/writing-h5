@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="head-box">
-    总金币：{{goodsDetail.price}}
+    总积分：{{goodsDetail.price}}
   </view>
 
   <view class="content-box box-shadow">
@@ -49,7 +49,7 @@
     label="合计"
     currency=""
     price="{{ goodsDetail.price * 100 }}"
-    suffix-label="金币"
+    suffix-label="积分"
     button-text="立即兑换"
     bind:submit="onSubmit"
   />
