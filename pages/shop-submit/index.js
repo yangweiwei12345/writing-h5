@@ -109,14 +109,17 @@ Page({
     API.create(params)
       .then(res => {
         wx.hideLoading();
-        wx.navigateBack({
-          delta: 2
-        });
 
         wx.showToast({
           title: '订单创建成功',
           icon: 'none'
         })
+
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 2
+          });
+        }, 1000)
         
 
       })
