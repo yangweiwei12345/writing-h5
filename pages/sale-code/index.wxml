@@ -1,0 +1,67 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="search">
+    <view class="search-label">课程</view>
+    <view class="search-box" bindtap="onShowSelect">
+      <view class="search-value">{{courseDetail.title || "请选择课程"}}</view>
+      <van-icon name="arrow-down" color="#999" />
+
+      <view class="select" wx:if="{{showOrder}}">
+        <view class="select-item" bindcap="onShowSelect" wx:for="{{courseData}}" wx:key="courseId" data-item="{{item}}">{{item.title}}</view>
+      </view>
+      <view class="mask" wx:if="{{showOrder}}" bindcap="onShowSelect"></view>
+    </view>
+    <van-button type="default" style="color: #999;" bindtap="onGetOrder">搜索</van-button>
+  </view>
+  <view style="width: 100%;height: 12rpx;border-bottom: 2px solid #f4f4f4;"></view>
+
+  <van-tabs active="{{active}}" sticky bind:change="onChange" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
+    <van-tab title="未使用" name="no"></van-tab>
+    <van-tab title="已使用" name="yes"></van-tab>
+  </van-tabs>
+  <view style="width: 100%;height: 22rpx;border-bottom: 2px solid #f4f4f4;"></view>
+
+  <van-empty wx:if="{{orderData.length === 0}}" description="暂无数据">
+  </van-empty>
+
+  <view class="order-list">
+    <block wx:for="{{orderData}}" wx:key="id">
+      <view class="order-item" wx:if="{{active === 'no'}}">
+        <view class="order-item-head">
+          <view class="order-item-head-title">
+            {{item.title}} 
+            <view class="order-item-head-price">¥{{item.price}}</view> 
+          </view>
+          <view class="order-item-head-time">{{item.writeTime || ''}}</view>
+        </view>
+        <view class="order-item-content">
+          <view class="order-item-content-no">{{item.writeNumber}}</view>
+          <van-button bindtap="" custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;" round type="danger" size="mini" color="#FD5252"
+            data-text="{{item.writeNumber}}"
+            bindtap="onCopy"
+          >
+            一键复制
+          </van-button>
+        </view>
+      </view>
+      <view class="order-item-other" data-id="{{item.courseId}}" bindtap="toUser" wx:else>
+        <view class="order-item-head">
+          <view class="order-item-head-title">{{item.title}}</view>
+          <view class="order-item-head-price">¥{{item.price}}</view>
+        </view>
+        <view class="order-item-info">
+          <view class="order-item-info-label">开课码</view>
+          <view class="order-item-info-value">{{item.writeNumber}}</view>
+        </view>
+        <view class="order-item-info">
+          <view class="order-item-info-label">订单时间</view>
+          <view class="order-item-info-value">{{item.writeTime}}</view>
+        </view>
+        <view class="order-item-info">
+          <view class="order-item-info-label">使用时间</view>
+          <view class="order-item-info-value">{{item.endTime}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

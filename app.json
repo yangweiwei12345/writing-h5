@@ -1,9 +1,9 @@
 {
   "pages":[
+    "pages/my/index",
     "pages/index/index",
     "pages/course/index",
     "pages/shop/index",
-    "pages/my/index",
     "pages/course-detail/index",
     "pages/course-chapter/index",
     "pages/course-upload/index",
@@ -22,7 +22,11 @@
     "pages/shop-gold/index",
     "pages/shop-detail/index",
     "pages/shop-submit/index",
-    "pages/open-course/index"
+    "pages/open-course/index",
+    "pages/sale/index",
+    "pages/sale-order/index",
+    "pages/sale-people/index",
+    "pages/sale-code/index"
   ],
   "tabBar": {
     "custom": true,
@@ -89,7 +93,8 @@
     "van-slider": "/miniprogram_npm/@vant/weapp/slider/index",
     "van-toast": "/miniprogram_npm/@vant/weapp/toast/index",
     "van-submit-bar": "/miniprogram_npm/@vant/weapp/submit-bar/index",
-    "v-login": "/components/login/index"
+    "v-login": "/components/login/index",
+    "ec-canvas": "/components/ec-canvas/ec-canvas"
   },
   "sitemapLocation": "sitemap.json"
 }

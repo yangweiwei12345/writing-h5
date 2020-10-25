@@ -12,7 +12,26 @@ page {
   position: relative;
 }
 
-.header image {
+.header-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-back image {
+  width: 11px;
+  height: 22px;
+  margin-left: 17px;
+  margin-top: 12px;
+}
+
+.header > image {
   position: absolute;
   top: 0;
   left: 0;

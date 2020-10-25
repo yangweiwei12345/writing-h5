@@ -1,0 +1,62 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="opt-list">
+    <view class="opt-item" data-type="order" bindtap="onToPage">
+      <image src="../../resource/sale/order.png" class="opt-item-img" />
+      <view class="opt-item-text">分销订单</view>
+    </view>
+    <view class="opt-item" data-type="course" bindtap="onToPage">
+      <image src="../../resource/sale/course.png" class="opt-item-img" />
+      <view class="opt-item-text">开课码</view>
+    </view>
+    <view class="opt-item" data-type="code" bindtap="onToPage">
+      <image src="../../resource/sale/code.png" class="opt-item-img" />
+      <view class="opt-item-text">小程序码</view>
+    </view>
+  </view>
+
+  <view class="tj-container">
+    <view class="title">
+      统计
+    </view>
+
+    <view class="tj-box mt-18">
+      <view class="tj-item">
+        <view class="tj-title">今日销售(元)</view>
+        <view class="tj-value">{{data.todaySale || 0}}</view>
+      </view>
+      <view class="tj-item">
+        <view class="tj-title">新增客户(人)</view>
+        <view class="tj-value">{{data.todayCustomer || 0}}</view>
+      </view>
+      <view class="tj-item mt-32">
+        <view class="tj-title">总销售(元)</view>
+        <view class="tj-value">{{data.totalSale || 0}}</view>
+      </view>
+      <view class="tj-item mt-32">
+        <view class="tj-title">客户总数(人)</view>
+        <view class="tj-value">{{data.totalCustomer || 0}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tj-img-container mt-32">
+    <view class="title">
+      统计图
+    </view>
+    <view class="echarts-container">
+      <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+    </view>
+  </view>
+
+  <van-dialog
+    use-slot
+    title="小程序码"
+    show="{{ showCode }}"
+    bind:close="onCloseCode"
+    customStyle="z-index: 1000000;"
+  >
+    <image src="https://img.yzcdn.cn/1.jpg" />
+  </van-dialog>
+</view>

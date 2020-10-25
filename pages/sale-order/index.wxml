@@ -1,0 +1,68 @@
+<!--index.wxml-->
+<view class="container">
+  <view style="height: 30rpx;"></view>
+  <view class="search">
+    <view class="search-box" bindtap="onShowSelect">
+      <view class="search-value">{{courseDetail.title || '请选择开课码'}}</view>
+      <van-icon name="arrow-down" color="#999" />
+
+      <view class="select" wx:if="{{showOrder}}">
+        <view class="select-item" bindcap="onShowSelect" wx:for="{{courseData}}" wx:key="courseId" data-item="{{item}}">{{item.title}}</view>
+      </view>
+      <view class="mask" wx:if="{{showOrder}}" bindcap="onShowSelect"></view>
+    </view>
+    <van-button type="default" icon="search" style="color: #999;" bindtap="onGetOrder">搜索</van-button>
+  </view>
+
+  
+  <van-empty wx:if="{{orderData.length === 0}}" description="暂无数据">
+  </van-empty>
+
+  <view class="order-list">
+    <view class="order-item" wx:for="{{orderData}}" wx:key="id">
+      <view class="order-head">
+        <image class="order-head-img" src="{{item.headImg}}" />
+        <view class="order-head-box">
+          <view class="order-item-title">{{item.nickname}}</view>
+          <view class="order-item-sec">
+            {{item.title}}
+            <view class="order-item-num">x1</view>
+          </view>
+        </view>
+        <view class="order-head-price">
+          ¥{{item.price}}
+        </view>
+      </view>
+      <view class="order-content">
+        <view class="order-info-title">订单信息</view>
+        <view class="order-info-item">
+          <view class="order-info-label">订单编号</view>
+          <view class="order-info-value">{{item.orderNo}}</view>
+        </view>
+        <view class="order-info-item">
+          <view class="order-info-label">开课时间</view>
+          <view class="order-info-value">{{item.writeTime}}</view>
+        </view>
+        <view class="order-info-item">
+          <view class="order-info-label">开课码</view>
+          <view class="order-info-value">{{item.writeNumber}}</view>
+        </view>
+        <view class="order-info-item">
+          <view class="order-info-label">到期时间</view>
+          <view class="order-info-value">{{item.endTime}}</view>
+        </view>
+        <view class="order-footer">
+          <van-field
+            placeholder="备注"
+            border="{{ false }}"
+            input-class="input"
+            value="{{item.remark || ''}}"
+            data-index="{{index}}"
+            bind:change="onRemaskChange"
+            style="flex: 1;border: 6rpx solid #f4f4f4;height: 30px;margin-right: 20rpx;"/>
+          <van-button type="primary" size="small" data-index="{{index}}" data-id="{{item.id}}" color="#FD5252" bindtap="submit">提交</van-button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

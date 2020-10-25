@@ -181,7 +181,55 @@ const API =  {
   upload: {
     url: '/api/upload/index',
     method: 'post'
-  }
+  },
+
+  // 分销商
+  retail: {
+    url: '/api/retail/index',
+    method: 'get'
+  },
+
+  // 开课码记录
+  record: {
+    url: '/api/retail/record',
+    method: 'get'
+  },
+
+  // 课程搜素里的课程
+  retailCourse: {
+    url: '/api/retail/course',
+    method: 'get'
+  },
+
+  // 分销订单
+  retailOrder: {
+    url: '/api/retail/order',
+    method: 'get'
+  },
+
+  // 备注提交
+  remark: {
+    url: '/api/retail/remark',
+    method: 'get'
+  },
+
+  // 客户列表
+  customer: {
+    url: '/api/retail/customer',
+    method: 'get'
+  },
+
+  // 使用记录
+  useRecord: {
+    url: '/api/retail/useRecord',
+    method: 'get'
+  },
+
+  // 核销
+  writeOff: {
+    url: '/api/retail/writeOff',
+    method: 'get'
+  },
 };
 
 let API_RES = {};

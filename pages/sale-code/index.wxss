@@ -1,0 +1,155 @@
+page {
+  height: 100%;
+}
+.container {
+  min-height: 100%;
+  background-color: #f6f6f6;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 22rpx;
+}
+.search-label {
+  font-size: 12px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #666666;
+}
+.search-box {
+  flex: 1;
+  display: flex;
+  height: 70rpx;
+  background-color: #fff;
+  padding: 0 26rpx;
+  position: relative;
+  border: 6rpx solid #f5f5f5;
+  border-radius: 6rpx;
+  margin: 0 30rpx;
+}
+
+.select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  background-color: #fff;
+  width: 100%;
+  max-height: 600rpx;
+  overflow-y: auto;
+  margin-top: 75rpx;
+  box-shadow: 0px 0px 5px 0px rgba(45, 45, 45, 0.2);
+}
+.select-item {
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  margin: 0 30rpx;
+  font-size: 12px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #666666;
+  border-bottom: 1px solid #eee;
+}
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0);
+}
+
+.search-value {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #999999;
+}
+
+.order-list {
+  background-color: #fff;
+  padding: 0 22rpx;
+}
+.order-item {
+  border-bottom: 1px solid #eee;
+  padding: 40rpx 0;
+}
+.order-item-head {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.order-item-head-title {
+  flex: 1;
+  font-size: 14px;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: #333333;
+  display: flex;
+}
+.order-item-head-price {
+  color: #FF0000;
+}
+.order-item-head-time {
+  font-size: 14px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #666666;
+}
+.order-item-content {
+  display: flex;
+}
+.order-item-content-no {
+  flex: 1;
+  font-size: 14px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #666666;
+}
+
+
+.order-item-other {
+  border-bottom: 1px solid #eee;
+  padding: 40rpx 0;
+}
+.order-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-item-head-title {
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+}
+.order-item-head-price {
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #FF0000;
+}
+.order-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.order-item-info-label {
+  font-size: 14px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #666666;
+}
+.order-item-info-value {
+  font-size: 14px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #666666;
+}

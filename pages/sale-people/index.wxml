@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="user-list">
+    <view class="user-item" wx:for="{{userData}}" wx:key="index">
+      <image src="{{item.headImg}}" class="" />
+      <view class="user-item-name">
+        {{item.nickname}}
+        <view class="user-item-num">x{{item.number}}</view>
+      </view>
+      <view class="user-item-right">
+        <view class="user-item-label">成交金额</view>
+        <view class="user-item-value">¥{{item.price}}</view>
+      </view>
+    </view>
+  </view>
+</view>
