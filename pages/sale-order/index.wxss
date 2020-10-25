@@ -71,6 +71,7 @@ page {
   box-shadow: 0px 0px 5px 0px rgba(45, 45, 45, 0.2);
   border-radius: 14rpx;
   padding: 20rpx 26rpx;
+  margin-bottom: 30rpx;
 }
 .order-head {
   display: flex;
