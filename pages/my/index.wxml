@@ -93,6 +93,7 @@
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
     <van-cell 
+      wx:if="{{userInfo.isRetail === 1}}"
       title="分销商"
       link-type="navigateTo"
       url="/pages/sale/index"
