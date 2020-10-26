@@ -24,8 +24,10 @@ Page({
     const { userPage, courseId } = this.data;
     let params = {
       ...userPage,
-      courseId
     };
+    if(courseId) {
+      params.courseId = courseId;
+    }
 
     wx.showLoading({
       title: '数据请求中...',
