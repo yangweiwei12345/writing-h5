@@ -1,5 +1,7 @@
 <!--index.wxml-->
 <view class="container">
+  <van-empty wx:if="{{userData.length === 0}}" description="暂无数据">
+  </van-empty>
   <view class="user-list">
     <view class="user-item" wx:for="{{userData}}" wx:key="index">
       <image src="{{item.headImg}}" class="" />

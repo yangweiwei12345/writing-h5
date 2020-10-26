@@ -44,7 +44,7 @@
           </van-button>
         </view>
       </view>
-      <view class="order-item-other" data-id="{{item.courseId}}" bindtap="toUser" wx:else>
+      <view class="order-item-other" data-id="{{item.courseId}}" wx:else>
         <view class="order-item-head">
           <view class="order-item-head-title">{{item.title}}</view>
           <view class="order-item-head-price">¥{{item.price}}</view>

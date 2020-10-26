@@ -116,12 +116,4 @@ Page({
     });
   },
 
-  toUser: function(e) {
-    const { id } = e.currentTarget.dataset;
-
-    wx.navigateTo({
-      url: '/pages/sale-people/index?courseId=' + id
-    })
-  }
-
 })

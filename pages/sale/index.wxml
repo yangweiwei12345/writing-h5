@@ -26,7 +26,7 @@
         <view class="tj-title">今日销售(元)</view>
         <view class="tj-value">{{data.todaySale || 0}}</view>
       </view>
-      <view class="tj-item">
+      <view class="tj-item" bindtap="toUser">
         <view class="tj-title">新增客户(人)</view>
         <view class="tj-value">{{data.todayCustomer || 0}}</view>
       </view>
@@ -34,7 +34,7 @@
         <view class="tj-title">总销售(元)</view>
         <view class="tj-value">{{data.totalSale || 0}}</view>
       </view>
-      <view class="tj-item mt-32">
+      <view class="tj-item mt-32" bindtap="toUser">
         <view class="tj-title">客户总数(人)</view>
         <view class="tj-value">{{data.totalCustomer || 0}}</view>
       </view>

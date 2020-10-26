@@ -11,9 +11,10 @@ Page({
     userData: []
   },
   onLoad: function (options) {
-    this.setData({
-      courseId: options.courseId
-    });
+    // this.setData({
+    //   courseId: options.courseId
+    // });
+    this.getOrder();
   },
   onShow: function() {
   },
