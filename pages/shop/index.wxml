@@ -12,7 +12,7 @@
       积分商城
     </view>
 
-    <image src="../../resource/home/back.png" />
+    <image src="http://cdn.koalaxiezi.com/Writing/back.png" />
   </view>
 
   <!-- 头部信息 -->
@@ -95,7 +95,7 @@
   </view>
 
   <!-- 商城列表 -->
-  <view class="title z10" style="margin: 0 70rpx;margin-top: 48rpx;margin-bottom: 14rpx;">
+  <view class="title z10" style="margin: 0 35rpx;margin-top: 24rpx;margin-bottom: 24rpx;">
     积分兑换
   </view>
   <view class="shop-container z10">

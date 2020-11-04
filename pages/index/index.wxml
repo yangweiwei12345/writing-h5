@@ -38,7 +38,7 @@
       </van-tabs>
     </view>
     <!--  -->
-    <image mode="{{ activeTab !== 'rank' ? 'aspectFill' : 'top' }}" style="height: {{ activeTab !== 'rank' ? '' : (45 + statusBarHeight) }}px;background-color: {{activeTab !== 'rank' ? '' : 'rgb(255,145,88)'}}" src="../../resource/home/back.png" />
+    <image mode="{{ activeTab !== 'rank' ? 'aspectFill' : 'top' }}" style="height: {{ activeTab !== 'rank' ? '' : (45 + statusBarHeight) }}px;background-color: {{activeTab !== 'rank' ? '' : 'rgb(255,145,88)'}}" src="http://cdn.koalaxiezi.com/Writing/back.png" />
   </view>
 
   <block wx:if="{{activeTab === 'index'}}">
@@ -261,7 +261,7 @@
   </block>
   <block wx:else>
     <view class="bz-container" wx:if="{{!!commendData[0]}}">
-      <image class="bz-bg-img" src="../../resource/rank/BJ.png" />
+      <image class="bz-bg-img" src="http://cdn.koalaxiezi.com/Writing/BJ.png" />
       <view style="height: 60rpx;"></view>
       <view class="bz-head">
         <image src="../../resource/rank/head.png" class="bz-head-img" />

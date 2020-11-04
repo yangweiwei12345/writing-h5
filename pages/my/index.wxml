@@ -5,7 +5,7 @@
       个人中心
     </view>
 
-    <image src="../../resource/home/back.png" />
+    <image src="http://cdn.koalaxiezi.com/Writing/back.png" />
   </view>
 
   <view class="content-header">
@@ -73,6 +73,15 @@
   </view>
 
   <view class="my-list" wx:if="{{wxlogin}}">
+    <van-cell 
+      wx:if="{{userInfo.isRetail === 1}}"
+      title="分销商"
+      link-type="navigateTo"
+      url="/pages/sale/index"
+    >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/fx.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
     <van-cell
       wx:if="{{userInfo.type === 1}}"
       title="老师教室"
@@ -80,7 +89,7 @@
       url="/pages/teacher-room/index?user_id={{userInfo.user_id}}"
     >
       <!-- 图标 -->
-      <image slot="icon" class="my-list-icon" src="../../resource/my/my-orders.png" />
+      <image slot="icon" class="my-list-icon" src="../../resource/my/private-teacher.png" />
       <!-- 右侧箭头 -->
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
@@ -93,16 +102,15 @@
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
     <van-cell 
-      wx:if="{{userInfo.isRetail === 1}}"
-      title="分销商"
+      title="我的积分"
       link-type="navigateTo"
-      url="/pages/sale/index"
+      url="/pages/shop-gold/index"
     >
-      <image slot="icon" class="my-list-icon" src="../../resource/my/fx.png" />
+      <image slot="icon" class="my-list-icon" src="../../resource/my/gold-shop.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
     <van-cell 
-      title="开课"
+      title="开课激活"
       link-type="navigateTo"
       url="/pages/open-course/index"
     >

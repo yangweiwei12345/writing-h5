@@ -8,7 +8,7 @@
       开课码
     </view>
 
-    <image src="../../resource/home/back.png" />
+    <image src="http://cdn.koalaxiezi.com/Writing/bbjj.jpg" />
   </view>
 
   <view class="open-container">
@@ -87,8 +87,8 @@
       <view class="success-title">激活失败</view>
       <view class="success-sec-title">{{failText}}</view>
 
-      <view class="fail-phone">如有疑问请联系客服：0335-0270270</view>
-      <view class="fail-tip">( 注：国外用户请在区号前加拨0086 )</view>
+      <view class="fail-phone">如有疑问请联系客服微信：kaolaxiongya</view>
+      <view class="fail-tip"></view>
     </view>
   </van-dialog>
 </view>
