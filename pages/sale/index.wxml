@@ -57,6 +57,6 @@
     bind:close="onCloseCode"
     customStyle="z-index: 1000000;"
   >
-    <image src="https://img.yzcdn.cn/1.jpg" />
+    <image src="http://cdn.koalaxiezi.com/Writing/writing.jpg" />
   </van-dialog>
 </view>
