@@ -5,7 +5,7 @@
       个人中心
     </view>
 
-    <image src="../../resource/home/back.png" />
+    <image src="http://cdn.koalaxiezi.com/Writing/back.png" />
   </view>
 
   <view class="content-header">
