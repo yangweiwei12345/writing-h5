@@ -1,0 +1,155 @@
+page {
+  height: 100%;
+}
+.container {
+  min-height: 100%;
+  background-color: #f6f6f6;
+}
+
+.head {
+  background-color: #FD6163;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30rpx;
+}
+.head-box {
+  width: 484rpx;
+  height: 484rpx;
+  position: relative;
+  margin-top: 70rpx;
+}
+.head-img {
+  width: 484rpx;
+  height: 484rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.head-info {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.head-info-title {
+  font-size: 42px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #FFFFFF;
+  padding: 0 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #fff;
+}
+.head-info-text {
+  height: 18px;
+  font-size: 19px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-top: 15rpx;
+}
+.head-box-img {
+  width: 444rpx;
+  height: 36rpx;
+  margin-top: 60rpx;
+}
+
+.answer-one {
+  margin-top: 60rpx;
+  display: flex;
+}
+.answer-one-item {
+  margin: 0 60rpx;
+}
+.answer-one-item image {
+  width: 258rpx;
+  height: 232rpx;
+}
+.answer-one-item-text {
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.radio {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 26rpx;
+  border: 1px solid #FD6163;
+  position: relative;
+}
+.radio.active {}
+
+.radio.active::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28rpx;
+  height: 28rpx;
+  margin-top: -14rpx;
+  margin-left: -14rpx;
+  background-color: #FD6163;
+  border-radius: 14rpx;
+}
+
+.footer {
+  margin: 0 60rpx;
+  margin-top: 60rpx;
+}
+
+.mr-30 {
+  margin-right: 30rpx;
+}
+
+
+/* 答题 */
+.page-two {
+  position: relative;
+  padding-top: 60rpx;
+}
+
+.question-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 36rpx;
+}
+.question-title {
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+}
+.question-num {
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #999999;
+}
+.questions-item {
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 60rpx;
+  padding: 0 36rpx;
+  display: flex;
+  align-items: center;
+}
+
+.submit-answer {
+  width: 100%;
+  position: absolute;
+  bottom: 40rpx;
+  padding: 0 60rpx;
+  box-sizing: border-box;
+}

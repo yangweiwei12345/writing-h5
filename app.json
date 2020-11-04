@@ -26,7 +26,7 @@
     "pages/sale/index",
     "pages/sale-order/index",
     "pages/sale-people/index",
-    "pages/sale-code/index"
+    "pages/answer/index"
   ],
   "tabBar": {
     "custom": true,

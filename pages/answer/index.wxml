@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page_one">
+    <view class="head">
+      <view class="head-box">
+        <image src="../../resource/answer/ball.png" class="head-img" />
+        <view class="head-info">
+          <view class="head-info-title">未知</view>
+          <view class="head-info-text">等级评定</view>
+        </view>
+      </view>
+      <image class="head-box-img" src="../../resource/answer/text.png" />
+    </view>
+
+    <view class="answer-one">
+      <view class="answer-one-item">
+        <image class="" src="../../resource/answer/yes.png" />
+        <view class="answer-one-item-text">
+          <view class="radio active mr-30">
+          </view>
+          联系过书法
+        </view>
+      </view>
+      <view class="answer-one-item">
+        <image class="" src="../../resource/answer/no.png" />
+        <view class="answer-one-item-text">
+          <view class="radio mr-30">
+          </view>
+          不了解书法
+        </view>
+      </view>
+    </view>
+
+    <view class="footer">
+      <van-button custom-style="box-shadow: 0 0 4px rgba(0,0,0,.4)" type="primary" block round color="linear-gradient(to bottom, #4bb0ff, #6149f6)" >开始评测</van-button>
+    </view>
+  </view>
+
+  <view class="page-two">
+    <view class="question-head">
+      <view class="question-title">1.是否十大歌手寄过来的？</view>
+      <view class="question-num">1/6</view>
+    </view>
+    <view class="questions-item">
+      <view class="radio active mr-30"></view>
+      5-6岁
+    </view>
+    <view class="questions-item">
+      <view class="radio active mr-30"></view>
+      测试答案
+    </view>
+    <view class="questions-item">
+      <view class="radio active mr-30"></view>
+      不知掉
+    </view>
+    <view class="questions-item">
+      <view class="radio active mr-30"></view>
+      不想知道
+    </view>
+
+    <view class="submit-answer">
+      <van-button custom-style="box-shadow: 0 0 4px rgba(0,0,0,.4)" type="primary" block round color="linear-gradient(to bottom, #4bb0ff, #6149f6)" >查看结果</van-button>
+    </view>
+  </view>
+</view>

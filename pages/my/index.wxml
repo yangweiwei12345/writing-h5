@@ -109,6 +109,14 @@
       <image slot="icon" class="my-list-icon" src="../../resource/my/fx.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
+    <van-cell 
+      title="评测"
+      link-type="navigateTo"
+      url="/pages/answer/index"
+    >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
     <!-- <van-cell title="任务中心" >
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
