@@ -261,7 +261,7 @@
   </block>
   <block wx:else>
     <view class="bz-container" wx:if="{{!!commendData[0]}}">
-      <image class="bz-bg-img" src="../../resource/rank/BJ.png" />
+      <image class="bz-bg-img" src="http://cdn.koalaxiezi.com/Writing/BJ.png" />
       <view style="height: 60rpx;"></view>
       <view class="bz-head">
         <image src="../../resource/rank/head.png" class="bz-head-img" />
