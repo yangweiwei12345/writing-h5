@@ -34,7 +34,7 @@ Page({
     wx.showLoading({
       title: '数据加载中',
     });
-    const { scorePage, active } = this.data;
+    const { scorePage, active, billData } = this.data;
     let params = {
       ...scorePage,
       type: active === 'path' ? 2 : 1
@@ -46,7 +46,7 @@ Page({
       
         this.setData({
           hasMore: data.length >= scorePage.pageSize,
-          billData: data,
+          billData: billData.concat(data),
           scorePage: {
             ...scorePage,
             page: scorePage.page + 1
