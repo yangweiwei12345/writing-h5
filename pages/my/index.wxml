@@ -117,6 +117,14 @@
       <image slot="icon" class="my-list-icon" src="../../resource/my/fx.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
+    <van-cell 
+      title="看课指南"
+      link-type="navigateTo"
+      url="/pages/guide/index"
+    >
+      <image slot="icon" class="my-list-icon my-list-icon-guide" src="../../resource/my/look-course.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
     <!-- <van-cell 
       title="评测"
       link-type="navigateTo"

@@ -189,11 +189,20 @@ page {
 .my-list .my-list-icon {
   width: 28rpx;
   height: 34rpx;
-  margin-top: 6rpx;
+  /* margin-top: 6rpx; */
   margin-right: 10rpx;
 }
+.my-list-icon-guide {
+  width: 28rpx !important;
+  height: 28rpx !important;
+}
+
 .my-list .my-list-right-icon {
   width: 16rpx;
   height: 28rpx;
-  margin-top: 8rpx;
+  /* margin-top: 8rpx; */
+}
+
+.van-cell {
+  align-items: center;
 }

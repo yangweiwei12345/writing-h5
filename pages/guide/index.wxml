@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container">
+  <image style="width: 100%;" src="http://cdn.koalaxiezi.com/Writing/Use-introduction.jpg" mode="widthFix" />
+</view>
