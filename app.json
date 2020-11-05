@@ -25,6 +25,7 @@
     "pages/open-course/index",
     "pages/sale/index",
     "pages/sale-order/index",
+    "pages/sale-code/index",
     "pages/sale-people/index",
     "pages/answer/index"
   ],
