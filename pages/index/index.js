@@ -129,7 +129,7 @@ Page({
     wx.showLoading({
       title: '数据加载中',
     });
-    const { commendPage } = this.data;
+    const { commendPage, commendData } = this.data;
     let params = {
       ...commendPage
     };
@@ -140,7 +140,7 @@ Page({
       
         this.setData({
           hasCommendMore: data.length >= commendPage.pageSize,
-          commendData: data,
+          commendData: commendData.concat(data),
           commendPage: {
             ...commendPage,
             page: commendPage.page + 1

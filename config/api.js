@@ -230,6 +230,18 @@ const API =  {
     url: '/api/retail/writeOff',
     method: 'get'
   },
+
+  // 评测问题
+  getQa: {
+    url: '/api/sys/getQa',
+    method: 'post'
+  },
+
+  // 提交评测问题
+  level: {
+    url: '/api/user/level',
+    method: 'post'
+  }
 };
 
 let API_RES = {};

@@ -45,6 +45,10 @@ page {
   padding-bottom: 20rpx;
   border-bottom: 1px solid #fff;
 }
+.head-info-img {
+  width: 110rpx;
+  height: 88rpx;
+}
 .head-info-text {
   height: 18px;
   font-size: 19px;
@@ -57,6 +61,9 @@ page {
   width: 444rpx;
   height: 36rpx;
   margin-top: 60rpx;
+}
+.head-box-bottom-img {
+  width: 100%;
 }
 
 .answer-one {
@@ -114,8 +121,8 @@ page {
 
 /* 答题 */
 .page-two {
-  position: relative;
   padding-top: 60rpx;
+  height: 100%;
 }
 
 .question-head {
@@ -153,3 +160,66 @@ page {
   padding: 0 60rpx;
   box-sizing: border-box;
 }
+
+.resetBtn {
+  display: flex;
+  justify-content: center;
+}
+
+
+.pj-list {
+  padding: 30rpx 46rpx;
+}
+.pj-head {
+  display: flex;
+  align-items: center;
+}
+.pj-head image {
+  width: 20rpx;
+  height: 60rpx;
+  margin-right: 40rpx;
+}
+.pj-head-img {
+  width: 40rpx !important;
+  height: 60rpx !important;
+}
+
+.pj-title-box {}
+.pj-title-box .pj-title {
+  height: 30rpx;
+  font-size: 32rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #FF3A38;
+  margin-bottom: 16rpx;
+}
+.pj-title-box .pj-title-sec {
+  height: 16rpx;
+  font-size: 24rpx;
+  font-family: Calibri;
+  font-weight: 400;
+  color: #999999;
+}
+
+.pj-content {
+  margin-bottom: 70rpx;
+}
+.pj-content-item {
+  position: relative;
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #000003;
+  margin-top: 30rpx;
+  padding-left: 20rpx;
+}
+.pj-content-item::after {
+  content: ' ';
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background-color: #000;
+}
+

@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="page_one">
+  <view class="page_one" wx:if="{{currentAction === 'first'}}">
     <view class="head">
       <view class="head-box">
         <image src="../../resource/answer/ball.png" class="head-img" />
@@ -11,20 +11,21 @@
       </view>
       <image class="head-box-img" src="../../resource/answer/text.png" />
     </view>
+    <image src="../../resource/answer/back.png" class="head-box-bottom-img" mode="widthFix" />
 
     <view class="answer-one">
-      <view class="answer-one-item">
+      <view class="answer-one-item" data-answer="A" bindtap="onFirstClick">
         <image class="" src="../../resource/answer/yes.png" />
         <view class="answer-one-item-text">
-          <view class="radio active mr-30">
+          <view class="radio mr-30 {{firstAnswer === 'A' ? 'active' : ''}}">
           </view>
-          联系过书法
+          练习过书法
         </view>
       </view>
-      <view class="answer-one-item">
+      <view class="answer-one-item" data-answer="B" bindtap="onFirstClick">
         <image class="" src="../../resource/answer/no.png" />
         <view class="answer-one-item-text">
-          <view class="radio mr-30">
+          <view class="radio mr-30 {{firstAnswer === 'B' ? 'active' : ''}}">
           </view>
           不了解书法
         </view>
@@ -32,34 +33,89 @@
     </view>
 
     <view class="footer">
-      <van-button custom-style="box-shadow: 0 0 4px rgba(0,0,0,.4)" type="primary" block round color="linear-gradient(to bottom, #4bb0ff, #6149f6)" >开始评测</van-button>
+      <van-button wx:if="{{firstAnswer}}" bindtap="onCPClick" custom-style="box-shadow: 0 0 4px rgba(0,0,0,.4)" type="primary" block round color="linear-gradient(to bottom, rgb(241,156,117), rgb(235,118,128))" >开始评测</van-button>
+      <van-button wx:else custom-style="box-shadow: 0 0 4px rgba(0,0,0,.4)" type="primary" block round color="#ddd" >开始评测</van-button>
+      <view style="height: 40rpx;"></view>
     </view>
   </view>
 
-  <view class="page-two">
+  <view class="page-two" wx:if="{{currentAction === 'second'}}">
     <view class="question-head">
-      <view class="question-title">1.是否十大歌手寄过来的？</view>
-      <view class="question-num">1/6</view>
+      <view class="question-title">{{qaData.length}}、{{qaData[qaData.length - 1].qa.question}}</view>
+      <!-- <view class="question-num">{{qaData.length}}</view> -->
     </view>
-    <view class="questions-item">
-      <view class="radio active mr-30"></view>
-      5-6岁
-    </view>
-    <view class="questions-item">
-      <view class="radio active mr-30"></view>
-      测试答案
-    </view>
-    <view class="questions-item">
-      <view class="radio active mr-30"></view>
-      不知掉
-    </view>
-    <view class="questions-item">
-      <view class="radio active mr-30"></view>
-      不想知道
-    </view>
+    <block  wx:for="{{qaData[qaData.length - 1].as || []}}" wx:key="qa_id">
+      <view class="questions-item" data-level="{{item.level}}" data-asid="{{item.as_id}}" data-qaid="{{item.qa_id}}" data-answer="{{item.answer}}" bindtap="onSelectAns">
+        <view class="radio mr-30 {{qaData[qaData.length - 1].asid == item.as_id ? 'active' : ''}}"></view>
+        {{item.answer}}
+      </view>
+    </block>
 
-    <view class="submit-answer">
-      <van-button custom-style="box-shadow: 0 0 4px rgba(0,0,0,.4)" type="primary" block round color="linear-gradient(to bottom, #4bb0ff, #6149f6)" >查看结果</van-button>
+    <view class="submit-answer" wx:if="{{qaData[qaData.length - 1].qaid == 0 && qaData[qaData.length - 1].level != 0}}">
+      <van-button bindtap="onThridClick" custom-style="box-shadow: 0 0 4px rgba(0,0,0,.4)" type="primary" block round color="linear-gradient(to bottom, rgb(241,156,117), rgb(235,118,128))" >查看结果</van-button>
+    </view>
+  </view>
+
+  <view class="page-three" wx:if="{{currentAction === 'thrid'}}">
+    <view class="head">
+      <view class="head-box">
+        <image src="../../resource/answer/ball.png" class="head-img" />
+        <view class="head-info">
+          <image src="{{levelData[qaData[qaData.length - 1].level]}}" class="head-info-img" />
+          <view class="head-info-text">等级评定</view>
+        </view>
+      </view>
+      <image class="head-box-img" src="../../resource/answer/text.png" />
+    </view>
+    <image src="../../resource/answer/back.png" class="head-box-bottom-img" mode="widthFix" />
+
+    <view class="resetBtn">
+      <van-button bindtap="onResetClick" custom-style="box-shadow: 0 0 4px rgba(0,0,0,.4);margin: 40rpx auto;width: 300rpx;" type="primary" round color="linear-gradient(to bottom, rgb(241,156,117), rgb(235,118,128))" >重新测评</van-button>
+    </view>
+    <view class="pj-list">
+      <view class="pj-head">
+        <image src="../../resource/answer/one.png" />
+        <view class="pj-title-box">
+          <view class="pj-title">测评评语</view>
+          <view class="pj-title-sec">COMMENT</view>
+        </view>
+      </view>
+      <view class="pj-content">
+        <view class="pj-content-item">
+          L1：家长需要给孩子报名
+        </view>
+        <view class="pj-content-item">
+          L2：家长了解写字对孩子的好处
+        </view>
+        <view class="pj-content-item">
+          L3：家长拥有先进的教育理念
+        </view>
+        <view class="pj-content-item">
+          L4：写字已经成为孩子的兴趣
+        </view>
+      </view>
+
+      <view class="pj-head">
+        <image class="pj-head-img" src="../../resource/answer/two.png" />
+        <view class="pj-title-box">
+          <view class="pj-title">能力分析</view>
+          <view class="pj-title-sec">ABILITY ANALYSIS</view>
+        </view>
+      </view>
+      <view class="pj-content">
+        <view class="pj-content-item">
+          L1：需要学习
+        </view>
+        <view class="pj-content-item">
+          L2：需要进阶学习
+        </view>
+        <view class="pj-content-item">
+          L3：需要高级阶段学习
+        </view>
+        <view class="pj-content-item">
+          L4：需要学习硬笔书法
+        </view>
+      </view>
     </view>
   </view>
 </view>
