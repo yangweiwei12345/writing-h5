@@ -30,7 +30,6 @@ Page({
     let { qaData } = this.data;
     let params = {
     };
-    console.log(data);
     if(data) {
       params.qa_id = data.qaid
     }
@@ -53,7 +52,6 @@ Page({
   // 获取题目
   getMoreQa: function() {
     let { qaData } = this.data;
-    console.log(qaData)
     if(qaData.length > 0) {
       this.getQa(qaData[qaData.length - 1])
     } else {
@@ -80,7 +78,6 @@ Page({
   onSelectAns: function(e) {
     const { level, asid, qaid, answer } = e.currentTarget.dataset;
     let { qaData } = this.data;
-    console.log(qaData, asid, level)
 
     qaData[qaData.length - 1].asid = asid;
     qaData[qaData.length - 1].level = level;
@@ -106,6 +103,8 @@ Page({
     this.setData({
       currentAction: 'thrid'
     });
+
+    this.postCP();
   },
 
   onResetClick: function() {
@@ -114,5 +113,26 @@ Page({
       currentAction: "first",
       qaData: [],
     });
+  },
+
+  // 提交测评
+  postCP: function() {
+    let { qaData } = this.data;
+    let params = {
+      level: qaData[qaData.length - 1].level,
+      json: JSON.stringify(qaData)
+    };
+    // let json = [];
+
+    // qaData.forEach(item => {
+    //   json.push({
+    //     q
+    //   })
+    // })
+
+    API.level(params).then(res => {//成功
+      
+    }).catch(e => {
+    })
   }
 })
