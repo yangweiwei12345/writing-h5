@@ -12,10 +12,18 @@ Page({
       2: '../../resource/answer/L2.png',
       3: '../../resource/answer/L3.png',
       4: '../../resource/answer/L4.png',
-    }
+    },
+    level: 1,
   },
   onLoad: function (options) {
-    
+    let level = options.level;
+    console.log(options);
+    if(level) {
+      this.setData({
+        level,
+        currentAction: 'thrid'
+      });
+    }
   },
   onShow: function() {
   },
@@ -129,6 +137,9 @@ Page({
     //     q
     //   })
     // })
+    this.setData({
+      level: qaData[qaData.length - 1].level
+    });
 
     API.level(params).then(res => {//成功
       

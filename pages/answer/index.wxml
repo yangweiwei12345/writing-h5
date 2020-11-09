@@ -61,7 +61,7 @@
       <view class="head-box">
         <image src="../../resource/answer/ball.png" class="head-img" />
         <view class="head-info">
-          <image src="{{levelData[qaData[qaData.length - 1].level]}}" class="head-info-img" />
+          <image src="{{levelData[level]}}" class="head-info-img" />
           <view class="head-info-text">等级评定</view>
         </view>
       </view>
