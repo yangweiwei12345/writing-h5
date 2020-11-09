@@ -17,7 +17,6 @@ Page({
   },
   onLoad: function (options) {
     let level = options.level;
-    console.log(options);
     if(level) {
       this.setData({
         level,
