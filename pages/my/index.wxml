@@ -128,7 +128,7 @@
     <van-cell 
       title="评测"
       link-type="navigateTo"
-      url="/pages/answer/index?level={{userInfo.level}}"
+      url="/pages/answer/index?level={{userInfo.qa_level}}"
     >
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
