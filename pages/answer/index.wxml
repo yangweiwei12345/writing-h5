@@ -3,19 +3,19 @@
   <view class="page_one" wx:if="{{currentAction === 'first'}}">
     <view class="head">
       <view class="head-box">
-        <image src="../../resource/answer/ball.png" class="head-img" />
+        <image src="http://cdn.koalaxiezi.com/Writing/answer/ball.png" class="head-img" />
         <view class="head-info">
           <view class="head-info-title">未知</view>
           <view class="head-info-text">等级评定</view>
         </view>
       </view>
-      <image class="head-box-img" src="../../resource/answer/text.png" />
+      <image class="head-box-img" src="http://cdn.koalaxiezi.com/Writing/answer/text.png" />
     </view>
-    <image src="../../resource/answer/back.png" class="head-box-bottom-img" mode="widthFix" />
+    <image src="http://cdn.koalaxiezi.com/Writing/answer/back.png" class="head-box-bottom-img" mode="widthFix" />
 
     <view class="answer-one">
       <view class="answer-one-item" data-answer="A" bindtap="onFirstClick">
-        <image class="" src="../../resource/answer/yes.png" />
+        <image class="" src="http://cdn.koalaxiezi.com/Writing/answer/yes.png" />
         <view class="answer-one-item-text">
           <view class="radio mr-30 {{firstAnswer === 'A' ? 'active' : ''}}">
           </view>
@@ -23,7 +23,7 @@
         </view>
       </view>
       <view class="answer-one-item" data-answer="B" bindtap="onFirstClick">
-        <image class="" src="../../resource/answer/no.png" />
+        <image class="" src="http://cdn.koalaxiezi.com/Writing/answer/no.png" />
         <view class="answer-one-item-text">
           <view class="radio mr-30 {{firstAnswer === 'B' ? 'active' : ''}}">
           </view>
@@ -59,22 +59,22 @@
   <view class="page-three" wx:if="{{currentAction === 'thrid'}}">
     <view class="head">
       <view class="head-box">
-        <image src="../../resource/answer/ball.png" class="head-img" />
+        <image src="http://cdn.koalaxiezi.com/Writing/answer/ball.png" class="head-img" />
         <view class="head-info">
           <image src="{{levelData[level]}}" class="head-info-img" />
           <view class="head-info-text">等级评定</view>
         </view>
       </view>
-      <image class="head-box-img" src="../../resource/answer/text.png" />
+      <image class="head-box-img" src="http://cdn.koalaxiezi.com/Writing/answer/text.png" />
     </view>
-    <image src="../../resource/answer/back.png" class="head-box-bottom-img" mode="widthFix" />
+    <image src="http://cdn.koalaxiezi.com/Writing/answer/back.png" class="head-box-bottom-img" mode="widthFix" />
 
     <view class="resetBtn">
       <van-button bindtap="onResetClick" custom-style="box-shadow: 0 0 4px rgba(0,0,0,.4);margin: 40rpx auto;width: 300rpx;" type="primary" round color="linear-gradient(to bottom, rgb(241,156,117), rgb(235,118,128))" >重新测评</van-button>
     </view>
     <view class="pj-list">
       <view class="pj-head">
-        <image src="../../resource/answer/one.png" />
+        <image src="http://cdn.koalaxiezi.com/Writing/answer/one.png" />
         <view class="pj-title-box">
           <view class="pj-title">测评评语</view>
           <view class="pj-title-sec">COMMENT</view>
@@ -96,7 +96,7 @@
       </view>
 
       <view class="pj-head">
-        <image class="pj-head-img" src="../../resource/answer/two.png" />
+        <image class="pj-head-img" src="http://cdn.koalaxiezi.com/Writing/answer/two.png" />
         <view class="pj-title-box">
           <view class="pj-title">能力分析</view>
           <view class="pj-title-sec">ABILITY ANALYSIS</view>
