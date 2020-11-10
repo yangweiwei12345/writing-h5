@@ -29,6 +29,7 @@ Page({
     courseHaveMore: true,
 
     opacity: 0,
+    userInfo: {}
   },
   onLoad: function () {
   },
@@ -69,6 +70,7 @@ Page({
           this.setData({
             wxlogin: true
           });
+          this.getInfoData()
         } else {
           this.setData({
             wxlogin: false
@@ -80,6 +82,34 @@ Page({
         });
       })
   },
+
+  /**
+   * 获取当前用户个人资料
+   * @date 2020-09-14
+   * @returns {any}
+   */
+  getInfoData: function () {
+    wx.showLoading({
+      title: '请求中...',
+    });
+    API.getUserInfo({
+    }).then(res => {//成功
+      this.setData({
+        userInfo: res,
+      })
+      wx.hideLoading();
+    }).catch(e => {
+      wx.hideLoading();
+    })
+  },
+
+  getUserInfoDetail: function() {
+    this.setData({
+      wxlogin: true
+    });
+    this.getInfoData();
+  },
+
 
   toLogin: function() {
     this.setData({
