@@ -100,9 +100,7 @@ Page({
       //   currentAction: 'thrid'
       // });
     } else {
-      setTimeout(() => {
-        this.getMoreQa();
-      }, 500);
+      this.getMoreQa();
     }
   },
 
