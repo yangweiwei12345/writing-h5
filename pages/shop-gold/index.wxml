@@ -7,7 +7,7 @@
         <view class="header-back" bindtap="goBack">
           <image src="../../resource/dp/back.png" />
         </view>
-        我的金币
+        我的积分
       </view>
     </view>
     <view style="height: {{statusBarHeight}}px;"></view>
@@ -15,7 +15,7 @@
       <view class="header-back" bindtap="goBack">
         <image src="../../resource/dp/back.png" />
       </view>
-      我的金币
+      我的积分
     </view>
 
     <image src="http://cdn.koalaxiezi.com/Writing/back.png" />
@@ -23,10 +23,10 @@
 
   <view class="box-shadow z10 gold-container">
     <view class="gold-content">
-      <view class="gold-title">我的金币</view>
+      <view class="gold-title">我的积分</view>
       <view class="gold-box">
         <view class="gold-box-num">{{v_amount}}</view>
-        <view class="gold-box-unit">金币</view>
+        <view class="gold-box-unit">积分</view>
       </view>
     </view>
 
