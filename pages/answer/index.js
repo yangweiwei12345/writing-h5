@@ -15,19 +15,20 @@ Page({
     },
     // 评语
     pyData: {
-      1: ['家长需要给孩子报名'],
-      2: ['家长了解写字对孩子的好处'],
-      3: ['家长拥有先进的教育理念'],
-      4: ['写字已经成为孩子的兴趣']
+      1: ['宝贝需要开始书法启蒙课，多学习笔画的运用，独体字的书写'],
+      2: ['宝贝拥有一定的控笔能力，用心学习，一定有所进步'],
+      3: ['宝贝具有一定的书法基础，结构上大部分字书写准确'],
+      4: ['宝贝书写规范，结构准确']
     },
     // 能力分析
     nlData: {
-      1: ['需要学习'],
-      2: ['需要进阶学习'],
-      3: ['需要高级阶段学习'],
-      4: ['需要学习硬笔书法']
+      1: ['需要学习每种笔画的特点'],
+      2: ['对笔画的运用有一定了解，结构书写上会有不足的地方，需要学习'],
+      3: ['需要进行结构规律的学习，达到举一反三的能力'],
+      4: ['需要进行系统结构规律的总结性练习以及章法的练习']
     },
     level: 1,
+    process: 0
   },
   onLoad: function (options) {
     let level = options.level;
@@ -119,9 +120,25 @@ Page({
   },
 
   onThridClick: function() {
-    this.setData({
-      currentAction: 'thrid'
+    this.timer && clearInterval(this.timer);
+    let processData = ['0%', '33%', '60%', '100%'];
+    wx.showLoading({
+      title: `正在测评`,
     });
+    this.timer = setInterval(() => {
+      if(this.data.process === 2) {
+        wx.hideLoading()
+        this.setData({
+          process: 0,
+          currentAction: 'thrid'
+        });
+      } else {
+        this.setData({
+          process: this.data.process + 1
+        });
+      }
+    }, 1000);
+    
 
     this.postCP();
   },
