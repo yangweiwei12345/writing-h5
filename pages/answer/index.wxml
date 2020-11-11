@@ -81,17 +81,8 @@
         </view>
       </view>
       <view class="pj-content">
-        <view class="pj-content-item">
-          L1：家长需要给孩子报名
-        </view>
-        <view class="pj-content-item">
-          L2：家长了解写字对孩子的好处
-        </view>
-        <view class="pj-content-item">
-          L3：家长拥有先进的教育理念
-        </view>
-        <view class="pj-content-item">
-          L4：写字已经成为孩子的兴趣
+        <view wx:for="{{pyData[level]}}" wx:key="index" class="pj-content-item">
+          {{item}}
         </view>
       </view>
 
@@ -103,17 +94,8 @@
         </view>
       </view>
       <view class="pj-content">
-        <view class="pj-content-item">
-          L1：需要学习
-        </view>
-        <view class="pj-content-item">
-          L2：需要进阶学习
-        </view>
-        <view class="pj-content-item">
-          L3：需要高级阶段学习
-        </view>
-        <view class="pj-content-item">
-          L4：需要学习硬笔书法
+        <view wx:for="{{nlData[level]}}" wx:key="index" class="pj-content-item">
+          {{item}}
         </view>
       </view>
     </view>

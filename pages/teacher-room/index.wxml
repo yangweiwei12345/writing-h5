@@ -68,6 +68,16 @@
           data-courseid="{{item.course_id}}" 
           data-userid="{{item.user_id}}"
           bindtap="toWorkDetail">查看</van-button>
+        <van-button 
+          custom-style="padding: 0 26rpx;font-family: font-family: SourceHanSansCN;font-size: 13px;margin-top: 15rpx;" 
+          round 
+          type="danger" 
+          size="mini" 
+          color="#FD5252" 
+          data-workid="{{item.work_id}}" 
+          data-courseid="{{item.course_id}}" 
+          data-userid="{{item.user_id}}"
+          bindtap="onJudge">点评</van-button>
       </view>
     </view>
   </view>
