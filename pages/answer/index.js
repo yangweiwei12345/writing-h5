@@ -27,8 +27,8 @@ Page({
       3: ['需要进行结构规律的学习，达到举一反三的能力'],
       4: ['需要进行系统结构规律的总结性练习以及章法的练习']
     },
-    level: 1,
-    process: 0
+    level: 0,
+    isFinish: false
   },
   onLoad: function (options) {
     let level = options.level;
@@ -91,7 +91,8 @@ Page({
 
   onCPClick: function() {
     this.setData({
-      currentAction: 'second'
+      currentAction: 'second',
+      level: 0
     });
     this.getMoreQa();
   },
@@ -110,6 +111,12 @@ Page({
       qaData
     });
 
+    if(this.data.level === 0) {
+      this.setData({
+        level
+      });
+    }
+
     if(qaid == 0 && level != 0) {
       // this.setData({
       //   currentAction: 'thrid'
@@ -120,25 +127,16 @@ Page({
   },
 
   onThridClick: function() {
-    this.timer && clearInterval(this.timer);
-    let processData = ['0%', '33%', '60%', '100%'];
-    wx.showLoading({
-      title: `正在测评`,
+    this.setData({
+      currentAction: 'thrid'
     });
-    this.timer = setInterval(() => {
-      if(this.data.process === 2) {
-        wx.hideLoading()
-        this.setData({
-          process: 0,
-          currentAction: 'thrid'
-        });
-      } else {
-        this.setData({
-          process: this.data.process + 1
-        });
-      }
-    }, 1000);
-    
+
+    wx.showLoading({
+      title: '评测中'
+    })
+    setTimeout(() => {
+      wx.hideLoading();
+    }, 2000);
 
     this.postCP();
   },
@@ -148,6 +146,7 @@ Page({
       firstAnswer: "",
       currentAction: "first",
       qaData: [],
+      level: 0
     });
   },
 
@@ -155,7 +154,7 @@ Page({
   postCP: function() {
     let { qaData } = this.data;
     let params = {
-      level: qaData[qaData.length - 1].level,
+      level: this.data.level,
       json: JSON.stringify(qaData)
     };
     // let json = [];
@@ -165,9 +164,6 @@ Page({
     //     q
     //   })
     // })
-    this.setData({
-      level: qaData[qaData.length - 1].level
-    });
 
     API.level(params).then(res => {//成功
       
