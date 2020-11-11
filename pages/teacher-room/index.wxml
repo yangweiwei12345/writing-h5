@@ -77,7 +77,7 @@
           data-workid="{{item.work_id}}" 
           data-courseid="{{item.course_id}}" 
           data-userid="{{item.user_id}}"
-          bindtap="onJudge">点评</van-button>
+          bindtap="onJudge">修改</van-button>
       </view>
     </view>
   </view>
