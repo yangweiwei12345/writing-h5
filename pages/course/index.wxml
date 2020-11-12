@@ -35,6 +35,7 @@
   </view>
 
   <view wx:if="{{active === 'userCourse'}}" class="my-course-list">
+    <!-- 大礼包 -->
     <van-empty wx:if="{{userCourseList.length === 0}}" description="暂无数据">
     </van-empty>
     <view class="course-list">

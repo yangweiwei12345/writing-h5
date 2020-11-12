@@ -274,8 +274,8 @@ Page({
 
   onShareAppMessage: function() {
     return {
-      title: `一手好字，孩子收益一生，考拉熊写字！`,
-      path: `/pages/index/index`,
+      title: `上考拉熊写字，给卷面加分，干货大礼包！`,
+      path: `/pages/course/index`,
       imageUrl: 'http://cdn.koalaxiezi.com/Writing/share.jpg'
     };
   },
