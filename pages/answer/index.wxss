@@ -11,17 +11,16 @@ page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 30rpx;
 }
 .head-box {
-  width: 484rpx;
-  height: 484rpx;
+  width: 400rpx;
+  height: 400rpx;
   position: relative;
-  margin-top: 70rpx;
+  margin-top: 30rpx;
 }
 .head-img {
-  width: 484rpx;
-  height: 484rpx;
+  width: 400rpx;
+  height: 400rpx;
   position: absolute;
   top: 0;
   left: 0;
@@ -67,7 +66,6 @@ page {
 }
 
 .answer-one {
-  margin-top: 60rpx;
   display: flex;
 }
 .answer-one-item {
@@ -168,7 +166,7 @@ page {
 
 
 .pj-list {
-  padding: 30rpx 46rpx;
+  padding: 0rpx 46rpx;
 }
 .pj-head {
   display: flex;
