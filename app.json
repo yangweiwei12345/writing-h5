@@ -28,7 +28,11 @@
     "pages/sale-code/index",
     "pages/sale-people/index",
     "pages/answer/index",
-    "pages/guide/index"
+    "pages/guide/index",
+    "pages/spree/index",
+    "pages/Sitting-position/index",
+    "pages/Holding-pen/index",
+    "pages/Wrist/index"
   ],
   "tabBar": {
     "custom": true,

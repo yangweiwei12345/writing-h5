@@ -148,6 +148,11 @@ Page({
       }
     });
   },
+  spree:function(){
+    wx.navigateTo({
+      url:'/pages/spree/index'
+    })
+  },
 
   toDetail: function(e) {
     const { title, id, num, dt } = e.currentTarget.dataset;

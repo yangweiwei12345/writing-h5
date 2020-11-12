@@ -155,3 +155,6 @@ page {
   white-space: nowrap;
   -webkit-line-clamp: 1;
 }
+
+/*新增*/
+.ghlb{margin: 0 26rpx; margin-top: 20rpx;}
