@@ -1,9 +1,13 @@
 //index.js
 const app = getApp()
 const API = require('../../config/api.js');
+const Auth = require('../../utils/auth');
 
 Page({
   data: {
+    wxlogin: true,
+    userInfo: {},
+
     firstAnswer: "",
     currentAction: "first",
     qaData: [],
@@ -40,6 +44,7 @@ Page({
     }
   },
   onShow: function() {
+    this.isLogin();
   },
 
   onLoaded: function() {
@@ -90,6 +95,13 @@ Page({
   },
 
   onCPClick: function() {
+    if(!this.data.wxlogin) {
+      this.setData({
+        wxlogin: false
+      });
+      return;
+    }
+
     this.setData({
       currentAction: 'second',
       level: 0
@@ -179,5 +191,57 @@ Page({
       path: `/pages/answer/index`,
       //imageUrl: userInfo.head_img
     };
-  }
+  },
+
+
+  // 是否登录
+  isLogin: function() {
+    // 是否登录
+    Auth.checkHasLogined()
+      .then(res => {
+        if(res) {
+          this.setData({
+            wxlogin: true
+          }, () => {
+            // 用户登录之后查看当前个人资料是否填写
+            this.getInfoData()
+          });
+        } else {
+          this.setData({
+            wxlogin: false
+          });
+        }
+      }).catch(e => {
+        this.setData({
+          wxlogin: false
+        });
+      })
+  },
+
+  /**
+   * 获取当前用户个人资料
+   * @date 2020-09-14
+   * @returns {any}
+   */
+  getInfoData: function () {
+    wx.showLoading({
+      title: '请求中...',
+    });
+    API.getUserInfo({
+    }).then(res => {//成功
+      this.setData({
+        userInfo: res,
+      })
+      wx.hideLoading();
+    }).catch(e => {
+      wx.hideLoading();
+    })
+  },
+
+  getUserInfoDetail: function() {
+    this.setData({
+      wxlogin: true
+    });
+    this.getInfoData();
+  },
 })

@@ -100,4 +100,7 @@
       </view>
     </view>
   </view>
+
+  <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
+
 </view>
