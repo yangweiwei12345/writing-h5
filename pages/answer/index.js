@@ -169,5 +169,15 @@ Page({
       
     }).catch(e => {
     })
+  },
+  
+  onShareAppMessage: function() {
+    const { userInfo } = this.data;
+
+    return {
+      title: `考拉熊智能评测`,
+      path: `/pages/answer/index`,
+      //imageUrl: userInfo.head_img
+    };
   }
 })
