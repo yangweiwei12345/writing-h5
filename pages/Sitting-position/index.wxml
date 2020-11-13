@@ -1,4 +1,14 @@
 <!--index.wxml-->
 <view class="container">
-  坐姿教学
+  <view class="topvivde">
+    <video src="http://cdn.koalaxiezi.com/Writing/Sitting-teaching/Sitting-position.mp4" poster="http://cdn.koalaxiezi.com/Writing/Sitting-teaching/zzgf.jpg"></video>
+  </view>
+  <view class="conter">
+    <view class="conter_title">
+      <span></span>教你掌握正确写字坐姿
+    </view>
+    <view class="conter_zy">
+      正确的写字姿势，不仅有利于把字写端正，而且有利于孩子身体的正常发育，更有利于保护孩子的视力。
+    </view>
+  </view>
 </view>

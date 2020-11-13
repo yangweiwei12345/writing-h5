@@ -1,4 +1,14 @@
 <!--index.wxml-->
 <view class="container">
-  握笔教学
+  <view class="topvivde">
+    <video src="http://cdn.koalaxiezi.com/Writing/Sitting-teaching/Holding-pen.mp4"></video>
+  </view>
+  <view class="conter">
+    <view class="conter_title">
+      <span></span>教你掌握正确握笔姿势
+    </view>
+    <view class="conter_zy">
+      开始练字之前我们必须掌握正确的握笔姿势，错误的握姿无论怎么努力，都写不出理想中的效果。
+    </view>
+  </view>
 </view>

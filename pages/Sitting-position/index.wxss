@@ -3,5 +3,11 @@ page {
 }
 .container {
   min-height: 100%;
-  background-color: #f6f6f6;
+  background-color: #ffffff;
 }
+.topvivde{width: 750rpx;}
+.topvivde video{width: 750rpx;height: 423rpx;}
+.conter{width: 700rpx; margin-left: 25rpx;margin-top: 20rpx;}
+.conter_title{font-size: 28rpx;}
+.conter_title span{height: 40rpx; width: 6rpx; background-color: #FF8C58; float: left; margin-right: 15rpx;}
+.conter_zy{margin-top:15rpx;margin-left:15rpx;font-size:24rpx;color: #474747;}

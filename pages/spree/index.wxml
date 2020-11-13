@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="con_left" bindtap="Sittingposition">
-    <view class="con_left_img"><image src="http://cdn.koalaxiezi.com/Writing/writing.jpg" /></view>
+    <view class="con_left_img"><image src="http://cdn.koalaxiezi.com/Writing/Sitting-teaching/Sitting-position.jpg" /></view>
     <view class="con_left_conter">
       <view class="con_left_title">坐姿教学</view>
       <view class="con_left_zy">良好的坐姿有助于端正字体，保护视力和身体发育</view>
@@ -10,7 +10,7 @@
 
   
   <view class="con_left" bindtap="Holdingpen">
-    <view class="con_left_img"><image src="http://cdn.koalaxiezi.com/Writing/writing.jpg" /></view>
+    <view class="con_left_img"><image src="http://cdn.koalaxiezi.com/Writing/Sitting-teaching/Holding-pen.jpg" /></view>
     <view class="con_left_conter">
       <view class="con_left_title">握笔教学</view>
       <view class="con_left_zy">良好的握笔姿势是练好字的基础</view>
@@ -19,7 +19,7 @@
 
   
   <view class="con_left" bindtap="Wrist">
-    <view class="con_left_img"><image src="http://cdn.koalaxiezi.com/Writing/writing.jpg" /></view>
+    <view class="con_left_img"><image src="http://cdn.koalaxiezi.com/Writing/Sitting-teaching/Wrist.jpg" /></view>
     <view class="con_left_conter">
       <view class="con_left_title">腕部教学</view>
       <view class="con_left_zy">勾腕会导致腕部扭曲、身体前倾、写字变小扭曲等问题</view>

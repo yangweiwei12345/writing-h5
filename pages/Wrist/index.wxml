@@ -1,4 +1,14 @@
 <!--index.wxml-->
 <view class="container">
-  腕部教学
+  <view class="topvivde">
+    <video src="http://cdn.koalaxiezi.com/Writing/Sitting-teaching/Wrist.mp4"></video>
+  </view>
+  <view class="conter">
+    <view class="conter_title">
+      <span></span>教你掌握正确腕部姿势
+    </view>
+    <view class="conter_zy">
+      正确的姿势是由手腕轻松摆动，动作很容易控制，而勾腕却要靠手部平移来实现。
+    </view>
+  </view>
 </view>
