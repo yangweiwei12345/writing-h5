@@ -36,7 +36,8 @@ Page({
   },
   onLoad: function (options) {
     let level = options.level;
-    if(level) {
+    console.log(level);
+    if(level && level != 0) {
       this.setData({
         level,
         currentAction: 'thrid'
