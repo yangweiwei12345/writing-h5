@@ -191,16 +191,74 @@ Page({
       .then(res => {
         if(res) {
           this.wxlogin = true
+          this.setData({
+            wxlogin: true
+          });
+          this.getInfoData()
         } else {
           this.wxlogin = false
+          this.setData({
+            wxlogin: false
+          });
         }
       }).catch(e => {
         this.wxlogin = false
+
+        this.setData({
+          wxlogin: false
+        });
       })
   },
 
+  // 是否登录
+  // isLogin: function() {
+  //   // 是否登录
+  //   Auth.checkHasLogined()
+  //     .then(res => {
+  //       if(res) {
+  //         this.setData({
+  //           wxlogin: true
+  //         });
+  //         this.getInfoData()
+  //       } else {
+  //         this.setData({
+  //           wxlogin: false
+  //         });
+  //       }
+  //     }).catch(e => {
+  //       this.setData({
+  //         wxlogin: false
+  //       });
+  //     })
+  // },
+
+
+  // getUserInfoDetail: function() {
+  //   this.wxlogin = true;
+  // },
+
+  /**
+   * 获取当前用户个人资料
+   * @date 2020-09-14
+   * @returns {any}
+   */
+  getInfoData: function () {
+    API.getUserInfo({
+    }).then(res => {//成功
+      this.setData({
+        userInfo: res,
+      })
+      wx.hideLoading();
+    }).catch(e => {
+    })
+  },
+
   getUserInfoDetail: function() {
+    this.setData({
+      wxlogin: true
+    });
     this.wxlogin = true;
+    this.getInfoData();
   },
 
   getBanner: function() {
@@ -371,6 +429,7 @@ Page({
       this.setData({
         wxlogin: false
       });
+      return;
     }
 
     const { workList } = this.data;
@@ -402,6 +461,7 @@ Page({
       this.setData({
         wxlogin: false
       });
+      return;
     }
 
     const { commendData } = this.data;
@@ -464,5 +524,11 @@ Page({
         opacity
       })
     }, 200);
+  },
+
+  toLogin: function() {
+    this.setData({
+      wxlogin: false
+    });
   },
 })
