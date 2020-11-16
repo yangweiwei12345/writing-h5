@@ -88,7 +88,7 @@ page {
 }
 .echarts-container {
   width: 100%;
-  height: 600rpx;
+  height: 530rpx;
 }
 
 ec-canvas {
