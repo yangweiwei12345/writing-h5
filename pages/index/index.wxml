@@ -1,5 +1,7 @@
 <!--index.wxml-->
 <view class="container">
+  <view style=""><official-account></official-account></view>
+
   <view class="header">
     <view style="position: fixed;top:0;left: 0;background-color: rgb(255,145,88);opacity: {{opacity}};width: 100%;z-index: 1000;">
       <view style="height: {{statusBarHeight}}px;"></view>
@@ -335,4 +337,5 @@
   </block>
   
   <v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>
+
 </view>
