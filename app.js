@@ -31,7 +31,7 @@ App({
           updateManager.onUpdateReady(function () {
             wx.showModal({
               title: '更新提示',
-              content: '新版本已经准备好，是否重启应用？',
+              content: '新版本已更新分析评测、功能在我的-分析评测，大家可以来测一测你属于哪个等级哦！',
               success: function (res) {
                 console.log('success====', res)
                 // res: {errMsg: "showModal: ok", cancel: false, confirm: true}
