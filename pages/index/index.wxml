@@ -167,7 +167,7 @@
         </view>
         <view class="rank-content">
           <view class="rank-content-box" style="margin-bottom: -26rpx;">
-            <view class="rank-content-box-item" style="flex: 17;">
+            <view class="rank-content-box-item" style="flex: 17;" data-userid="{{rankingLikeData[1].user_id}}" bindtap="toUserInfo">
               <view class="rank-content-box-img" style="width: 130rpx;height: 142rpx;">
                 <image class="rank-content-box-img-back rank-content-box-img-back1" src="../../resource/rank/yj.png" />
                 <image class="rank-content-box-img-head rank-content-box-img-head1" src="{{rankingLikeData[1].head_img}}" />
@@ -176,7 +176,7 @@
                 {{rankingLikeData[1].nick_name}}
               </view>
             </view>
-            <view class="rank-content-box-item" style="flex: 22;margin-bottom: 26rpx;">
+            <view class="rank-content-box-item" style="flex: 22;margin-bottom: 26rpx;" data-userid="{{rankingLikeData[0].user_id}}" bindtap="toUserInfo">
               <view class="rank-content-box-img">
                 <image class="rank-content-box-img-back" src="../../resource/rank/gj.png" />
                 <image class="rank-content-box-img-head" src="{{rankingLikeData[0].head_img}}" />
@@ -185,7 +185,7 @@
                 {{rankingLikeData[0].nick_name}}
               </view>
             </view>
-            <view class="rank-content-box-item" style="flex: 17;">
+            <view class="rank-content-box-item" style="flex: 17;" data-userid="{{rankingLikeData[2].user_id}}" bindtap="toUserInfo">
               <view class="rank-content-box-img" style="width: 130rpx;height: 142rpx;">
                 <image class="rank-content-box-img-back rank-content-box-img-back1" src="../../resource/rank/jj.png" />
                 <image class="rank-content-box-img-head rank-content-box-img-head1" src="{{rankingLikeData[2].head_img}}" />
@@ -199,7 +199,7 @@
         </view>
         <view class="rank-footer">
           <block  wx:for="{{rankingLikeData}}" wx:key="co">
-            <view class="rank-footer-item" wx:if="{{index > 2}}">
+            <view class="rank-footer-item" wx:if="{{index > 2}}" data-userid="{{item.user_id}}" bindtap="toUserInfo">
               <image src="{{item.head_img}}" class="rank-footer-item-img" />
               <view class="rank-footer-item-num">{{(index + 1)}}</view>
               <view class="rank-footer-item-name">{{item.nick_name}}</view>
@@ -218,7 +218,7 @@
         </view>
         <view class="rank-content">
           <view class="rank-content-box" style="margin-bottom: -26rpx;">
-            <view class="rank-content-box-item" style="flex: 17;">
+            <view class="rank-content-box-item" style="flex: 17;" data-userid="{{rankingRankData[1].user_id}}" bindtap="toUserInfo">
               <view class="rank-content-box-img" style="width: 130rpx;height: 142rpx;">
                 <image class="rank-content-box-img-back rank-content-box-img-back1" src="../../resource/rank/yj.png" />
                 <image class="rank-content-box-img-head rank-content-box-img-head1" src="{{rankingRankData[1].head_img}}" />
@@ -227,7 +227,7 @@
                 {{rankingRankData[1].nick_name}}
               </view>
             </view>
-            <view class="rank-content-box-item" style="flex: 22;margin-bottom: 26rpx;">
+            <view class="rank-content-box-item" style="flex: 22;margin-bottom: 26rpx;" data-userid="{{rankingRankData[0].user_id}}" bindtap="toUserInfo">
               <view class="rank-content-box-img">
                 <image class="rank-content-box-img-back" src="../../resource/rank/gj.png" />
                 <image class="rank-content-box-img-head" src="{{rankingRankData[0].head_img}}" />
@@ -236,7 +236,7 @@
                 {{rankingRankData[0].nick_name}}
               </view>
             </view>
-            <view class="rank-content-box-item" style="flex: 17;">
+            <view class="rank-content-box-item" style="flex: 17;" data-userid="{{rankingRankData[2].user_id}}" bindtap="toUserInfo">
               <view class="rank-content-box-img" style="width: 130rpx;height: 142rpx;">
                 <image class="rank-content-box-img-back rank-content-box-img-back1" src="../../resource/rank/jj.png" />
                 <image class="rank-content-box-img-head rank-content-box-img-head1" src="{{rankingRankData[2].head_img}}" />
@@ -250,7 +250,7 @@
         </view>
         <view class="rank-footer">
           <block  wx:for="{{rankingRankData}}" wx:key="co">
-            <view class="rank-footer-item" wx:if="{{index > 2}}">
+            <view class="rank-footer-item" wx:if="{{index > 2}}" data-userid="{{item.user_id}}" bindtap="toUserInfo">
               <image src="{{item.head_img}}" class="rank-footer-item-img" />
               <view class="rank-footer-item-num">{{(index + 1)}}</view>
               <view class="rank-footer-item-name">{{item.nick_name}}</view>
@@ -270,8 +270,8 @@
       </view>
       <view class="bz-content">
         <view class="bz-content-left">
-          <image src="{{commendData[0].head_img}}" class="bz-content-left-head" />
-          <view class="bz-content-left-name"></view>
+          <image src="{{commendData[0].head_img}}" class="bz-content-left-head" data-userid="{{commendData[0].user_id}}" bindtap="toUserInfo" />
+          <view class="bz-content-left-name">{{commendData[0].nick_name}}</view>
           <view class="bz-content-left-num-title">
             坚持练字
           </view>
@@ -311,7 +311,7 @@
             </view>
           </view>
           <view class="bz-content-left" style="align-items: flex-start;margin-left: 46rpx;margin-right: 0;">
-            <image src="{{item.head_img}}" class="bz-content-left-head" />
+            <image src="{{item.head_img}}" class="bz-content-left-head" data-userid="{{item.user_id}}" bindtap="toUserInfo" />
             <view class="bz-content-left-name">{{item.nick_name}}</view>
             <view class="bz-content-left-num-title">
               坚持练字

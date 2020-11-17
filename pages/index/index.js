@@ -412,6 +412,15 @@ Page({
       })
     }
   },
+
+  toUserInfo: function(e) {
+    const { userid } = e.currentTarget.dataset;
+
+    wx.navigateTo({
+      url: '/pages/my-other/index?user_id=' + userid
+    })
+  },
+
   
   // 排行榜列表
   onMore: function(e) {
