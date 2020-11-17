@@ -90,7 +90,7 @@
                 <text class="list-info-time">{{item.create_time}}</text>
               </view>
             </view>
-            <view class="list-info-like">
+            <view class="list-info-like" data-id="{{item.work_id}}" catchtap="onLikeClick">
               <image wx:if="{{item.is_like === 0}}" src="../../resource/home/heart.png" />
               <image wx:else src="../../resource/home/heart-active.png" />
               <text class="list-info-like-num">{{item.like_num}}</text>
