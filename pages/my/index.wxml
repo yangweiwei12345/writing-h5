@@ -133,6 +133,13 @@
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
+    <van-cell 
+      title="7*24小时客服"
+      data-type="1" data-link="https://mp.weixin.qq.com/s/8rhybv5VQ7Za7QKS6b-LxQ" data-title="7*24小时客服" bindtap="kefu"
+    >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
     <!-- <van-cell title="任务中心" >
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
