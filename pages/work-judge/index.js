@@ -12,7 +12,7 @@ var startDate;//开始时刻
 var penType = "drawPen";
 var colorStr = "#000";
 var operationType = "mapping";
-var time = 2;   // 录音时长（分钟）
+var time = 4;   // 录音时长（分钟）
 var secondes = 0;
 var timer = null;
 let scrollTop = 0;
