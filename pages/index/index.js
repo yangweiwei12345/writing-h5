@@ -28,6 +28,7 @@ Page({
     activeTab: 'index',
     hasMore: true,
     wxlogin: true,
+    isWxLogin: true,
 
     // 排行榜数据
     rankingLikeData: [],
@@ -45,7 +46,8 @@ Page({
       pageSize: 20
     },
     commendData: [],
-    hasCommendMore: true
+    hasCommendMore: true,
+    userInfo: {}
   },
   loadWork: false,
   loaded: false,
@@ -191,21 +193,24 @@ Page({
       .then(res => {
         if(res) {
           this.wxlogin = true
-          this.setData({
-            wxlogin: true
-          });
           this.getInfoData()
+          this.getCourse();
+          this.setData({
+            isWxLogin: true
+          });
         } else {
           this.wxlogin = false
+          this.getCourse();
           this.setData({
-            wxlogin: false
+            isWxLogin: false
           });
         }
       }).catch(e => {
         this.wxlogin = false
 
+        this.getCourse();
         this.setData({
-          wxlogin: false
+          isWxLogin: false
         });
       })
   },
@@ -255,10 +260,14 @@ Page({
 
   getUserInfoDetail: function() {
     this.setData({
-      wxlogin: true
+      wxlogin: true,
+      isWxLogin: true
     });
     this.wxlogin = true;
     this.getInfoData();
+
+    // 获取课程列表
+    this.getCourse()
   },
 
   getBanner: function() {
