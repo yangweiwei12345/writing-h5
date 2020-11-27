@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<!-- <view class="fc" style="">需要成为分销商请联系客服</view> -->
 <view class="container">
 
   <view class="opt-list">
@@ -9,6 +10,10 @@
     <view class="opt-item" data-type="course" bindtap="onToPage">
       <image src="../../resource/sale/course.png" class="opt-item-img" />
       <view class="opt-item-text">开课码</view>
+    </view>
+    <view class="opt-item" data-type="fxzn" data-link="https://mp.weixin.qq.com/s/uuPTN-wdr-La3BqTUdoBkA" data-title="分销指南" bindtap="onToPage">
+      <image src="../../resource/sale/fxzn.png" class="opt-item-img" />
+      <view class="opt-item-text">分销指南</view>
     </view>
     <view class="opt-item" data-type="code" bindtap="onToPage">
       <image src="../../resource/sale/code.png" class="opt-item-img" />
