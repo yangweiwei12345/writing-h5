@@ -34,7 +34,7 @@ page {
 
 /** 顶部个人信息栏 */
 .content-header {
-  height: 386rpx;
+  height: 354rpx;
   background: #FFFFFF;
   box-shadow: 0px 0px 4px 0px rgba(214, 5, 28, 0.2);
   border-radius: 7px;
