@@ -10,16 +10,23 @@
         <view class="addr-item-dec">{{orderDetail.address}}</view>
       </view>
     </view>
-    <view class="addr-item" wx:if="{{transDetail.kd_list.length > 0}}">
+    <view class="addr-item" wx:if="{{transDetail.length > 0}}">
       <image src="../../resource/order/wl.png" class="addr-item-img" />
       <view class="addr-item-info">
         <view class="addr-item-name">
-          {{transDetail.kd_list[0].status}}
+          {{transDetail[0].desc}}
         </view>
         <!-- <view class="addr-item-dec">下一站天方夜谭</view> -->
-        <view class="addr-item-time">{{transDetail.kd_list[0].time}}</view>
+        <view class="addr-item-time">{{transDetail[0].time}}</view>
       </view>
     </view>
+    <block wx:if="{{showMore}}">
+      <view class="addr-item-smart" wx:for="{{transDetail}}" wx:key="index">
+        {{item.desc}}
+        <view style="font-size: 12px;color: #aaa;margin-top: 15rpx;">{{item.time}}</view>
+      </view>
+    </block>
+    <view class="show-more" bindtap="onMore">{{ !showMore ? '展示更多' : '收起更多'}}</view>
   </view>
 
   <view class="order-list">

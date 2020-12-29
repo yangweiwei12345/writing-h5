@@ -29,7 +29,43 @@ Page({
 
   },
   onShow: function() {
-   
+    this.isLogin();
+  },
+
+
+  // 是否登录
+  isLogin: function() {
+    // 是否登录
+    Auth.checkHasLogined()
+      .then(res => {
+        if(res) {
+          this.setData({
+            wxlogin: true
+          }, () => {
+            // 用户登录之后查看当前个人资料是否填写
+          });
+        } else {
+          this.setData({
+            wxlogin: false
+          });
+        }
+      }).catch(e => {
+        this.setData({
+          wxlogin: false
+        });
+      })
+  },
+
+  toLogin: function() {
+    this.setData({
+      wxlogin: false
+    });
+  },
+
+  getUserInfoDetail: function() {
+    this.setData({
+      wxlogin: true
+    });
   },
 
   onShowMask: function() {
@@ -64,7 +100,13 @@ Page({
 
   // 开课
   openCourse: function() {
-    const { courseCode } = this.data;
+    const { courseCode, wxlogin } = this.data;
+
+    if(!wxlogin) {
+      this.toLogin();
+      return;
+    }
+
     let params = {
       writeNumber: courseCode
     };

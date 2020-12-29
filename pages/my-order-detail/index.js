@@ -15,7 +15,8 @@ Page({
     texts: TEXTS,
     transDetail: {
       kd_list: []
-    }
+    },
+    showMore: false
   },
 
   onLoad: function (options) {
@@ -36,11 +37,15 @@ Page({
       order_no: this.data.orderDetail.order_no
     };
 
-    API.transDetail(params)
+    API.trans(params)
       .then(res => {
+        let data = res || [];
+        data.forEach(item => {
+          item.time = this.getTime(item.time * 1000)
+        })
       
         this.setData({
-          transDetail: res,
+          transDetail: data,
         });
         wx.hideLoading();
       })
@@ -48,6 +53,29 @@ Page({
         wx.hideLoading();
       })
   },
+
+  getTime: function(time) {
+    let date = new Date(time);
+
+    let year = date.getFullYear(),
+        month = date.getMonth() + 1,
+        day = date.getDay(),
+        hour = date.getHours(),
+        miutes = date.getMinutes(),
+        second = date.getSeconds();
+    
+    return `${year}-${this.fixTime(month)}-${this.fixTime(day)} ${this.fixTime(hour)}:${this.fixTime(miutes)}:${this.fixTime(second)}`;
+  },
+
+  fixTime: function(num) {
+    return num < 10 ? '0' + num : num;
+  },
+
+  onMore: function() {
+    this.setData({
+      showMore: !this.data.showMore
+    });
+  }
   
 
 })

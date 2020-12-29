@@ -9,6 +9,7 @@ Page({
     pendingCount: 0,
     pendedCount: 0,
     teacherInfo: {},
+    userInfo: {},
     pendingPage: {
       page: 1,
       pageSize: 10
@@ -35,6 +36,8 @@ Page({
       this.getPendingWorks();
       this.getPendedWorks(true);
     });
+
+    this.getInfoData();
   },
   onShow: function() {
   },
@@ -131,6 +134,21 @@ Page({
     })
   },
 
+  /**
+   * 获取当前用户个人资料
+   * @date 2020-09-14
+   * @returns {any}
+   */
+  getInfoData: function () {
+    API.getUserInfo({
+    }).then(res => {//成功
+      this.setData({
+        userInfo: res,
+      })
+    }).catch(e => {
+    })
+  },
+
   onChange: function(e) {
     let { name } = e.detail;
 
@@ -152,6 +170,17 @@ Page({
         this.getPendedWorks();
       }
     });
-  }
+  },
+  // 修改信息
+  editUser: function() {
+    const userInfo = this.data.userInfo;
+
+    API.editUserInfo({
+      edit_key: 'ONLINE',
+      edit_val: userInfo && userInfo.is_online == 1 ? 2 : 1
+    }).then(res => {
+      this.getInfoData();
+    })
+  },
 
 })

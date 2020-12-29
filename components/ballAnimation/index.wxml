@@ -1,0 +1,3 @@
+<!-- 小球动画 -->
+<view id="good_box-{{ballIndex}}" class="good_box" hidden="{{ hide_good_box}}" style="left: 0px; top: 0px;">
+</view>

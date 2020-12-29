@@ -92,3 +92,4 @@
     </view>
   </van-dialog>
 </view>
+<v-login wxlogin="{{wxlogin}}" bindgetUserInfoDetail="getUserInfoDetail"></v-login>

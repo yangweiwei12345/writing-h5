@@ -5,17 +5,18 @@
     <view class="content-header-top">
       <view class="content-header-top-head">
         <image src="{{teacherInfo.head_img}}" class="content-header-top-img" />
-        <!-- <view class="content-header-top-switch">
+        <view class="content-header-top-switch">
           <van-switch
             custom-class="custom-class-switch"
             size="24px"
-            checked="{{!!teacherInfo.is_work}}"
-            active-color="#FE3346"
+            checked="{{userInfo.is_online == 1 ? true : false}}"
+            bind:change="editUser"
+            active-color="#FF8C58"
             inactive-color="#eee"
             active-value="上班中"
             inactive-value="休息中"
           />
-        </view> -->
+        </view>
       </view>
       
       <view class="content-header-top-box">

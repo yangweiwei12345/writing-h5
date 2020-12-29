@@ -9,6 +9,7 @@
     "pages/course-upload/index",
     "pages/course-submit/index",
     "pages/course-success/index",
+    "pages/ball-animation/index",
     "pages/work-detail/index",
     "pages/webview/index",
     "pages/teacher-room/index",

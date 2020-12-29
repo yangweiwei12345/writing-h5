@@ -67,5 +67,5 @@ page {
 }
 
 .van-tabs__scroll {
-  background-color: transparent !important;
+  /* background-color: transparent !important; */
 }
