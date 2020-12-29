@@ -22,16 +22,26 @@ Page({
     courseCode: '',
 
     successText: '',
-    failText: ''
+    failText: '',
+    from: ''
   },
-  onLoad: function () {
+  onLoad: function (options) {
     this.getRecord();
+
+    this.setData({
+      from: options.from
+    });
 
   },
   onShow: function() {
     this.isLogin();
   },
 
+  goHome: function() {
+    wx.switchTab({
+      url: '/pages/index/index'
+    });
+  },
 
   // 是否登录
   isLogin: function() {
