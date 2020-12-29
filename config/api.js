@@ -1,9 +1,9 @@
 const request = require('../utils/request.js');
 // 测试环境
-const host = 'http://xz-api.defengvip.com';
+// const host = 'http://xz-api.defengvip.com';
 
 // 正式环境
-// export const host = 'https://klxxcx.klart.cn';
+export const host = 'https://klxxcx.klart.cn';
 
 const API =  {
   /**
