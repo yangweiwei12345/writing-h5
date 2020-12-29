@@ -109,14 +109,19 @@ Page({
   },
 
 
+  
+
+
   onToPage: function(e) {
-    const { type } = e.currentTarget.dataset;
+    const { link, type, title } = e.currentTarget.dataset;
     let url = '';
 
     if(type === 'order') {
       url = '/pages/sale-order/index';
     } else if(type === 'course') {
       url = '/pages/sale-code/index';
+    }  else if(type === 'fxzn') {
+      url = '/pages/webview/index?url=' + link + '&title=' + title;
     } else {
       this.setData({
         showCode: true
