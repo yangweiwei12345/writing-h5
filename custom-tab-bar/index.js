@@ -10,14 +10,14 @@ Component({
       pagePath: "/pages/index/index",
       iconPath: "/resource/nav/home.png",
       selectedIconPath: "/resource/nav/home_active.png",
-      text: "首页",
+      text: "作品广场",
       isSpecial: false
     },
     {
       pagePath: "/pages/course/index",
       iconPath: "/resource/nav/center.png",
       selectedIconPath: "/resource/nav/center_active.png",
-      text: "上课",
+      text: "上课学习",
       isSpecial: false
     },
     {
@@ -32,7 +32,7 @@ Component({
       pagePath: "/pages/my/index",
       iconPath: "/resource/nav/my.png",
       selectedIconPath: "/resource/nav/my_active.png",
-      text: "我的",
+      text: "个人中心",
       isSpecial: false
     }],
     //适配IphoneX的屏幕底部横线
