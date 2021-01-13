@@ -126,7 +126,12 @@ Page({
     this.getRank(1);
     this.getRank(2);
   },
-
+  kefu:function(e) {
+    const { link, type, title } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: '/pages/webview/index?url=' + link + '&title=' + title
+    })
+  },
   getQiangData: function() {
     wx.showLoading({
       title: '数据加载中',

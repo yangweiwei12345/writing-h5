@@ -157,6 +157,7 @@ page {
 }
 
 /*新增*/
+.van-cell__title, .van-cell__value{background-color: #FD5252; color: #fff; padding:0 14rpx;font-size: 23rpx;}
 .ghlb{margin: 0 26rpx; margin-top: 20rpx; position: relative;}
 .ghlb image{width: 700rpx;height:230rpx;border-radius:15rpx;}
 .mmff{position: absolute;top: 0;right: 0;background-color:#EF1842;color: #ffffff;font-size:22rpx;padding:6rpx 20rpx;border-top-right-radius:15rpx;}

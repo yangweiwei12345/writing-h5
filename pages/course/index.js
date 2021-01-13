@@ -83,6 +83,12 @@ Page({
       })
   },
 
+  kefu:function(e) {
+    const { link, type, title } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: '/pages/webview/index?url=' + link + '&title=' + title
+    })
+  },
   /**
    * 获取当前用户个人资料
    * @date 2020-09-14

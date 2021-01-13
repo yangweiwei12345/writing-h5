@@ -1,3 +1,6 @@
+
+.van-cell__title, .van-cell__value{background-color: #FD5252; color: #fff; padding:0 6rpx;font-size: 22rpx;border-radius: 50rpx;width: 120rpx;position: absolute;right: 3rpx;text-align: center;top: 1rpx;}
+
 page {
   height: 100%;
 }
