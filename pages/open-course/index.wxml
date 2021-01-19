@@ -90,7 +90,7 @@
       <view class="success-title">激活失败</view>
       <view class="success-sec-title">{{failText}}</view>
 
-      <view class="fail-phone">如有疑问请联系客服微信：kaolaxiongya</view>
+      <view class="fail-phone">如有疑问请联系客服24小时为您服务</view>
       <view class="fail-tip"></view>
     </view>
   </van-dialog>

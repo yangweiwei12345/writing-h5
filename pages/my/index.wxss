@@ -188,7 +188,7 @@ page {
   /* padding-bottom: 180rpx; */
 }
 .my-list .my-list-icon {
-  width: 28rpx;
+  width: 34rpx;
   height: 34rpx;
   /* margin-top: 6rpx; */
   margin-right: 10rpx;

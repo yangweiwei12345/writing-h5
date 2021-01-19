@@ -49,11 +49,6 @@
       </view>
     </view>
     <view class="content-header-bottom">
-      <view class="content-header-bottom-item" bindtap="toMyWorks">
-        <image class="image1" src="../../resource/my/my-work.png" />
-        <view class="content-header-bottom-item-title">我的作品</view>
-        <view class="content-header-bottom-item-num">({{userInfo.work_count || 0}})</view>
-      </view>
       <view class="content-header-bottom-item">
         <image class="image2" src="../../resource/my/my-day.png" />
         <view class="content-header-bottom-item-title">练字天数</view>
@@ -73,6 +68,14 @@
   </view>
 
   <view class="my-list" wx:if="{{wxlogin}}">
+    <van-cell 
+      title="我的作品({{userInfo.work_count || 0}})"
+      link-type="2" bindtap="toMyWorks"
+      url="/pages/my-order/index"
+    >
+      <image slot="icon" class="my-list-icon" src="../../resource/my/my-work.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
     <van-cell 
       wx:if="{{userInfo.isRetail === 1}}"
       title="分销商"
