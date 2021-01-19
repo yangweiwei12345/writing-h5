@@ -7,6 +7,7 @@ Page({
     userInfo: {},
     active: 'all',
     workList: [],
+    count:{},
     paginaData: {
       page: 1,
       pageSize: 20
@@ -36,6 +37,7 @@ Page({
       this.setData({
         userInfo: res,
       })
+      console.log(res)
     })
   },
 

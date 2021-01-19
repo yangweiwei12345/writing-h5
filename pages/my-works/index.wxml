@@ -5,7 +5,7 @@
 <view class="work-container">
 
   <van-tabs active="{{active}}" bind:change="onChange" tab-class="work-tab-class" tab-active-class="work-tab-active-class">
-    <van-tab title="全部作品" name="all"></van-tab>
+    <van-tab title="全部作品({{count}})" name="all"></van-tab>
     <van-tab title="点赞最多" name="like"></van-tab>
     <van-tab title="上榜作品" name="rank"></van-tab>
   </van-tabs>
