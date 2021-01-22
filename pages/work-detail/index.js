@@ -535,6 +535,18 @@ Page({
     })
   },
 
+  onShareTimeline:function() {
+    const { workDetail } = this.data;
+
+    API.shareWork({
+      work_id: workDetail.work_id
+    })
+      .then(res => {})
+    return {
+        title: `快来给@${workDetail.nick_name}的作品点赞，TA已练字${workDetail.userCoinageCount}天`,
+    };
+  },
+
   onShareAppMessage: function() {
     const { workDetail } = this.data;
 

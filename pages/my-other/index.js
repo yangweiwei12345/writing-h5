@@ -146,7 +146,12 @@ Page({
       url: '/pages/work-detail/index?work_id=' + id
     })
   },
-
+  onShareTimeline:function() {
+    const { userInfo } = this.data;
+    return {
+      title: `欢迎光临@${userInfo.nick_name}同学的主页`,
+    };
+  },
   onShareAppMessage: function() {
     const { userInfo } = this.data;
 

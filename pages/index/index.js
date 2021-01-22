@@ -523,7 +523,12 @@ Page({
       this.getQiangData();
     }
   },
-
+  onShareTimeline:function() {
+    return {
+        title: '一手好字，孩子收益一生，考拉熊写字！',
+        imageUrl: 'http://cdn.koalaxiezi.com/Writing/share.jpg',
+    };
+  },
   onShareAppMessage: function() {
     return {
       title: `一手好字，孩子收益一生，考拉熊写字！`,
