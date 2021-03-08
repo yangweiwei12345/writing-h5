@@ -39,9 +39,10 @@ page {
 }
 
 .submit-param-sec {
-  margin: 40rpx 0;
+  margin: 20rpx 0;
 }
 .submit-param-sec .submit-param-label {
+  width: 700rpx;
   font-size: 16px;
   color: #333;
   padding-left: 30rpx;

@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -49,6 +50,36 @@
           "name": "pages/my/index",
           "pathName": "pages/my/index",
           "query": "id=10001",
+          "scene": null
+        },
+        {
+          "name": "pages/kefu/index",
+          "pathName": "pages/kefu/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course-upload/index",
+          "pathName": "pages/course-upload/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/course-chapter/index",
+          "pathName": "pages/course-chapter/index",
+          "query": "weekId=85&weekNum=15&courseId=12",
+          "scene": null
+        },
+        {
+          "name": "pages/course-detail/index",
+          "pathName": "pages/course-detail/index",
+          "query": "courseId=12",
+          "scene": null
+        },
+        {
+          "name": "pages/course/index",
+          "pathName": "pages/course/index",
+          "query": "",
           "scene": null
         }
       ]

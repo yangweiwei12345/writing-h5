@@ -33,7 +33,8 @@
     "pages/spree/index",
     "pages/Sitting-position/index",
     "pages/Holding-pen/index",
-    "pages/Wrist/index"
+    "pages/Wrist/index",
+    "pages/kefu/index"
   ],
   "tabBar": {
     "custom": true,

@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<!-- <view class="guwen">
+  如何添加企业微信号？
+</view> -->
+<image src="http://live-code.klart.cn/img/qiyetianjia.jpg"></image>
+
+<view class="guwen">
+  我的课程顾问
+</view>
+<view class="gw_k">
+  <view class="gw_k_lef">
+    <image src="http://live-code.klart.cn/img/zhangzhiguang.jpg"></image>
+  </view>
+  <view class="gw_k_rig">
+    <view class="gw_lxs">小志老师</view>
+    <view class="gw_wxx">企业微信号：{{contents}}</view>
+    <view class="gw_fzz"  bindtap='copyText' data-text="{{contents}}">复制企业微信号去添加老师</view>
+  </view>
+</view>
+<!-- <view class="guwen">
+  在线客服
+</view>
+<view class="gw_k">
+  <view class="gw_k_lef">
+    <image src="http://live-code.klart.cn/img/zhangzhiguang.jpg"></image>
+  </view>
+  <view class="gw_k_rig">
+    <view class="gw_lxs">小志老师</view>
+    <view class="gw_wxx">企业微信号：15267010876</view>
+    <view class="gw_fzz">复制微信号添加老师</view>
+  </view>
+</view> -->
+<view class="guwen">
+  投诉与建议
+</view>
+<view class="gw_k">
+  <view class="gw_k_lef">
+    <image src="http://live-code.klart.cn/img/zhang.jpg"></image>
+  </view>
+  <view class="gw_k_rig">
+    <view class="gw_lxs">投诉</view>
+    <view class="gw_wxx">企业微信号：{{contentsts}}</view>
+    <view class="gw_fzz" bindtap='copyText' data-text="{{contentsts}}">复制企业微信号去添加</view>
+  </view>
+</view>

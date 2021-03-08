@@ -35,14 +35,14 @@
     </view>
     <view class="submit-param-sec">
       <view class="submit-param-label">
-        习作提交到
+        请确认本次上传的作业是否和本次学习的内容相关，如不相关请上传本次课程相关的内容，以免老师不给予点评辅导，谢谢！！！
       </view>
       <view style="box-shadow: 0px 1px 4px 0px rgba(76, 76, 76, 0.2);">
         <van-cell>
           <view slot="title">
             <view style="display: flex">
               <view class="submit-param-value1">{{courseDetail.title}}</view>
-              <view class="submit-param-value2">{{params.title}}</view>
+              <view class="submit-param-value2">本次{{params.title}}</view>
             </view>
           </view>
         </van-cell>

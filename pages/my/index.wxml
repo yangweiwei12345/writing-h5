@@ -137,13 +137,21 @@
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
     <van-cell 
-      title="7*24小时客服,可咨询任何问题"
-      data-type="1" data-link="https://mp.weixin.qq.com/s/8rhybv5VQ7Za7QKS6b-LxQ" data-title="7*24小时客服,可咨询任何问题" bindtap="kefu"
+      title="在线客服、课程顾问、投诉建议"
+      link-type="navigateTo"
+      url="/pages/kefu/index"
+    >
+      <image slot="icon" class="my-list-icon my-list-icon-guide" src="../../resource/my/private-teacher.png" />
+      <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
+    </van-cell>
+    <!-- <van-cell 
+      title="在线客服"
+      data-type="1" data-link="https://mp.weixin.qq.com/s/8rhybv5VQ7Za7QKS6b-LxQ" data-title="在线客服" bindtap="kefu"
     >
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>
-    <!-- <van-cell title="任务中心" >
+     <van-cell title="任务中心" >
       <image slot="icon" class="my-list-icon" src="../../resource/my/my-rw.png" />
       <image slot="right-icon" class="my-list-right-icon" src="../../resource/my/right-arrow.png" />
     </van-cell>

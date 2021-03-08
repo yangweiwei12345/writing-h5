@@ -8,8 +8,8 @@ page {
 
 .header {
   width: 350rpx;
-  height: 50rpx;
-  line-height: 50rpx;
+  height: 30rpx;
+  line-height: 30rpx;
   background-color: #ffffff;
   border-radius: 4rpx;
   font-size: 13px;
@@ -17,7 +17,6 @@ page {
   text-align: center;
   position: relative;
   left: 50%;
-  margin-bottom: 30rpx;
   margin-left: -150rpx;
 }
 
@@ -29,6 +28,7 @@ page {
 }
 
 .footer {
+  position: fixed;bottom: 0rpx;left: 0rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,6 +38,7 @@ page {
   margin: 0 40rpx;
 }
 .footer .footer-cancel {
+  width: 80rpx;
 }
 .camera-btn {
   width: 90rpx;
@@ -47,6 +48,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 225rpx;
 }
 .camera-btn .camera-btn-inner {
   width: 80rpx;
@@ -54,4 +56,7 @@ page {
   background-color: #fff;
   border-radius: 80rpx;
 }
-.footer .footer-photo {}
+.footer .footer-photo {
+  width: 80rpx;
+  margin-left: 225rpx;
+}

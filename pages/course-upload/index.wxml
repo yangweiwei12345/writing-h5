@@ -4,17 +4,17 @@
     请勿上传与练字无关的照片
   </view>
   <view style="display: flex;justify-content: center;margin: 20rpx;font-size: 12px;color: #f00;">
-    提示：不要横屏拍照
+    提示：不要上传和本次学习不相关的其他字样重复上传
   </view>
   <camera 
     device-position="back" 
     flash="auto" 
     binderror="error" 
-    style="width: 75%; margin-left: 12.5%; height: {{height}}px;">
+    style="width: 600rpx; margin-left:75rpx; height: {{height}}px;">
   </camera>
-  <view class="tooltip">
+  <!-- <view class="tooltip">
     为避免重复评论，请注明作业日期
-  </view>
+  </view> -->
   <!-- <view class="error-handler" wx:if="{{!authCamera}}">  
     <button class="nobtn" openType="openSetting">打开相机授权</button>  
   </view>  -->
